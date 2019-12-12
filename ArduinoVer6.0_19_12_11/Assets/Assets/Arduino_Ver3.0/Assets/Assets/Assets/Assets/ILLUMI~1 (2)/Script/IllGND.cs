@@ -7,7 +7,7 @@ public class IllGND : PlusMinus
 {
     public int VccPower = 0;
     public float Electro;
-
+    
     public GameObject Around;
     //public LineManager Line;
     LineManager Line;
@@ -50,7 +50,7 @@ public class IllGND : PlusMinus
 
             if (Line.parent != null)
             {
-
+                //접지 태그 확인
                 if (Line.parent.tag == "GND")
                 {
 
