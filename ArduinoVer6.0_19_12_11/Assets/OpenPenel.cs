@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OpenPenel : MonoBehaviour
 {
-    public GameObject penel;
+    public GameObject penel; //
 
     public void ClickEvent()
     {
