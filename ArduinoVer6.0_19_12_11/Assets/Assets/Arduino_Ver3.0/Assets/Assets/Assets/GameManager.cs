@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;   // 우리는 이제 깃허브를 통달했다
+    public static GameManager instance;   // 우리는 이제 깃허브를 
 
     static public float? distance = 0f;
     static public float? temp = 0f;
