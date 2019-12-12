@@ -8,12 +8,7 @@ public class CreateAduinoScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField]
     public GameObject obj;
 
-
-
-
     public GameObject Tootip;
-
-
 
     public void Start()
     {
