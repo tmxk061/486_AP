@@ -13,6 +13,8 @@ public class BlockManager : MonoBehaviour
 
     #endregion 싱글턴
 
+    //다음블록 컴포넌트를 넘겨주는 코드들
+
     public Block BlockIdentity(Transform trans)
     {
         Block block = null;
