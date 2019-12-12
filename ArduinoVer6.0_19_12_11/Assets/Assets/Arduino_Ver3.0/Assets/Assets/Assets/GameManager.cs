@@ -5,54 +5,60 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
 
-    public static GameManager instance;   // 우리는 이제 깃허브를 탈
+    #region 조도, 습도, 온도, 거리 값을 받아와 찾아 넣어주는 애들
+    static public TextMesh temptext = GameObject.Find("TempValue").GetComponent<TextMesh>();
+    static public TextMesh humitext = GameObject.Find("HumiValue").GetComponent<TextMesh>();
+    static public TextMesh distancetext = GameObject.Find("DistanceValue").GetComponent<TextMesh>();
+    static public TextMesh Luxtext = GameObject.Find("LuxValue").GetComponent<TextMesh>();
+    #endregion
 
+    #region 아두이노 센서들, 포트 번호 지정, 아두이노 실행할 때(?) 쓰는 것들
+    public enum SensorType { Servo, Led, DC, Sound, Bread, Ult, Lux, HumiTemp, l298n, normal };
 
+    private static SerialPort ArduinoPort = new SerialPort("COM5", 9600);
+    static public ConnectArduino connectArduino = GameObject.Find("CodePaste").GetComponent<ConnectArduino>();
+
+    static public RunButton runbtn = GameObject.Find("RunButton").GetComponent<RunButton>();
+    static public PauseButton pausebtn = GameObject.Find("PauseButton").GetComponent<PauseButton>();
+    static public SyncRunButton syncrunbutton = GameObject.Find("SyncRun").GetComponent<SyncRunButton>();
+    static public SyncCodeButton syncCodebutton = GameObject.Find("SyncCode").GetComponent<SyncCodeButton>();
+    #endregion
+
+    #region 카메라등의 위치 변화에 사용되는 변수
+    static public Vector3 canvasposition;
+
+    static public Vector3 FirstMainCameraPosition;
+    static public Quaternion FirstMainCameraRotation;
+    #endregion
+
+    #region 사용하는 문자열 저장하는 배열들
+    static public List<string> ArduinoPortList = new List<string>();
+    static public List<string> header = new List<string>();
+    static public List<string> valuelist = new List<string>();
+    static public List<string> setup = new List<string>();
+    static public List<string> loop = new List<string>();
+    #endregion
+
+    #region 거리, 온도, 조도, 습도 선언 및 초기화
     static public float? distance = 0f;
     static public float? temp = 0f;
     static public float? humi = 0f;
     static public float? lux = 0f;
-    static public Vector3 canvasposition;
-    static public Vector3 FirstMainCameraPosition;
-    static public bool PcOn = false;
-    static public bool RunBlock = false;
-    static public Quaternion FirstMainCameraRotation;
+    #endregion
 
-    static public TextMesh temptext = GameObject.Find("TempValue").GetComponent<TextMesh>();
-
-    static public List<string> ArduinoPortList = new List<string>();
-
-    static public TextMesh humitext = GameObject.Find("HumiValue").GetComponent<TextMesh>();
-    static public TextMesh distancetext = GameObject.Find("DistanceValue").GetComponent<TextMesh>();
-    static public TextMesh Luxtext = GameObject.Find("LuxValue").GetComponent<TextMesh>();
-
-    public enum SensorType { Servo, Led, DC, Sound, Bread, Ult, Lux, HumiTemp, l298n, normal };
-
+    #region 아누이노 실행할 때 사용하는 변수들 선언 및 초기화
     private static string codeM = null;
 
-    static public RunButton runbtn = GameObject.Find("RunButton").GetComponent<RunButton>();
-    static public ConnectArduino connectArduino = GameObject.Find("CodePaste").GetComponent<ConnectArduino>();
-    static public PauseButton pausebtn = GameObject.Find("PauseButton").GetComponent<PauseButton>();
-    static public SyncRunButton syncrunbutton = GameObject.Find("SyncRun").GetComponent<SyncRunButton>();
-    static public SyncCodeButton syncCodebutton = GameObject.Find("SyncCode").GetComponent<SyncCodeButton>();
-
-    //코드 추출에 필요한 것======================
-    //
-    //
-    //
-    //=================================================
-    static public List<string> header = new List<string>();
-
-    static public List<string> valuelist = new List<string>();
-    static public List<string> setup = new List<string>();
-    static public List<string> loop = new List<string>();
-
-    private static SerialPort ArduinoPort = new SerialPort("COM5", 9600);
+    static public bool PcOn = false;
+    static public bool RunBlock = false;
     private static string PortNo = "";
     private static int BaudNo = 0;
     static public bool AgainSyncRun = false;
+    #endregion
 
+    #region 초기화
     private void Awake()
     {
         instance = this;
@@ -60,22 +66,9 @@ public class GameManager : MonoBehaviour
         ArduinoPort.ReadTimeout = 1000;
         ArduinoPort.WriteTimeout = 1000;
     }
+    #endregion
 
-    static public void AddloopList(string s)
-    {
-        bool check = false;
-
-        for (int i = 0; i < loop.Count; i++)
-        {
-            if (loop[i] == s) check = true;
-        }
-
-        if (check == false)
-        {
-            loop.Add(s);
-        }
-    }
-
+    #region TextMesh에 넣는 문자열들 
     static public void SetHumitext(string _text)
     {
         humitext.text = _text;
@@ -95,10 +88,22 @@ public class GameManager : MonoBehaviour
     {
         Luxtext.text = _text;
     }
+    #endregion
 
-    static public void RunbtnWork()
+    #region 문자열을 받아와서 없으면 저장해주고 있으면 찾아주는 함수들
+    static public void AddloopList(string s)
     {
-        runbtn.Work();
+        bool check = false;
+
+        for (int i = 0; i < loop.Count; i++)
+        {
+            if (loop[i] == s) check = true;
+        }
+
+        if (check == false)
+        {
+            loop.Add(s);
+        }
     }
 
     static public void AddHeader(string s)
@@ -141,6 +146,13 @@ public class GameManager : MonoBehaviour
         {
             setup.Add(s);
         }
+    }
+    #endregion
+
+    #region 아두이노 사용할 때 쓰는 함수들 == 미안 여긴 잘 모르겠어
+    static public void RunbtnWork()
+    {
+        runbtn.Work();
     }
 
     static public void MergeCode()
@@ -389,4 +401,5 @@ public class GameManager : MonoBehaviour
         if (AgainSyncRun == true)
         { syncrunbutton.blockgrouprun(); }
     }
+    #endregion
 }
