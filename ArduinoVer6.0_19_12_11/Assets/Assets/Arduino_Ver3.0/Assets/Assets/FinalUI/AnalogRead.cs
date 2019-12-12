@@ -106,47 +106,11 @@ public class AnalogRead : Block, IDragHandler
 
         yield return new WaitForSecondsRealtime(0.3f);
 
-        Block block = null;
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.Run(0));
+            GetChild = true;
         }
 
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
@@ -194,46 +158,11 @@ public class AnalogRead : Block, IDragHandler
 
         GameManager.ReadLuxArduinoValue();
 
-        foreach (Transform child in transform)
+        block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.SyncRun(s));
+            GetChild = true;
         }
 
         if (GetChild == false)
@@ -265,47 +194,11 @@ public class AnalogRead : Block, IDragHandler
             }
         }
 
-        Block block = null;
-
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.GetCode(s));
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.GetCode(s));
+            GetChild = true;
         }
 
         yield return new WaitForSecondsRealtime(0.3f);
@@ -336,47 +229,11 @@ public class AnalogRead : Block, IDragHandler
             }
         }
 
-        Block block = null;
-
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.GetSyncCode(s));
+            GetChild = true;
         }
 
         yield return new WaitForSecondsRealtime(0.3f);
@@ -407,47 +264,11 @@ public class AnalogRead : Block, IDragHandler
             }
         }
 
-        Block block = null;
-
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.GetBtCode(s));
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.GetBtCode(s));
+            GetChild = true;
         }
 
         yield return new WaitForSecondsRealtime(0.3f);
@@ -498,307 +319,68 @@ public class AnalogRead : Block, IDragHandler
     {
         if (collision.tag != "region")
         {
-            if (collision != null)
+            if (collision == null)
+                return;
+
+            if (transform.position.y < collision.transform.position.y)//자기 위에 충돌할때
             {
-                if (transform.position.y < collision.transform.position.y)//자기 위에 충돌할때
+                if (UpCollider.isTrigger == true)
                 {
-                    if (UpCollider.isTrigger == true)
+                    sample = BlockManager.instance.BlockIdentity(collision);
+                    if (sample != null)
                     {
-                        switch (collision.tag)
+                        if (sample.CheckDownCollider() == true)
                         {
-                            case "DigitalWrite":
-                                sample = collision.GetComponent<DragImage>();
-                                if (sample != null)
-                                {
-                                    if (sample.CheckDownCollider() == true)
-                                    {
-                                        transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                                        this.transform.SetParent(sample.transform);
-                                        UpObj = collision.gameObject;
-                                        UpCollider.isTrigger = false;
-                                        sample.SetDownColllider(false);
-
-                                        //   collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                    }
-                                }
-                                break;
-
-                            case "ServoBlock":
-                                sample = collision.GetComponent<ServoBlock>();
-                                if (sample != null)
-                                {
-                                    if (sample.CheckDownCollider() == true)
-                                    {
-                                        transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                                        this.transform.SetParent(sample.transform);
-                                        UpObj = collision.gameObject;
-                                        UpCollider.isTrigger = false;
-                                        sample.SetDownColllider(false);
-
-                                        //   collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                    }
-                                }
-                                break;
-
-                            case "ifBlock":
-                                sample = collision.GetComponent<ifBlock>();
-                                if (sample != null)
-                                {
-                                    if (sample.CheckDownCollider() == true)
-                                    {
-                                        transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                                        this.transform.SetParent(sample.transform);
-                                        UpObj = collision.gameObject;
-                                        UpCollider.isTrigger = false;
-                                        sample.SetDownColllider(false);
-                                    }
-                                }
-                                break;
-
-                            case "ifBar":
-                                sample = collision.GetComponent<ifBar>();
-                                if (sample != null)
-                                {
-                                    if (sample.CheckDownCollider() == true)
-                                    {
-                                        transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                                        this.transform.SetParent(sample.transform);
-                                        UpObj = collision.gameObject;
-                                        UpCollider.isTrigger = false;
-                                        sample.SetDownColllider(false);
-                                    }
-                                }
-                                break;
-
-                            case "Block":
-                                sample = collision.GetComponent<StartBlock>();
-                                if (sample != null)
-                                {
-                                    if (sample.CheckDownCollider() == true)
-                                    {
-                                        transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                                        this.transform.SetParent(sample.transform);
-                                        UpObj = collision.gameObject;
-                                        UpCollider.isTrigger = false;
-                                        sample.SetDownColllider(false);
-                                    }
-                                }
-                                break;
-
-                            case "AnalogRead":
-                                sample = collision.GetComponent<AnalogRead>();
-                                if (sample != null)
-                                {
-                                    if (sample.CheckDownCollider() == true)
-                                    {
-                                        transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                                        this.transform.SetParent(sample.transform);
-                                        UpObj = collision.gameObject;
-                                        UpCollider.isTrigger = false;
-                                        sample.SetDownColllider(false);
-
-                                        //   collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                    }
-                                }
-                                break;
-
-                            case "WaitBlock":
-                                sample = collision.GetComponent<WaitBlock>();
-                                if (sample != null)
-                                {
-                                    if (sample.CheckDownCollider() == true)
-                                    {
-                                        transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                                        this.transform.SetParent(sample.transform);
-                                        UpObj = collision.gameObject;
-                                        UpCollider.isTrigger = false;
-                                        sample.SetDownColllider(false);
-                                    }
-                                }
-                                break;
-
-                            case "UltBlock":
-                                sample = collision.GetComponent<UltBlock>();
-                                if (sample != null)
-                                {
-                                    if (sample.CheckDownCollider() == true)
-                                    {
-                                        transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                                        this.transform.SetParent(sample.transform);
-                                        UpObj = collision.gameObject;
-                                        UpCollider.isTrigger = false;
-                                        sample.SetDownColllider(false);
-                                    }
-                                }
-                                break;
+                            transform.position = collision.transform.position + new Vector3(0, -51, 0);
+                            this.transform.SetParent(sample.transform);
+                            this.transform.SetAsFirstSibling();
+                            UpObj = collision.gameObject;
+                            UpCollider.isTrigger = false;
+                            sample.SetDownColllider(false);
                         }
                     }
                 }
-                else if (transform.position.y > collision.transform.position.y) // 자기 아랫부분에서 충돌할때
+            }
+            else if (transform.position.y > collision.transform.position.y) // 자기 아랫부분에서 충돌할때
+            {
+                sample = BlockManager.instance.BlockIdentity(collision);
+                if (sample != null)
                 {
-                    switch (collision.tag)
+                    if (sample.CheckParentObj() == this.gameObject)
                     {
-                        case "DigitalWrite":
-                            sample = collision.GetComponent<DragImage>();
-                            if (sample != null)
-                            {
-                                if (sample.CheckParentObj() == this.gameObject)
-                                {
-                                    DownObj = collision.gameObject;
-
-                                    //   collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                }
-                            }
-                            break;
-
-                        case "ifBlock":
-                            sample = collision.GetComponent<ifBlock>();
-                            if (sample != null)
-                            {
-                                if (sample.CheckParentObj() == this.gameObject)
-                                {
-                                    DownObj = collision.gameObject;
-                                }
-                            }
-                            break;
-
-                        case "Block":
-                            sample = collision.GetComponent<StartBlock>();
-                            if (sample != null)
-                            {
-                                if (sample.CheckParentObj() == true)
-                                {
-                                    DownObj = collision.gameObject;
-
-                                    collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                }
-                            }
-                            break;
-
-                        case "AnalogRead":
-                            sample = collision.GetComponent<AnalogRead>();
-                            if (sample != null)
-                            {
-                                if (sample.CheckParentObj() == this.gameObject)
-                                {
-                                    DownObj = collision.gameObject;
-
-                                    //   collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                }
-                            }
-                            break;
-
-                        case "WaitBlock":
-                            sample = collision.GetComponent<WaitBlock>();
-                            if (sample != null)
-                            {
-                                if (sample.CheckParentObj() == this.gameObject)
-                                {
-                                    DownObj = collision.gameObject;
-
-                                    //   collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                }
-                            }
-                            break;
-
-                        case "ServoBlock":
-                            sample = collision.GetComponent<ServoBlock>();
-                            if (sample != null)
-                            {
-                                if (sample.CheckParentObj() == this.gameObject)
-                                {
-                                    DownObj = collision.gameObject;
-
-                                    //   collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                }
-                            }
-                            break;
-
-                        case "UltBlock":
-                            sample = collision.GetComponent<UltBlock>();
-                            if (sample != null)
-                            {
-                                if (sample.CheckParentObj() == this.gameObject)
-                                {
-                                    DownObj = collision.gameObject;
-
-                                    //   collision.transform.position = transform.position + new Vector3(0, -51, 0);
-                                }
-                            }
-                            break;
+                        DownObj = collision.gameObject;
                     }
                 }
             }
         }
-    }
+    } //충돌시 붙히기 코드
 
     public void OnDrag(PointerEventData eventData)
     {
-        Block block = null;
-
         if (this.transform.parent != null)
         {
             if (UpObj != null)
             {
-                switch (UpObj.tag)
-                {
-                    case "DigitalWrite":
-                        block = UpObj.GetComponent<DragImage>();
-                        block.SetDownColllider(true);
-                        UpCollider.isTrigger = true;
-                        break;
-
-                    case "Block":
-                        block = UpObj.GetComponent<StartBlock>();
-                        block.SetDownColllider(true);
-                        UpCollider.isTrigger = true;
-                        break;
-
-                    case "ifBlock":
-                        block = UpObj.GetComponent<ifBlock>();
-                        block.SetDownColllider(true);
-                        UpCollider.isTrigger = true;
-                        break;
-
-                    case "ifBar":
-                        block = UpObj.GetComponent<ifBar>();
-                        block.SetDownColllider(true);
-                        UpCollider.isTrigger = true;
-                        break;
-
-                    case "AnalogRead":
-                        block = UpObj.GetComponent<AnalogRead>();
-                        block.SetDownColllider(true);
-                        UpCollider.isTrigger = true;
-                        break;
-
-                    case "WaitBlock":
-                        block = UpObj.GetComponent<WaitBlock>();
-                        block.SetDownColllider(true);
-                        UpCollider.isTrigger = true;
-                        break;
-
-                    case "ServoBlock":
-                        block = UpObj.GetComponent<ServoBlock>();
-                        block.SetDownColllider(true);
-                        UpCollider.isTrigger = true;
-                        break;
-
-                    case "UltBLock":
-                        block = UpObj.GetComponent<UltBlock>();
-                        block.SetDownColllider(true);
-                        UpCollider.isTrigger = true;
-                        break;
-                }
+                Block block = BlockManager.instance.BlockIdentity(UpObj);
+                block.SetDownColllider(true);
+                UpCollider.isTrigger = true;
 
                 this.transform.SetParent(parentobj.transform);
             }
+
         }
-        //var screenpoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100f);
 
         if (GameManager.RunBlock == true)
             transform.position = Input.mousePosition; //secondCamera.ScreenToWorldPoint(screenpoint);
+
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
     }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+    }
+
 
     #endregion 물리 구현 부분
 
