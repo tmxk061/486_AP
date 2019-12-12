@@ -266,6 +266,7 @@ public class ServoBlock : Block, IDragHandler, IDropHandler
                         {
                             transform.position = collision.transform.position + new Vector3(0, -51, 0);
                             this.transform.SetParent(sample.transform);
+                            this.transform.SetAsFirstSibling();
                             UpObj = collision.gameObject;
                             UpCollider.isTrigger = false;
                             sample.SetDownColllider(false);
