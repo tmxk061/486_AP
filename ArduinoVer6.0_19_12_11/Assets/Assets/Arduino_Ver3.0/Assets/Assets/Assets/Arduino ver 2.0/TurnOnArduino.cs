@@ -25,6 +25,6 @@ public class TurnOnArduino : MonoBehaviour
 
     public void Pause()
     {
-        mesh.material = turnoff;//안녕하세요 요번에 5조 인턴으로 오게된 정선재입니다. 잘부탁드립니다.
+        mesh.material = turnoff;
     }
 }

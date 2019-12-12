@@ -81,8 +81,8 @@ public class AnalogRead : Block, IDragHandler
 
                         temphumilist = selectSecket.listSocketRun();
 
-                        GameManager.temp = temphumilist[1];
-                        GameManager.humi = temphumilist[0];
+                        GameManager.temp = temphumilist[0];
+                        GameManager.humi = temphumilist[1];
 
                         float value1 = float.Parse(GameManager.temp.ToString());
                         float value2 = float.Parse(GameManager.humi.ToString());
