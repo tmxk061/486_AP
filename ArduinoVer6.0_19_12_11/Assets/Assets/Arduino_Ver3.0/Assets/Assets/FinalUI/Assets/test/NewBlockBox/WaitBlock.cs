@@ -56,6 +56,7 @@ public class WaitBlock : Block, IDragHandler, IDropHandler
 
     public override IEnumerator Run(float s)
     {
+        Debug.Log("웨이트 개시");
         GetChild = false;
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
         yield return new WaitForSeconds(TimeForWait);
@@ -237,6 +238,7 @@ public class WaitBlock : Block, IDragHandler, IDropHandler
                         {
                             transform.position = collision.transform.position + new Vector3(0, -51, 0);
                             this.transform.SetParent(sample.transform);
+                            this.transform.SetAsFirstSibling();
                             UpObj = collision.gameObject;
                             UpCollider.isTrigger = false;
                             sample.SetDownColllider(false);

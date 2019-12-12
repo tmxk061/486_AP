@@ -21,9 +21,11 @@ public class BlockManager : MonoBehaviour
         foreach (Transform child in trans)
         {
             block = identityCheck(child.tag, "T", child,null, null);
+
             if (block != null)
                 return block;
         }
+        Debug.Log("해당없음");
         return null;
     }
 
@@ -105,6 +107,8 @@ public class BlockManager : MonoBehaviour
             case "WaitBlock":
                 if (type == "T")
                 {
+                    Debug.Log("웨이트블록");
+
                     block = trans.GetComponent<WaitBlock>();
                     return block;
                 }
