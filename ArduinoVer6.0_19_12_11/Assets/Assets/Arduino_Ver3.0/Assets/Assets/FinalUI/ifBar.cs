@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ifBar : Block, IDragHandler
 {
@@ -12,25 +13,41 @@ public class ifBar : Block, IDragHandler
     //private RectTransform rect;
     //private ifBlock block;
 
-    private GameObject UpObj;
+    private GameObject UpObj = null;
     private GameObject DownObj;
     private Collider2D[] colliders;
     private Collider2D UpCollider;
-
-    [SerializeField]
     private Collider2D DownCollider;
+    private ControlArduino arduino;
+    public GameObject ParentObj;
 
-    [SerializeField]
-    public Canvas canvas;
+    public int TimeForWait = 0;
 
     private Block sample;
-    public bool GetChild = false;
+    private bool GetChild = false;
 
     #endregion 변수
 
     private void Start()
     {
-        DownCollider = this.gameObject.GetComponent<BoxCollider2D>();
+        arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>(); //아두이노 오브젝트 찾기
+        ParentObj =
+            GameObject.Find("PanelBlockCoding").
+            gameObject.transform.Find("CodingPanel").
+            gameObject.transform.Find("CodingMaskPanel"). //코딩마스크패널 찾기
+            gameObject;
+
+        this.transform.position = new Vector3(930, 421); //초기위치지정
+
+        colliders = this.GetComponents<Collider2D>();//위, 아래 충돌 지정
+        if (colliders != null)
+        {
+            DownCollider = colliders[0];
+
+            UpCollider = colliders[1];
+        }
+
+        this.transform.SetParent(ParentObj.transform);
     }
 
     #region 필수 구현 부분
@@ -157,6 +174,22 @@ public class ifBar : Block, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (this.transform.parent != null)
+        {
+            if (UpObj != null)
+            {
+                Block block = BlockManager.instance.BlockIdentity(UpObj);
+                block.SetDownColllider(true);
+                UpCollider.isTrigger = true;
+
+                this.transform.SetParent(ParentObj.transform);
+            }
+        }
+
+        if (GameManager.RunBlock == true)
+            transform.position = Input.mousePosition; //secondCamera.ScreenToWorldPoint(screenpoint);
+
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
     }
 
     public void OnTriggerStay2D(Collider2D collision)
@@ -197,7 +230,7 @@ public class ifBar : Block, IDragHandler
                 }
             }
         }
-    }
+    } //충돌시 붙히기 코드
 
     #endregion 물리 구현 부분
 }

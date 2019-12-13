@@ -25366,6 +25366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OutPutBlock1
       objectReference: {fileID: 0}
+    - target: {fileID: 7610375028823189243, guid: 6cc78e41472318e42a6d6a78a954e3a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7610375028823189242, guid: 6cc78e41472318e42a6d6a78a954e3a4,
         type: 3}
       propertyPath: m_LocalPosition.x
