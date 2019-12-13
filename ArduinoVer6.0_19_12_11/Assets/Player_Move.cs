@@ -15,6 +15,9 @@ public class Player_Move : MonoBehaviour
     private float cameraRotation = 0f;
     private float currentCameraRotation = 0f;
 
+    // 카메라 회전 -> true = 불가, false = 가능
+    private bool StopCamRotation = false;
+
     void Update()
     {
         float yRot = Input.GetAxisRaw("Mouse X");
@@ -28,20 +31,28 @@ public class Player_Move : MonoBehaviour
         //    GameManager.lux = 500;
         //    Debug.Log(GameManager.lux);
         //}
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            if (StopCamRotation == false)
+                StopCamRotation = true;
+            else
+                StopCamRotation = false;
+        }
     }
 
     void FixedUpdate() //Movement Rotation
     {
+
         if (GameManager.RunBlock == false)
         {
-            PreformRotation();
             Move();
+            if (StopCamRotation != true)
+                PreformRotation();
         }
     }
 
     void PreformRotation() //X, Y회전
     {
-
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         if (cam != null)
         {
