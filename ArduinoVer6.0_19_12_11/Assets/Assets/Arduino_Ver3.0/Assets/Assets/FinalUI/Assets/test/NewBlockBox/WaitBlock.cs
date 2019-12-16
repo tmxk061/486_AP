@@ -17,8 +17,7 @@ public class WaitBlock : Block
     //private WaitForSeconds waitForSeconds;
 
     public int TimeForWait = 0;
-
-    private Block sample;
+    
     #endregion 변수
     
     // public void Start()

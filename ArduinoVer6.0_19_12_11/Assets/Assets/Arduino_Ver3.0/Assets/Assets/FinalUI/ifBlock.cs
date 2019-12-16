@@ -27,8 +27,7 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
     [SerializeField]
     public ifbarRegion region;
-
-    public Block sample;
+    
     public Vector2 FirstAnchoredPosition;
     
     private Outline outline;
