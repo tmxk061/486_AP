@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UltBlock : Block, IDragHandler
+public class UltBlock : Block
 {
     #region 변수
 
@@ -13,32 +12,19 @@ public class UltBlock : Block, IDragHandler
     //public bool DownConnect = false;
     //[SerializeField]
     //public Camera secondCamera;
-
-    private GameObject UpObj = null;
-    private GameObject DownObj;
-    private Collider2D[] colliders;
-    private Collider2D UpCollider;
-    private Collider2D DownCollider;
-    private ControlArduino arduino;
+    
     public int selectnum = 0;
     public int selectnum2 = 0;
     public Socket selectSecket;
     public Socket selectSecket2;
 
     public bool selectRun = true;
-    public bool GetChild = false;
-
-    private Block sample;
-
-    [SerializeField]
-    private GameObject parentobj;
-
     #endregion 변수
 
     private void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-        parentobj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
+        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
         colliders = this.GetComponents<Collider2D>();
 
         this.transform.position = new Vector3(930, 421);
@@ -54,7 +40,6 @@ public class UltBlock : Block, IDragHandler
     }
 
     #region 필수 구현 부분
-
     public override IEnumerator Run(float s)
     {
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
@@ -134,31 +119,6 @@ public class UltBlock : Block, IDragHandler
         }
     }
 
-    public override void SetDownColllider(bool s)
-    {
-        if (DownCollider != null)
-        {
-            DownCollider.isTrigger = s;
-        }
-    }
-
-    public override void SetUPColllider(bool s)
-    {
-        if (UpCollider != null)
-        {
-            UpCollider.isTrigger = s;
-        }
-    }
-
-    public override bool CheckUoCollider()
-    {
-        return UpCollider.isTrigger;
-    }
-
-    public override bool CheckDownCollider()
-    {
-        return DownCollider.isTrigger;
-    }
 
     public override IEnumerator GetCode(bool s)
     {
@@ -258,82 +218,7 @@ public class UltBlock : Block, IDragHandler
             GameManager.syncBTMergeCode();
         }
     }
-
-    public override GameObject CheckParentObj()
-    {
-        return UpObj;
-    }
-
     #endregion 필수 구현 부분
-
-    #region 물리 구현 부분
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (this.transform.parent != null)
-        {
-            if (UpObj != null)
-            {
-                Block block = BlockManager.instance.BlockIdentity(UpObj);
-                block.SetDownColllider(true);
-                UpCollider.isTrigger = true;
-
-                this.transform.SetParent(parentobj.transform);
-            }
-        }
-
-        if (GameManager.RunBlock == true)
-            transform.position = Input.mousePosition; //secondCamera.ScreenToWorldPoint(screenpoint);
-
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
-    }
-
-    public void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.tag != "region")
-        {
-            if (collision == null)
-                return;
-
-            if (transform.position.y < collision.transform.position.y)//자기 위에 충돌할때
-            {
-                if (UpCollider.isTrigger == true)
-                {
-                    sample = BlockManager.instance.BlockIdentity(collision);
-                    if (sample != null)
-                    {
-                        if (sample.CheckDownCollider() == true)
-                        {
-                            transform.position = collision.transform.position + new Vector3(0, -51, 0);
-                            this.transform.SetParent(sample.transform);
-                            this.transform.SetAsFirstSibling();
-                            UpObj = collision.gameObject;
-                            UpCollider.isTrigger = false;
-                            sample.SetDownColllider(false);
-                        }
-                    }
-                }
-            }
-            else if (transform.position.y > collision.transform.position.y) // 자기 아랫부분에서 충돌할때
-            {
-                sample = BlockManager.instance.BlockIdentity(collision);
-                if (sample != null)
-                {
-                    if (sample.CheckParentObj() == this.gameObject)
-                    {
-                        DownObj = collision.gameObject;
-                    }
-                }
-            }
-        }
-    } //충돌시 붙히기 코드
-
-    #endregion 물리 구현 부분
 
     #region 고유 구현 부분
 
