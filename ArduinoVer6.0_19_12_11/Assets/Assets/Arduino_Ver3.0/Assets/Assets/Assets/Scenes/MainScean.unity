@@ -31296,14 +31296,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -48346,6 +48346,26 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.height
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 998526343785783578, guid: 44d520a637db1b6459ba9ba8a27bd2f0,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 998526343785783578, guid: 44d520a637db1b6459ba9ba8a27bd2f0,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.6886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 998526343785783578, guid: 44d520a637db1b6459ba9ba8a27bd2f0,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.6886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 998526343785783578, guid: 44d520a637db1b6459ba9ba8a27bd2f0,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.6886792
+      objectReference: {fileID: 0}
     - target: {fileID: 998526343785783579, guid: 44d520a637db1b6459ba9ba8a27bd2f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48811,6 +48831,26 @@ PrefabInstance:
         type: 3}
       propertyPath: far clip plane
       value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842781599183138165, guid: f6bb0c8df1ce2e9488bd2a32108a6869,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842781599183138165, guid: f6bb0c8df1ce2e9488bd2a32108a6869,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842781599183138165, guid: f6bb0c8df1ce2e9488bd2a32108a6869,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1842781599183138165, guid: f6bb0c8df1ce2e9488bd2a32108a6869,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1842781599183138164, guid: f6bb0c8df1ce2e9488bd2a32108a6869,
         type: 3}
