@@ -147,48 +147,11 @@ public class DragImage : Block
 
         yield return new WaitForSecondsRealtime(0.3f);
 
-        Block block = null;
-
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.Run(0)); ;
-                    GetChild = true;
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.Run(0));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.Run(0));
+            GetChild = true;
         }
 
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
@@ -203,9 +166,7 @@ public class DragImage : Block
     {
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
         GetChild = false;
-
-        Block block = null;
-
+        
         //  GameManager.DigitalWrite(selectnum.ToString());
         GameManager.DigitalWrite(selectnum + selectRun.ToString());
 
@@ -269,46 +230,11 @@ public class DragImage : Block
 
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
 
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.SyncRun(s));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.SyncRun(s));
+            GetChild = true;
         }
 
         if (GetChild == false)
@@ -365,48 +291,11 @@ public class DragImage : Block
 
         yield return new WaitForSecondsRealtime(0.3f);
 
-        Block block = null;
-
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.GetCode(s));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.GetCode(s));
+            GetChild = true;
         }
 
         if (GetChild == false && s == true)
@@ -465,48 +354,11 @@ public class DragImage : Block
 
         yield return new WaitForSecondsRealtime(0.3f);
 
-        Block block = null;
-
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.GetSyncCode(s));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.GetSyncCode(s));
+            GetChild = true;
         }
 
         if (GetChild == false && s == true)
@@ -565,48 +417,11 @@ public class DragImage : Block
 
         yield return new WaitForSecondsRealtime(0.3f);
 
-        Block block = null;
-
-        foreach (Transform child in transform)
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
         {
-            switch (child.tag)
-            {
-                case "DigitalWrite":
-                    block = child.GetComponent<DragImage>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ifBlock":
-                    block = child.GetComponent<ifBlock>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "AnalogRead":
-                    block = child.GetComponent<AnalogRead>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "WaitBlock":
-                    block = child.GetComponent<WaitBlock>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "ServoBlock":
-                    block = child.GetComponent<ServoBlock>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-
-                case "UltBlock":
-                    block = child.GetComponent<UltBlock>();
-                    StartCoroutine(block.GetBtCode(s));
-                    GetChild = true;
-                    break;
-            }
+            StartCoroutine(block.GetBtCode(s));
+            GetChild = true;
         }
 
         if (GetChild == false && s == true)
