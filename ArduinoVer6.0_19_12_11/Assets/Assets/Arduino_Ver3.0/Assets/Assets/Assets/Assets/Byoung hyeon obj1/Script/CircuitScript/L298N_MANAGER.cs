@@ -32,6 +32,8 @@ public class L298N_MANAGER : MonoBehaviour
         DigitalConnect3 = false;
         DigitalConnect4 = false;
         POWER = 0;
+
+        
     }
 
     #region MouseDrag
