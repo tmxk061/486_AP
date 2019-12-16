@@ -11,31 +11,22 @@ public class AnalogRead : Block
     //public Canvas canvas;
     //[SerializeField]
     //public Camera secondCamera;
-
+    private ControlArduino arduino;
     public int selectnum = 0;
-    public Socket selectSecket;
+    public Socket selectSocket;
 
     public bool selectRun = true;
     public bool UpConncet = false;
     public bool DownConnect = false;
-    
+
     #endregion 변수
 
-    private void Start()
+    protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
-        colliders = this.GetComponents<Collider2D>();
+        selectSocket = arduino.PinList[0];
 
-        this.transform.position = new Vector3(930, 421);
-
-        if (colliders != null)
-        {
-            DownCollider = colliders[0];
-
-            UpCollider = colliders[1];
-        }
-        selectSecket = arduino.PinList[0];
+        base.Start();
     }
 
     #region 필수 구현 부분
@@ -43,16 +34,16 @@ public class AnalogRead : Block
     {
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
         GetChild = false;
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
             if (selectRun == true)
             {
-                switch (selectSecket.SocketType)
+                switch (selectSocket.SocketType)
                 {
                     // 값을 읽어 들이는 센서
                     case GameManager.SensorType.Ult:
 
-                        float? value = selectSecket.floatSocketRun();
+                        float? value = selectSocket.floatSocketRun();
                         float value3 = float.Parse(value.ToString());
 
                         GameManager.Setdistancetext("핀" + selectnum + " : " + Mathf.RoundToInt(value3) + "cm");
@@ -64,7 +55,7 @@ public class AnalogRead : Block
 
                         List<float> temphumilist = new List<float>();
 
-                        temphumilist = selectSecket.listSocketRun();
+                        temphumilist = selectSocket.listSocketRun();
 
                         GameManager.temp = temphumilist[0];
                         GameManager.humi = temphumilist[1];
@@ -77,14 +68,14 @@ public class AnalogRead : Block
 
                     case GameManager.SensorType.Lux:
 
-                        float? valuelux = selectSecket.floatSocketRun();
+                        float? valuelux = selectSocket.floatSocketRun();
 
                         GameManager.setLuxtext("핀" + selectnum + " : " + valuelux);
                         GameManager.lux = valuelux;
 
                         break;
 
-                        //  selectSecket.SocketRun(0);
+                        //  selectSocket.SocketRun(0);
                 }
             }
         }
@@ -161,9 +152,9 @@ public class AnalogRead : Block
     public override IEnumerator GetCode(bool s)
     {
         GetChild = false;
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 // 값을 읽어 들이는 센서
                 case GameManager.SensorType.Ult:
@@ -199,9 +190,9 @@ public class AnalogRead : Block
     public override IEnumerator GetSyncCode(bool s)
     {
         GetChild = false;
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 // 값을 읽어 들이는 센서
 
@@ -234,9 +225,9 @@ public class AnalogRead : Block
     public override IEnumerator GetBtCode(bool s)
     {
         GetChild = false;
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 // 값을 읽어 들이는 센서
 
@@ -273,7 +264,7 @@ public class AnalogRead : Block
     {
         selectnum = _num;
 
-        selectSecket = arduino.PinList[_num];
+        selectSocket = arduino.PinList[_num];
     }
 
     public void HumiTemp()

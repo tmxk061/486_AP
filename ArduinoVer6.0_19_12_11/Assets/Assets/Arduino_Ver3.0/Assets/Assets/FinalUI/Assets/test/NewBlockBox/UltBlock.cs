@@ -12,31 +12,24 @@ public class UltBlock : Block
     //public bool DownConnect = false;
     //[SerializeField]
     //public Camera secondCamera;
-    
+
+    private ControlArduino arduino;
+
     public int selectnum = 0;
     public int selectnum2 = 0;
-    public Socket selectSecket;
-    public Socket selectSecket2;
+    public Socket selectSocket;
+    public Socket selectSocket2;
 
     public bool selectRun = true;
     #endregion 변수
 
-    private void Start()
+    protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
-        colliders = this.GetComponents<Collider2D>();
+        selectSocket = arduino.PinList[0];
+        selectSocket2 = arduino.PinList[0];
 
-        this.transform.position = new Vector3(930, 421);
-
-        if (colliders != null)
-        {
-            DownCollider = colliders[0];
-
-            UpCollider = colliders[1];
-        }
-        selectSecket = arduino.PinList[0];
-        selectSecket2 = arduino.PinList[0];
+        base.Start();
     }
 
     #region 필수 구현 부분
@@ -46,26 +39,26 @@ public class UltBlock : Block
 
         GetChild = false;
 
-        if (selectSecket2 != null && selectSecket != null)
+        if (selectSocket2 != null && selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 // 값을 읽어 들이는 센서
                 case GameManager.SensorType.Ult:
 
-                    selectSecket.SocketRun(0);
+                    selectSocket.SocketRun(0);
 
                     break;
 
-                    //  selectSecket.SocketRun(0);
+                    //  selectSocket.SocketRun(0);
             }
 
-            switch (selectSecket2.SocketType)
+            switch (selectSocket2.SocketType)
             {
                 // 값을 읽어 들이는 센서
                 case GameManager.SensorType.Ult:
 
-                    float? value = selectSecket2.floatSocketRun();
+                    float? value = selectSocket2.floatSocketRun();
                     float value3 = float.Parse(value.ToString());
 
                     GameManager.Setdistancetext("핀" + selectnum + " : " + Mathf.RoundToInt(value3) + "cm");
@@ -73,7 +66,7 @@ public class UltBlock : Block
 
                     break;
 
-                    //  selectSecket.SocketRun(0);
+                    //  selectSocket.SocketRun(0);
             }
         }
 
@@ -123,11 +116,11 @@ public class UltBlock : Block
     public override IEnumerator GetCode(bool s)
     {
         GetChild = false;
-        if (selectSecket2 != null)
+        if (selectSocket2 != null)
         {
             if (selectRun == true)
             {
-                switch (selectSecket2.SocketType)
+                switch (selectSocket2.SocketType)
                 {
                     // 값을 읽어 들이는 센서
                     case GameManager.SensorType.Ult:
@@ -156,11 +149,11 @@ public class UltBlock : Block
     public override IEnumerator GetSyncCode(bool s)
     {
         GetChild = false;
-        if (selectSecket2 != null)
+        if (selectSocket2 != null)
         {
             if (selectRun == true)
             {
-                switch (selectSecket2.SocketType)
+                switch (selectSocket2.SocketType)
                 {
                     // 값을 읽어 들이는 센서
                     case GameManager.SensorType.Ult:
@@ -189,11 +182,11 @@ public class UltBlock : Block
     public override IEnumerator GetBtCode(bool s)
     {
         GetChild = false;
-        if (selectSecket2 != null)
+        if (selectSocket2 != null)
         {
             if (selectRun == true)
             {
-                switch (selectSecket2.SocketType)
+                switch (selectSocket2.SocketType)
                 {
                     // 값을 읽어 들이는 센서
                     case GameManager.SensorType.Ult:
@@ -283,14 +276,14 @@ public class UltBlock : Block
     {
         selectnum = _num;
 
-        selectSecket = arduino.PinList[_num];
+        selectSocket = arduino.PinList[_num];
     }
 
     public void GetNum(int num)
     {
         selectnum2 = num;
 
-        selectSecket2 = arduino.PinList[num];
+        selectSocket2 = arduino.PinList[num];
     }
 
     #endregion 고유 구현 부분

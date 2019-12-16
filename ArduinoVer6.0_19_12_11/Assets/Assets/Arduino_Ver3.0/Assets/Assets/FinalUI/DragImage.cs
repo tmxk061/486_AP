@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DragImage : Block
 {
     #region 변수
-    
+    private ControlArduino arduino;
     public int selectnum = 0;
     public Socket selectSocket;
 
@@ -45,22 +45,12 @@ public class DragImage : Block
 
         GameManager.AddloopList(sen);
     }
-       
 
-    private void Start()
+    protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
 
-        this.transform.position = new Vector3(930, 421);
-
-        colliders = this.GetComponents<Collider2D>();
-        if (colliders != null)
-        {
-            DownCollider = colliders[0];
-
-            UpCollider = colliders[1];
-        }
+        base.Start();
     }
 
     public void SetNum(int _num)

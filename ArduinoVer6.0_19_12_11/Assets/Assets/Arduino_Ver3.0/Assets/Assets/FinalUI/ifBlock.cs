@@ -11,7 +11,7 @@ public class ifBlock : Block, IDragHandler, IDropHandler
     //private RectTransform rect;
     //private Vector3 mos, trans;
     //private Vector3 distance;
-    //public Socket selectSecket;
+    //public Socket selectSocket;
     //[SerializeField]
     //public Canvas canvas;
     //public bool selectRun = true;
@@ -34,34 +34,15 @@ public class ifBlock : Block, IDragHandler, IDropHandler
     private Outline outline;
 
     #endregion 변수
-
-    private void Start()
+    protected override void Start()
     {
         bar = this.gameObject.GetComponentInChildren<ifBar>();
-
         barlocation = bar.transform.GetComponent<RectTransform>();
         FirstAnchoredPosition = barlocation.anchoredPosition;
-
-        colliders = this.GetComponents<Collider2D>();
-
-        ParentObj =
-            GameObject.Find("PanelBlockCoding").gameObject.
-            transform.Find("CodingPanel").gameObject.
-            transform.Find("CodingMaskPanel").
-            gameObject;
-
         outline = GameObject.Find("UnderBar").gameObject.GetComponent<Outline>();
 
-        this.transform.position = new Vector3(930, 421);
-
-        if (colliders != null)
-        {
-            DownCollider = colliders[1];
-
-            UpCollider = colliders[0];
-        }
+        base.Start();
     }
-
     #region 필수 구현부분
 
     public override IEnumerator Run(float s)

@@ -10,30 +10,21 @@ public class ServoBlock : Block
     //public Canvas canvas;
     //[SerializeField]
     //public Camera secondCamera;
-    
+    private ControlArduino arduino;
     public int selectnum = 0;
-    public Socket selectSecket;
+    public Socket selectSocket;
     public bool UpConncet = false;
     public bool DownConnect = false;
     
     public float value = 0f;
-    
+
     #endregion 변수
 
-    private void Start()
+    protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
 
-        this.transform.position = new Vector3(930, 421);
-
-        colliders = this.GetComponents<Collider2D>();
-        if (colliders != null)
-        {
-            DownCollider = colliders[0];
-
-            UpCollider = colliders[1];
-        }
+        base.Start();
     }
 
     #region 필수 구현 부분
@@ -43,15 +34,15 @@ public class ServoBlock : Block
         GetChild = false;
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
 
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 case GameManager.SensorType.Servo:
-                    selectSecket.SocketRun(value);
+                    selectSocket.SocketRun(value);
                     break;
 
-                    //  selectSecket.SocketRun(0);
+                    //  selectSocket.SocketRun(0);
             }
         }
 
@@ -80,15 +71,15 @@ public class ServoBlock : Block
        
         GameManager.DigitalWrite(selectnum.ToString() + value);
 
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 case GameManager.SensorType.Servo:
-                    selectSecket.SocketRun(value);
+                    selectSocket.SocketRun(value);
                     break;
 
-                    //  selectSecket.SocketRun(0);
+                    //  selectSocket.SocketRun(0);
             }
         }
 
@@ -112,15 +103,15 @@ public class ServoBlock : Block
     {
         GetChild = false;
 
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 case GameManager.SensorType.Servo:
                     ServoRunCode();
                     break;
 
-                    //  selectSecket.SocketRun(0);
+                    //  selectSocket.SocketRun(0);
             }
         }
 
@@ -143,15 +134,15 @@ public class ServoBlock : Block
     {
         GetChild = false;
 
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 case GameManager.SensorType.Servo:
                     syncServoRunCode();
                     break;
 
-                    //  selectSecket.SocketRun(0);
+                    //  selectSocket.SocketRun(0);
             }
         }
 
@@ -175,15 +166,15 @@ public class ServoBlock : Block
     {
         GetChild = false;
 
-        if (selectSecket != null)
+        if (selectSocket != null)
         {
-            switch (selectSecket.SocketType)
+            switch (selectSocket.SocketType)
             {
                 case GameManager.SensorType.Servo:
                     syncServoRunCode();
                     break;
 
-                    //  selectSecket.SocketRun(0);
+                    //  selectSocket.SocketRun(0);
             }
         }
 
@@ -245,7 +236,7 @@ public class ServoBlock : Block
     {
         selectnum = _num;
 
-        selectSecket = arduino.PinList[_num];
+        selectSocket = arduino.PinList[_num];
     }
 
     public void setAngle(float s)

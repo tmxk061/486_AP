@@ -8,7 +8,8 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     // Start is called before the first frame update
     #region 변수
 
-    protected ControlArduino arduino;
+    // 아두이노 모듈 이용하는 자식 블록에서 사용
+    // private ControlArduino arduino;
 
     // 블록 구현부
     private GameObject UpObj = null;
@@ -19,9 +20,8 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     protected GameObject ParentObj;
     private Block sample;
     
-    //정리 해야함
+    //
     protected bool GetChild = false;
-
     #endregion
 
 
@@ -97,7 +97,13 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     #endregion 물리 구현 부분
 
 
-    #region 필수 구현 부분
+    #region 콜라이더
+    public GameObject CheckParentObj()
+    {
+        return UpObj;
+    } //위에 있는 블록 리턴
+
+
     public void SetUpColllider(bool s)
     {
         if (UpCollider != null)
@@ -114,11 +120,6 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
         }
     } //업 콜라이더 트리거 설정
 
-
-    public GameObject CheckParentObj()
-    {
-        return UpObj;
-    } //위에 있는 블록 리턴
     
     public bool CheckUpCollider()
     {
@@ -129,12 +130,42 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     {
         return DownCollider.isTrigger;
     } //아래 충돌 트리거 상태 리턴
-    #endregion 필수 구현 부분
+    #endregion
 
+    
+    protected virtual void Start()
+    {
+        //arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+        //selectSocket = arduino.PinList[0];
+        //selectSocket2 = arduino.PinList[0];
 
+        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
+        colliders = this.GetComponents<Collider2D>();
+
+        this.transform.position = new Vector3(930, 421);
+
+        if (colliders != null)
+        {
+            DownCollider = colliders[0];
+
+            UpCollider = colliders[1];
+        }
+    }
+    // 자식 블록에서 쓰는 Start() 예시
+    //protected override void Start()
+    //{
+    //    arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+    //    selectSocket = arduino.PinList[0];
+    //    selectSocket2 = arduino.PinList[0];
+
+    //    base.Start();
+    //}
+
+    // 유니티 작동
     public abstract IEnumerator Run(float s);
     public abstract IEnumerator SyncRun(bool s);
 
+    // 아두이노 코드 작성
     public abstract IEnumerator GetCode(bool s);
     public abstract IEnumerator GetSyncCode(bool s);
     public abstract IEnumerator GetBtCode(bool s);

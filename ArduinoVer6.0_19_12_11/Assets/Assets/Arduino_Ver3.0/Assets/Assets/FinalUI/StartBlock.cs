@@ -12,10 +12,10 @@ public class StartBlock : Block
     //private Vector3 distance;
     //private GameObject UpObj;
     //private bool First = true;
-    
+
     #endregion 변수
 
-    private void Start()
+    protected override void Start()
     {
         DownCollider = this.GetComponent<Collider2D>();
     }

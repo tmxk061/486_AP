@@ -11,32 +11,17 @@ public class ifBar : Block
     //public Socket selectSocket;
     //private RectTransform rect;
     //private ifBlock block;
-    
 
+    private ControlArduino arduino;
     public int TimeForWait = 0;
-    
+
     #endregion 변수
 
-    private void Start()
+    protected override void Start()
     {
-        arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>(); //아두이노 오브젝트 찾기
-        ParentObj =
-            GameObject.Find("PanelBlockCoding").
-            gameObject.transform.Find("CodingPanel").
-            gameObject.transform.Find("CodingMaskPanel"). //코딩마스크패널 찾기
-            gameObject;
+        arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
 
-        this.transform.position = new Vector3(930, 421); //초기위치지정
-
-        colliders = this.GetComponents<Collider2D>();//위, 아래 충돌 지정
-        if (colliders != null)
-        {
-            DownCollider = colliders[0];
-
-            UpCollider = colliders[1];
-        }
-
-        this.transform.SetParent(ParentObj.transform);
+        base.Start();
     }
 
     #region 필수 구현 부분
