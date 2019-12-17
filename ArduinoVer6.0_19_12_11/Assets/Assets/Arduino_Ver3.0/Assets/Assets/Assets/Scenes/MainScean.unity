@@ -454,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &23447680
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -623,6 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &27485176
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -746,6 +748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &29368220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1049,6 +1052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &49036431
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1457,6 +1461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &57914585
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1586,6 +1591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &71493998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3301,6 +3307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &223378077
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3375,6 +3382,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223378074}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &245294777 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6927322180384917451, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+    type: 3}
+  m_PrefabInstance: {fileID: 7682622777221274909}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &245294778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245294777}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1166897, y: 2.0365374, z: 1}
+  m_Center: {x: 0.5065494, y: 0.6957598, z: -0.000000002086589}
 --- !u!1001 &252920288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3548,6 +3574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &258660375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3671,6 +3698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &261619148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4016,6 +4044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &282345494
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4440,6 +4469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &315838390
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5052,6 +5082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &338981952
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5175,6 +5206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &357079154
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5298,6 +5330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &362739293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5645,6 +5678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &432754051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6186,6 +6220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &481877785
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6371,6 +6406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &489833324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6663,6 +6699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &491397461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6911,6 +6948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &520629571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7158,6 +7196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &525346982
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7420,6 +7459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &531807409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7726,6 +7766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &557686998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7939,6 +7980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &604242045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8415,6 +8457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &620969768
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8563,6 +8606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &637334735
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8845,6 +8889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &642207229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8974,6 +9019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &656169475
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9480,6 +9526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &716944498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9682,6 +9729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &726731542
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9884,6 +9932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &733624297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10301,6 +10350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &752000809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10558,6 +10608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &758379979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10858,6 +10909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &780783844
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11179,6 +11231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &784281351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11381,6 +11434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &791226156
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11908,6 +11962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &804689534
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12031,6 +12086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &828457025
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12154,6 +12210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &830392014
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12671,6 +12728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &846525374
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12794,6 +12852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &847190838
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12917,6 +12976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &855805522
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13427,6 +13487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &868213418
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13819,6 +13880,139 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876379780}
   m_CullTransparentMesh: 0
+--- !u!1001 &883180455
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1353691068}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_Name
+      value: WasteBin
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_TagString
+      value: TrashBin
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 135.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.500001
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+--- !u!1 &883180456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 7d7c38ffdfcc71640a9821858c5be2cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 883180455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &883180457
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883180456}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &883180458
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883180456}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.608221, y: 12.214684, z: 21.168383}
+  m_Center: {x: 0.63636273, y: -0.1069018, z: 9.933424}
+--- !u!114 &883180459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883180456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1199abd660ba57b4e917e29d70eca66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &883180464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883180456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!1 &885296382
 GameObject:
   m_ObjectHideFlags: 0
@@ -13868,6 +14062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &885296385
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14411,6 +14606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &935825773
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14534,6 +14730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &936213241
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14657,6 +14854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &942868081
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15723,6 +15921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1029267231
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16237,6 +16436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1089188600
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16360,6 +16560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1089754198
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16604,6 +16805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1104825366
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16791,6 +16993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1118137625
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17954,6 +18157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1187135733
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18107,6 +18311,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188029371}
   m_CullTransparentMesh: 0
+--- !u!1 &1188293861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2585218755488091715, guid: 8ad7399b7b6f79e47a36a57bda36e87d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8882616772956931815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1188293862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188293861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.7353354, z: 1}
+  m_Center: {x: 7.687216e-16, y: 0.10778999, z: 1.234844e-15}
 --- !u!1 &1188357192
 GameObject:
   m_ObjectHideFlags: 0
@@ -18156,6 +18379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1188357195
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18451,6 +18675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1202305251
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18671,6 +18896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1213586946
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18794,6 +19020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1214824861
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18917,6 +19144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1219840652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19040,6 +19268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1232762774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19412,6 +19641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1247930384
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19941,6 +20171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1273800606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20070,6 +20301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1292445826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20193,6 +20425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1293317550
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20559,6 +20792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1308815836
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20688,6 +20922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1318797201
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20767,6 +21002,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7798209739896455288, guid: 08d1eb1bea4f7f74b954bed10b0e11f3,
     type: 3}
   m_PrefabInstance: {fileID: 7798209740117698016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1353691068 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4397247065885274546, guid: e25eb8cd74948de4e92b648ef42bd925,
+    type: 3}
+  m_PrefabInstance: {fileID: 1201363407462921950}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1354728753
 GameObject:
@@ -21593,6 +21834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1415379318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21716,6 +21958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1427789855
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22041,6 +22284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1479184572
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23178,6 +23422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1541526438
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23301,6 +23546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1544797262
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23588,6 +23834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1545656960
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23937,6 +24184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1590658688
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24204,6 +24452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1595611331
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24327,6 +24576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1602325251
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24450,6 +24700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1602563052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24742,6 +24993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1608366442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25537,6 +25789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1629520304
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25924,6 +26177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1667077899
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26047,6 +26301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1677466579
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26274,6 +26529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1684316277
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26611,6 +26867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1701654701
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26892,6 +27149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1726059689
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27157,6 +27415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1737033148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27286,6 +27545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1741247864
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28125,6 +28385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1812190959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28291,6 +28552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1817587493
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28648,6 +28910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1829468456
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28771,6 +29034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1834061058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29166,6 +29430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1880680116
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29289,6 +29554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1884691992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29675,6 +29941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1894060939
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29939,6 +30206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1910273424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30062,6 +30330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1911363047
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30362,6 +30631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1917780388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30485,6 +30755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1920453001
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30762,6 +31033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1932808778
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30885,6 +31157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1935322352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31008,6 +31281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1953808176
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31369,6 +31643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1958578109
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31492,6 +31767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1964128776
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31823,6 +32099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2011383945
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31946,6 +32223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2015781871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32210,6 +32488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2037071666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32536,6 +32815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2047575430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32909,6 +33189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2077249596
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33145,6 +33426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2141842323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -49091,6 +49373,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6475465486570105581, guid: 6ebd7971915c0a843ab2f792bc84d948,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ebd7971915c0a843ab2f792bc84d948, type: 3}
 --- !u!1001 &2029483629685158306
@@ -49968,7 +50255,7 @@ GameObject:
   - component: {fileID: 2998672668540059358}
   m_Layer: 0
   m_Name: Pin
-  m_TagString: Untagged
+  m_TagString: Line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50684,9 +50971,10 @@ GameObject:
   - component: {fileID: 2998672670430365909}
   - component: {fileID: 1186218237}
   - component: {fileID: 2998672670430365910}
+  - component: {fileID: 2998672670430365911}
   m_Layer: 9
   m_Name: DC Motor
-  m_TagString: Untagged
+  m_TagString: Sensor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50716,11 +51004,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2998672670430365908}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.3, z: 0.9}
-  m_Center: {x: 0, y: 0.13, z: 0.05}
+  m_Size: {x: 1, y: 1.3000001, z: 0.86404437}
+  m_Center: {x: 0, y: 0.13000003, z: 0.067978}
+--- !u!114 &2998672670430365911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2998672670430365908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!1001 &3003382016783592972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51021,6 +51322,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8863143182004317315, guid: b5ed6526330ecd84ea125a89a405074b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ed6526330ecd84ea125a89a405074b, type: 3}
 --- !u!102 &3487475730056637597
@@ -51142,6 +51448,11 @@ PrefabInstance:
       propertyPath: Around
       value: 
       objectReference: {fileID: 171165992}
+    - target: {fileID: 8852690024120005583, guid: 7d06612727e9c814f84c3e99b2f594b8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d06612727e9c814f84c3e99b2f594b8, type: 3}
 --- !u!33 &3732653998646287631
@@ -51318,6 +51629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869598406581822638, guid: a221943798e0ff340a4a5907042a90e4,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a221943798e0ff340a4a5907042a90e4, type: 3}
@@ -51629,6 +51945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 2998672670430365908}
 --- !u!23 &5229439767977821778
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -52142,6 +52459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 2998672670430365908}
 --- !u!1001 &6528031730889963340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52223,6 +52541,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563681941789818742, guid: 2feeebc974b6e1b4799949df016706b9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2feeebc974b6e1b4799949df016706b9, type: 3}
@@ -52389,7 +52712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.1499329, y: 4.429}
+  m_AnchoredPosition: {x: -1.2, y: -4.6}
   m_SizeDelta: {x: -88.305, y: -87.857}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6767385569589127943
@@ -53760,7 +54083,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.850001, y: 4.429016}
+  m_AnchoredPosition: {x: -10.7, y: 5.8}
   m_SizeDelta: {x: -88.305, y: -87.856995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6767385570033960737
@@ -54169,7 +54492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6767385570392282214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54207,7 +54530,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6767385570392282212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6767385571018584559}
@@ -54217,7 +54540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9.829998, y: 4.4290314}
+  m_AnchoredPosition: {x: -10.9, y: 4.4290314}
   m_SizeDelta: {x: -88.305, y: -87.856995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6767385570392282217
@@ -54315,7 +54638,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6767385570468468343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6767385569643470950}
@@ -54325,7 +54648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.1498718, y: 5.704003}
+  m_AnchoredPosition: {x: 10.9, y: 5.704003}
   m_SizeDelta: {x: -88.305, y: -90.408}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6767385570468468343
@@ -57802,7 +58125,18 @@ PrefabInstance:
       propertyPath: temperature
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 964870960593195285, guid: e5748db630513c940b24ad99a355750a,
+        type: 3}
+      propertyPath: temperToggle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7294387643298154932, guid: e5748db630513c940b24ad99a355750a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8805652954875360720, guid: e5748db630513c940b24ad99a355750a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5748db630513c940b24ad99a355750a, type: 3}
 --- !u!4 &7302445896705373269
 Transform:
@@ -57905,6 +58239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 12.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852690024120005583, guid: 7d06612727e9c814f84c3e99b2f594b8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d06612727e9c814f84c3e99b2f594b8, type: 3}
@@ -58072,7 +58411,7 @@ PrefabInstance:
     - target: {fileID: 7207290305761822499, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.1800003
+      value: 9.2
       objectReference: {fileID: 0}
     - target: {fileID: 7207290305761822499, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
         type: 3}
@@ -58133,6 +58472,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 12.000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538013342564386658, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.7887425
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538013342564386658, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.052897
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538013342564386658, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.10955516
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538013342564386658, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.07497085
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538013342564386658, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.55969936
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c3e3d6e13cc18d49aa0e9737e059656, type: 3}
@@ -58481,6 +58845,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8224182994819978576, guid: 2a598eb412d51a144a3a9d835e3df2f2,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a598eb412d51a144a3a9d835e3df2f2, type: 3}
 --- !u!1001 &8373126798651828319
@@ -58564,6 +58933,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476209428547092888, guid: 30bcc7f21068719438c81fb0cc5c0b99,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30bcc7f21068719438c81fb0cc5c0b99, type: 3}
@@ -58654,6 +59028,11 @@ PrefabInstance:
       propertyPath: lightObject
       value: 
       objectReference: {fileID: 1102419007}
+    - target: {fileID: 7932308313803664639, guid: c3225acc9c9cf2e4e9f5cfe3712e97d9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2643738079959886684, guid: c3225acc9c9cf2e4e9f5cfe3712e97d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3225acc9c9cf2e4e9f5cfe3712e97d9, type: 3}

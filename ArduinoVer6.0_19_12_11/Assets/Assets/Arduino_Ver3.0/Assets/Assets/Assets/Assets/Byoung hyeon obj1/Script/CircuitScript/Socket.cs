@@ -53,24 +53,24 @@ public class Socket : MonoBehaviour
             switch (Line.type)
             {
                 case GameManager.SensorType.Lux:
-                    {
-                        float? value = Line.luxRead?.Invoke();
+                {
+                    float? value = Line.luxRead?.Invoke();
 
-                        Debug.Log(value);
-                        return value;
-                        //Read 함수 만들예정
-                    }
+                    Debug.Log(value);
+                    return value;
+                    //Read 함수 만들예정
+                }
 
                 case GameManager.SensorType.Ult:
-                    {
-                        Debug.Log("ult");
+                {
+                    Debug.Log("ult");
 
-                        float? value = Line.ultRead?.Invoke();
+                    float? value = Line.ultRead?.Invoke();
 
-                        Debug.Log(value);
-                        return value;
-                        //Read 함수 만들예정
-                    }
+                    Debug.Log(value);
+                    return value;
+                    //Read 함수 만들예정
+                }
             }
         }
 

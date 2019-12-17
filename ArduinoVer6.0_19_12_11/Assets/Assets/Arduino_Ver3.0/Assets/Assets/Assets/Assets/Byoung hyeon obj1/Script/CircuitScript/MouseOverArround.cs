@@ -7,6 +7,11 @@ public class MouseOverArround : MonoBehaviour
     public GameObject MakeLine;
     public Mousepoint mousepoint;
 
+    LineArray la;
+
+    [SerializeField]
+    private GameObject Parents;
+
     //이곳에서 선을 만들어준다.
     private void Start()
     {
@@ -22,14 +27,14 @@ public class MouseOverArround : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         if (mousepoint.MouseChecking == false)
         {
             mousepoint.MouseChecking = true;
             MakeLine = (GameObject)Instantiate(MakeLine, transform.position, this.gameObject.transform.rotation) as GameObject;
             MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = Random.ColorHSV();
-
+            Parents.GetComponent<LineArray>().array.Add(MakeLine);
         }
         else
             mousepoint.MouseChecking = false;

@@ -48,6 +48,8 @@ TagManager:
   - BreadGND
   - BreadPlus
   - BreadDIGITAL
+  - Sensor
+  - TrashBin
   layers:
   - Default
   - TransparentFX

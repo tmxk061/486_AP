@@ -149,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2585218755488091712}
   - component: {fileID: 5765113993687729434}
+  - component: {fileID: 20647409540878831}
   m_Layer: 0
   m_Name: LED Senser
   m_TagString: OUTPUT
@@ -193,6 +194,19 @@ MonoBehaviour:
   Electro: 0
   lux: {fileID: 0}
   MouseClick: 0
+--- !u!114 &20647409540878831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585218755488091715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!1 &2585218755531640301
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 2585218755488091715}
 --- !u!1 &4298532670010324982
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,3 +969,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 2585218755488091715}

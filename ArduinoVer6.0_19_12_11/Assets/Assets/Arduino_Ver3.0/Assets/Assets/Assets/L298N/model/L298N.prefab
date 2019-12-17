@@ -3944,9 +3944,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5771250168499023344}
+  - component: {fileID: 2399002258346634673}
   m_Layer: 0
   m_Name: L298N
-  m_TagString: Untagged
+  m_TagString: Sensor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3978,6 +3979,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!65 &2399002258346634673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066388252599250200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9056606, y: 1.7376531, z: 1.0528966}
+  m_Center: {x: -0.109555244, y: 0.049425602, z: 0.5596996}
 --- !u!1 &6073241638575488929
 GameObject:
   m_ObjectHideFlags: 0

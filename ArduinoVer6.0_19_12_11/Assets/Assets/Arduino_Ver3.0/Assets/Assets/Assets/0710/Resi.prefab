@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 8224182994819978579}
   - component: {fileID: 8224182994819978576}
   - component: {fileID: 8224182994819978412}
+  - component: {fileID: 3115004094234528274}
   m_Layer: 0
   m_Name: Resi
   m_TagString: resister
@@ -641,6 +642,19 @@ MonoBehaviour:
   Power: 0
   LineParent: {fileID: 0}
   plusgroup: {fileID: 0}
+--- !u!114 &3115004094234528274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224182994819978577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!1 &8224182995272217363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 8224182994819978577}
 --- !u!54 &8224182995818772737
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1147,6 +1162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 8224182994819978577}
 --- !u!54 &8224182995843549419
 Rigidbody:
   m_ObjectHideFlags: 0

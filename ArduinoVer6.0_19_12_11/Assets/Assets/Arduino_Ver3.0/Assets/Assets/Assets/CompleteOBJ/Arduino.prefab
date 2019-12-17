@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &1022157260627653574
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &1541971209467652651
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &1688770353976956839
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +665,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354011071021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,6 +1343,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354057949746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1740,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354099749527
 GameObject:
   m_ObjectHideFlags: 0
@@ -5500,6 +5506,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354366993256
 GameObject:
   m_ObjectHideFlags: 0
@@ -5611,6 +5618,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354370899001
 GameObject:
   m_ObjectHideFlags: 0
@@ -5997,6 +6005,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354393290432
 GameObject:
   m_ObjectHideFlags: 0
@@ -9209,6 +9218,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354651571124
 GameObject:
   m_ObjectHideFlags: 0
@@ -10598,6 +10608,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354734546363
 GameObject:
   m_ObjectHideFlags: 0
@@ -10709,6 +10720,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354735885508
 GameObject:
   m_ObjectHideFlags: 0
@@ -10820,6 +10832,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354744160208
 GameObject:
   m_ObjectHideFlags: 0
@@ -11480,6 +11493,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354784618384
 GameObject:
   m_ObjectHideFlags: 0
@@ -12234,6 +12248,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354834811961
 GameObject:
   m_ObjectHideFlags: 0
@@ -12618,6 +12633,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354860592127
 GameObject:
   m_ObjectHideFlags: 0
@@ -12820,6 +12836,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354875121172
 GameObject:
   m_ObjectHideFlags: 0
@@ -13574,6 +13591,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354915471565
 GameObject:
   m_ObjectHideFlags: 0
@@ -13782,6 +13800,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770354929434852
 GameObject:
   m_ObjectHideFlags: 0
@@ -13886,9 +13905,10 @@ GameObject:
   - component: {fileID: 1688770354944470998}
   - component: {fileID: 1688770354944470997}
   - component: {fileID: 1688770354944470985}
+  - component: {fileID: 3417155578714322711}
   m_Layer: 0
   m_Name: Arduino
-  m_TagString: Untagged
+  m_TagString: Arduino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14013,6 +14033,19 @@ MonoBehaviour:
   ConnectElectro: 0
   Circuit: []
   Connecting: 0
+--- !u!114 &3417155578714322711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688770354944470996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!1 &1688770354970049770
 GameObject:
   m_ObjectHideFlags: 0
@@ -15674,6 +15707,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355090236007
 GameObject:
   m_ObjectHideFlags: 0
@@ -16796,6 +16830,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355177289970
 GameObject:
   m_ObjectHideFlags: 0
@@ -19685,6 +19720,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355401970236
 GameObject:
   m_ObjectHideFlags: 0
@@ -21901,6 +21937,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355557103861
 GameObject:
   m_ObjectHideFlags: 0
@@ -22743,6 +22780,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355611031288
 GameObject:
   m_ObjectHideFlags: 0
@@ -23400,6 +23438,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355645864002
 GameObject:
   m_ObjectHideFlags: 0
@@ -23784,6 +23823,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355691660754
 GameObject:
   m_ObjectHideFlags: 0
@@ -25354,6 +25394,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355798172409
 GameObject:
   m_ObjectHideFlags: 0
@@ -25829,6 +25870,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355841525942
 GameObject:
   m_ObjectHideFlags: 0
@@ -25940,6 +25982,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355842466029
 GameObject:
   m_ObjectHideFlags: 0
@@ -26324,6 +26367,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355865919807
 GameObject:
   m_ObjectHideFlags: 0
@@ -26526,6 +26570,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355869340724
 GameObject:
   m_ObjectHideFlags: 0
@@ -26637,6 +26682,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355880742428
 GameObject:
   m_ObjectHideFlags: 0
@@ -27112,6 +27158,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355934509838
 GameObject:
   m_ObjectHideFlags: 0
@@ -27406,6 +27453,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770355951360359
 GameObject:
   m_ObjectHideFlags: 0
@@ -28430,6 +28478,7 @@ MonoBehaviour:
   circuitManager: {fileID: 1688770354944470985}
   Line: {fileID: 0}
   Work: 0
+  SocketType: 0
 --- !u!1 &1688770356014620942
 GameObject:
   m_ObjectHideFlags: 0
@@ -29921,6 +29970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &3111446080041486382
 GameObject:
   m_ObjectHideFlags: 0
@@ -30044,6 +30094,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &3819618427929330332
 GameObject:
   m_ObjectHideFlags: 0
@@ -30167,6 +30218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &3905482285185551264
 GameObject:
   m_ObjectHideFlags: 0
@@ -30290,6 +30342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4064065145861263487
 GameObject:
   m_ObjectHideFlags: 0
@@ -30413,6 +30466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872103401334563
 GameObject:
   m_ObjectHideFlags: 0
@@ -30536,6 +30590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872103404179502
 GameObject:
   m_ObjectHideFlags: 0
@@ -30659,6 +30714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872103864318191
 GameObject:
   m_ObjectHideFlags: 0
@@ -30782,6 +30838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872103874538523
 GameObject:
   m_ObjectHideFlags: 0
@@ -30905,6 +30962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872103922917400
 GameObject:
   m_ObjectHideFlags: 0
@@ -31028,6 +31086,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872104072874178
 GameObject:
   m_ObjectHideFlags: 0
@@ -31151,6 +31210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872104245384184
 GameObject:
   m_ObjectHideFlags: 0
@@ -31274,6 +31334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872104483404754
 GameObject:
   m_ObjectHideFlags: 0
@@ -31397,6 +31458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872104524206127
 GameObject:
   m_ObjectHideFlags: 0
@@ -31520,6 +31582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872104746246020
 GameObject:
   m_ObjectHideFlags: 0
@@ -31643,6 +31706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872104822545923
 GameObject:
   m_ObjectHideFlags: 0
@@ -31766,6 +31830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872104982379450
 GameObject:
   m_ObjectHideFlags: 0
@@ -31889,6 +31954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872105026039114
 GameObject:
   m_ObjectHideFlags: 0
@@ -32012,6 +32078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872105117893134
 GameObject:
   m_ObjectHideFlags: 0
@@ -32135,6 +32202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872105172687480
 GameObject:
   m_ObjectHideFlags: 0
@@ -32258,6 +32326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872105231655016
 GameObject:
   m_ObjectHideFlags: 0
@@ -32381,6 +32450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872105288772558
 GameObject:
   m_ObjectHideFlags: 0
@@ -32504,6 +32574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &4738872105347307390
 GameObject:
   m_ObjectHideFlags: 0
@@ -32627,6 +32698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &5132650955800705175
 GameObject:
   m_ObjectHideFlags: 0
@@ -32750,6 +32822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &7241361703819119686
 GameObject:
   m_ObjectHideFlags: 0
@@ -32873,6 +32946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &7592222706367594281
 GameObject:
   m_ObjectHideFlags: 0
@@ -32996,6 +33070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &8724356418141302577
 GameObject:
   m_ObjectHideFlags: 0
@@ -33119,6 +33194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1 &8862587217058040523
 GameObject:
   m_ObjectHideFlags: 0
@@ -33242,6 +33318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1001 &8151192220381590786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33338,6 +33415,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381801744978925443, guid: ca779ff870d09204ca239d17f1bf93a1,
+        type: 3}
+      propertyPath: Parents
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca779ff870d09204ca239d17f1bf93a1, type: 3}
