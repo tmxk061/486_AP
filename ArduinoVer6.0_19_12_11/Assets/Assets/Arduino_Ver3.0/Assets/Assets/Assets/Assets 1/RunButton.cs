@@ -33,7 +33,7 @@ public class RunButton : MonoBehaviour
     public void SearchBlock()
     {
         
-        blockgroup = GameObject.FindWithTag("Block").GetComponent<StartBlock>();
+        //blockgroup = GameObject.FindWithTag("Block").GetComponent<StartBlock>();
        
     }
 
@@ -64,8 +64,11 @@ public class RunButton : MonoBehaviour
     {
         if (RunOn == true)
         {
+            Debug.Log("런온");
             if (blockgroup != null)
             {
+                Debug.Log("블록그룹");
+
                 StartCoroutine(blockgroup.Run(0));
 
             }
