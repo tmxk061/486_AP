@@ -48,6 +48,7 @@ TagManager:
   - BreadGND
   - BreadPlus
   - BreadDIGITAL
+  - Sensor
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRaycast : MonoBehaviour
 {
+    public int ControlMode = 0; // 0:레이캐스트 , 1.마우스
     public new GameObject camera;
     public RaycastHit hit;
     public Ray ray;
@@ -30,7 +31,6 @@ public class PlayerRaycast : MonoBehaviour
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 400.0f))
         {
             ArroundOnOff();
-
             if (Input.GetMouseButtonDown(0))
             {
                 switch (hit.collider.name)
@@ -46,6 +46,24 @@ public class PlayerRaycast : MonoBehaviour
                     Myobject.transform.parent = camera.transform;
                 }
 
+                if (hit.transform.tag == "Arround")
+                {
+                    pointting = hit.transform.position;
+                    NowArround = hit.transform.gameObject;
+                    hit.collider.gameObject.GetComponent<MouseOverArround>().OnMouseDown();
+                }
+
+                if (hit.transform.tag == "Line")
+                {
+                    try
+                    {
+                        hit.transform.gameObject.GetComponent<StartLine>().OnMouseDown();
+                    }
+                    catch
+                    {
+                        hit.transform.gameObject.GetComponent<End>().OnMouseDown();
+                    }
+                }
 
             }
             else if (Input.GetMouseButtonUp(0))
@@ -60,10 +78,6 @@ public class PlayerRaycast : MonoBehaviour
                 }
             }
         }
-
-
-
-
 
     }
 

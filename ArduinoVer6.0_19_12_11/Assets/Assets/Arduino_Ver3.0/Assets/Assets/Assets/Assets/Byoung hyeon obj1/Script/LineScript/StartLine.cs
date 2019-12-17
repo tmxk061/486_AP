@@ -372,7 +372,7 @@ public class StartLine : MonoBehaviour
         Manager.Connect1 = 0;
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         if (Mousepoint.MouseInstance().MouseChecking == false)
         {

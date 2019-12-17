@@ -15,6 +15,7 @@ public class End : MonoBehaviour
 
     public LineManager Manager;
     public Mousepoint mousepoint;
+    public PlayerRaycast playerRaycast;
     public GameObject socket;
     public L298NOUT4 l298n;
     public L298N_GND l298n_gnd;
@@ -34,6 +35,7 @@ public class End : MonoBehaviour
     private void Start()
     {
         mousepoint = Camera.main.GetComponent<Mousepoint>();
+        playerRaycast = GameObject.FindWithTag("Player").GetComponent<PlayerRaycast>();
         Firstmake = false;
         Manager = gameObject.GetComponentInParent<LineManager>();
 
@@ -48,37 +50,73 @@ public class End : MonoBehaviour
             this.gameObject.transform.rotation = new Quaternion(savepos[3], savepos[4], savepos[5], 0);
         }
 
-
-        if (Firstmake == false && LoadLine == false)
+        if (playerRaycast.ControlMode == 0)
         {
-            if (mousepoint.MouseChecking == false)
+            if (Firstmake == false && LoadLine == false)
             {
-                savepos[0] = mousepoint.pointting.x;
-                savepos[1] = mousepoint.pointting.y;
-                savepos[2] = mousepoint.pointting.z;
+                if (mousepoint.MouseChecking == false)
+                {
+                    savepos[0] = playerRaycast.pointting.x;
+                    savepos[1] = playerRaycast.pointting.y;
+                    savepos[2] = playerRaycast.pointting.z;
 
 
-                savepos[3] = mousepoint.hit.transform.rotation.x;
-                savepos[4] = mousepoint.hit.transform.rotation.y;
-                savepos[5] = mousepoint.hit.transform.rotation.z;
+                    savepos[3] = playerRaycast.hit.transform.rotation.x;
+                    savepos[4] = playerRaycast.hit.transform.rotation.y;
+                    savepos[5] = playerRaycast.hit.transform.rotation.z;
 
-                this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
-                this.gameObject.transform.position = new Vector3(savepos[0], savepos[1], savepos[2]);
-                this.gameObject.transform.rotation = mousepoint.hit.transform.rotation;
+                    this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                    this.gameObject.transform.position = new Vector3(savepos[0], savepos[1], savepos[2]);
+                    this.gameObject.transform.rotation = playerRaycast.hit.transform.rotation;
 
-                /*asdf[0] = this.gameObject.transform.position.x;
-                asdf[1] = this.gameObject.transform.position.y;
-                asdf[2] = this.gameObject.transform.position.z;*/
+                    /*asdf[0] = this.gameObject.transform.position.x;
+                    asdf[1] = this.gameObject.transform.position.y;
+                    asdf[2] = this.gameObject.transform.position.z;*/
 
 
-                Firstmake = true;
+                    Firstmake = true;
+                }
+                else if (mousepoint.MouseChecking == true)
+                {
+                    this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                }
+
             }
-            else if (mousepoint.MouseChecking == true)
-            {
-                this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
-            }
-
         }
+        else if (playerRaycast.ControlMode == 1)
+        {
+            if (Firstmake == false && LoadLine == false)
+            {
+                if (mousepoint.MouseChecking == false)
+                {
+                    savepos[0] = mousepoint.pointting.x;
+                    savepos[1] = mousepoint.pointting.y;
+                    savepos[2] = mousepoint.pointting.z;
+
+
+                    savepos[3] = mousepoint.hit.transform.rotation.x;
+                    savepos[4] = mousepoint.hit.transform.rotation.y;
+                    savepos[5] = mousepoint.hit.transform.rotation.z;
+
+                    this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                    this.gameObject.transform.position = new Vector3(savepos[0], savepos[1], savepos[2]);
+                    this.gameObject.transform.rotation = mousepoint.hit.transform.rotation;
+
+                    /*asdf[0] = this.gameObject.transform.position.x;
+                    asdf[1] = this.gameObject.transform.position.y;
+                    asdf[2] = this.gameObject.transform.position.z;*/
+
+
+                    Firstmake = true;
+                }
+                else if (mousepoint.MouseChecking == true)
+                {
+                    this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+                }
+
+            }
+        }
+        
 
         Electro = Manager.Electro;
 
@@ -431,7 +469,7 @@ public class End : MonoBehaviour
     }*/
 
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
 
         if (Mousepoint.MouseInstance().MouseChecking == false)
