@@ -7358,7 +7358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &508489250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7391,6 +7391,7 @@ MonoBehaviour:
   rb: {fileID: 508489250}
   rotateSpeed: 5
   cameraRotationLimit: 80
+  rayctrl: {fileID: 508489253}
 --- !u!4 &508489252
 Transform:
   m_ObjectHideFlags: 0
@@ -8484,7 +8485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &559540014
 Transform:
   m_ObjectHideFlags: 0
@@ -8532,6 +8533,7 @@ MonoBehaviour:
   rb: {fileID: 559540015}
   rotateSpeed: 5
   cameraRotationLimit: 80
+  rayctrl: {fileID: 0}
 --- !u!1 &562006088
 GameObject:
   m_ObjectHideFlags: 0
