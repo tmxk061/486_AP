@@ -29,25 +29,7 @@ public class PlayerRaycast : MonoBehaviour
 
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 400.0f))
         {
-            if (hit.collider != null)
-            {
-                if (NowArround != null)
-                {
-                    if (hit.transform.gameObject != NowArround)
-                    {
-                        NowArround.GetComponent<MouseOverArround>().OnMouseExit();
-                    }
-                }
-
-                if (hit.transform.tag == "Arround")
-                {
-                    NowArround = hit.transform.gameObject;
-                    hit.collider.gameObject.GetComponent<MouseOverArround>().OnMouseEnter();
-                }
-
-            }
-
-
+            ArroundOnOff();
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -64,7 +46,7 @@ public class PlayerRaycast : MonoBehaviour
                     Myobject.transform.parent = camera.transform;
                 }
 
-                
+
             }
             else if (Input.GetMouseButtonUp(0))
             {
@@ -78,10 +60,31 @@ public class PlayerRaycast : MonoBehaviour
                 }
             }
         }
-       
-            
 
-       
 
+
+
+
+    }
+
+    private void ArroundOnOff()
+    {
+        if (hit.collider != null)
+        {
+            if (NowArround != null)
+            {
+                if (hit.transform.gameObject != NowArround)
+                {
+                    NowArround.GetComponent<MouseOverArround>().OnMouseExit();
+                }
+            }
+
+            if (hit.transform.tag == "Arround")
+            {
+                NowArround = hit.transform.gameObject;
+                hit.collider.gameObject.GetComponent<MouseOverArround>().OnMouseEnter();
+            }
+
+        }
     }
 }
