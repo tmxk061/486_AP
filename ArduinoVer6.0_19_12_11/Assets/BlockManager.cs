@@ -25,7 +25,7 @@ public class BlockManager : MonoBehaviour
             if (block != null)
                 return block;
         }
-        Debug.Log("해당없음");
+
         return null;
     }
 

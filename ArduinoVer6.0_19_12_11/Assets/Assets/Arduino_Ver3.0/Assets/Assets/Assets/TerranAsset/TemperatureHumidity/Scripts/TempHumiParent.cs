@@ -101,7 +101,7 @@ public class TempHumiParent : MonoBehaviour
 
     private IEnumerator Work()
     {
-        Debug.Log("Work");
+
 
         //for (int i = 0; i < temphumi.Count; i++)
         //{
