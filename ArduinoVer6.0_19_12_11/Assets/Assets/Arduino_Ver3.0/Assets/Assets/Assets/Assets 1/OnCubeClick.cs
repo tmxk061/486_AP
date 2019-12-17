@@ -75,7 +75,7 @@ public class OnCubeClick : MonoBehaviour
         Button4Image.raycastTarget = false;
       
     }
-    public void OnMouseDown()
+    private void OnMouseDown()
     {
         Button1Image.raycastTarget = true;
         Button2Image.raycastTarget = true;
