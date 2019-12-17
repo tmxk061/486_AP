@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 8923393039780219660}
   - component: {fileID: 4084559632359464743}
   - component: {fileID: 8844841794486574507}
+  - component: {fileID: 149537596644496262}
   m_Layer: 0
   m_Name: Sub Motor
   m_TagString: OUTPUT
@@ -142,6 +143,20 @@ MonoBehaviour:
   VccConnect: 0
   GNDConnect: 0
   DigitalConnect: 0
+  MouseClick: 0
+--- !u!114 &149537596644496262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923393039780219661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!1 &8923393040014114732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1109,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7381801744978925443, guid: ca779ff870d09204ca239d17f1bf93a1,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 8923393039780219661}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca779ff870d09204ca239d17f1bf93a1, type: 3}
 --- !u!1 &2075699092188904746 stripped
@@ -1180,6 +1200,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7381801744978925443, guid: ca779ff870d09204ca239d17f1bf93a1,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 8923393039780219661}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca779ff870d09204ca239d17f1bf93a1, type: 3}
 --- !u!1 &2075699092710667387 stripped
@@ -1271,6 +1296,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.00001
       objectReference: {fileID: 0}
+    - target: {fileID: 7381801744978925443, guid: ca779ff870d09204ca239d17f1bf93a1,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 8923393039780219661}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca779ff870d09204ca239d17f1bf93a1, type: 3}
 --- !u!1 &2075699093577915845 stripped

@@ -192,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 6528031731185936548}
 --- !u!1 &6528031730707734071
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 6528031731185936548}
 --- !u!1 &6528031731185936548
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +485,7 @@ GameObject:
   - component: {fileID: 6528031731185936550}
   - component: {fileID: 6528031731185936549}
   - component: {fileID: 8563681941789818742}
+  - component: {fileID: 1409442039993880045}
   m_Layer: 9
   m_Name: LED Senser(2)
   m_TagString: Sensor
@@ -535,11 +538,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6528031731185936548}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.9, y: 1.4, z: 0.9}
   m_Center: {x: 0, y: 1.4, z: 0}
+--- !u!114 &1409442039993880045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6528031731185936548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!1 &6528031731477728124
 GameObject:
   m_ObjectHideFlags: 0

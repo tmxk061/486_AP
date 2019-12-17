@@ -395,6 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &23447680
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -564,6 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &27485176
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -687,6 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &29368220
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1049,6 +1052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &49036431
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1457,6 +1461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &57914585
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1586,6 +1591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &71493998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3602,6 +3608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &223378077
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3725,6 +3732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &258660375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3848,6 +3856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &261619148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4193,6 +4202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &282345494
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4696,6 +4706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &315838390
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5308,6 +5319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &338981952
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5431,6 +5443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &357079154
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5554,6 +5567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &362739293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5938,6 +5952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &432754051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6469,6 +6484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &481877785
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6654,6 +6670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &489833324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6856,6 +6873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &491397461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6976,6 +6994,135 @@ RectTransform:
   m_AnchoredPosition: {x: -11.000004, y: 13.000001}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &494057758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1201363407462921951}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_Name
+      value: WasteBin
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 118.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7d7c38ffdfcc71640a9821858c5be2cc, type: 3}
+--- !u!1 &494057759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 7d7c38ffdfcc71640a9821858c5be2cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 494057758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &494057760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494057759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1199abd660ba57b4e917e29d70eca66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &494057761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494057759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
+--- !u!65 &494057762
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494057759}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.358116, y: 14.386031, z: 19.109768}
+  m_Center: {x: 0.0000076293945, y: -1.3578304e-13, z: 9.554884}
+--- !u!54 &494057763
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494057759}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &505756347
 GameObject:
   m_ObjectHideFlags: 0
@@ -7319,6 +7466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &520629571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7442,6 +7590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &525346982
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7565,6 +7714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &531807409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8015,6 +8165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &557686998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8228,6 +8379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &604242045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8675,6 +8827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &620969768
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8823,6 +8976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &637334735
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9026,6 +9180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &642207229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9299,6 +9454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &656169475
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9766,6 +9922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &716944498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9968,6 +10125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &726731542
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10091,6 +10249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &733624297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10364,6 +10523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &752000809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10487,6 +10647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &758379979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10909,6 +11070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &780783844
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11230,6 +11392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &784281351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11432,6 +11595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &791226156
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11965,6 +12129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &804689534
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12232,6 +12397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &828457025
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12355,6 +12521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &830392014
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12872,6 +13039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &846525374
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12995,6 +13163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &847190838
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13118,6 +13287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &855805522
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13628,6 +13798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &868213418
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14069,6 +14240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &885296385
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14654,6 +14826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &935825773
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14777,6 +14950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &936213241
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14900,6 +15074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &942868081
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15813,6 +15988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1029267231
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16524,6 +16700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1089188600
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16647,6 +16824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1089754198
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16891,6 +17069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1104825366
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17072,6 +17251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1118137625
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18256,6 +18436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1187135733
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18458,6 +18639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1188357195
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18750,6 +18932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1202305251
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18970,6 +19153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1213586946
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19093,6 +19277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1214824861
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19216,6 +19401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1219840652
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19483,6 +19669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1232762774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19776,6 +19963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1247930384
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19983,6 +20171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1273800606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20112,6 +20301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1292445826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20235,6 +20425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1293317550
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20437,6 +20628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1308815836
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20566,6 +20758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1318797201
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21315,6 +21508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1415379318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21528,6 +21722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1427789855
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21853,6 +22048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1479184572
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22781,6 +22977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1541526438
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23028,6 +23225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1544797262
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23315,6 +23513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1545656960
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23779,6 +23978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1590658688
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24046,6 +24246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1595611331
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24169,6 +24370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1602325251
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24292,6 +24494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1602563052
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24494,6 +24697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1608366442
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25014,6 +25218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1629520304
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25570,6 +25775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1667077899
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25693,6 +25899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1677466579
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25970,6 +26177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1684316277
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26381,6 +26589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1701654701
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26893,6 +27102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1726059689
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27158,6 +27368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1737033148
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27287,6 +27498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1741247864
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28047,6 +28259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1812190959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28212,6 +28425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1817587493
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28569,6 +28783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1829468456
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28692,6 +28907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1834061058
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29098,6 +29314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1880680116
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29221,6 +29438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1884691992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29530,6 +29748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1894060939
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29794,6 +30013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1910273424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29917,6 +30137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1911363047
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30067,6 +30288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1917780388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30190,6 +30412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1920453001
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30467,6 +30690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1932808778
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30590,6 +30814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1935322352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30713,6 +30938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1953808176
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31074,6 +31300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1958578109
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31197,6 +31424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &1964128776
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31571,6 +31799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2011383945
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31694,6 +31923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2015781871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31958,6 +32188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2037071666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32160,6 +32391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2047575430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32683,6 +32915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2077249596
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33027,6 +33260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!54 &2141842323
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -48524,6 +48758,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6058948655841406945, guid: e25eb8cd74948de4e92b648ef42bd925, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e25eb8cd74948de4e92b648ef42bd925, type: 3}
+--- !u!4 &1201363407462921951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4397247065885274546, guid: e25eb8cd74948de4e92b648ef42bd925,
+    type: 3}
+  m_PrefabInstance: {fileID: 1201363407462921950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1210179338692118036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50538,7 +50778,7 @@ GameObject:
   - component: {fileID: 2998672670430365910}
   m_Layer: 9
   m_Name: DC Motor
-  m_TagString: Untagged
+  m_TagString: Sensor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50994,6 +51234,11 @@ PrefabInstance:
       propertyPath: Around
       value: 
       objectReference: {fileID: 171165992}
+    - target: {fileID: 8852690024120005583, guid: 7d06612727e9c814f84c3e99b2f594b8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d06612727e9c814f84c3e99b2f594b8, type: 3}
 --- !u!33 &3732653998646287631
@@ -51481,6 +51726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!23 &5229439767977821778
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -51994,6 +52240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 0}
 --- !u!1001 &6528031730889963340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57986,6 +58233,61 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 12.000015
       objectReference: {fileID: 0}
+    - target: {fileID: 1209323935780968789, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673908801019722, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673909092165417, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673909206471423, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673909260386721, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673909533372543, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673909768100226, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673909903405450, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673910535982765, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673910578084162, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
+    - target: {fileID: 9063673910591039160, guid: 9c3e3d6e13cc18d49aa0e9737e059656,
+        type: 3}
+      propertyPath: Parents
+      value: 
+      objectReference: {fileID: 7682622777221274910}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c3e3d6e13cc18d49aa0e9737e059656, type: 3}
 --- !u!1 &7682622777221274910 stripped
@@ -58002,11 +58304,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7682622777221274910}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5211941, y: 1.6162723, z: 1.0462533}
   m_Center: {x: 0.039814975, y: 0.050435215, z: 0.49180403}
+--- !u!114 &7682622777221274912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682622777221274910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!33 &7705799493048939841
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -58437,6 +58752,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 28
       objectReference: {fileID: 0}
+    - target: {fileID: 5476209428547092888, guid: 30bcc7f21068719438c81fb0cc5c0b99,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30bcc7f21068719438c81fb0cc5c0b99, type: 3}
 --- !u!1001 &8575974089412246218
@@ -58526,6 +58846,11 @@ PrefabInstance:
       propertyPath: lightObject
       value: 
       objectReference: {fileID: 1102419007}
+    - target: {fileID: 7932308313803664639, guid: c3225acc9c9cf2e4e9f5cfe3712e97d9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2643738079959886684, guid: c3225acc9c9cf2e4e9f5cfe3712e97d9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3225acc9c9cf2e4e9f5cfe3712e97d9, type: 3}
