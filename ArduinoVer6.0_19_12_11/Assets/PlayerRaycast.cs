@@ -13,6 +13,9 @@ public class PlayerRaycast : MonoBehaviour
 
     public Vector3 pointting;//위치를 가져옴
 
+    [SerializeField]
+    private GameObject NowArround;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +25,31 @@ public class PlayerRaycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Debug.DrawRay(camera.transform.position, camera.transform.forward * 400.0f, Color.red);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 400.0f))
         {
-            if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 400.0f))
+            if (hit.collider != null)
+            {
+                if (NowArround != null)
+                {
+                    if (hit.transform.gameObject != NowArround)
+                    {
+                        NowArround.GetComponent<MouseOverArround>().OnMouseExit();
+                    }
+                }
+
+                if (hit.transform.tag == "Arround")
+                {
+                    NowArround = hit.transform.gameObject;
+                    hit.collider.gameObject.GetComponent<MouseOverArround>().OnMouseEnter();
+                }
+
+            }
+
+
+
+            if (Input.GetMouseButtonDown(0))
             {
                 switch (hit.collider.name)
                 {
@@ -42,28 +64,24 @@ public class PlayerRaycast : MonoBehaviour
                     Myobject.transform.parent = camera.transform;
                 }
 
-                if (hit.transform.tag == "Arround" && Input.GetMouseButtonDown(0))
+                
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                try
                 {
-                    //MouseChecking = true;
-                    pointting = hit.transform.position;
+                    Myobject.transform.parent = null;
+                }
+                catch
+                {
 
-                    //TestBox.transform.position = hit.transform.position;
                 }
             }
         }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            try
-            {
-                Myobject.transform.parent = null;
-            }
-            catch
-            {
+       
+            
 
-            }
-        }
-
-
+       
 
     }
 }

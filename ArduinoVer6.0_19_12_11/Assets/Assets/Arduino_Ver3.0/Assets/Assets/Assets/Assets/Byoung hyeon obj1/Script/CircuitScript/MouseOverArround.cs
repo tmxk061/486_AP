@@ -42,17 +42,17 @@ public class MouseOverArround : MonoBehaviour
     }
 
 
-    private void OnMouseEnter()
+    public void OnMouseEnter()
     {
         this.gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
