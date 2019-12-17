@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerRaycast : MonoBehaviour
 {
-    public int ControlMode = 0; // 0:레이캐스트 , 1.마우스
+    public int ControlMode = 1; // 0:레이캐스트 , 1.마우스
     public new GameObject camera;
     public RaycastHit hit;
     public Ray ray;
@@ -26,6 +26,9 @@ public class PlayerRaycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ControlMode == 1)
+            return;
+
         Debug.DrawRay(camera.transform.position, camera.transform.forward * 400.0f, Color.red);
 
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 400.0f))

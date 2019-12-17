@@ -6,7 +6,7 @@ public class Player_Move : MonoBehaviour
 {
     public Camera cam;
     public Rigidbody rb;
-
+    
     public float rotateSpeed = 5f;
 
     public float cameraRotationLimit = 80f;
@@ -17,6 +17,9 @@ public class Player_Move : MonoBehaviour
 
     // 카메라 회전 -> true = 불가, false = 가능
     private bool StopCamRotation = false;
+
+    [SerializeField]
+    private PlayerRaycast rayctrl;
 
     void Update()
     {
@@ -34,9 +37,16 @@ public class Player_Move : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             if (StopCamRotation == false)
+            {
+                rayctrl.ControlMode = 1;
                 StopCamRotation = true;
+            }
             else
+            {
+                rayctrl.ControlMode = 0;
                 StopCamRotation = false;
+            }
+                
         }
     }
 

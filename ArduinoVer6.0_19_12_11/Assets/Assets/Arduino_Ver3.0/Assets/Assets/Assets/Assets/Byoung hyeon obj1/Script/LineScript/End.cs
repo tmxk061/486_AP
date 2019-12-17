@@ -35,7 +35,16 @@ public class End : MonoBehaviour
     private void Start()
     {
         mousepoint = Camera.main.GetComponent<Mousepoint>();
-        playerRaycast = GameObject.FindWithTag("Player").GetComponent<PlayerRaycast>();
+
+        try
+        {
+            playerRaycast = GameObject.FindWithTag("Player").GetComponent<PlayerRaycast>();
+        }
+        catch
+        {
+            playerRaycast = null;
+        }
+        
         Firstmake = false;
         Manager = gameObject.GetComponentInParent<LineManager>();
 
@@ -50,7 +59,18 @@ public class End : MonoBehaviour
             this.gameObject.transform.rotation = new Quaternion(savepos[3], savepos[4], savepos[5], 0);
         }
 
-        if (playerRaycast.ControlMode == 0)
+        int i;
+
+        try
+        {
+          i = playerRaycast.ControlMode;
+        }
+        catch
+        {
+            i = 1;
+        }
+
+        if (i == 0)
         {
             if (Firstmake == false && LoadLine == false)
             {
@@ -83,7 +103,7 @@ public class End : MonoBehaviour
 
             }
         }
-        else if (playerRaycast.ControlMode == 1)
+        else if (i == 1)
         {
             if (Firstmake == false && LoadLine == false)
             {
