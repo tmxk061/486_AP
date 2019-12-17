@@ -44538,6 +44538,8 @@ GameObject:
   - component: {fileID: 912088486863004765}
   - component: {fileID: 912088486860104829}
   - component: {fileID: 912088486861104701}
+  - component: {fileID: 912088486863370398}
+  - component: {fileID: 912088486863370397}
   m_Layer: 0
   m_Name: BreadBoard
   m_TagString: Untagged
@@ -44953,6 +44955,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.024384, y: 0.024688805, z: 0.0063500013}
   m_Center: {x: 0, y: 0, z: 0.0031750007}
+--- !u!114 &912088486863370397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912088486863370365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
+--- !u!114 &912088486863370398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912088486863370365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094e2b7d20cd4d640b59252bdc23249e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pin: []
 --- !u!1 &912088486863370497
 GameObject:
   m_ObjectHideFlags: 0
