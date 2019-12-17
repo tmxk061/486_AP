@@ -9,8 +9,7 @@ public class MouseOverArround : MonoBehaviour
 
     LineArray la;
 
-    [SerializeField]
-    private GameObject Parents;
+    public GameObject Parents;
 
     //이곳에서 선을 만들어준다.
     private void Start()
