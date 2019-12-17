@@ -11,6 +11,8 @@ public class PlayerRaycast : MonoBehaviour
     [SerializeField]
     private GameObject Myobject;
 
+    public Vector3 pointting;//위치를 가져옴
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,14 @@ public class PlayerRaycast : MonoBehaviour
                     Myobject = hit.collider.gameObject;
                     Myobject.transform.parent = camera.transform;
                 }
+
+                if (hit.transform.tag == "Arround" && Input.GetMouseButtonDown(0))
+                {
+                    //MouseChecking = true;
+                    pointting = hit.transform.position;
+
+                    //TestBox.transform.position = hit.transform.position;
+                }
             }
         }
         else if (Input.GetMouseButtonUp(0))
@@ -56,3 +66,4 @@ public class PlayerRaycast : MonoBehaviour
 
 
     }
+}
