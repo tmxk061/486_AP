@@ -24,6 +24,7 @@ public class StartBlock : Block
 
     public override IEnumerator Run(float s)
     {
+        Debug.Log("start");
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
 
         yield return new WaitForSeconds(0.3f);
