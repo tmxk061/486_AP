@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 7099169605374582372}
 --- !u!1 &4429254390299101259
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 7099169605374582372}
 --- !u!1 &5587614187064024232
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  Parents: {fileID: 7099169605374582372}
 --- !u!1 &7099169604995065918
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7099169605374582370}
   - component: {fileID: 7099169605374582373}
+  - component: {fileID: 143288316500050553}
   m_Layer: 0
   m_Name: Ultrasonic Sensor
   m_TagString: INPUT
@@ -923,7 +927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7099169605374582372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.28, y: 12.11, z: -11.07}
+  m_LocalPosition: {x: -10.28, y: 13.17, z: -11.07}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 7099169606128543699}
@@ -946,12 +950,30 @@ MonoBehaviour:
   VccConnect: 0
   GNDConnect: 0
   DigitalConnect: 0
+  EchoPinConnet: 0
   VccPower: 0
   other: {fileID: 0}
   closeDistance: 5
   ForwardDirection: {x: 0, y: 0, z: 0}
   RunLaser: 0
   sqrLen: 0
+  ultrasonic: 0
+  MouseClick: 0
+  CustomDis: 4000
+  CustomWil: 30
+--- !u!114 &143288316500050553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099169605374582372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfb156984c410347af6aa2dc4b020d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  array: []
 --- !u!1 &7099169605586394319
 GameObject:
   m_ObjectHideFlags: 0
