@@ -37,6 +37,7 @@ public class PlayerRaycast : MonoBehaviour
             Debug.Log(hit.collider.name);
             ArroundOnOff();
             ArduinoCtrl();
+
         }
 
     }
