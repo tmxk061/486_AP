@@ -7352,13 +7352,14 @@ GameObject:
   - component: {fileID: 508489251}
   - component: {fileID: 508489250}
   - component: {fileID: 508489253}
+  - component: {fileID: 508489254}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: RayCast_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &508489250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7373,7 +7374,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &508489251
 MonoBehaviour:
@@ -7424,6 +7425,19 @@ MonoBehaviour:
   Myobject: {fileID: 0}
   pointting: {x: 0, y: 0, z: 0}
   NowArround: {fileID: 0}
+--- !u!65 &508489254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508489249}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8, y: 8, z: 8}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &515945889
 GameObject:
   m_ObjectHideFlags: 0
@@ -8486,7 +8500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &559540014
 Transform:
   m_ObjectHideFlags: 0
@@ -54168,6 +54182,7 @@ GameObject:
   - component: {fileID: 6767385569929693525}
   - component: {fileID: 6767385569929693522}
   - component: {fileID: 6767385569929693523}
+  - component: {fileID: 6767385569929693526}
   m_Layer: 5
   m_Name: InputButton6
   m_TagString: Untagged
@@ -54280,6 +54295,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!65 &6767385569929693526
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767385569929693521}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!224 &6767385569932214488
 RectTransform:
   m_ObjectHideFlags: 0
@@ -54797,6 +54825,7 @@ GameObject:
   - component: {fileID: 6767385570207769667}
   - component: {fileID: 6767385570207769664}
   - component: {fileID: 6767385570207769728}
+  - component: {fileID: 6767385570207769729}
   m_Layer: 5
   m_Name: InputButton5
   m_TagString: Untagged
@@ -54819,6 +54848,19 @@ MonoBehaviour:
   obj: {fileID: 5024681653328405942, guid: a2c235304c0ebb9499d3cd1658d94f18, type: 3}
   Tootip: {fileID: 6767385570156821465}
   type: 1
+--- !u!65 &6767385570207769729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767385570207769727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!1 &6767385570210974820
 GameObject:
   m_ObjectHideFlags: 0
@@ -56177,6 +56219,7 @@ GameObject:
   - component: {fileID: 6767385570779847520}
   - component: {fileID: 6767385570779847521}
   - component: {fileID: 6767385570779847453}
+  - component: {fileID: 6767385570779847454}
   m_Layer: 5
   m_Name: InputButton3
   m_TagString: Untagged
@@ -56199,6 +56242,19 @@ MonoBehaviour:
   obj: {fileID: 5180018637870368679, guid: 7d06612727e9c814f84c3e99b2f594b8, type: 3}
   Tootip: {fileID: 6767385569623474032}
   type: 2
+--- !u!65 &6767385570779847454
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767385570779847452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!224 &6767385570779847455
 RectTransform:
   m_ObjectHideFlags: 0
@@ -56797,6 +56853,7 @@ GameObject:
   - component: {fileID: 6767385570976025882}
   - component: {fileID: 6767385570976025883}
   - component: {fileID: 6767385570976025879}
+  - component: {fileID: 6767385570976025880}
   m_Layer: 5
   m_Name: InputButton9
   m_TagString: Untagged
@@ -56819,6 +56876,19 @@ MonoBehaviour:
   obj: {fileID: 8642242659033470169, guid: c3225acc9c9cf2e4e9f5cfe3712e97d9, type: 3}
   Tootip: {fileID: 6767385570509659850}
   type: 2
+--- !u!65 &6767385570976025880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767385570976025878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!224 &6767385570976025881
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57513,6 +57583,7 @@ GameObject:
   - component: {fileID: 6767385571289107189}
   - component: {fileID: 6767385571289107186}
   - component: {fileID: 6767385571289107187}
+  - component: {fileID: 6767385571289107190}
   m_Layer: 5
   m_Name: InputButton2
   m_TagString: Untagged
@@ -57625,6 +57696,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!65 &6767385571289107190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767385571289107185}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!1 &6767385571295349580
 GameObject:
   m_ObjectHideFlags: 0
@@ -58266,6 +58350,7 @@ GameObject:
   - component: {fileID: 6767385571614045108}
   - component: {fileID: 6767385571614045109}
   - component: {fileID: 6767385571614045105}
+  - component: {fileID: 6767385571614045106}
   m_Layer: 5
   m_Name: InputButton8
   m_TagString: Untagged
@@ -58288,6 +58373,19 @@ MonoBehaviour:
   obj: {fileID: 8642242659033470169, guid: c3225acc9c9cf2e4e9f5cfe3712e97d9, type: 3}
   Tootip: {fileID: 6767385569636004969}
   type: 1
+--- !u!65 &6767385571614045106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6767385571614045104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!224 &6767385571614045107
 RectTransform:
   m_ObjectHideFlags: 0
@@ -60841,6 +60939,7 @@ GameObject:
   - component: {fileID: 8851445858965104602}
   - component: {fileID: 8851445858965104603}
   - component: {fileID: 8851445858965104604}
+  - component: {fileID: 8851445858965104606}
   m_Layer: 5
   m_Name: InputButton4
   m_TagString: Untagged
@@ -60953,6 +61052,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8851445858965104601}
   m_CullTransparentMesh: 0
+--- !u!65 &8851445858965104606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851445858965104601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!224 &8851445859067317794
 RectTransform:
   m_ObjectHideFlags: 0
@@ -60985,6 +61097,7 @@ GameObject:
   - component: {fileID: 8851445859067317796}
   - component: {fileID: 8851445859067317797}
   - component: {fileID: 8851445859067317798}
+  - component: {fileID: 8851445859067317800}
   m_Layer: 5
   m_Name: InputButton7
   m_TagString: Untagged
@@ -61097,6 +61210,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8851445859067317795}
   m_CullTransparentMesh: 0
+--- !u!65 &8851445859067317800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851445859067317795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!224 &8851445859150284796
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61348,6 +61474,7 @@ GameObject:
   - component: {fileID: 8851445859407983599}
   - component: {fileID: 8851445859407983596}
   - component: {fileID: 8851445859407983597}
+  - component: {fileID: 8851445859407983600}
   m_Layer: 5
   m_Name: InputButton1
   m_TagString: Untagged
@@ -61460,6 +61587,19 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!65 &8851445859407983600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851445859407983595}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.9515, y: 7.882104, z: 1}
+  m_Center: {x: 0.02898154, y: -0.008228534, z: -6.2666854e-16}
 --- !u!224 &8851445859591464888
 RectTransform:
   m_ObjectHideFlags: 0
