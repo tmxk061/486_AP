@@ -38,12 +38,12 @@ public class Player_Move : MonoBehaviour
         {
             if (StopCamRotation == false)
             {
-                rayctrl.ControlMode = 1;
+                //rayctrl.ControlMode = 1;
                 StopCamRotation = true;
             }
             else
             {
-                rayctrl.ControlMode = 0;
+                //rayctrl.ControlMode = 0;
                 StopCamRotation = false;
             }
                 

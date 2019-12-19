@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerRaycast : MonoBehaviour
 {
@@ -33,55 +34,82 @@ public class PlayerRaycast : MonoBehaviour
 
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 400.0f))
         {
+            Debug.Log(hit.collider.name);
             ArroundOnOff();
-            if (Input.GetMouseButtonDown(0))
+            ArduinoCtrl();
+
+        }
+
+    }
+
+    private void ArduinoCtrl()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            switch (hit.collider.name)
             {
-                switch (hit.collider.name)
-                {
-                    case "BlockCordingButton":
-                        hit.collider.gameObject.GetComponent<OnCubeClick>().OnMouseDown();
-                        break;
-                }
-
-                if (hit.collider.tag == "Sensor")
-                {
-                    Myobject = hit.collider.gameObject;
-                    Myobject.transform.parent = camera.transform;
-                }
-
-                if (hit.transform.tag == "Arround")
-                {
-                    pointting = hit.transform.position;
-                    NowArround = hit.transform.gameObject;
-                    hit.collider.gameObject.GetComponent<MouseOverArround>().OnMouseDown();
-                }
-
-                if (hit.transform.tag == "Line")
-                {
-                    try
-                    {
-                        hit.transform.gameObject.GetComponent<StartLine>().OnMouseDown();
-                    }
-                    catch
-                    {
-                        hit.transform.gameObject.GetComponent<End>().OnMouseDown();
-                    }
-                }
-
+                case "BlockCordingButton":
+                    hit.collider.gameObject.GetComponent<OnCubeClick>().OnMouseDown();
+                    break;
             }
-            else if (Input.GetMouseButtonUp(0))
+
+            if (hit.collider.tag == "Sensor")
+            {
+                Myobject = hit.collider.gameObject;
+                Myobject.transform.parent = camera.transform;
+            }
+
+            if (hit.transform.tag == "Arround")
+            {
+                pointting = hit.transform.position;
+                NowArround = hit.transform.gameObject;
+                hit.collider.gameObject.GetComponent<MouseOverArround>().OnMouseDown();
+            }
+
+            if (hit.transform.tag == "Line")
             {
                 try
                 {
-                    Myobject.transform.parent = null;
+                    hit.transform.gameObject.GetComponent<StartLine>().OnMouseDown();
                 }
                 catch
                 {
-
+                    hit.transform.gameObject.GetComponent<End>().OnMouseDown();
                 }
             }
+
+            UIClcikCheck();
+
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            try
+            {
+                Myobject.transform.parent = null;
+            }
+            catch
+            {
+
+            }
+        }
+    }
+
+    private void UIClcikCheck()
+    {
+        if (!(hit.collider.gameObject.GetComponent<CreateAduinoSonic>() == null))
+        {
+            hit.collider.gameObject.GetComponent<CreateAduinoSonic>().ClickEvent();
         }
 
+        if (!(hit.collider.gameObject.GetComponent<CreateAduinoTemp>() == null))
+        {
+            hit.collider.gameObject.GetComponent<CreateAduinoTemp>().ClickEvent();
+        }
+
+        if (!(hit.collider.gameObject.GetComponent<CreateAduinoIll>() == null))
+        {
+            hit.collider.gameObject.GetComponent<CreateAduinoIll>().ClickEvent();
+        }
     }
 
     private void ArroundOnOff()
