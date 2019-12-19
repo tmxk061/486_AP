@@ -55,7 +55,15 @@ public class TempHumiParent : MonoBehaviour
 
     private void OnMouseDown()
     {
-        distance = this.transform.position.z - Camera.main.transform.position.z;
+        Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
+        //Debug.Log(Camera.main.transform.position.z - this.transform.position.z );
+
+        //if ((this.transform.position.z - Camera.main.transform.position.z) > 0)
+        //distance = this.transform.position.z - Camera.main.transform.position.z;
+        distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
+
+        // else
+        //distance = Camera.main.transform.position.z - this.transform.position.z;
     }
 
     private void OnMouseUp()
@@ -78,9 +86,14 @@ public class TempHumiParent : MonoBehaviour
         if (this.gameObject.layer == LayerMask.NameToLayer("Sensor"))
         {
             Vector3 mousePosition = new Vector3(Input.mousePosition.x,
-            Input.mousePosition.y, distance);
+                                                Input.mousePosition.y, distance);
             Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
             transform.position = objPosition;
+
+            //Vector3 mousePosition = new Vector3(Input.mousePosition.x,
+            //Input.mousePosition.y, distance);
+            //Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            //transform.position = objPosition;
         }
 
         //if (Input.GetKey(KeyCode.Q))
