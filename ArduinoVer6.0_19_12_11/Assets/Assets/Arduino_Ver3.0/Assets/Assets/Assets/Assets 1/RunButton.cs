@@ -81,10 +81,18 @@ public class RunButton : MonoBehaviour
 
     public void SetMeshMaterial(bool on)
     {
-        if (on == true)
-            MeshPrint.material = TurnOn;
-        else if (on == false)
-            MeshPrint.material = TurnOff;
+        try
+        {
+            if (on == true)
+                MeshPrint.material = TurnOn;
+            else if (on == false)
+                MeshPrint.material = TurnOff;
+        }
+        catch
+        {
+
+        }
+       
 
     }
 
