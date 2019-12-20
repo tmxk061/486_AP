@@ -24,7 +24,7 @@ public class ServoManager : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
+        //Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
         //Debug.Log(Camera.main.transform.position.z - this.transform.position.z );
 
         //if ((this.transform.position.z - Camera.main.transform.position.z) > 0)
