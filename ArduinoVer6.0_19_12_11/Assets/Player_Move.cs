@@ -16,7 +16,7 @@ public class Player_Move : MonoBehaviour
     private float currentCameraRotation = 0f;
 
     // 카메라 회전 -> true = 불가, false = 가능
-    private bool StopCamRotation = false;
+    public bool StopCamRotation = false;
 
     [SerializeField]
     private PlayerRaycast rayctrl;
@@ -34,19 +34,41 @@ public class Player_Move : MonoBehaviour
         //    GameManager.lux = 500;
         //    Debug.Log(GameManager.lux);
         //}
+        PlayerPause();
+    }
+
+    public void PlayerPause()
+    {
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
             if (StopCamRotation == false)
             {
+                Debug.Log("OUT");
                 //rayctrl.ControlMode = 1;
+
                 StopCamRotation = true;
             }
             else
             {
-                //rayctrl.ControlMode = 0;
                 StopCamRotation = false;
             }
-                
+        }
+    }
+
+    private void PlayerRotate()
+    {
+        if (StopCamRotation == true)
+        { 
+            if (Input.GetKey(KeyCode.Q))
+            {
+                Debug.Log("Left");
+                transform.Rotate(new Vector3(0, -30, 0) * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.E))
+            {
+                Debug.Log("Right");
+                transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+            }
         }
     }
 
@@ -90,6 +112,8 @@ public class Player_Move : MonoBehaviour
         {
             transform.Translate(new Vector3(100 * Time.deltaTime, 0, 0));
         }
+
+        PlayerRotate();
 
     }
 }
