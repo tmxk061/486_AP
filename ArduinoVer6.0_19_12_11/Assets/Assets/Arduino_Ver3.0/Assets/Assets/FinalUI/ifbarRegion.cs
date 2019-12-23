@@ -50,7 +50,7 @@ public class ifbarRegion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "ifBlock"&& collision.tag != "ifBar")
+        if (collision.tag != "ifBlock"&& collision.tag != "ifBar" && collision.tag != "Block")
         {
             for (int i = 0; i < objlist.Count; i++)
             {
@@ -86,7 +86,7 @@ public class ifbarRegion : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "ifBlock" && collision.tag != "ifBar")
+        if (collision.tag != "ifBlock" && collision.tag != "ifBar" && collision.tag != "StartBlock")
         {
             for (int i = 0; i < objlist.Count; i++)
             {

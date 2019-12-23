@@ -148,10 +148,8 @@ public class AnalogRead : Block
         }
     }
 
-
-    public override IEnumerator GetCode(bool s)
+    public override void AddCode()
     {
-        GetChild = false;
         if (selectSocket != null)
         {
             switch (selectSocket.SocketType)
@@ -170,22 +168,11 @@ public class AnalogRead : Block
                     break;
             }
         }
-
-        Block block = BlockManager.instance.BlockIdentity(transform);
-        if (block != null)
-        {
-            StartCoroutine(block.GetCode(s));
-            GetChild = true;
-        }
-
-        yield return new WaitForSecondsRealtime(0.3f);
-
-        if (GetChild == false && s == true)
-        {
-            GameManager.connectArduino.SetMeshMaterial(false);
-            GameManager.MergeCode();
-        }
     }
+
+
+
+
 
     public override IEnumerator GetSyncCode(bool s)
     {

@@ -169,44 +169,40 @@ public class GameManager : MonoBehaviour
 
         codeM += "void setup(){\n";
 
-        for (int j = 0; j < setup.Count; j++)
+        if (setup.Count != 0)
         {
-            codeM += setup[j] + "\n";
+            for (int j = 0; j < setup.Count; j++)
+            {
+                codeM += setup[j] + "\n";
+            }
         }
+        else
+            codeM += "\n";
 
         codeM += "}\n";
 
         codeM += "void loop(){" + "\n";
 
-        for (int z = 0; z < loop.Count; z++)
+        if (loop.Count != 0)
         {
-            codeM += loop[z] + "\n";
+            for (int z = 0; z < loop.Count; z++)
+            {
+                codeM += loop[z] + "\n";
+            }
         }
+        else
+            codeM += "\n";
 
         codeM += "}\n";
 
+        
+
         GUIUtility.systemCopyBuffer = codeM;
-
-        for (int i = 0; i < valuelist.Count; i++)
-        {
-            valuelist.RemoveAt(i);
-        }
-
-        for (int i = 0; i < setup.Count; i++)
-        {
-            setup.RemoveAt(i);
-        }
-
-        for (int i = 0; i < loop.Count; i++)
-        {
-            loop.RemoveAt(i);
-        }
-
-        for (int i = 0; i < header.Count; i++)
-        {
-            header.RemoveAt(i);
-        }
-
+        
+        valuelist.Clear();
+        setup.Clear();
+        loop.Clear();
+        header.Clear();
         codeM = null;
     }
 

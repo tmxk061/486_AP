@@ -97,12 +97,9 @@ public class ServoBlock : Block
         if (GetChild == false && s == true)
         { GameManager.closeArduino(); GameManager.SyncRun(); }
     }
-    
 
-    public override IEnumerator GetCode(bool s)
+    public override void AddCode()
     {
-        GetChild = false;
-
         if (selectSocket != null)
         {
             switch (selectSocket.SocketType)
@@ -114,21 +111,10 @@ public class ServoBlock : Block
                     //  selectSocket.SocketRun(0);
             }
         }
-
-        yield return new WaitForSecondsRealtime(0.3f);
-
-        Block block = BlockManager.instance.BlockIdentity(transform);
-        if (block != null)
-        {
-            StartCoroutine(block.GetCode(s));
-            GetChild = true;
-        }
-
-        if (GetChild == false && s == true)
-        {
-            GameManager.MergeCode(); GameManager.connectArduino.SetMeshMaterial(false);
-        }
     }
+
+
+
 
     public override IEnumerator GetSyncCode(bool s)
     {

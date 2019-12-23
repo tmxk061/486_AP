@@ -17,29 +17,34 @@ public class ifBlock : Block, IDragHandler, IDropHandler
     //public bool selectRun = true;
     // public RectTransform barrect;
     //public Vector3 Firstlocation;
-    
+    private GameObject dragObject;
+    private RectTransform rect;
+    Vector3 mos, trans;
+    Vector3 distance;
+
     public int ThirdSel = 0;
     private bool okvalue = false;
     public int FirstSel = 0;
     public int SecondSel = 0;
-    public ifBar bar;
-    public RectTransform barlocation;
 
-    [SerializeField]
+    public ifBar endbar;
+
+    public RectTransform barrect;
+    public RectTransform barlocation;
     public ifbarRegion region;
-    
     public Vector2 FirstAnchoredPosition;
-    
     private Outline outline;
+
+
 
     #endregion 변수
     protected override void Start()
     {
-        bar = this.gameObject.GetComponentInChildren<ifBar>();
-        barlocation = bar.transform.GetComponent<RectTransform>();
+        endbar = this.gameObject.GetComponentInChildren<ifBar>();
+        barlocation = endbar.transform.GetComponent<RectTransform>();
         FirstAnchoredPosition = barlocation.anchoredPosition;
         outline = GameObject.Find("UnderBar").gameObject.GetComponent<Outline>();
-
+        
         base.Start();
     }
     #region 필수 구현부분
@@ -161,7 +166,7 @@ public class ifBlock : Block, IDragHandler, IDropHandler
         else
         {
             yield return new WaitForSeconds(region.count * 0.4f);
-            StartCoroutine(bar.Run(0));
+            StartCoroutine(endbar.Run(0));
         }
     }
 
@@ -285,15 +290,11 @@ public class ifBlock : Block, IDragHandler, IDropHandler
             yield return new WaitForSecondsRealtime(1f);
         }
 
-        StartCoroutine(bar.SyncRun(s));
+        StartCoroutine(endbar.SyncRun(s));
     }
 
-    public override IEnumerator GetCode(bool s)
+    public override void AddCode()
     {
-        GetChild = false;
-        okvalue = false;
-        Block block = null;
-
         if (FirstSel == 0)
         {
             GameManager.AddValueLis("int lux = 0;");
@@ -360,16 +361,13 @@ public class ifBlock : Block, IDragHandler, IDropHandler
                 GameManager.loop.Add("if(lux <=" + ThirdSel + ")\n" + "{");
             }
         }
+    }
 
-        block = BlockManager.instance.BlockIdentity(transform);
-        if (block != null)
-        {
-            StartCoroutine(block.GetCode(false));
-            GetChild = true;
-        }
-        yield return new WaitForSecondsRealtime(region.count * 1f + 1f);
-
-        StartCoroutine(bar.GetCode(s));
+    public override void GetCode()
+    {
+        base.GetCode();
+                
+        endbar.GetCode();
     }
 
     public override IEnumerator GetSyncCode(bool s)
@@ -457,7 +455,7 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
         yield return new WaitForSeconds(region.count * 1f + 1f);
 
-        StartCoroutine(bar.GetSyncCode(s));
+        StartCoroutine(endbar.GetSyncCode(s));
     }
 
     public override IEnumerator GetBtCode(bool s)
@@ -545,7 +543,7 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
         yield return new WaitForSeconds(region.count * 1f + 1f);
 
-        StartCoroutine(bar.GetBtCode(s));
+        StartCoroutine(endbar.GetBtCode(s));
     }
 
     #endregion 필수 구현부분
@@ -556,8 +554,9 @@ public class ifBlock : Block, IDragHandler, IDropHandler
     public void ChangeBar(float vec)
     {
         barlocation.anchoredPosition = new Vector2(FirstAnchoredPosition.x, FirstAnchoredPosition.y + vec);
+
         // barlocation.offsetMin = new Vector2(firstTop.x, firstTop.y - vec);                                // Bottom
     }
-
+  
     #endregion 고유 구현 부분
 }

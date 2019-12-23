@@ -67,28 +67,11 @@ public class WaitBlock : Block
         }
     }
 
-
-    public override IEnumerator GetCode(bool s)
+    public override void AddCode()
     {
-        GetChild = false;
+        GameManager.loop.Add("delay(" + TimeForWait * 1000 + ");");
+    }
 
-        GameManager.loop.Add("delay(" + TimeForWait * 1000 + ");\n");
-
-        yield return new WaitForSeconds(0.3f);
-
-        Block block = BlockManager.instance.BlockIdentity(transform);
-        if (block != null)
-        {
-            StartCoroutine(block.GetCode(s));
-            GetChild = true;
-        }
-
-        if (GetChild == false && s == true)
-        {
-            GameManager.MergeCode();
-            GameManager.connectArduino.SetMeshMaterial(false);
-        }
-    } //코드 떼오기
 
     public override IEnumerator GetSyncCode(bool s)
     {

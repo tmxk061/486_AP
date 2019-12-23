@@ -112,39 +112,24 @@ public class UltBlock : Block
         }
     }
 
-
-    public override IEnumerator GetCode(bool s)
+    public override void AddCode()
     {
-        GetChild = false;
-        if (selectSocket2 != null)
-        {
-            if (selectRun == true)
-            {
-                switch (selectSocket2.SocketType)
-                {
-                    // 값을 읽어 들이는 센서
-                    case GameManager.SensorType.Ult:
-                        UltCode();
-                        break;
-                }
-            }
-        }
-
-        Block block = BlockManager.instance.BlockIdentity(transform);
-        if (block != null)
-        {
-            StartCoroutine(block.GetCode(s));
-            GetChild = true;
-        }
-
-        yield return new WaitForSecondsRealtime(0.3f);
-
-        if (GetChild == false && s == true)
-        {
-            GameManager.connectArduino.SetMeshMaterial(false);
-            GameManager.MergeCode();
-        }
+        UltCode();
+        //if (selectSocket2 != null)
+        //{
+        //    if (selectRun == true)
+        //    {
+        //        switch (selectSocket2.SocketType)
+        //        {
+        //            // 값을 읽어 들이는 센서
+        //            case GameManager.SensorType.Ult:
+        //                UltCode();
+        //                break;
+        //        }
+        //    }
+        //}
     }
+
 
     public override IEnumerator GetSyncCode(bool s)
     {

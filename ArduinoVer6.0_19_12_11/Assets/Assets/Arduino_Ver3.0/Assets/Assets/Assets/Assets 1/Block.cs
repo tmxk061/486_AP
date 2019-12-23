@@ -12,14 +12,14 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     // private ControlArduino arduino;
 
     // 블록 구현부
-    private GameObject UpObj = null;
-    private GameObject DownObj;
+    protected GameObject UpObj = null;
+    protected GameObject DownObj;
     protected Collider2D[] colliders;
     protected Collider2D UpCollider;
     protected Collider2D DownCollider;
     protected GameObject ParentObj;
-    private Block sample;
-    
+    protected Block sample;
+
     //
     protected bool GetChild = false;
     #endregion
@@ -61,7 +61,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
 
             if (transform.position.y < collision.transform.position.y)//자기 위에 충돌할때
             {
-                if (this.tag != "Block") // StartBlock블록 제외
+                if (this.tag != "Block" && this.tag != "ifBar") // StartBlock블록 제외
                 {
                     if (UpCollider.isTrigger == true)
                     {
@@ -166,7 +166,24 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     public abstract IEnumerator SyncRun(bool s);
 
     // 아두이노 코드 작성
-    public abstract IEnumerator GetCode(bool s);
+    //public abstract IEnumerator GetCode(bool s);
+
+    public virtual void GetCode()
+    {
+        AddCode();
+        
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
+        {
+            block.GetCode();
+        }
+    } //코드 떼오기
+
+    public virtual void AddCode()
+    {
+
+    }
+
     public abstract IEnumerator GetSyncCode(bool s);
     public abstract IEnumerator GetBtCode(bool s);
 }
