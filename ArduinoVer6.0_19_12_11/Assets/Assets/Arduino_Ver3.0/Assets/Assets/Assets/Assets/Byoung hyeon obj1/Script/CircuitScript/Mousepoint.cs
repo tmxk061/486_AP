@@ -5,6 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode()]
 public class Mousepoint : MonoBehaviour
 {
+    Player_Move pm;
 
     public GameObject MakeLine;
 
@@ -13,6 +14,8 @@ public class Mousepoint : MonoBehaviour
     public Ray ray;
     public Vector3 pointting;//위치를 가져옴
     public bool MouseChecking;//마우스 클릭확인
+
+    float rotSpeed = 1.0f;
 
     private static Mousepoint instance;
     private static GameObject container;
@@ -130,15 +133,21 @@ public class Mousepoint : MonoBehaviour
             //{
             //    this.transform.Translate(Vector3.down * 100 * Time.deltaTime);
             //}
-            //if (Input.GetKey(KeyCode.Q))
+
+            //if (pm.StopCamRotation == false)
             //{
-            //    this.transform.Rotate(new Vector3(0, -30, 0) * Time.deltaTime);
+            //    Debug.Log("OUt");
+
+            //    if (Input.GetKey(KeyCode.Q))
+            //    {
+            //        this.transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+            //    }
+            //    if (Input.GetKey(KeyCode.E))
+            //    {
+            //        this.transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+            //    }
             //}
-            //if (Input.GetKey(KeyCode.E))
-            //{
-            //    this.transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
-            //}
-            
+
         }
     }
 
