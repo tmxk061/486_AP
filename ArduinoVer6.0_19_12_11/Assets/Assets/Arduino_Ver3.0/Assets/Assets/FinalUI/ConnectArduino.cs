@@ -26,11 +26,18 @@ public class ConnectArduino : MonoBehaviour
     // Update is called once per frame
     private void OnMouseDown()
     {
-        SetMeshMaterial(true);
+        StartCoroutine(ClickEffect());
 
-      StartCoroutine( blockgroup.GetCode(true));
+        StartCoroutine(blockgroup.GetMergeCode());
     }
 
+    // 0.5초간 깜박임
+    IEnumerator ClickEffect()
+    {
+        SetMeshMaterial(true);
+        yield return new WaitForSeconds(0.5f);
+        SetMeshMaterial(false);
+    }
 
     public void SetMeshMaterial(bool on)
     {

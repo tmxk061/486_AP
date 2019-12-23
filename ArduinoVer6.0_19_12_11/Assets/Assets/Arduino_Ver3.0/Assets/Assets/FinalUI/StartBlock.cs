@@ -54,18 +54,15 @@ public class StartBlock : Block
 
 
 
-    public override IEnumerator GetCode(bool s)
+    public IEnumerator GetMergeCode()
     {
-        bool GetChild = false;
-
         Block block = BlockManager.instance.BlockIdentity(transform);
         if (block != null)
-            StartCoroutine(block.GetCode(s));
+            block.GetCode();
 
         yield return new WaitForSeconds(0.3f);
 
-        if (GetChild == false)
-            GameManager.connectArduino.SetMeshMaterial(false);
+        GameManager.MergeCode();
     }
 
     public override IEnumerator GetSyncCode(bool s)
@@ -79,7 +76,10 @@ public class StartBlock : Block
         yield return new WaitForSeconds(0.3f);
 
         if (GetChild == false)
-            GameManager.connectArduino.SetMeshMaterial(false);
+        {
+
+        }
+
     }
 
     public override IEnumerator GetBtCode(bool s)
@@ -93,7 +93,10 @@ public class StartBlock : Block
         yield return new WaitForSeconds(0.3f);
 
         if (GetChild == false)
-            GameManager.connectArduino.SetMeshMaterial(false);
+        {
+
+        }
+
     }
     #endregion 필수 구현 부분
 
