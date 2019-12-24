@@ -23,7 +23,7 @@ public class DevTableCtrl : MonoBehaviour
         {
             ModulCmd.GetComponent<Animator>().SetBool("Modul_open", false);
             //ModulCmd.SetActive(false);
-            Invoke("ModulCmd_ActiveFalse", 1f);
+            //Invoke("ModulCmd_ActiveFalse", 1f);
             isModulCmd = false;
         }
     }
@@ -40,7 +40,7 @@ public class DevTableCtrl : MonoBehaviour
         {
             EnvCmd.GetComponent<Animator>().SetBool("EnvCmd_open", false);
             //ModulCmd.SetActive(false);
-            Invoke("EnvCmd_ActiveFalse", 1f);
+            //Invoke("EnvCmd_ActiveFalse", 1f);
             isEnvCmd = false;
         }
     }
