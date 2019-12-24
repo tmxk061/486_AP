@@ -912,6 +912,7 @@ GameObject:
   - component: {fileID: 7099169605374582370}
   - component: {fileID: 7099169605374582373}
   - component: {fileID: 143288316500050553}
+  - component: {fileID: 752527791859195242}
   m_Layer: 0
   m_Name: Ultrasonic Sensor
   m_TagString: INPUT
@@ -974,6 +975,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   array: []
+--- !u!114 &752527791859195242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099169605374582372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207727b01f2506f469a6f70c03814497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
+  lerpSpeed: 1
 --- !u!1 &7099169605586394319
 GameObject:
   m_ObjectHideFlags: 0

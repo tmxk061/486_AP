@@ -10,9 +10,7 @@ public class PossitionLimite : MonoBehaviour
      private void Start()
     {
         Desk = GameObject.Find("TrickTable");   
-    
     }
-
 
     private void Update()
     {
