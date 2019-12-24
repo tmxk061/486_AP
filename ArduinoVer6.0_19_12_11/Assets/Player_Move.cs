@@ -6,6 +6,8 @@ public class Player_Move : MonoBehaviour
 {
     public Camera cam;
     public Rigidbody rb;
+
+    public GameObject Modules;
     
     public float rotateSpeed = 5f;
 
@@ -18,8 +20,13 @@ public class Player_Move : MonoBehaviour
     // 카메라 회전 -> true = 불가, false = 가능
     public bool StopCamRotation = false;
 
+    bool ClicRM;
+
     [SerializeField]
     private PlayerRaycast rayctrl;
+
+
+   
 
     void Update()
     {
@@ -34,7 +41,22 @@ public class Player_Move : MonoBehaviour
         //    GameManager.lux = 500;
         //    Debug.Log(GameManager.lux);
         //}
+        //MouseRC();
         PlayerPause();
+
+       
+
+        //ClicRM = Input.GetMouseButton(1);
+
+        //if (ClicRM == true)
+        //{
+        //    Debug.Log("IN");
+
+        //    float XSpin = yRot * rotateSpeed * Time.deltaTime;
+        //    float YSpin = xRot * rotateSpeed * Time.deltaTime;
+
+        //    Modules.transform.Rotate(XSpin, YSpin, 0, Space.World);
+        //}
     }
 
     public void PlayerPause()
@@ -43,7 +65,6 @@ public class Player_Move : MonoBehaviour
         {
             if (StopCamRotation == false)
             {
-                Debug.Log("OUT");
                 //rayctrl.ControlMode = 1;
 
                 StopCamRotation = true;
@@ -52,6 +73,7 @@ public class Player_Move : MonoBehaviour
             {
                 StopCamRotation = false;
             }
+
         }
     }
 
@@ -61,12 +83,10 @@ public class Player_Move : MonoBehaviour
         { 
             if (Input.GetKey(KeyCode.Q))
             {
-                Debug.Log("Left");
                 transform.Rotate(new Vector3(0, -30, 0) * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("Right");
                 transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
             }
         }

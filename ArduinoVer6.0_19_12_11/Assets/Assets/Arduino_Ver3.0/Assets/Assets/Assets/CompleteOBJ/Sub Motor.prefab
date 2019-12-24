@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 8844841794486574507}
   - component: {fileID: 149537596644496262}
   - component: {fileID: 7909192236492825491}
+  - component: {fileID: 4191919769775787038}
   m_Layer: 0
   m_Name: Sub Motor
   m_TagString: OUTPUT
@@ -172,6 +173,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Desk: {fileID: 0}
   Modules: {fileID: 8923393039780219661}
+--- !u!114 &4191919769775787038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923393039780219661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207727b01f2506f469a6f70c03814497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
+  lerpSpeed: 1
+  Modulse: {fileID: 8923393039780219661}
 --- !u!1 &8923393040014114732
 GameObject:
   m_ObjectHideFlags: 0

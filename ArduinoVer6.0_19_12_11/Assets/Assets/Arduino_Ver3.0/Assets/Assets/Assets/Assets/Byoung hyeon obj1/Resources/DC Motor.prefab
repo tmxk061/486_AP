@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: 8892393689328494168}
   - component: {fileID: 3479286727259949998}
   - component: {fileID: 4243204542863588952}
+  - component: {fileID: 8530003740168182039}
   m_Layer: 9
   m_Name: DC Motor
   m_TagString: Sensor
@@ -745,6 +746,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Desk: {fileID: 0}
   Modules: {fileID: 2077223647161231403}
+--- !u!114 &8530003740168182039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077223647161231403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207727b01f2506f469a6f70c03814497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 10
+  lerpSpeed: 1
 --- !u!1 &2077223647249877355
 GameObject:
   m_ObjectHideFlags: 0
