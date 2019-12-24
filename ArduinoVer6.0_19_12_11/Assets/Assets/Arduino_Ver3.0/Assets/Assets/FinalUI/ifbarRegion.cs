@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class ifbarRegion : MonoBehaviour
 {
-    // Start is called before the first frame update
+    #region 변수
     ifBlock ifblock;
     public int count = 0;
     
@@ -21,6 +21,8 @@ public class ifbarRegion : MonoBehaviour
     Vector2 Firstpos;
     BoxCollider2D box;
     Vector2 Firstbox;
+    #endregion 변수
+
 
     private void Start()
     {
@@ -37,6 +39,7 @@ public class ifbarRegion : MonoBehaviour
         Firstbox = box.size;
     }
 
+
     public Vector3 GetLocalScale()
     {
 
@@ -47,6 +50,7 @@ public class ifbarRegion : MonoBehaviour
     {
         return this.transform.localPosition;
     } 
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -86,7 +90,7 @@ public class ifbarRegion : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "ifBlock" && collision.tag != "ifBar" && collision.tag != "StartBlock")
+        if (collision.tag != "ifBlock" && collision.tag != "ifBar" && collision.tag != "Block")
         {
             for (int i = 0; i < objlist.Count; i++)
             {

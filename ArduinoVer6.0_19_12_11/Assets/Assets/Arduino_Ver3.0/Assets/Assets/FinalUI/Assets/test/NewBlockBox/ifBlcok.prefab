@@ -704,18 +704,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba9aeb3ad7e6724e9703d4d2fbfe4c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DownCollider: {fileID: 0}
   ThirdSel: 0
   FirstSel: 0
   SecondSel: 0
-  bar: {fileID: 0}
+  endbar: {fileID: 0}
+  barrect: {fileID: 0}
   barlocation: {fileID: 0}
   region: {fileID: 5779303856883812182}
-  sample: {fileID: 0}
   FirstAnchoredPosition: {x: 0, y: 0}
-  ParentObj: {fileID: 1066256948057023717, guid: 490fc011ae8d0bc4587cb5bb4cce3ffc,
-    type: 3}
-  GetChild: 0
 --- !u!114 &5779303856890459736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mycolor_p: {fileID: 3506331957362987540}
   Mycolor_c: {fileID: 2349380857025928862}
+  c: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &5779303855587953847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78096708aea2c5c488b3c556a0a74a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentObj: {fileID: 0}
   TimeForWait: 0
 --- !u!114 &5779303855441308739
 MonoBehaviour:
@@ -2303,7 +2299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5779303856883812180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2388,7 +2384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5779303856883812179}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7724cc4cd1115c843a0f2e537ca3be1c, type: 3}
   m_Name: 

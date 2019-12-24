@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ifBar : Block
 {
     #region 변수
-
     //private Vector3 mos, trans;
     //private Vector3 distance;
     //public Socket selectSocket;
@@ -15,17 +14,16 @@ public class ifBar : Block
 
     private ControlArduino arduino;
     public int TimeForWait = 0;
-
     #endregion 변수
+
 
     protected override void Start()
     {
-        arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-
-        base.Start();
+        DownCollider = this.gameObject.GetComponent<BoxCollider2D>();
     }
 
-    #region 필수 구현 부분
+
+    #region 유니티 오브젝트 작동 부분
     public override IEnumerator Run(float s)
     {
         GetChild = false;
@@ -51,8 +49,10 @@ public class ifBar : Block
             GetChild = true;
         }
     }
+    #endregion 유니티 오브젝트 작동 부분
 
 
+    #region 아두이노 코드 출력
     public override void GetCode()
     {
         GameManager.loop.Add("}\n");
@@ -105,5 +105,5 @@ public class ifBar : Block
             GameManager.syncMergeCode();
         }
     }
-    #endregion 필수 구현 부분
+    #endregion 아두이노 코드 출력
 }
