@@ -14,20 +14,32 @@ public class SpinModules : MonoBehaviour
 
     #endregion
 
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
-        if (Input.GetMouseButton(1))
-        {
-            rotatecheck = true;
-            speed = new Vector3(-Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
-            avgSpeed = Vector3.Lerp(avgSpeed, speed, Time.deltaTime * 2);
-            transform.Rotate(Camera.main.transform.up * speed.x * rotationSpeed, Space.World);
-            transform.Rotate(Camera.main.transform.right * speed.y * rotationSpeed, Space.World);
-        }
+        rotatecheck = true;
     }
 
     //private void OnMouseExit()
     //{
     //    rotatecheck = false;
     //}
+
+    private void Update()
+    {
+        if (Input.GetMouseButton(1) && rotatecheck)
+        {
+            speed = new Vector3(-Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0);
+            avgSpeed = Vector3.Lerp(avgSpeed, speed, Time.deltaTime * 2);
+
+            transform.Rotate(Camera.main.transform.up * speed.x * rotationSpeed, Space.World);
+            transform.Rotate(Camera.main.transform.right * speed.y * rotationSpeed, Space.World);
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            rotatecheck = false;
+        }
+    }
+
+
 }
