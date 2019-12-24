@@ -34,10 +34,8 @@ public class ifBlock : Block, IDragHandler, IDropHandler
     public ifbarRegion region;
     public Vector2 FirstAnchoredPosition;
     private Outline outline;
-
-
-
     #endregion 변수
+
     protected override void Start()
     {
         endbar = this.gameObject.GetComponentInChildren<ifBar>();
@@ -47,8 +45,8 @@ public class ifBlock : Block, IDragHandler, IDropHandler
         
         base.Start();
     }
-    #region 필수 구현부분
 
+    #region 유니티 오브젝트 작동 부분
     public override IEnumerator Run(float s)
     {
         GetChild = false;
@@ -292,7 +290,9 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
         StartCoroutine(endbar.SyncRun(s));
     }
+    #endregion 유니티 오브젝트 작동 부분
 
+    #region 아두이노 코드 출력
     public override void AddCode()
     {
         if (FirstSel == 0)
@@ -545,9 +545,8 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
         StartCoroutine(endbar.GetBtCode(s));
     }
+    #endregion 아두이노 코드 출력
 
-    #endregion 필수 구현부분
-    
 
     #region 고유 구현 부분
 

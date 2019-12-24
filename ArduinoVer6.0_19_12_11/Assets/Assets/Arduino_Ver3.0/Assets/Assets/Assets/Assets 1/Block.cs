@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
+// Ctrl + M + O 클릭시 모든 Region 최소화됨 
+
 public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
 {
     // Start is called before the first frame update
@@ -24,16 +27,52 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     protected bool GetChild = false;
     #endregion
 
+    protected virtual void Start()
+    {
+        //arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+        //selectSocket = arduino.PinList[0];
+        //selectSocket2 = arduino.PinList[0];
 
+        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
+        colliders = this.GetComponents<Collider2D>();
+
+        this.transform.position = new Vector3(930, 421);
+
+        if (colliders != null)
+        {
+            DownCollider = colliders[0];
+
+            UpCollider = colliders[1];
+        }
+    }
+    // 자식 블록에서 쓰는 Start() 예시
+    //protected override void Start()
+    //{
+    //    arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+    //    selectSocket = arduino.PinList[0];
+    //    selectSocket2 = arduino.PinList[0];
+
+    //    base.Start();
+    //}
+
+    
     #region 물리 구현 부분
     public void OnDrop(PointerEventData eventData)
     {
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        if (this.tag == "ifBlock")
+        {
+            this.GetComponentInChildren<ifBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (this.transform.parent != null)
+        GameObject thisblock = gameObject;
+
+        if (thisblock.tag == "ifBar")
+            thisblock = thisblock.GetComponentInParent<ifBlock>().gameObject;
+        if (thisblock.transform.parent != null)
         {
             if (UpObj != null)
             {
@@ -41,15 +80,21 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
                 block.SetDownColllider(true);
                 UpCollider.isTrigger = true;
 
-                this.transform.SetParent(ParentObj.transform);
+                thisblock.transform.SetParent(ParentObj.transform);
             }
         }
         //var screenpoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100f);
 
         if (GameManager.RunBlock == true)
-            transform.position = Input.mousePosition; //secondCamera.ScreenToWorldPoint(screenpoint);
+        {
+            thisblock.transform.position = Input.mousePosition; //secondCamera.ScreenToWorldPoint(screenpoint);
 
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+            thisblock.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+            if (thisblock.tag == "ifBlock")
+            {
+                thisblock.GetComponentInChildren<ifBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+            }
+        }
     }
 
     public void OnTriggerStay2D(Collider2D collision)
@@ -97,7 +142,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     #endregion 물리 구현 부분
 
 
-    #region 콜라이더
+    #region 블록코딩 콜라이더
     public GameObject CheckParentObj()
     {
         return UpObj;
@@ -130,44 +175,15 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     {
         return DownCollider.isTrigger;
     } //아래 충돌 트리거 상태 리턴
-    #endregion
+    #endregion 블록코딩 콜라이더
 
-    
-    protected virtual void Start()
-    {
-        //arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-        //selectSocket = arduino.PinList[0];
-        //selectSocket2 = arduino.PinList[0];
 
-        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
-        colliders = this.GetComponents<Collider2D>();
-
-        this.transform.position = new Vector3(930, 421);
-
-        if (colliders != null)
-        {
-            DownCollider = colliders[0];
-
-            UpCollider = colliders[1];
-        }
-    }
-    // 자식 블록에서 쓰는 Start() 예시
-    //protected override void Start()
-    //{
-    //    arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-    //    selectSocket = arduino.PinList[0];
-    //    selectSocket2 = arduino.PinList[0];
-
-    //    base.Start();
-    //}
-
-    // 유니티 작동
+    #region 유니티 오브젝트 작동 부분
     public abstract IEnumerator Run(float s);
     public abstract IEnumerator SyncRun(bool s);
+    #endregion 유니티 오브젝트 작동 부분
 
-    // 아두이노 코드 작성
-    //public abstract IEnumerator GetCode(bool s);
-
+    #region 아두이노 코드 출력
     public virtual void GetCode()
     {
         AddCode();
@@ -186,4 +202,5 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
 
     public abstract IEnumerator GetSyncCode(bool s);
     public abstract IEnumerator GetBtCode(bool s);
+    #endregion 아두이노 코드 출력
 }
