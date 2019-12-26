@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class CreateAduinoIll : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject obj;
+    public GameObject spwnPoint;
 
     public GameObject Tootip;
 
@@ -13,9 +14,13 @@ public class CreateAduinoIll : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void ClickEvent()
     {
-        IllValue illval = Instantiate(obj, new Vector3(-40, 115, 35), Quaternion.Euler(90, 0, 0)).transform.Find("DetectLight").GetComponent<IllValue>();
+        IllValue ultval = Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation).GetComponent<IllValue>();
+        ultval.sensorType = type;
+        ultval.gameObject.transform.parent = GameObject.Find("DevTable").transform;
 
-        illval.sensorType = type;
+
+        //IllValue illval = Instantiate(obj, new Vector3(-40, 115, 35), Quaternion.Euler(90, 0, 0)).transform.Find("DetectLight").GetComponent<IllValue>();
+        //illval.sensorType = type;
 
     }
 

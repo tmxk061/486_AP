@@ -18,7 +18,7 @@ public class CreateLED : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField]
     public GameObject obj4;
 
-
+    public GameObject spwnPoint;
     public GameObject Tootip;
 
     List<GameObject> objlist = new List<GameObject>();
@@ -37,7 +37,8 @@ public class CreateLED : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
         num = Random.Range(0, 4);
 
-        Instantiate(objlist[num], new Vector3(33.17457f, 127.0219f, 100.3321f), Quaternion.identity);
+        Instantiate(objlist[num], spwnPoint.transform.position, spwnPoint.transform.rotation);
+        //Instantiate(objlist[num], new Vector3(33.17457f, 127.0219f, 100.3321f), Quaternion.identity);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
