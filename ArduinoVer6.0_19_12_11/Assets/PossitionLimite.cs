@@ -6,10 +6,12 @@ public class PossitionLimite : MonoBehaviour
 {
     public GameObject Desk;
     public GameObject Modules;
+    private GameObject spwnPoint;
 
      private void Start()
     {
-        Desk = GameObject.Find("TrickTable");   
+        Desk = GameObject.Find("TrickTable");
+        spwnPoint = GameObject.Find("spwnPoint");
     }
 
     private void Update()
@@ -28,7 +30,7 @@ public class PossitionLimite : MonoBehaviour
         if (105 < dis1 )
         {
             Debug.Log(dis1);
-            Modules.gameObject.transform.position = new Vector3(30, 125, 70);
+            Modules.gameObject.transform.position = spwnPoint.transform.position;
         }
     }
 }

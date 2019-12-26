@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class CreateAduinoScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField]
     public GameObject obj;
+    public GameObject spwnPoint;
 
     public GameObject Tootip;
 
@@ -21,7 +21,7 @@ public class CreateAduinoScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
          num = Random.Range(0, 4);
 
-        Instantiate(obj, new Vector3(33.17457f, 127.0219f, 100.3321f), Quaternion.identity);
+        Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation);
 
         obj.SetActive(true);
     }
