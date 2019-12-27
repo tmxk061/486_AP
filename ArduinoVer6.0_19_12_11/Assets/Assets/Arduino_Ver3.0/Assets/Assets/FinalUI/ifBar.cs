@@ -24,13 +24,19 @@ public class ifBar : Block
 
 
     #region 유니티 오브젝트 작동 부분
-    public override IEnumerator Run()
+    public override IEnumerator Run(float s)
     {
+        GetChild = false;
         Block block = BlockManager.instance.BlockIdentity(transform);
         if (block != null)
         {
-            yield return StartCoroutine(block.Run());
+            StartCoroutine(block.Run(0));
+            GetChild = true;
         }
+
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        if (GetChild == false) GameManager.RunbtnWork();
     }
 
     public override IEnumerator SyncRun(bool s)

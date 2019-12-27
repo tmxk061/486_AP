@@ -28,8 +28,12 @@ public class ServoBlock : Block
     }
 
     #region 필수 구현 부분
-    public override void RunDetail()
+
+    public override IEnumerator Run(float s)
     {
+        GetChild = false;
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+
         if (selectSocket != null)
         {
             switch (selectSocket.SocketType)
@@ -37,8 +41,25 @@ public class ServoBlock : Block
                 case GameManager.SensorType.Servo:
                     selectSocket.SocketRun(value);
                     break;
+
                     //  selectSocket.SocketRun(0);
             }
+        }
+
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
+        {
+            StartCoroutine(block.Run(0));
+            GetChild = true;
+        }
+
+        if (GetChild == false && s == 0)
+        {
+            GameManager.RunbtnWork();
         }
     }
 

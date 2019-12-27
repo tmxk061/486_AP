@@ -49,8 +49,6 @@ TagManager:
   - BreadPlus
   - BreadDIGITAL
   - Sensor
-  - whileBar
-  - whileBlock
   layers:
   - Default
   - TransparentFX

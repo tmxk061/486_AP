@@ -20,6 +20,7 @@ public class DragImage : Block
 
     [SerializeField]
     public Camera secondCamera;
+    
     #endregion 변수
     
 
@@ -81,9 +82,13 @@ public class DragImage : Block
         GameManager.loop.Add("tone(speakerPin,261);" + '\n' + "delay(500);" + "noTone(speakerPin);");
     }
 
-    #region 유니티 오브젝트 작동 부분
-    public override void RunDetail()
+
+    public override IEnumerator Run(float s)
     {
+        GetChild = false;
+
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+
         if (selectSocket != null)
         {
             if (selectRun == true)
@@ -138,6 +143,22 @@ public class DragImage : Block
             {
                 selectSocket.SocketPause();
             }
+        }
+
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
+        {
+            StartCoroutine(block.Run(0));
+            GetChild = true;
+        }
+
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+
+        if (GetChild == false && s == 0)
+        {
+            GameManager.RunbtnWork();
         }
     }
 
@@ -219,14 +240,6 @@ public class DragImage : Block
         if (GetChild == false)
         { GameManager.closeArduino(); GameManager.SyncRun(); }
     }
-    #endregion 유니티 오브젝트 작동 부분
-
-    #region 아두이노 코드 출력
-    public override void GetCode()
-    {
-
-        base.GetCode();
-    }
 
     public override void AddCode()
     {
@@ -273,7 +286,12 @@ public class DragImage : Block
             }
         }
     }
-    
+
+    public override void GetCode()
+    {
+
+        base.GetCode();
+    }
     public override IEnumerator GetSyncCode(bool s)
     {
         GetChild = false;
@@ -399,5 +417,4 @@ public class DragImage : Block
             GameManager.connectArduino.SetMeshMaterial(false);
         }
     }
-    #endregion 아두이노 코드 출력
 }

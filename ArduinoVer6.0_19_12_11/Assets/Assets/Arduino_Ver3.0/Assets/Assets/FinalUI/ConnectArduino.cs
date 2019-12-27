@@ -5,6 +5,7 @@ using System.Reflection;
 
 public class ConnectArduino : MonoBehaviour
 {
+
     [SerializeField]
     StartBlock blockgroup;
 
@@ -15,14 +16,14 @@ public class ConnectArduino : MonoBehaviour
     public Material TurnOff;
 
     private MeshRenderer MeshPrint;
-
+    // Start is called before the first frame update
     void Start()
     {
         MeshPrint = this.gameObject.GetComponent<MeshRenderer>();
         blockgroup = GameObject.FindWithTag("Block").GetComponent<StartBlock>();
     }
 
-    // 버튼 클릭
+    // Update is called once per frame
     private void OnMouseDown()
     {
         StartCoroutine(ClickEffect());
@@ -30,15 +31,14 @@ public class ConnectArduino : MonoBehaviour
         StartCoroutine(blockgroup.GetMergeCode());
     }
 
-    // 클릭시 버튼 깜박임
+    // 0.5초간 깜박임
     IEnumerator ClickEffect()
     {
         SetMeshMaterial(true);
-        yield return new WaitForSeconds(0.5f); //0.5초 불들어옴
+        yield return new WaitForSeconds(0.5f);
         SetMeshMaterial(false);
     }
 
-    // 버튼 마테리얼 변경
     public void SetMeshMaterial(bool on)
     {
         if (on == true)

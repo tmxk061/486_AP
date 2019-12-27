@@ -9,8 +9,6 @@ public class ifbarRegion : MonoBehaviour
 {
     #region 변수
     ifBlock ifblock;
-    whileBlock whileBlock;
-
     public int count = 0;
     
     Vector3 Firstlocation;
@@ -28,12 +26,7 @@ public class ifbarRegion : MonoBehaviour
 
     private void Start()
     {
-        if (this.gameObject.GetComponentInParent<ifBlock>() != null)
-            ifblock = this.gameObject.GetComponentInParent<ifBlock>();
-        else if (this.gameObject.GetComponentInParent<whileBlock>() != null)
-            whileBlock = this.gameObject.GetComponentInParent<whileBlock>();
-        Debug.Log(ifblock);
-        Debug.Log(whileBlock);
+        ifblock = this.gameObject.GetComponentInParent<ifBlock>();
 
         Firstlocation = this.transform.localPosition;
        
@@ -61,7 +54,7 @@ public class ifbarRegion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "ifBlock" && collision.tag != "whileBlock" && collision.tag != "ifBar" && collision.tag != "Block")
+        if (collision.tag != "ifBlock"&& collision.tag != "ifBar" && collision.tag != "Block")
         {
             for (int i = 0; i < objlist.Count; i++)
             {
@@ -86,18 +79,10 @@ public class ifbarRegion : MonoBehaviour
             //thisrect.sizeDelta = new Vector2(this.thisrect.sizeDelta.x, Firstpos.y + count * 300);
 
             if (count >= 1)
-            {
-                if (ifblock != null)
-                    ifblock.ChangeBar(-(count - 1) * 51);
-                else if (whileBlock != null)
-                    whileBlock.ChangeBar(-(count - 1) * 51);
-            }
+            { ifblock.ChangeBar(-(count-1) * 51); }
             else if(count ==0)
             {
-                if (ifblock != null)
-                    ifblock.ChangeBar(-(count) * 51);
-                else if (whileBlock != null)
-                    whileBlock.ChangeBar(-(count) * 51);
+                ifblock.ChangeBar(-(count) * 51);
             }
             objlist.Add(collision.gameObject);
         }
@@ -105,7 +90,7 @@ public class ifbarRegion : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag != "ifBlock" && collision.tag != "whileBlock" && collision.tag != "ifBar" && collision.tag != "Block")
+        if (collision.tag != "ifBlock" && collision.tag != "ifBar" && collision.tag != "Block")
         {
             for (int i = 0; i < objlist.Count; i++)
             {
@@ -131,18 +116,10 @@ public class ifbarRegion : MonoBehaviour
             // thisrect.sizeDelta = new Vector2(this.thisrect.sizeDelta.x, Firstpos.y + count * 300);
 
             if (count >= 1)
-            {
-                if (ifblock != null)
-                    ifblock.ChangeBar(-(count - 1) * 51);
-                else if (whileBlock != null)
-                    whileBlock.ChangeBar(-(count - 1) * 51);
-            }
+            { ifblock.ChangeBar(-(count -1) * 51); }
             else if (count == 0)
             {
-                if (ifblock != null)
-                    ifblock.ChangeBar(-(count) * 51);
-                else if (whileBlock != null)
-                    whileBlock.ChangeBar(-(count) * 51);
+                ifblock.ChangeBar(-(count) * 51);
             }
         }
     }

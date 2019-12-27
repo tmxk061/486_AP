@@ -56,21 +56,27 @@ public class RunButton : MonoBehaviour
     public void Work()
     {
         StartCoroutine(Run());
+
+      
     }
 
     public IEnumerator Run()
     {
-        while (RunOn == true)
+        if (RunOn == true)
         {
             Debug.Log("런온");
             if (blockgroup != null)
             {
                 Debug.Log("블록그룹");
 
-                yield return StartCoroutine(blockgroup.Run());
+                StartCoroutine(blockgroup.Run(0));
+
             }
         }
+
+
         yield return new WaitForSeconds(1);
+
     }
 
     public void SetMeshMaterial(bool on)

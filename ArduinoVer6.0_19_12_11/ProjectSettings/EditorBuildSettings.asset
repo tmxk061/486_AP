@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Assets/Arduino_Ver3.0/Assets/Assets/Assets/Scenes/MainScean.unity
-    guid: bd565f15ff7f0c04ea842e4a135eeaa1
+  m_Scenes: []
   m_configObjects: {}

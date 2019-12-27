@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class AnalogRead : Block
 {
     #region 변수
+
     //[SerializeField]
     //public Canvas canvas;
     //[SerializeField]
@@ -17,8 +18,8 @@ public class AnalogRead : Block
     public bool selectRun = true;
     public bool UpConncet = false;
     public bool DownConnect = false;
-    #endregion 변수
 
+    #endregion 변수
 
     protected override void Start()
     {
@@ -28,10 +29,11 @@ public class AnalogRead : Block
         base.Start();
     }
 
-
-    #region 유니티 오브젝트 작동 부분
-    public override void RunDetail()
+    #region 필수 구현 부분
+    public override IEnumerator Run(float s)
     {
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+        GetChild = false;
         if (selectSocket != null)
         {
             if (selectRun == true)
@@ -76,6 +78,22 @@ public class AnalogRead : Block
                         //  selectSocket.SocketRun(0);
                 }
             }
+        }
+
+        yield return new WaitForSecondsRealtime(0.3f);
+
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
+        {
+            StartCoroutine(block.Run(0));
+            GetChild = true;
+        }
+
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+
+        if (GetChild == false && s == 0)
+        {
+            GameManager.RunbtnWork();
         }
     }
 
@@ -129,15 +147,6 @@ public class AnalogRead : Block
             GameManager.SyncRun();
         }
     }
-    #endregion 유니티 오브젝트 작동 부분
-
-
-    #region 아두이노 코드 출력
-    public override void GetCode()
-    {
-
-        base.GetCode();
-    }
 
     public override void AddCode()
     {
@@ -160,7 +169,11 @@ public class AnalogRead : Block
             }
         }
     }
-    
+
+
+
+
+
     public override IEnumerator GetSyncCode(bool s)
     {
         GetChild = false;
@@ -230,7 +243,7 @@ public class AnalogRead : Block
             GameManager.syncBTMergeCode();
         }
     }
-    #endregion 아두이노 코드 출력
+    #endregion 필수 구현 부분
 
 
     #region 고유 구현 부분

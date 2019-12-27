@@ -15,19 +15,25 @@ public class StartBlock : Block
 
     #endregion 변수
 
-
     protected override void Start()
     {
         DownCollider = this.GetComponent<Collider2D>();
     }
 
+    #region 필수 구현 부분
 
-    #region 유니티 오브젝트 작동 부분
-    public override IEnumerator Run()
+    public override IEnumerator Run(float s)
     {
         Debug.Log("start");
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
 
-        yield return base.Run();
+        yield return new WaitForSeconds(0.3f);
+
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if(block != null)
+            StartCoroutine(block.Run(0));
+
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
     }
 
     public override IEnumerator SyncRun(bool s)
@@ -45,10 +51,10 @@ public class StartBlock : Block
 
         this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
     }
-    #endregion 유니티 오브젝트 작동 부분
 
-    #region 아두이노 코드 출력
-    public IEnumerator GetMergeCode()   // ConnectArduino.cs에서 버튼클릭시 호출
+
+
+    public IEnumerator GetMergeCode()
     {
         Block block = BlockManager.instance.BlockIdentity(transform);
         if (block != null)
@@ -56,9 +62,8 @@ public class StartBlock : Block
 
         yield return new WaitForSeconds(0.3f);
 
-        GameManager.MergeCode();    // 각 블록에서 얻은 코드 통합 후 클립보드 복사
+        GameManager.MergeCode();
     }
-
 
     public override IEnumerator GetSyncCode(bool s)
     {
@@ -93,7 +98,7 @@ public class StartBlock : Block
         }
 
     }
-    #endregion 아두이노 코드 출력
+    #endregion 필수 구현 부분
 
 
 }
