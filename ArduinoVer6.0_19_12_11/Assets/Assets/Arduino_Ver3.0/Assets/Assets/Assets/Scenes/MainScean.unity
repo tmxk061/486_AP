@@ -19696,7 +19696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101478738}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -42.899994, z: 102}
+  m_LocalPosition: {x: -79, y: -52.4, z: 102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 559540014}
@@ -55732,7 +55732,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4391239009533529972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.6, y: 86.399994, z: 201.3}
+  m_LocalPosition: {x: 0, y: 86.399994, z: 201.3}
   m_LocalScale: {x: 5, y: 6, z: 5.4}
   m_Children:
   - {fileID: 1523545957}
@@ -73812,6 +73812,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6245486229881275171}
     m_Modifications:
+    - target: {fileID: 7381801744978925449, guid: ca779ff870d09204ca239d17f1bf93a1,
+        type: 3}
+      propertyPath: m_Name
+      value: Arround
+      objectReference: {fileID: 0}
+    - target: {fileID: 7381801744978925449, guid: ca779ff870d09204ca239d17f1bf93a1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7381801744978925454, guid: ca779ff870d09204ca239d17f1bf93a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73881,16 +73891,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381801744978925449, guid: ca779ff870d09204ca239d17f1bf93a1,
-        type: 3}
-      propertyPath: m_Name
-      value: Arround
-      objectReference: {fileID: 0}
-    - target: {fileID: 7381801744978925449, guid: ca779ff870d09204ca239d17f1bf93a1,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7381801744978925443, guid: ca779ff870d09204ca239d17f1bf93a1,
         type: 3}
@@ -74849,7 +74849,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1021903871683172998}
-  - component: {fileID: 7441330787558763684}
   m_Layer: 0
   m_Name: DevTable
   m_TagString: Untagged
@@ -114894,7 +114893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -10.000002}
+  m_AnchoredPosition: {x: 0, y: -9.999985}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6767385569809042095
@@ -125533,19 +125532,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3460172954468322396}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &7441330787558763684
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4391239009533529972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 35, y: 1, z: 35}
-  m_Center: {x: 15, y: 2.5, z: 15}
 --- !u!114 &7445150634620754663
 MonoBehaviour:
   m_ObjectHideFlags: 0
