@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// ifBlock
 public class ifBlock : Block, IDragHandler, IDropHandler
 {
     #region 변수
@@ -27,31 +28,57 @@ public class ifBlock : Block, IDragHandler, IDropHandler
     public int FirstSel = 0;
     public int SecondSel = 0;
 
-    public ifBar endbar;
+    public ifBar UnderBar;
 
     public RectTransform barrect;
     public RectTransform barlocation;
     public ifbarRegion region;
     public Vector2 FirstAnchoredPosition;
-    private Outline outline;
     #endregion 변수
 
     protected override void Start()
     {
-        endbar = this.gameObject.GetComponentInChildren<ifBar>();
-        barlocation = endbar.transform.GetComponent<RectTransform>();
+        //UnderBar
+        UnderBar = this.gameObject.GetComponentInChildren<ifBar>();
+        barlocation = UnderBar.transform.GetComponent<RectTransform>();
         FirstAnchoredPosition = barlocation.anchoredPosition;
-        outline = GameObject.Find("UnderBar").gameObject.GetComponent<Outline>();
         
         base.Start();
     }
 
     #region 유니티 오브젝트 작동 부분
-    public override IEnumerator Run(float s)
+    public override IEnumerator Run()
     {
-        GetChild = false;
+        RunDetail();
+
+        // if내부 진행중 테두리 들어옴
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+        UnderBar.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+
+        // if 자식 블록 실행
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
+        {
+            if (okvalue == true)
+            {
+                yield return StartCoroutine(RunNextBlock());
+            }
+            else
+            {
+                //yield return StartCoroutine(ElseBar.Run());
+            }
+        }
+
+        // if내부 끝나면 테두리X
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        UnderBar.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        // if 이후 블록실행
+        yield return StartCoroutine(UnderBar.Run());
+    }
+
+    public override void RunDetail()
+    {
         okvalue = false;
-       
 
         if (FirstSel == 0)
         {
@@ -148,23 +175,6 @@ public class ifBlock : Block, IDragHandler, IDropHandler
                     okvalue = true;
                 }
             }
-        }
-
-        Block block = BlockManager.instance.BlockIdentity(transform);
-
-        if (okvalue == true)
-        {
-            if (block != null)
-            {
-                StartCoroutine(block.Run(1));
-                GetChild = true;
-            }
-
-        }
-        else
-        {
-            yield return new WaitForSeconds(region.count * 0.4f);
-            StartCoroutine(endbar.Run(0));
         }
     }
 
@@ -288,7 +298,7 @@ public class ifBlock : Block, IDragHandler, IDropHandler
             yield return new WaitForSecondsRealtime(1f);
         }
 
-        StartCoroutine(endbar.SyncRun(s));
+        StartCoroutine(UnderBar.SyncRun(s));
     }
     #endregion 유니티 오브젝트 작동 부분
 
@@ -366,8 +376,8 @@ public class ifBlock : Block, IDragHandler, IDropHandler
     public override void GetCode()
     {
         base.GetCode();
-                
-        endbar.GetCode();
+
+        UnderBar.GetCode();
     }
 
     public override IEnumerator GetSyncCode(bool s)
@@ -455,7 +465,7 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
         yield return new WaitForSeconds(region.count * 1f + 1f);
 
-        StartCoroutine(endbar.GetSyncCode(s));
+        StartCoroutine(UnderBar.GetSyncCode(s));
     }
 
     public override IEnumerator GetBtCode(bool s)
@@ -543,7 +553,7 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
         yield return new WaitForSeconds(region.count * 1f + 1f);
 
-        StartCoroutine(endbar.GetBtCode(s));
+        StartCoroutine(UnderBar.GetBtCode(s));
     }
     #endregion 아두이노 코드 출력
 

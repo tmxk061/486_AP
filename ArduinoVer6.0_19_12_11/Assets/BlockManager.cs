@@ -193,6 +193,40 @@ public class BlockManager : MonoBehaviour
                     return block;
                 }
                 break;
+            case "whileBlock":
+                if (type == "T")
+                {
+                    block = trans.GetComponent<whileBlock>();
+                    return block;
+                }
+                else if (type == "C")
+                {
+                    block = collision.GetComponent<whileBlock>();
+                    return block;
+                }
+                else if (type == "G")
+                {
+                    block = UpObj.GetComponent<whileBlock>();
+                    return block;
+                }
+                break;
+            case "whileBar":
+                if (type == "T")
+                {
+                    block = trans.GetComponent<whileBar>();
+                    return block;
+                }
+                else if (type == "C")
+                {
+                    block = collision.GetComponent<whileBar>();
+                    return block;
+                }
+                else if (type == "G")
+                {
+                    block = UpObj.GetComponent<whileBar>();
+                    return block;
+                }
+                break;
         }
 
         return null;
