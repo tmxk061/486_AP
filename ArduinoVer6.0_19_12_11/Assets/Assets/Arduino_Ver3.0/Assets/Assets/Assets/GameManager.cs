@@ -155,6 +155,7 @@ public class GameManager : MonoBehaviour
         runbtn.Work();
     }
 
+    #region 아두이노 코드 출력
     static public void MergeCode()
     {
         for (int i = 0; i < header.Count; i++)
@@ -326,6 +327,8 @@ public class GameManager : MonoBehaviour
 
         codeM = null;
     }
+    #endregion 아두이노 코드 출력
+
 
     static public void ReadArduinoValue()
     {

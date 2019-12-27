@@ -1,27 +1,25 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ifBar : Block
+public class whileBar : Block
 {
-    #region 변수
-    //private Vector3 mos, trans;
-    //private Vector3 distance;
-    //public Socket selectSocket;
-    //private RectTransform rect;
-    //private ifBlock block;
-
-    private ControlArduino arduino;
-    public int TimeForWait = 0;
-    #endregion 변수
-
+    [SerializeField]
+    Text RepeatText;
 
     protected override void Start()
     {
         DownCollider = this.gameObject.GetComponent<BoxCollider2D>();
     }
 
+    public void ShowRepeatNum(int num)
+    {
+        if (!(num > 0))
+            RepeatText.text = "반복";
+        else
+            RepeatText.text = num + "번 반복";
+    }
 
     #region 유니티 오브젝트 작동 부분
     public override IEnumerator Run()
@@ -60,44 +58,12 @@ public class ifBar : Block
 
     public override IEnumerator GetSyncCode(bool s)
     {
-        GameManager.loop.Add("\n}");
-        GameManager.loop.Add("\n");
-
-        GetChild = false;
-        Block block = BlockManager.instance.BlockIdentity(transform);
-        if (block != null)
-        {
-            StartCoroutine(block.GetSyncCode(s));
-            GetChild = true;
-        }
-
-        yield return new WaitForSecondsRealtime(1f);
-
-        if (GetChild == false && s == true)
-        {
-            GameManager.syncMergeCode();
-        }
+        yield return new WaitForSecondsRealtime(0.1f);
     }
 
     public override IEnumerator GetBtCode(bool s)
     {
-        GameManager.loop.Add("\n}");
-        GameManager.loop.Add("\n");
-
-        GetChild = false;
-        Block block = BlockManager.instance.BlockIdentity(transform);
-        if (block != null)
-        {
-            StartCoroutine(block.GetBtCode(s));
-            GetChild = true;
-        }
-
-        yield return new WaitForSecondsRealtime(1f);
-
-        if (GetChild == false && s == true)
-        {
-            GameManager.syncMergeCode();
-        }
+        yield return new WaitForSecondsRealtime(0.1f);
     }
     #endregion 아두이노 코드 출력
 }

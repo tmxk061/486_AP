@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class UltBlock : Block
 {
     #region 변수
-
     //[SerializeField]
     //public Canvas canvas;
     //public bool UpConncet = false;
@@ -23,6 +22,7 @@ public class UltBlock : Block
     public bool selectRun = true;
     #endregion 변수
 
+
     protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
@@ -31,14 +31,11 @@ public class UltBlock : Block
 
         base.Start();
     }
+    
 
-    #region 필수 구현 부분
-    public override IEnumerator Run(float s)
+    #region 유니티 오브젝트 작동 부분
+    public override void RunDetail()
     {
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
-
-        GetChild = false;
-
         if (selectSocket2 != null && selectSocket != null)
         {
             switch (selectSocket.SocketType)
@@ -69,22 +66,6 @@ public class UltBlock : Block
                     //  selectSocket.SocketRun(0);
             }
         }
-
-        yield return new WaitForSecondsRealtime(0.3f);
-
-        Block block = BlockManager.instance.BlockIdentity(transform);
-        if (block != null)
-        {
-            StartCoroutine(block.Run(0));
-            GetChild = true;
-        }
-
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
-
-        if (GetChild == false && s == 0)
-        {
-            GameManager.RunbtnWork();
-        }
     }
 
     public override IEnumerator SyncRun(bool s)
@@ -111,6 +92,14 @@ public class UltBlock : Block
             GameManager.SyncRun();
         }
     }
+    #endregion 유니티 오브젝트 작동 부분
+
+    #region 아두이노 코드 출력
+    public override void GetCode()
+    {
+
+        base.GetCode();
+    }
 
     public override void AddCode()
     {
@@ -129,8 +118,7 @@ public class UltBlock : Block
         //    }
         //}
     }
-
-
+    
     public override IEnumerator GetSyncCode(bool s)
     {
         GetChild = false;
@@ -196,7 +184,7 @@ public class UltBlock : Block
             GameManager.syncBTMergeCode();
         }
     }
-    #endregion 필수 구현 부분
+    #endregion 아두이노 코드 출력
 
     #region 고유 구현 부분
 

@@ -64,6 +64,10 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
         {
             this.GetComponentInChildren<ifBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
         }
+        else if (this.tag == "whileBlock")
+        {
+            this.GetComponentInChildren<whileBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -72,6 +76,9 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
 
         if (thisblock.tag == "ifBar")
             thisblock = thisblock.GetComponentInParent<ifBlock>().gameObject;
+        else if (thisblock.tag == "whileBar")
+            thisblock = thisblock.GetComponentInParent<whileBlock>().gameObject;
+
         if (thisblock.transform.parent != null)
         {
             if (UpObj != null)
@@ -94,6 +101,10 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
             {
                 thisblock.GetComponentInChildren<ifBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
             }
+            else if (thisblock.tag == "whileBlock")
+            {
+                thisblock.GetComponentInChildren<whileBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+            }
         }
     }
 
@@ -106,7 +117,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
 
             if (transform.position.y < collision.transform.position.y)//자기 위에 충돌할때
             {
-                if (this.tag != "Block" && this.tag != "ifBar") // StartBlock블록 제외
+                if (this.tag != "Block" && this.tag != "ifBar" && this.tag != "whileBar") // StartBlock블록 제외
                 {
                     if (UpCollider.isTrigger == true)
                     {
@@ -179,7 +190,36 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
 
 
     #region 유니티 오브젝트 작동 부분
-    public abstract IEnumerator Run(float s);
+    public virtual IEnumerator Run()
+    {
+        // 블록별로 달라지는것
+        RunDetail();
+        // RunDetail만 바꿔도 대부분되는데 if while wait등은 Run 수정
+
+        // 블록 지나갈때 테두리 깜박거리기
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+        yield return new WaitForSeconds(0.3f);
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+
+        // 자식 블록 실행
+        yield return StartCoroutine(RunNextBlock());
+    }
+
+    public virtual void RunDetail()
+    {
+        
+    }
+
+    public virtual IEnumerator RunNextBlock()
+    {
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
+        {
+            yield return StartCoroutine(block.Run());
+        }
+    }
+
+
     public abstract IEnumerator SyncRun(bool s);
     #endregion 유니티 오브젝트 작동 부분
 
