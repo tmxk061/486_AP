@@ -25,8 +25,9 @@ public class Player_Move : MonoBehaviour
     [SerializeField]
     private PlayerRaycast rayctrl;
 
+    public GameObject Craft_table;
+    public GameObject table_Point;
 
-   
 
     void Update()
     {
@@ -44,7 +45,7 @@ public class Player_Move : MonoBehaviour
         //MouseRC();
         PlayerPause();
 
-       
+
 
         //ClicRM = Input.GetMouseButton(1);
 
@@ -57,6 +58,12 @@ public class Player_Move : MonoBehaviour
 
         //    Modules.transform.Rotate(XSpin, YSpin, 0, Space.World);
         //}
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Craft_table.transform.position = table_Point.transform.position;
+            Craft_table.transform.rotation = table_Point.transform.rotation;
+        }
     }
 
     public void PlayerPause()
