@@ -25,7 +25,7 @@ public class ConnectArduino : MonoBehaviour
     // 버튼 클릭
     private void OnMouseDown()
     {
-        StartCoroutine(ClickEffect());
+        //StartCoroutine(ClickEffect());
 
         StartCoroutine(blockgroup.GetMergeCode());
     }

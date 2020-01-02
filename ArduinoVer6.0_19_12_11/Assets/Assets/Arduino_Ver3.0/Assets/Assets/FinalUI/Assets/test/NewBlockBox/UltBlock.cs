@@ -199,8 +199,9 @@ public class UltBlock : Block
         GameManager.loop.Add("delay(100);\n");
         GameManager.loop.Add("digitalWrite(" + selectnum + ",LOW);\n");
         GameManager.loop.Add("duration=pulseIn(" + selectnum2 + ",HIGH);\n");
-        GameManager.loop.Add("distance=duration/58.2;\n");
-        GameManager.loop.Add("Serial.println(distance);");
+        //GameManager.loop.Add("distance=duration/58.2;\n");
+        GameManager.loop.Add("distance=duration*17/1000;\n");
+        GameManager.loop.Add("Serial.println(distance +\"cm\");");
     }
 
     public void syncUltCode()

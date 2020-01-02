@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO.Ports;
 public class RunButton : MonoBehaviour
 {
     [SerializeField]
     StartBlock blockgroup;
     // Start is called before the first frame update
-    public bool RunOn = true;
+    public bool RunOn;
     [SerializeField]
     public Animator shellter;
 
@@ -23,7 +24,8 @@ public class RunButton : MonoBehaviour
 
     private MeshRenderer MeshPrint;
 
-    
+    [SerializeField]
+    Sprite[] BtnImage;  // 시작[0]/멈춤[1]
 
     public void Start()
     {
@@ -39,17 +41,26 @@ public class RunButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-       
-        //====================================
-        PannelDown.SetBool("PannelMove", true);
-        AllLightToggle.isOn = false;
-        CenterLightToggle.isOn = true;
-        //====================================
-        SetMeshMaterial(true);
-        RunOn = true;
-        shellter.SetBool("PannelMove",true);
-        Work();
-
+        if (RunOn == false)
+        {
+            ////====================================
+            //PannelDown.SetBool("PannelMove", true);
+            //AllLightToggle.isOn = false;
+            //CenterLightToggle.isOn = true;
+            ////====================================
+            //SetMeshMaterial(true);
+            //RunOn = true;
+            //shellter.SetBool("PannelMove", true);
+            //Work();
+            RunOn = true;
+            gameObject.GetComponent<Image>().sprite = BtnImage[1];
+            Work();
+        }
+        else
+        {
+            RunOn = false;
+            gameObject.GetComponent<Image>().sprite = BtnImage[0];
+        }
 
     }
 
