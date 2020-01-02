@@ -190,16 +190,21 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
 
 
     #region 유니티 오브젝트 작동 부분
+    public IEnumerator BlockOutline()
+    {
+        // 블록 지나갈때 테두리 깜박거리기
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+        yield return new WaitForSeconds(0.3f);
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+    }
+
     public virtual IEnumerator Run()
     {
         // 블록별로 달라지는것
         RunDetail();
         // RunDetail만 바꿔도 대부분되는데 if while wait등은 Run 수정
 
-        // 블록 지나갈때 테두리 깜박거리기
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
-        yield return new WaitForSeconds(0.3f);
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        yield return StartCoroutine(BlockOutline());
 
         // 자식 블록 실행
         yield return StartCoroutine(RunNextBlock());

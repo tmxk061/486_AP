@@ -307,18 +307,17 @@ public class ifBlock : Block, IDragHandler, IDropHandler
     {
         if (FirstSel == 0)
         {
-            GameManager.AddValueLis("int lux = 0;");
             if (SecondSel == 0)
             {
-                GameManager.loop.Add("if(lux>=" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance>=" + ThirdSel + ")\n" + "{");
             }
             else if (SecondSel == 1)
             {
-                GameManager.loop.Add("if(lux==" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance==" + ThirdSel + ")\n" + "{");
             }
             else if (SecondSel == 2)
             {
-                GameManager.loop.Add("if(lux<=" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance<=" + ThirdSel + ")\n" + "{");
             }
         }
         else if (FirstSel == 1)
@@ -390,19 +389,17 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
         if (FirstSel == 0)
         {
-            GameManager.AddValueLis("int lux = 0;");
-
             if (SecondSel == 0)
             {
-                GameManager.loop.Add("if(lux>=" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance>=" + ThirdSel + ")\n" + "{");
             }
             else if (SecondSel == 1)
             {
-                GameManager.loop.Add("if(lux==" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance==" + ThirdSel + ")\n" + "{");
             }
             else if (SecondSel == 2)
             {
-                GameManager.loop.Add("if(lux<=" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance<=" + ThirdSel + ")\n" + "{");
             }
         }
         else if (FirstSel == 1)
@@ -478,19 +475,17 @@ public class ifBlock : Block, IDragHandler, IDropHandler
 
         if (FirstSel == 0)
         {
-            GameManager.AddValueLis("int lux = 0;");
-
             if (SecondSel == 0)
             {
-                GameManager.loop.Add("if(lux>=" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance>=" + ThirdSel + ")\n" + "{");
             }
             else if (SecondSel == 1)
             {
-                GameManager.loop.Add("if(lux==" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance==" + ThirdSel + ")\n" + "{");
             }
             else if (SecondSel == 2)
             {
-                GameManager.loop.Add("if(lux<=" + ThirdSel + ")\n" + "{");
+                GameManager.loop.Add("if(distance<=" + ThirdSel + ")\n" + "{");
             }
         }
         else if (FirstSel == 1)
