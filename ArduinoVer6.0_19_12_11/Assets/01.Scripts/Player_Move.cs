@@ -127,19 +127,19 @@ public class Player_Move : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(new Vector3(0, 0, 100 * Time.deltaTime));
+            transform.Translate(new Vector3(0, 0, 200 * Time.deltaTime));
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(new Vector3(0, 0, 100 * Time.deltaTime * -1));
+            transform.Translate(new Vector3(0, 0, 200 * Time.deltaTime * -1));
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(new Vector3(100 * Time.deltaTime * -1, 0, 0));
+            transform.Translate(new Vector3(200 * Time.deltaTime * -1, 0, 0));
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(new Vector3(100 * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(200 * Time.deltaTime, 0, 0));
         }
 
         PlayerRotate();

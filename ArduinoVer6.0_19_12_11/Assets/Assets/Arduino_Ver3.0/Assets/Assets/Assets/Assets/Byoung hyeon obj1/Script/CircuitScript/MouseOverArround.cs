@@ -35,7 +35,7 @@ public class MouseOverArround : MonoBehaviour
             MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = Random.ColorHSV();
             Parents.GetComponent<LineArray>().array.Add(MakeLine);
 
-            MakeLine.transform.parent = GameObject.Find("DevTable").transform;
+            MakeLine.transform.parent = GameObject.Find("CraftTable").transform;
         }
         else
             mousepoint.MouseChecking = false;
