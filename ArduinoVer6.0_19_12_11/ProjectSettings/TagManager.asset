@@ -56,6 +56,10 @@ TagManager:
   - water_machin
   - water
   - Mug
+  - SubRoom1_Light
+  - SubRoom2_Light
+  - SubRoom4_Light
+  - SubRoom3_Light
   layers:
   - Default
   - TransparentFX
