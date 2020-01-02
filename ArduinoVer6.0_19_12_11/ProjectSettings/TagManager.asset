@@ -53,6 +53,8 @@ TagManager:
   - whileBlock
   - Door
   - Invisible
+  - water_machin
+  - water
   layers:
   - Default
   - TransparentFX
