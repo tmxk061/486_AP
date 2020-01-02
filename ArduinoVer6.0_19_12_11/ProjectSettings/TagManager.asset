@@ -55,6 +55,7 @@ TagManager:
   - Invisible
   - water_machin
   - water
+  - Light_Office
   layers:
   - Default
   - TransparentFX
