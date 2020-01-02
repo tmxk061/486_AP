@@ -51,6 +51,8 @@ TagManager:
   - Sensor
   - whileBar
   - whileBlock
+  - Door
+  - Invisible
   layers:
   - Default
   - TransparentFX
