@@ -17,7 +17,6 @@ public class AutoDoor : MonoBehaviour
     { 
         if (col.gameObject.tag == "Player")
         {
- 
             animator.SetBool("AutoDoor", true);
         }
     }

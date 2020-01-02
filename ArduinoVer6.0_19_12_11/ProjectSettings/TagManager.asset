@@ -55,6 +55,7 @@ TagManager:
   - Invisible
   - water_machin
   - water
+  - Mug
   layers:
   - Default
   - TransparentFX
