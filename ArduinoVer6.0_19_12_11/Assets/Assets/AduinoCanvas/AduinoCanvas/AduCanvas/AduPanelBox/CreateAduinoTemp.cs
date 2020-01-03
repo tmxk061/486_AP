@@ -16,7 +16,7 @@ public class CreateAduinoTemp : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         TempHumiParent ultval = Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation).GetComponent<TempHumiParent>();
         ultval.temperToggle = type;
-        ultval.gameObject.transform.parent = GameObject.Find("DevTable").transform;
+        ultval.gameObject.transform.parent = GameObject.Find("CraftTable").transform;
 
 
         //TempHumiParent ultval = Instantiate(obj, new Vector3(-37.5f, 135, 55), Quaternion.Euler(0, -180, 0)).GetComponent<TempHumiParent>();
