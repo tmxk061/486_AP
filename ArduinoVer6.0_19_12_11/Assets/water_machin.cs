@@ -7,15 +7,15 @@ public class water_machin : MonoBehaviour
     [SerializeField]
     private GameObject water;
 
-    public UltValue UltSensor;
-
 
     public void CreateWater()
     {
-        water.SetActive(true);     
+        water.SetActive(true);
+        Invoke("EndWater", 2f);
+        
     }
 
-    public void EndWater()
+    private void EndWater()
     {
         water.SetActive(false);
     }

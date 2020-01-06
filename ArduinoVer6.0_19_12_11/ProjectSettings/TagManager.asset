@@ -56,8 +56,6 @@ TagManager:
   - water_machin
   - water
   - Mug
-  - WaterMachineBlock
-  - WaterBlock
   layers:
   - Default
   - TransparentFX

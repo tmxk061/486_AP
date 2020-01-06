@@ -227,24 +227,6 @@ public class BlockManager : MonoBehaviour
                     return block;
                 }
                 break;
-
-            case "WaterMachineBlock":
-                if (type == "T")
-                {
-                    block = trans.GetComponent<WaterMachineBlock>();
-                    return block;
-                }
-                else if (type == "C")
-                {
-                    block = collision.GetComponent<WaterMachineBlock>();
-                    return block;
-                }
-                else if (type == "G")
-                {
-                    block = UpObj.GetComponent<WaterMachineBlock>();
-                    return block;
-                }
-                break;
         }
 
         return null;

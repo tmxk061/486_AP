@@ -31,7 +31,7 @@ public class UltValue : MonoBehaviour
 
     public float CustomDis = 4000;
     public float CustomWil = 30;
-    
+
     //// Start is called before the first frame update
     void Start()
     {
