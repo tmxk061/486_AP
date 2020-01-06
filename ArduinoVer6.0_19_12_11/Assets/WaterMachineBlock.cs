@@ -18,6 +18,7 @@ public class WaterMachineBlock : Block
         if (aa <= Distance)
         {
             WaterMachine.CreateWater();
+            WaterMachine.Used = true;
             //if (MachineRun.value == 0)
             //{
             //    WaterMachine.CreateWater();
@@ -26,6 +27,7 @@ public class WaterMachineBlock : Block
         else
         {
             WaterMachine.EndWater();
+            WaterMachine.Used = false;
         }
         //else if (MachineRun.value == 1)
         //{

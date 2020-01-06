@@ -9,10 +9,15 @@ public class water_machin : MonoBehaviour
 
     public UltValue UltSensor;
 
+    public bool Used;
 
     public void CreateWater()
     {
-        water.SetActive(true);     
+        if (Used == false)
+        {
+            water.SetActive(true);
+            Invoke("EndWater", 2f);
+        }
     }
 
     public void EndWater()
