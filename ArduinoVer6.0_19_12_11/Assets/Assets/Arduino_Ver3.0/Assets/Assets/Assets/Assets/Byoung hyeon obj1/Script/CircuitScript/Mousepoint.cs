@@ -41,7 +41,7 @@ public class Mousepoint : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayLength, floorMask))
         {
             Debug.DrawLine(ray.origin, hit.transform.position, Color.red);
-
+            Debug.Log(hit.transform.tag);
             if (hit.transform.tag == "Arround" && Input.GetMouseButtonDown(0))
             {
                     //MouseChecking = true;
