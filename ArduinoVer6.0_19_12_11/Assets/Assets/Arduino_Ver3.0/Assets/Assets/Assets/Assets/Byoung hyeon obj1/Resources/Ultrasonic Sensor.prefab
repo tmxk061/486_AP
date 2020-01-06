@@ -216,6 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  mousepoint2: {fileID: 0}
+  tableMgr: {fileID: 0}
   Parents: {fileID: 5180018637870368679}
 --- !u!65 &8852690024120005583
 BoxCollider:
@@ -433,6 +435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Sensor
+      objectReference: {fileID: 0}
+    - target: {fileID: 752527791859195242, guid: da034eef08d4b2a4281a3834b6fc617d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7099169605374582370, guid: da034eef08d4b2a4281a3834b6fc617d,
         type: 3}
