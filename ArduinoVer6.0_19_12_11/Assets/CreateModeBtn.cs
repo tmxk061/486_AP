@@ -7,6 +7,7 @@ public class CreateModeBtn : MonoBehaviour
     public CraftTable_Mgr tableMgr;
     public GameObject PlayerCamera;
     public GameObject CreateCamera;
+    public GameObject CreateCanvas;
 
 
     public void OnCreateBtnClick()
@@ -14,6 +15,7 @@ public class CreateModeBtn : MonoBehaviour
         tableMgr.CreateMode = true;
         PlayerCamera.SetActive(false);
         CreateCamera.SetActive(true);
+        CreateCanvas.SetActive(true);
     }
 
     public void OnReturnBtnClick()
@@ -21,5 +23,7 @@ public class CreateModeBtn : MonoBehaviour
         tableMgr.CreateMode = false;
         PlayerCamera.SetActive(true);
         CreateCamera.SetActive(false);
+        CreateCanvas.SetActive(false);
+
     }
 }
