@@ -1182,6 +1182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  mousepoint2: {fileID: 0}
+  tableMgr: {fileID: 0}
   Parents: {fileID: 2077223647161231403}
 --- !u!1 &3841195554697920872
 GameObject:
@@ -1289,6 +1291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MakeLine: {fileID: 0}
   mousepoint: {fileID: 0}
+  mousepoint2: {fileID: 0}
+  tableMgr: {fileID: 0}
   Parents: {fileID: 2077223647161231403}
 --- !u!1 &6320626863540230350
 GameObject:

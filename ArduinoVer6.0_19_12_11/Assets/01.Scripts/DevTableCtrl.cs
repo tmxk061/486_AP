@@ -7,9 +7,26 @@ public class DevTableCtrl : MonoBehaviour
 {
     public GameObject ModulCmd;
     private bool isModulCmd = false;
+    private Vector3 ModulFirstPos;
+    public GraphicRaycaster ModulCmdCanvas;
 
     public GameObject EnvCmd;
     private bool isEnvCmd = false;
+    private Vector3 EnvFirstPos;
+    public GraphicRaycaster EnvCmdCmdCanvas;
+
+
+    //private void Start()
+    //{
+    //    ModulCmd.GetComponent<Animator>().SetBool("Modul_open", false);
+    //    ModulFirstPos = ModulCmd.transform.localPosition;
+    //    EnvFirstPos = EnvCmd.transform.localPosition;
+    //}
+
+    //private void OnEnable()
+    //{
+    //    Debug.Log("asd");
+    //}
 
     public void Ctrl_ModulCmd_Onclick()
     {
@@ -18,6 +35,7 @@ public class DevTableCtrl : MonoBehaviour
             ModulCmd.SetActive(true);
             ModulCmd.GetComponent<Animator>().SetBool("Modul_open", true);
             isModulCmd = true;
+            ModulCanvasSet(true);
         }
         else if (isModulCmd == true)
         {
@@ -25,6 +43,7 @@ public class DevTableCtrl : MonoBehaviour
             //ModulCmd.SetActive(false);
             //Invoke("ModulCmd_ActiveFalse", 1f);
             isModulCmd = false;
+            ModulCanvasSet(false);
         }
     }
 
@@ -35,6 +54,9 @@ public class DevTableCtrl : MonoBehaviour
             EnvCmd.SetActive(true);
             EnvCmd.GetComponent<Animator>().SetBool("EnvCmd_open", true);
             isEnvCmd = true;
+            EnvCmdCmdCanvasSet(true);
+
+
         }
         else if (isEnvCmd == true)
         {
@@ -42,9 +64,22 @@ public class DevTableCtrl : MonoBehaviour
             //ModulCmd.SetActive(false);
             //Invoke("EnvCmd_ActiveFalse", 1f);
             isEnvCmd = false;
+            EnvCmdCmdCanvasSet(false);
+
+
+
         }
     }
 
+    //public void ResetStat()
+    //{
+    //    ModulCmd.GetComponent<Animator>().SetBool("Modul_open", false);
+    //    ModulCmd.transform.localPosition = ModulFirstPos;
+    //    EnvCmd.transform.localPosition = EnvFirstPos;
+
+    //    ModulCmd.SetActive(false);
+    //    ModulCmd.SetActive(true);
+    //}
 
     private void ModulCmd_ActiveFalse()
     {
@@ -54,5 +89,16 @@ public class DevTableCtrl : MonoBehaviour
     private void EnvCmd_ActiveFalse()
     {
         EnvCmd.SetActive(false);
+       
+    }
+
+    private void ModulCanvasSet(bool check)
+    {
+        ModulCmdCanvas.enabled = check;
+    }
+
+    private void EnvCmdCmdCanvasSet(bool check)
+    {
+        EnvCmdCmdCanvas.enabled = check;
     }
 }

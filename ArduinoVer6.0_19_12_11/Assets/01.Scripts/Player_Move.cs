@@ -61,10 +61,10 @@ public class Player_Move : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Craft_table.SetActive(false);
+            //Craft_table.SetActive(false);
             Craft_table.transform.position = table_Point.transform.position;
             Craft_table.transform.rotation = table_Point.transform.rotation;
-            Craft_table.SetActive(true);
+            //Craft_table.SetActive(true);
         }
     }
 
