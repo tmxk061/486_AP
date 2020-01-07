@@ -41,7 +41,14 @@ public class TempHumiParent : MonoBehaviour
     public int dataminval = 0;
     public int datamaxval = 100;
 
+    private bool notMoveCheck = false; //안움직이는 드래그용 꼼수 변수(회전시 라인 따라가기용)
     // Start is called before the first frame update
+    public void linePosReset() //가지고 있는 라인들의 위치를 내 위치로 리셋(사기치는코드)
+    {
+        notMoveCheck = true;
+        OnMouseDrag();
+    }
+
     private void Start()
     {
         GNDConnect = false;
@@ -60,7 +67,10 @@ public class TempHumiParent : MonoBehaviour
 
         //if ((this.transform.position.z - Camera.main.transform.position.z) > 0)
         //distance = this.transform.position.z - Camera.main.transform.position.z;
-        distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
+        if (CraftTable_Mgr.instance.CreateMode == true)
+            distance = Vector3.Distance(this.transform.position, GameObject.Find("CreateCamera").transform.position);
+        else
+            distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
 
         // else
         //distance = Camera.main.transform.position.z - this.transform.position.z;
@@ -85,6 +95,12 @@ public class TempHumiParent : MonoBehaviour
 
         if (this.gameObject.layer == LayerMask.NameToLayer("Sensor"))
         {
+            if (notMoveCheck == true)
+            {
+                notMoveCheck = false;
+                return;
+            }
+
             Vector3 mousePosition = new Vector3(Input.mousePosition.x,
                                                 Input.mousePosition.y, distance);
             Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
