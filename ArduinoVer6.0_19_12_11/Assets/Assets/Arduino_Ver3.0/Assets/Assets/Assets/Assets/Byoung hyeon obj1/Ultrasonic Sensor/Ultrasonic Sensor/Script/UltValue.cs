@@ -31,7 +31,6 @@ public class UltValue : MonoBehaviour
 
     public float CustomDis = 4000;
     public float CustomWil = 30;
-
     private bool notMoveCheck = false; //안움직이는 드래그용 꼼수 변수(회전시 라인 따라가기용)
 
     //// Start is called before the first frame update
