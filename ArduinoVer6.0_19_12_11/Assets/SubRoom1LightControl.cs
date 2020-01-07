@@ -7,6 +7,12 @@ public class SubRoom1LightControl : MonoBehaviour
     bool L;
     public GameObject[] light;
 
+    // public GameObject mlight;
+
+    public IllValue lv;
+
+    //LightObject lo;
+
     Animator animator;
 
     void Start()
@@ -14,46 +20,51 @@ public class SubRoom1LightControl : MonoBehaviour
         animator = GetComponent<Animator>();
 
         L = false;
+      
         light = GameObject.FindGameObjectsWithTag("SubRoom1_Light");
 
         for (int i = 0; i < light.Length; i++)
         {
             light[i].SetActive(false);
-        }
+        }       
     }
 
     private void OnMouseDown()
     {
-        if (L == false)
-        {
-            L = true;
-            animator.SetBool("TurnOn", true);
-            TurnOnLight();
 
-            //Debug.Log("true");
-        }
-        else if (L == true)
-        {
-            L = false;
-            animator.SetBool("TurnOn", false);
-            TurnOffLight();
+      if (L == false)
+      {
+         if (lv.VccConnect == true && lv.GNDConnect == true && lv.AnalogConnect == true)
+         {
+             L = true;
+             animator.SetBool("TurnOn", true);
+             TurnOnLight();
+         }     
+       //Debug.Log("true");
+      }
+      else if (L == true)
+      {
+          L = false;
+          animator.SetBool("TurnOn", false);
+          TurnOffLight();
 
-            //Debug.Log("false");
-        }
+          //Debug.Log("false");
+      }
+ 
+
     }
 
     void TurnOnLight()
     {
-        //light.SetActive(true);
-        for (int i = 0; i < light.Length; i++)
-        {
-            light[i].SetActive(true);
-        }
+       for (int i = 0; i < light.Length; i++)
+       {
+           light[i].SetActive(true);
+       }
     }
 
     void TurnOffLight()
     {
-        //light.SetActive(false);
+        
         for (int i = 0; i < light.Length; i++)
         {
             light[i].SetActive(false);
