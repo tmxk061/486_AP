@@ -13,22 +13,24 @@ public class WaterMachineBlock : Block
 
     public override void RunDetail()
     {
-        Debug.Log(WaterMachine.UltSensor.sqrLen);
-        float aa = WaterMachine.UltSensor.sqrLen;
-        if (aa <= Distance)
-        {
-            WaterMachine.CreateWater();
-            WaterMachine.Used = true;
-            //if (MachineRun.value == 0)
-            //{
-            //    WaterMachine.CreateWater();
-            //}
-        }
-        else
-        {
-            WaterMachine.EndWater();
-            WaterMachine.Used = false;
-        }
+        //Debug.Log(WaterMachine.UltSensor.sqrLen);
+        //float aa = WaterMachine.UltSensor.sqrLen;
+        //if (aa <= Distance)
+        //{
+        //    WaterMachine.CreateWater();
+        //    WaterMachine.Used = true;
+        //    //if (MachineRun.value == 0)
+        //    //{
+        //    //    WaterMachine.CreateWater();
+        //    //}
+        //}
+        //else
+        //{
+        //    WaterMachine.EndWater();
+        //    WaterMachine.Used = false;
+        //}
+
+        WaterMachine.CreateWater();
         //else if (MachineRun.value == 1)
         //{
         //    WaterMachine.EndWater();
