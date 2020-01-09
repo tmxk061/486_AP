@@ -62,6 +62,7 @@ TagManager:
   - SubRoom3_Light
   - WaterMachineBlock
   - WaterBlock
+  - MissionLight
   layers:
   - Default
   - TransparentFX
