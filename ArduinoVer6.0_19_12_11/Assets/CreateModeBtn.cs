@@ -13,6 +13,7 @@ public class CreateModeBtn : MonoBehaviour
     public void OnCreateBtnClick()
     {
         tableMgr.CreateMode = true;
+        guidHud_Mgr.instance.modeChange(1);
         PlayerCamera.SetActive(false);
         CreateCamera.SetActive(true);
         CreateCanvas.SetActive(true);
@@ -21,6 +22,7 @@ public class CreateModeBtn : MonoBehaviour
     public void OnReturnBtnClick()
     {
         tableMgr.CreateMode = false;
+        guidHud_Mgr.instance.modeChange(0);
         PlayerCamera.SetActive(true);
         CreateCamera.SetActive(false);
         CreateCanvas.SetActive(false);

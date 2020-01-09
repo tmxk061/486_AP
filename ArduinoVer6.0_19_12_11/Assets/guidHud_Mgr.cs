@@ -11,20 +11,42 @@ public class guidHud_Mgr : MonoBehaviour
     }
 
     [SerializeField]
-    private GameObject[] guidUI; // 0.노말 1.고정노말 2.크래프트
+    private GameObject[] NormalguidUI; // 0.노말 1.고정노말
+
+    [SerializeField]
+    private GameObject Normalguid; 
+
+    [SerializeField]
+    private GameObject Craftguid;
 
 
     public void changeGuide(int num)
     {
-        for (int i = 0; i < guidUI.Length; i++)
+        for (int i = 0; i < NormalguidUI.Length; i++)
         {
             if (i == num)
             {
-                guidUI[i].SetActive(true);
+                NormalguidUI[i].SetActive(true);
                 continue;
             }
 
-            guidUI[i].SetActive(false);
+            NormalguidUI[i].SetActive(false);
+        }
+    }
+
+    public void modeChange(int i)
+    {
+        //0.노말모드 가이드, 1.조립모드 가이드
+
+        if (i == 0)
+        {
+            Normalguid.SetActive(true);
+            Craftguid.SetActive(false);
+        }
+        if (i == 1)
+        {
+            Normalguid.SetActive(false);
+            Craftguid.SetActive(true);
         }
     }
 }
