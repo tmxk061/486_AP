@@ -28,6 +28,7 @@ public class Player_Move : MonoBehaviour
     public GameObject Craft_table;
     public GameObject table_Point;
 
+   
 
     void Update()
     {
@@ -38,6 +39,7 @@ public class Player_Move : MonoBehaviour
         MoveTable();
 
         MainCamZoomin();
+
     }
 
     private void MainCamZoomin()
@@ -98,11 +100,12 @@ public class Player_Move : MonoBehaviour
             if (StopCamRotation == false)
             {
                 //rayctrl.ControlMode = 1;
-
+                guidHud_Mgr.instance.changeGuide(1);
                 StopCamRotation = true;
             }
             else
             {
+                guidHud_Mgr.instance.changeGuide(0);
                 StopCamRotation = false;
             }
 
@@ -157,4 +160,7 @@ public class Player_Move : MonoBehaviour
         PlayerRotate();
 
     }
+
+
+   
 }
