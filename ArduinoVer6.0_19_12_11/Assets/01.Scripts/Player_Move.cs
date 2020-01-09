@@ -36,6 +36,34 @@ public class Player_Move : MonoBehaviour
         PlayerPause();
 
         MoveTable();
+
+        MainCamZoomin();
+    }
+
+    private void MainCamZoomin()
+    {
+        if (CraftTable_Mgr.instance.CreateMode == true)
+            return;
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            cam.fieldOfView = 20;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            cam.fieldOfView = 60;
+        }
+    }
+
+    void FixedUpdate() //Movement Rotation
+    {
+
+        if (GameManager.RunBlock == false && CraftTable_Mgr.instance.CreateMode == false)
+        {
+            Move();
+            if (StopCamRotation != true)
+                PreformRotation();
+        }
     }
 
     private void MouseCameraMove()
@@ -93,17 +121,6 @@ public class Player_Move : MonoBehaviour
             {
                 transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
             }
-        }
-    }
-
-    void FixedUpdate() //Movement Rotation
-    {
-
-        if (GameManager.RunBlock == false && CraftTable_Mgr.instance.CreateMode == false)
-        {
-            Move();
-            if (StopCamRotation != true)
-                PreformRotation();
         }
     }
 
