@@ -31,16 +31,51 @@ public class Player_Move : MonoBehaviour
 
     void Update()
     {
+        MouseCameraMove();
+
+        PlayerPause();
+
+        MoveTable();
+
+        MainCamZoomin();
+    }
+
+    private void MainCamZoomin()
+    {
+        if (CraftTable_Mgr.instance.CreateMode == true)
+            return;
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            cam.fieldOfView = 20;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            cam.fieldOfView = 60;
+        }
+    }
+
+    void FixedUpdate() //Movement Rotation
+    {
+
+        if (GameManager.RunBlock == false && CraftTable_Mgr.instance.CreateMode == false)
+        {
+            Move();
+            if (StopCamRotation != true)
+                PreformRotation();
+        }
+    }
+
+    private void MouseCameraMove()
+    {
+        if (CraftTable_Mgr.instance.CreateMode == true)
+            return;
+
         float yRot = Input.GetAxisRaw("Mouse X");
         float xRot = Input.GetAxisRaw("Mouse Y");
 
         rotation = new Vector3(0f, yRot, 0f) * rotateSpeed; //x
         cameraRotation = xRot * rotateSpeed; //y (카메라만 위로 돌아감)
-
-       
-        PlayerPause();
-
-        MoveTable();
     }
 
     private void MoveTable()
@@ -86,17 +121,6 @@ public class Player_Move : MonoBehaviour
             {
                 transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
             }
-        }
-    }
-
-    void FixedUpdate() //Movement Rotation
-    {
-
-        if (GameManager.RunBlock == false)
-        {
-            Move();
-            if (StopCamRotation != true)
-                PreformRotation();
         }
     }
 
