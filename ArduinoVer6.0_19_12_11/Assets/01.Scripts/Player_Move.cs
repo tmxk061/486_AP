@@ -37,30 +37,18 @@ public class Player_Move : MonoBehaviour
         rotation = new Vector3(0f, yRot, 0f) * rotateSpeed; //x
         cameraRotation = xRot * rotateSpeed; //y (카메라만 위로 돌아감)
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    GameManager.lux = 500;
-        //    Debug.Log(GameManager.lux);
-        //}
-        //MouseRC();
+       
         PlayerPause();
 
+        MoveTable();
+    }
 
-
-        //ClicRM = Input.GetMouseButton(1);
-
-        //if (ClicRM == true)
-        //{
-        //    Debug.Log("IN");
-
-        //    float XSpin = yRot * rotateSpeed * Time.deltaTime;
-        //    float YSpin = xRot * rotateSpeed * Time.deltaTime;
-
-        //    Modules.transform.Rotate(XSpin, YSpin, 0, Space.World);
-        //}
-
+    private void MoveTable()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (CraftTable_Mgr.instance.CreateMode == true)
+                return;
             //Craft_table.SetActive(false);
             Craft_table.transform.position = table_Point.transform.position;
             Craft_table.transform.rotation = table_Point.transform.rotation;
