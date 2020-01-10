@@ -296,6 +296,20 @@ public class End : MonoBehaviour
                 {
                     pm = other.GetComponent<IllGND>();
                 }
+                else if (other.name == "SignalPin")
+                {
+                    pm = other.GetComponent<WaterSig>();
+                    Manager.run = new LineManager.RunDelegate(other.gameObject.GetComponentInParent<WaterValue>().Run);
+                    Manager.pause = new LineManager.PauseDelegate(other.gameObject.GetComponentInParent<WaterValue>().Pause);
+                }
+                else if (other.name == "PlusPin")
+                {
+                    pm = other.GetComponent<WaterVcc>();
+                }
+                else if (other.name == "MinusPin")
+                {
+                    pm = other.GetComponent<WaterGnd>();
+                }
                 break;
 
             case "OUTPUT":
