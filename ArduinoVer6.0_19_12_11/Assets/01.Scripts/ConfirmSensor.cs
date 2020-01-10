@@ -82,6 +82,13 @@ public class ConfirmSensor : MonoBehaviour
         StartCoroutine(Delay());
     }
 
+    public void CreateWaterSensor()
+    {
+        confirmcan.gameObject.SetActive(true);
+        moduleName.text = "수위센서가 생성되었습니다.";
+        StartCoroutine(Delay());
+    }
+
     //2초 딜레이
     IEnumerator Delay()
     {
