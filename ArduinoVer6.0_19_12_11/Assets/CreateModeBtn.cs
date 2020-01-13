@@ -9,6 +9,8 @@ public class CreateModeBtn : MonoBehaviour
     public GameObject CreateCamera;
     public GameObject CreateCanvas;
 
+    public GameObject PlayZoneCamera;
+
 
     public void OnCreateBtnClick()
     {
@@ -17,6 +19,8 @@ public class CreateModeBtn : MonoBehaviour
         PlayerCamera.SetActive(false);
         CreateCamera.SetActive(true);
         CreateCanvas.SetActive(true);
+
+        PlayZoneCamera.SetActive(false);
     }
 
     public void OnReturnBtnClick()
@@ -26,6 +30,9 @@ public class CreateModeBtn : MonoBehaviour
         PlayerCamera.SetActive(true);
         CreateCamera.SetActive(false);
         CreateCanvas.SetActive(false);
+
+        PlayZoneCamera.SetActive(true);
+
 
     }
 }
