@@ -15,6 +15,8 @@ public class ClickMakeBlock : MonoBehaviour
         newobj.transform.SetParent(parent.transform);
         newobj.transform.position = Spwn.transform.position;
 
+        newobj.transform.localScale = GameObject.Find("StartBlock").GetComponent<RectTransform>().localScale;
+
         //obj.transform.position = new Vector3(0, 0);
         //obj.transform.localPosition = new Vector2(0, 0);
     }
