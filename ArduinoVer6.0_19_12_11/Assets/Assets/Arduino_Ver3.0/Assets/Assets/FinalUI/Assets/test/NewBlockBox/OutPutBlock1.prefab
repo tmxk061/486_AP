@@ -1955,7 +1955,7 @@ RectTransform:
   m_GameObject: {fileID: 7610375028823189243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 7610375027646631558}
   - {fileID: 7610375027748113164}
@@ -2091,14 +2091,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectnum: 0
-  selectSecket: {fileID: 0}
+  selectSocket: {fileID: 0}
   canvas: {fileID: 6933751525592468577, guid: 490fc011ae8d0bc4587cb5bb4cce3ffc, type: 3}
   selectRun: 1
   UpConncet: 0
   DownConnect: 0
   secondCamera: {fileID: 0}
-  ParentObj: {fileID: 1066256948057023717, guid: 490fc011ae8d0bc4587cb5bb4cce3ffc,
-    type: 3}
 --- !u!114 &7610375027963620374
 MonoBehaviour:
   m_ObjectHideFlags: 0
