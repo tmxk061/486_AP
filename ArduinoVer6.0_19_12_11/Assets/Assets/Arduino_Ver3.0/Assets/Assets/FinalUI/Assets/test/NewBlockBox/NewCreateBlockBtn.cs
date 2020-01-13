@@ -15,5 +15,7 @@ public class NewCreateBlockBtn : MonoBehaviour
         GameObject newobj = Instantiate(obj);
         newobj.transform.SetParent(ParentObj.transform);
         newobj.transform.position = Spwn.transform.position;
+
+        newobj.transform.localScale = GameObject.Find("StartBlock").GetComponent<RectTransform>().localScale;
     }
 }

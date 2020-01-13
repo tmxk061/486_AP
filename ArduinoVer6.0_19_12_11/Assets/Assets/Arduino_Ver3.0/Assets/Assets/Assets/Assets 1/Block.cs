@@ -127,7 +127,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
                         {
                             if (sample.CheckDownCollider() == true)
                             {
-                                transform.position = collision.transform.position + new Vector3(0, -51, 0);
+                                transform.position = collision.transform.position + new Vector3(0, -35, 0);
                                 this.transform.SetParent(sample.transform);
                                 this.transform.SetAsFirstSibling();
                                 UpObj = collision.gameObject;
