@@ -73,6 +73,7 @@ public class OnButtonClick : MonoBehaviour
     {
         if (GameManager.RunBlock == true)
         {
+            canvas.GetComponent<GraphicRaycaster>().enabled = false;
             Button1Image.raycastTarget = false;
             Button2Image.raycastTarget = false;
             Button3Image.raycastTarget = false;
