@@ -2495,7 +2495,7 @@ RectTransform:
   m_GameObject: {fileID: 6406721284098893004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 6406721283885213728}
   - {fileID: 2416445275904445564}
@@ -2649,12 +2649,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectnum: 0
   selectnum2: 0
-  selectSecket: {fileID: 0}
-  selectSecket2: {fileID: 0}
-  canvas: {fileID: 0}
+  selectSocket: {fileID: 0}
+  selectSocket2: {fileID: 0}
   selectRun: 1
-  UpConncet: 0
-  DownConnect: 0
-  secondCamera: {fileID: 0}
-  GetChild: 0
-  parentobj: {fileID: 0}

@@ -77,6 +77,7 @@ public class OnCubeClick : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        canvas.GetComponent<GraphicRaycaster>().enabled = true;
         Button1Image.raycastTarget = true;
         Button2Image.raycastTarget = true;
         Button3Image.raycastTarget = true;

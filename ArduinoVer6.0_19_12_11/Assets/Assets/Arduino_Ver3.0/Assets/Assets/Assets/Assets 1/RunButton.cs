@@ -39,7 +39,7 @@ public class RunButton : MonoBehaviour
        
     }
 
-    private void OnMouseDown()
+    public void OnMouseDown()
     {
         if (RunOn == false)
         {
