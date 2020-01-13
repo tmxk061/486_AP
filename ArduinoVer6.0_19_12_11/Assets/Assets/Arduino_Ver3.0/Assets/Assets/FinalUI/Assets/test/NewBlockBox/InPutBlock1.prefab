@@ -838,7 +838,7 @@ RectTransform:
   m_GameObject: {fileID: 2029483630312298777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 2029483628923426293}
   - {fileID: 2029483629334947741}
@@ -921,13 +921,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectnum: 0
-  selectSecket: {fileID: 0}
-  canvas: {fileID: 0}
+  selectSocket: {fileID: 0}
   selectRun: 1
   UpConncet: 0
   DownConnect: 0
-  secondCamera: {fileID: 0}
-  GetChild: 0
 --- !u!61 &2029483630312298780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -993,13 +990,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectnum: 0
-  selectSecket: {fileID: 0}
+  selectSocket: {fileID: 0}
   canvas: {fileID: 0}
   selectRun: 1
   UpConncet: 0
   DownConnect: 0
   secondCamera: {fileID: 0}
-  ParentObj: {fileID: 0}
 --- !u!114 &499043281875244829
 MonoBehaviour:
   m_ObjectHideFlags: 0
