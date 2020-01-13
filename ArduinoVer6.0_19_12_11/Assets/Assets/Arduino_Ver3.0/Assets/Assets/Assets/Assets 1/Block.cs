@@ -33,10 +33,11 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
         //selectSocket = arduino.PinList[0];
         //selectSocket2 = arduino.PinList[0];
 
-        ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
+        //ParentObj = GameObject.Find("PanelBlockCoding").gameObject.transform.Find("CodingPanel").gameObject.transform.Find("CodingMaskPanel").gameObject;
+        ParentObj = GameObject.Find("BlockCordingZone");
         colliders = this.GetComponents<Collider2D>();
 
-        this.transform.position = new Vector3(930, 421);
+        //this.transform.position = new Vector3(930, 421);
 
         if (colliders != null)
         {
