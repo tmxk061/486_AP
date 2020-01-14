@@ -108,5 +108,10 @@ public class CreMode_RotateMgr : MonoBehaviour
         {
             TargetSensor.GetComponent<LEDManager>().linePosReset();
         }
+
+        if (TargetSensor.GetComponent<WaterValue>() != null)
+        {
+            TargetSensor.GetComponent<WaterValue>().linePosReset();
+        }
     }
 }
