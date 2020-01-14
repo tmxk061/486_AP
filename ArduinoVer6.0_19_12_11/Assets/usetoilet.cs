@@ -35,12 +35,12 @@ public class usetoilet : MonoBehaviour
 
     private void toiltrue()
     {
-        animator.SetBool("UseOn", true);
+        animator.SetBool("TurnOn", true);
     }
 
     private void toifalse()
     {
-        animator.SetBool("UseOn", false);
+        animator.SetBool("TurnOn", false);
 
     }
 }
