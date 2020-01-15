@@ -16,6 +16,7 @@ public class EducationMgr : MonoBehaviour
     #endregion 아두이노, 빵판
 
     #region 모듈
+
     [Header("모듈---")]
     [SerializeField]
     private Transform Modul_Parent; // 모듈을 담을 부모
@@ -34,7 +35,6 @@ public class EducationMgr : MonoBehaviour
     #region 라인
 
     [Header("라인----")]
-
     [SerializeField]
     private Transform LineParents; // 모든라인을 담을 부모 오브젝트
 
@@ -44,14 +44,20 @@ public class EducationMgr : MonoBehaviour
     #endregion 라인
 
     #region 데이터
-    
-    int[] Modul_data;
-    string[,] Modul_order;
-    #endregion
+
+    [SerializeField]
+    private int Edu_ID = 1;
+    [SerializeField]
+    private int Max_Edu_ID = 1;
+
+    private int[] Modul_data;
+    private string[,] Modul_order;
+
+    #endregion 데이터
 
     #region 오더
-    [Header("오더----")]
 
+    [Header("오더----")]
     [SerializeField]
     private int NowOrder = 0;
 
@@ -59,41 +65,41 @@ public class EducationMgr : MonoBehaviour
     private Text NowText;
 
     [SerializeField]
-    private List<GameObject> NowLine;
+    private List<GameObject> LineList;
 
-    #endregion
-
+    #endregion 오더
 
     private void Start()
     {
-        Modul_data = new int[] { 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 };
-
-        Modul_order = new string[,]
-        {
-            {"1","-1","20","1","3","테스트1" },
-            {"2","-1","30","1","1","테스트2" },
-            {"3","-2","140","1","2","테스트3" }
-        };
-
         setting();
     }
+
     private void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Btn_OnNextClick();
-        }
+            if (Edu_ID == Max_Edu_ID)
+                return;
 
+            Edu_ID +=1;
+            setting();
+        }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            Btn_OnBackClick();
+            if (Edu_ID == 1)
+                return;
+
+            Edu_ID -= 1;
+            setting();
         }
     }
 
-
-    private void setting() //최초 필요한 모듈 배치
+    private void setting() //세팅
     {
+        Reset();
+
+        Modul_data = Edu_table_Mgr.GetModulTable(Edu_ID);
+        Modul_order = Edu_table_Mgr.GetModulOrder(Edu_ID);
 
         for (int i = 1; i < Modul_data.Length; i++)
         {
@@ -101,15 +107,38 @@ public class EducationMgr : MonoBehaviour
                 continue;
 
             //사용될 모듈을 생성하고 배치한다.
+            Debug.Log(Modul_data[i]);
             GameObject newModul = Instantiate(Moduls[Modul_data[i]]);
             newModul.transform.parent = Modul_Parent;
-            newModul.transform.position = Modul_Pos[i].position;
+            newModul.transform.position = Modul_Pos[i-1].position;
 
             //사용될 모듈 목록을 받아와서 Modul_Array에 집어넣는다.
             //Used_Modul_Array.Add(Moduls[data[i]]);
-            Used_Modul_Array[i] = newModul;
+            Used_Modul_Array[i-1] = newModul;
+        }
+    }
+
+    private void Reset()
+    {
+        NowOrder = 0;
+
+        for (int i = 0; i < Used_Modul_Array.Count; i++) //사용 모듈 삭제
+        {
+            if (Used_Modul_Array[i] != null)
+                Destroy(Used_Modul_Array[i].gameObject);
+
+            Used_Modul_Array[i] = null;
         }
 
+        for (int i = 0; i < LineList.Count; i++) //라인 초기화
+        {
+            Destroy(LineList[i].gameObject);
+        }
+        LineList.Clear();
+
+        Modul_data = null;
+        Modul_order = null;
+        NowText.text = "";
     }
 
     private void UpdateOrder()
@@ -138,12 +167,11 @@ public class EducationMgr : MonoBehaviour
         lineMgr.Point2Set(target2.position);
         lineMgr.UpdateLine();
 
-        NowLine.Add(newLine); //되돌리기를 위한 현재라인 장입
+        LineList.Add(newLine); //되돌리기를 위한 현재라인 장입
     }
 
     private Transform Order_TargetSetting(int num, int targetNum)
     {
-
         if (targetNum == 1)
             targetNum = 1;
         else
@@ -153,25 +181,24 @@ public class EducationMgr : MonoBehaviour
         {
             case "-1":
                 return ArduinoPoint[num];
+
             case "-2":
                 return BreadBoardPoint[num];
+
             default:
                 return Used_Modul_Array[
-                                            int.Parse(Modul_order[NowOrder, targetNum])
+                                            int.Parse(Modul_order[NowOrder, targetNum])-1
                                           ].GetComponent<EduModul>().PinList[num].transform;
         }
     }
-
-
-
 
     public void Btn_OnBackClick()
     {
         if (NowOrder == 0)
             return;
 
-        Destroy(NowLine[NowLine.Count - 1].gameObject);
-        NowLine.RemoveAt(NowLine.Count - 1);
+        Destroy(LineList[LineList.Count - 1].gameObject);
+        LineList.RemoveAt(LineList.Count - 1);
         NowOrder--;
     }
 
