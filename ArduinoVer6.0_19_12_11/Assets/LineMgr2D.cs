@@ -15,7 +15,7 @@ public class LineMgr2D : MonoBehaviour
         //라인렌더러 설정
         lineRenderer = GetComponent<LineRenderer>();
         ColorSet(255, 0, 0);
-        UpdateLine();
+        //UpdateLine();
     }
 
     public void Point1Set(Vector3 Moveposition)
