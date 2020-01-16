@@ -22,6 +22,8 @@ public class LineManager : MonoBehaviour
     public LuxRead luxRead;
     public delegate float UltRead();
     public UltRead ultRead;
+    public delegate float WaterRead();
+    public WaterRead waterRead;
     public delegate List<float> HumiTempRead();
     public HumiTempRead humitempRead;
 

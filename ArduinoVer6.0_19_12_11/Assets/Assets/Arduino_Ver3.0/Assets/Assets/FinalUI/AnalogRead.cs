@@ -73,6 +73,15 @@ public class AnalogRead : Block
 
                         break;
 
+                    case GameManager.SensorType.water:
+
+                        float? valuewater = selectSocket.floatSocketRun();
+
+                        GameManager.setWatertext("핀" + selectnum + " : " + valuewater);
+                        GameManager.water = valuewater;
+
+                        break;
+
                         //  selectSocket.SocketRun(0);
                 }
             }

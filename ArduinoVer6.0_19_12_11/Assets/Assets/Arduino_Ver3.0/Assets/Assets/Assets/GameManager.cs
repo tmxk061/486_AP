@@ -12,10 +12,11 @@ public class GameManager : MonoBehaviour
     static public TextMesh humitext = GameObject.Find("HumiValue").GetComponent<TextMesh>();
     static public TextMesh distancetext = GameObject.Find("DistanceValue").GetComponent<TextMesh>();
     static public TextMesh Luxtext = GameObject.Find("LuxValue").GetComponent<TextMesh>();
+    static public TextMesh watertext = GameObject.Find("WaterValue1").GetComponent<TextMesh>();
     #endregion
 
     #region 아두이노 센서들, 포트 번호 지정, 아두이노 실행할 때(?) 쓰는 것들
-    public enum SensorType { Servo, Led, DC, Sound, Bread, Ult, Lux, HumiTemp, l298n, normal };
+    public enum SensorType { Servo, Led, DC, Sound, Bread, Ult, Lux, HumiTemp, l298n, normal, water };
 
     private static SerialPort ArduinoPort = new SerialPort("COM5", 9600);
     static public ConnectArduino connectArduino = GameObject.Find("CodePaste").GetComponent<ConnectArduino>();
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     static public float? temp = 0f;
     static public float? humi = 0f;
     static public float? lux = 0f;
+    static public float? water = 0f;
     #endregion
 
     #region 아누이노 실행할 때 사용하는 변수들 선언 및 초기화
@@ -87,6 +89,11 @@ public class GameManager : MonoBehaviour
     static public void setLuxtext(string _text)
     {
         Luxtext.text = _text;
+    }
+
+    static public void setWatertext(string _text)
+    {
+        watertext.text = _text;
     }
     #endregion
 
