@@ -5,8 +5,26 @@ public class Edu_table_Mgr : MonoBehaviour
 {
     private void Start()
     {
-        List<Dictionary<string, object>> data = CSVReader.Read("Edu_Modul");
-        Debug.Log(data.Count);
+       
+    }
+
+    public static List<string[]> GetMainTable()
+    {
+        List<Dictionary<string, object>> data = CSVReader.Read("Edu_Main");
+
+        List<string[]> Maindata = new List<string[]>();
+
+        for (int i = 0; i < data.Count; i++)
+        {
+            string[] da = new string[2];
+            da[0] = data[i]["ID"].ToString();
+            da[1] = data[i]["NAME"].ToString();
+
+            Maindata.Add(da);
+        }
+
+        return Maindata;
+
     }
 
     public static int[] GetModulTable(int number)

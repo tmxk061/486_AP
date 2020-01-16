@@ -44,9 +44,7 @@ public class EducationMgr : MonoBehaviour
     #endregion 라인
 
     #region 데이터
-
-    [SerializeField]
-    private int Edu_ID = 1;
+    public int Edu_ID = 1;
     [SerializeField]
     private int Max_Edu_ID = 1;
 
@@ -68,6 +66,14 @@ public class EducationMgr : MonoBehaviour
     private List<GameObject> LineList;
 
     #endregion 오더
+
+    #region View
+    [Header("View----")]
+    [SerializeField]
+    private GameObject MenuView;
+    [SerializeField]
+    private GameObject MainView;
+    #endregion
 
     private void Start()
     {
@@ -94,7 +100,7 @@ public class EducationMgr : MonoBehaviour
         }
     }
 
-    private void setting() //세팅
+    public void setting() //세팅
     {
         Reset();
 
@@ -188,7 +194,7 @@ public class EducationMgr : MonoBehaviour
             default:
                 return Used_Modul_Array[
                                             int.Parse(Modul_order[NowOrder, targetNum])-1
-                                          ].GetComponent<EduModul>().PinList[num].transform;
+                                          ].GetComponent<EduModul>().PinList[num-1].transform;
         }
     }
 
@@ -206,5 +212,11 @@ public class EducationMgr : MonoBehaviour
     {
         UpdateOrder();
         NowOrder++;
+    }
+
+    public void Btn_OnMenuClick()
+    {
+        MenuView.SetActive(true);
+        MainView.SetActive(false);
     }
 }
