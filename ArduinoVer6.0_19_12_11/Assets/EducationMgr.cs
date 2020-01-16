@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -113,7 +114,6 @@ public class EducationMgr : MonoBehaviour
                 continue;
 
             //사용될 모듈을 생성하고 배치한다.
-            Debug.Log(Modul_data[i]);
             GameObject newModul = Instantiate(Moduls[Modul_data[i]]);
             newModul.transform.parent = Modul_Parent;
             newModul.transform.position = Modul_Pos[i-1].position;
@@ -149,18 +149,27 @@ public class EducationMgr : MonoBehaviour
 
     private void UpdateOrder()
     {
-        Transform target1;
-        Transform target2;
+        try
+        {
+            Transform target1;
+            Transform target2;
 
-        int num1 = int.Parse(Modul_order[NowOrder, 2]); //타겟 핀넘버
-        int num2 = int.Parse(Modul_order[NowOrder, 4]);
+            int num1 = int.Parse(Modul_order[NowOrder, 2]); //타겟 핀넘버
+            int num2 = int.Parse(Modul_order[NowOrder, 4]);
 
-        target1 = Order_TargetSetting(num1, 1); //타겟 설정
-        target2 = Order_TargetSetting(num2, 2);
+            target1 = Order_TargetSetting(num1, 1); //타겟 설정
+            target2 = Order_TargetSetting(num2, 2);
 
-        CreateLine(target1, target2); //라인 생성
+            CreateLine(target1, target2); //라인 생성
 
-        NowText.text = Modul_order[NowOrder, 5]; //텍스트 업데이트
+            NowText.text = Modul_order[NowOrder, 5]; //텍스트 업데이트
+        }
+        catch
+        {
+            throw new Exception();
+
+        }
+        
     }
 
     private void CreateLine(Transform target1, Transform target2)
@@ -210,8 +219,16 @@ public class EducationMgr : MonoBehaviour
 
     public void Btn_OnNextClick()
     {
-        UpdateOrder();
-        NowOrder++;
+        try
+        {
+            UpdateOrder();
+            NowOrder++;
+        }
+        catch
+        {
+            NowOrder = 0;
+            setting();
+        }
     }
 
     public void Btn_OnMenuClick()
