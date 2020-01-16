@@ -9,6 +9,9 @@ public class heaterSwitch : MonoBehaviour
     public TextMesh temp;
     public TextMesh humi;
 
+    string[] spTemp;
+    string[] spHumi;
+
     public GameObject On;
     public GameObject Off;
 
@@ -33,13 +36,20 @@ public class heaterSwitch : MonoBehaviour
     {
         if (temp.text != "" && humi.text != "")
         {
-            if (heater == false)
-            {
-                heater = true;
-                animator.SetBool("TurnOn", true);
+            spTemp = temp.text.Split(':');
+            spHumi = humi.text.Split(':');
 
-                On.SetActive(true);
-                Off.SetActive(false);
+            if (int.Parse(spTemp[1]) <= 10 && int.Parse(spHumi[1]) >= 30)
+            {
+
+                if (heater == false)
+                {
+                    heater = true;
+                    animator.SetBool("TurnOn", true);
+
+                    On.SetActive(true);
+                    Off.SetActive(false);
+                }
             }
         }
         else if (temp.text == "" && humi.text == "")

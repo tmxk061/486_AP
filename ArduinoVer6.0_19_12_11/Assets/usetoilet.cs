@@ -7,40 +7,52 @@ public class usetoilet : MonoBehaviour
     Animator animator;
      bool use;
 
+    public WaterValue wv;
+
+    [SerializeField]
+    float dely = -2f;
+
+    [SerializeField]
+    float mdely = 3f;
+
+
     void Start()
     {
         use = true;
 
         animator = GetComponent<Animator>();
 
-        toiltrue();
+        animator.SetBool("TurnOn", true);
+       
     }
+
+    private void Update()
+    {
+        dely -= Time.deltaTime * 1f;
+
+        if (use == false)
+        {
+            if (-1 <= dely && dely <= 0)
+            {
+                animator.SetBool("TurnOn", true);
+                use = true;
+            }
+        }
+    }
+
 
     private void OnMouseDown()
     {
-        Debug.Log("1111");
-
-        if (use == true)
+        if (wv.AnalogConnect == true && wv.GNDConnect == true && wv.VccConnect == true)
         {
-            use = false;
-            toifalse();
+            dely = mdely;
 
+            if (use == true)
+            {
+            Debug.Log("zzz");
+               animator.SetBool("TurnOn", false);
+                use = false;
+            }
         }
-        else if (use == false)
-        {
-            use = true;
-            toiltrue();
-        }
-    }
-
-    private void toiltrue()
-    {
-        animator.SetBool("TurnOn", true);
-    }
-
-    private void toifalse()
-    {
-        animator.SetBool("TurnOn", false);
-
     }
 }
