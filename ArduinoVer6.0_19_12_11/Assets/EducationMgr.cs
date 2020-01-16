@@ -57,8 +57,7 @@ public class EducationMgr : MonoBehaviour
     #region 오더
 
     [Header("오더----")]
-    [SerializeField]
-    private int NowOrder = 0;
+    public int NowOrder = 0;
 
     [SerializeField]
     private Text NowText;
@@ -77,6 +76,10 @@ public class EducationMgr : MonoBehaviour
     #endregion
 
     private void Start()
+    {
+        
+    }
+    private void Awake()
     {
         setting();
     }
@@ -154,22 +157,22 @@ public class EducationMgr : MonoBehaviour
             Transform target1;
             Transform target2;
 
-            int num1 = int.Parse(Modul_order[NowOrder, 2]); //타겟 핀넘버
-            int num2 = int.Parse(Modul_order[NowOrder, 4]);
+            int num1 = int.Parse(Modul_order[NowOrder - 1, 2]); //타겟 핀넘버
+            int num2 = int.Parse(Modul_order[NowOrder - 1, 4]);
 
             target1 = Order_TargetSetting(num1, 1); //타겟 설정
             target2 = Order_TargetSetting(num2, 2);
 
             CreateLine(target1, target2); //라인 생성
 
-            NowText.text = Modul_order[NowOrder, 5]; //텍스트 업데이트
+            NowText.text = Modul_order[NowOrder - 1, 5]; //텍스트 업데이트
         }
         catch
         {
             throw new Exception();
 
         }
-        
+
     }
 
     private void CreateLine(Transform target1, Transform target2)
@@ -192,7 +195,7 @@ public class EducationMgr : MonoBehaviour
         else
             targetNum = 3;
 
-        switch (Modul_order[NowOrder, targetNum]) //타겟 1
+        switch (Modul_order[NowOrder-1, targetNum]) //타겟 1
         {
             case "-1":
                 return ArduinoPoint[num];
@@ -202,7 +205,7 @@ public class EducationMgr : MonoBehaviour
 
             default:
                 return Used_Modul_Array[
-                                            int.Parse(Modul_order[NowOrder, targetNum])-1
+                                            int.Parse(Modul_order[NowOrder-1, targetNum])-1
                                           ].GetComponent<EduModul>().PinList[num-1].transform;
         }
     }
@@ -221,8 +224,9 @@ public class EducationMgr : MonoBehaviour
     {
         try
         {
-            UpdateOrder();
             NowOrder++;
+            UpdateOrder();
+
         }
         catch
         {
@@ -235,5 +239,10 @@ public class EducationMgr : MonoBehaviour
     {
         MenuView.SetActive(true);
         MainView.SetActive(false);
+    }
+
+    public string[,] GetModulOrder() //오토모드에서 오더 가져가기용
+    {
+        return Modul_order;
     }
 }
