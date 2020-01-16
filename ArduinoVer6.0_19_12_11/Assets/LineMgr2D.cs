@@ -33,6 +33,15 @@ public class LineMgr2D : MonoBehaviour
         //라인렌더러 처음위치 나중위치
         lineRenderer.SetPosition(0, Point1.position);
         lineRenderer.SetPosition(1, Point2.position);
+
+        int i = Random.Range(1, 4);
+        if (i == 1)
+            ColorSet(255, 0, 0);
+        else if(i == 2)
+            ColorSet(0, 255, 0);
+        else
+            ColorSet(0, 0, 255);
+
     }
 
     public void ColorSet(int r, int g, int b)
