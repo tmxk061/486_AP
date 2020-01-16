@@ -83,13 +83,6 @@ public class Auto_Edu_Mgr : MonoBehaviour
     {
         if (clickCheck) //두번째 클릭
         {
-            //if (data.SequenceEqual(AnserTarget1)) //첫번째클릭과 같은거 클릭하면 초기화
-            //{
-            //    clickCheck = false;
-            //    AnserTarget1 = new int[] { 0, 0 };
-            //    AnserTarget2 = new int[] { 0, 0 };
-            //    return;
-            //}
             clickCheck = false;
             AnserTarget2 = data;
             //답을 집어넣는다.
