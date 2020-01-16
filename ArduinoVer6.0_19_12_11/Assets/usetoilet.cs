@@ -5,42 +5,71 @@ using UnityEngine;
 public class usetoilet : MonoBehaviour
 {
     Animator animator;
-     bool use;
+
+    public WaterValue wv;
+    public GameObject Green;
+
+    [SerializeField]
+    float dely;
+    public float maxdely;
+
+    bool use;
 
     void Start()
     {
-        use = true;
+        dely = -5;
 
         animator = GetComponent<Animator>();
+        use = true;
 
-        toiltrue();
+        animator.SetBool("TurnOn", true);
+    }
+
+    private void Update()
+    {
+
+        dely -= Time.deltaTime * 1f;
+
+        if (-2 <= dely && dely <= 0)
+        {
+            use = true;
+            animator.SetBool("TurnOn", true);
+        }
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("1111");
-
-        if (use == true)
+        if (wv.AnalogConnect == true && wv.GNDConnect == true && wv.VccConnect == true && Green.activeSelf == true)
         {
-            use = false;
-            toifalse();
+            if (use == true)
+            {
+                animator.SetBool("TurnOn", false);
+                use = false;
 
+                dely = maxdely;
+                return;
+            }
         }
-        else if (use == false)
-        {
-            use = true;
-            toiltrue();
-        }
-    }
 
-    private void toiltrue()
-    {
-        animator.SetBool("TurnOn", true);
-    }
+        //else if (use == false)
+        //{
+        //    Debug.Log("bbb");
+        //    animator.SetBool("TurnOn", true);
+        //    use = true;
 
-    private void toifalse()
-    {
-        animator.SetBool("TurnOn", false);
+        //    return;
+        //}
 
+        //if (Green.activeSelf == true)
+        //{
+        //    Debug.Log("in");
+        //    if (use == true)
+        //    {
+        //        Debug.Log("in2");
+        //        use = false;
+        //        animator.SetBool("TurnOn", false);
+        //    }
+        //    animator.SetBool("TurnOn", true);
+        //}
     }
 }

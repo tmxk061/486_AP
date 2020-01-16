@@ -20,6 +20,7 @@ public class IllValue : MonoBehaviour
 
     public bool hitLight = false;
     public GameObject lightObject;
+    public GameObject missionlight;
     public Light light2;
     public bool RunOn=false;
 
@@ -34,8 +35,9 @@ public class IllValue : MonoBehaviour
 
     void Start()
     {
+        missionlight = GameObject.Find("MissionLight");
         lightObject = GameObject.Find("Light");
-        light2 = lightObject.GetComponent<Light>();
+        light2 = lightObject.GetComponent<Light>();     
     }
 
     //private void Update()
