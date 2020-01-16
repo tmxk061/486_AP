@@ -112,25 +112,27 @@ public class WaterValue : MonoBehaviour
 
     }
 
-    public void Read()
+    public float Read()
     {
         RunOn = true;
-
+        Debug.Log("WaterValue Read");
         StartCoroutine(Work());
 
-
+        return value;
     }
 
     IEnumerator Work()
     {
         if (GNDConnect == true && AnalogConnect == true && VccConnect == true)
         {
+            value = 0;
             for (int i = 0; i < Waterdetect.Length; i++)
             {
+                Debug.Log("들어감");
+                Debug.Log(Waterdetect[i].value);
                 value += Waterdetect[i].value;
             }
             Debug.Log(value);
-            value = 0;
         }
 
         yield return new WaitForSecondsRealtime(1.5f);

@@ -50,7 +50,7 @@ public class WaterSig : PlusMinus
             if (Line.parent != null)
             {
 
-                if (Line.parent.tag == "DIGITAL")
+                if (Line.parent.tag == "ANALOG")
                 {
 
 
@@ -58,12 +58,7 @@ public class WaterSig : PlusMinus
 
 
                 }
-                else if (Line.parent.tag == "BreadDIGITAL")
-                {
-
-                    watervalue.AnalogConnect = true;
-
-                }
+               
                 //================================================
                 //else if (LineCheck == true)
                 //{

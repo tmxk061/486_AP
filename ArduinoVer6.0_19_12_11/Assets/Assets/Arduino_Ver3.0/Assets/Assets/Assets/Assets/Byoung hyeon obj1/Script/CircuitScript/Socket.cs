@@ -71,6 +71,16 @@ public class Socket : MonoBehaviour
                         return value;
                         //Read 함수 만들예정
                     }
+                case GameManager.SensorType.water:
+                    {
+                        Debug.Log("water");
+
+                        float? value = Line.waterRead?.Invoke();
+
+                        Debug.Log(value);
+                        return value;
+                        //Read 함수 만들예정
+                    }
             }
         }
 
@@ -134,6 +144,12 @@ public class Socket : MonoBehaviour
                 case GameManager.SensorType.Ult:
                     {
                         Line.ultRead?.Invoke();
+
+                        break;
+                    }
+                case GameManager.SensorType.water:
+                    {
+                        Line.waterRead?.Invoke();
 
                         break;
                     }

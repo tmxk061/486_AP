@@ -301,6 +301,9 @@ public class End : MonoBehaviour
                     pm = other.GetComponent<WaterSig>();
                     Manager.run = new LineManager.RunDelegate(other.gameObject.GetComponentInParent<WaterValue>().Run);
                     Manager.pause = new LineManager.PauseDelegate(other.gameObject.GetComponentInParent<WaterValue>().Pause);
+
+                    Manager.type = GameManager.SensorType.water;
+                    Manager.waterRead = other.gameObject.GetComponentInParent<WaterValue>().Read;
                 }
                 else if (other.name == "PlusPin")
                 {

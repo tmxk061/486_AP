@@ -22,6 +22,7 @@ public class WaterDetect : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
         if (other.tag == "water")
         {
             value += 50;
@@ -30,6 +31,8 @@ public class WaterDetect : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
+        Debug.Log(other);
+
         if (other.tag == "water")
         {
             value -= 50;
