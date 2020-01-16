@@ -37,7 +37,9 @@ public class CreateLED : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
         num = Random.Range(0, 4);
 
-        Instantiate(objlist[num], spwnPoint.transform.position, spwnPoint.transform.rotation);
+        GameObject createObj = Instantiate(objlist[num], spwnPoint.transform.position, spwnPoint.transform.rotation);
+        createObj.gameObject.transform.parent = GameObject.Find("TableSensors").transform;
+        createObj.SetActive(true);
         //Instantiate(objlist[num], new Vector3(33.17457f, 127.0219f, 100.3321f), Quaternion.identity);
     }
 

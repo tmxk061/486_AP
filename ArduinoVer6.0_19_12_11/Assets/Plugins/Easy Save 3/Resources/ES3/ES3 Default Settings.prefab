@@ -51,7 +51,7 @@ MonoBehaviour:
     directory: 0
     format: 0
     bufferSize: 2048
-    saveChildren: 0
+    saveChildren: 1
     typeChecking: 1
     safeReflection: 1
     memberReferenceMode: 0
@@ -59,6 +59,6 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
-    showAdvancedSettings: 0
+    showAdvancedSettings: 1
   addMgrToSceneAutomatically: 1
   autoUpdateReferences: 1

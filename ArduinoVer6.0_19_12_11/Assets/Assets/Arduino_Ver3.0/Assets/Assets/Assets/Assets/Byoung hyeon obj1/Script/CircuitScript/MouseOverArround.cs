@@ -42,7 +42,7 @@ public class MouseOverArround : MonoBehaviour
                 MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = Random.ColorHSV();
                 Parents.GetComponent<LineArray>().array.Add(MakeLine);
 
-                MakeLine.transform.parent = GameObject.Find("CraftTable").transform;
+                MakeLine.transform.parent = GameObject.Find("TableSensors").transform;
             }
             else
                 mousepoint.MouseChecking = false;
@@ -57,7 +57,7 @@ public class MouseOverArround : MonoBehaviour
                 MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = new Color(255, 0, 0);
                 Parents.GetComponent<LineArray>().array.Add(MakeLine);
 
-                MakeLine.transform.parent = GameObject.Find("CraftTable").transform;
+                MakeLine.transform.parent = GameObject.Find("TableSensors").transform;
             }
             else
                 mousepoint2.MouseChecking = false;

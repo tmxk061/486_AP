@@ -19,7 +19,7 @@ public class CreateAduinoSonic : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
         UltValue ultval = Instantiate(obj, spwnPoint.transform.position,spwnPoint.transform.rotation).GetComponent<UltValue>();
         ultval.ultrasonic = type;
-        ultval.gameObject.transform.parent = GameObject.Find("CraftTable").transform;
+        ultval.gameObject.transform.parent = GameObject.Find("TableSensors").transform;
 
     }
 

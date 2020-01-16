@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaterValue : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class WaterValue : MonoBehaviour
     [SerializeField]
     //public WaterDetect[] Waterdetect;
     public WaterDetect[] Waterdetect;
+
+    public TextMesh WaterLevelText;
+    public TextMesh WaterLevelText2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -114,6 +119,14 @@ public class WaterValue : MonoBehaviour
             }
             Debug.Log(value);
             value = 0;
+
+            WaterLevelText.text = value.ToString();
+            WaterLevelText2.text = value.ToString();
+        }
+        else
+        {
+            WaterLevelText.text = "-";
+            WaterLevelText2.text = "-";
         }
 
         yield return new WaitForSecondsRealtime(1.5f);

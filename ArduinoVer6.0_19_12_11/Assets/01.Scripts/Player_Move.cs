@@ -27,8 +27,8 @@ public class Player_Move : MonoBehaviour
 
     public GameObject Craft_table;
     public GameObject table_Point;
-
-   
+    public GameObject Table_Sensors;
+    public GameObject Table_Line;
 
     void Update()
     {
@@ -40,6 +40,39 @@ public class Player_Move : MonoBehaviour
 
         MainCamZoomin();
 
+        SaveLoad();
+    }
+
+    void SaveLoad()
+    {
+        Table_Sensors = GameObject.Find("TableSensors");
+        Table_Line = GameObject.Find("TableLine");
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            ES3.Save<GameObject>("aaa", Table_Sensors);
+            ES3.Save<GameObject>("aaaa", Table_Sensors);
+            ES3.Save<GameObject>("bbb", Table_Line);
+            ES3.Save<GameObject>("bbbb", Table_Line);
+        }
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            if ((ES3.KeyExists("aaa") == false))
+            {
+
+            }
+            Table_Sensors = ES3.Load<GameObject>("aaa");
+            //Table_Line = ES3.Load<GameObject>("bbb");
+        }
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            if ((ES3.KeyExists("aaa") == false))
+            {
+
+            }
+            ES3.LoadInto("aaaa", Table_Sensors);
+            //ES3.LoadInto("bbbb", Table_Line);
+            //GameObject[] Sensors = 
+        }
     }
 
     private void MainCamZoomin()

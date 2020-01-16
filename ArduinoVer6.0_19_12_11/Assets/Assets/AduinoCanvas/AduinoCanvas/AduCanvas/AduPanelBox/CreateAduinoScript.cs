@@ -21,9 +21,9 @@ public class CreateAduinoScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
          num = Random.Range(0, 4);
 
-        Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation);
-
-        obj.SetActive(true);
+        GameObject createObj = Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation);
+        createObj.gameObject.transform.parent = GameObject.Find("TableSensors").transform;
+        createObj.SetActive(true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
