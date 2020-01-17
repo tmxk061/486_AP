@@ -28,8 +28,8 @@ public class EducationMgr : MonoBehaviour
     [SerializeField]
     private List<GameObject> Moduls; //모듈 프리팹 목록
 
-    [SerializeField]
-    private List<GameObject> Used_Modul_Array; //현재 사용될 모듈 목록
+    
+    public List<GameObject> Used_Modul_Array; //현재 사용될 모듈 목록
 
     #endregion 모듈
 
@@ -57,8 +57,7 @@ public class EducationMgr : MonoBehaviour
     #region 오더
 
     [Header("오더----")]
-    [SerializeField]
-    private int NowOrder = 0;
+    public int NowOrder = 0;
 
     [SerializeField]
     private Text NowText;
@@ -235,5 +234,10 @@ public class EducationMgr : MonoBehaviour
     {
         MenuView.SetActive(true);
         MainView.SetActive(false);
+    }
+
+    internal string[,] GetModulOrder()
+    {
+        return Modul_order;
     }
 }
