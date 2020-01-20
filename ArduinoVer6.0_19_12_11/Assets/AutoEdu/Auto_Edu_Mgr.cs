@@ -29,9 +29,8 @@ public class Auto_Edu_Mgr : MonoBehaviour
     {
         isStart = true;
         Edu_order = GetComponent<EducationMgr>().GetModulOrder();
-
         UpdateMission();
-
+        
         ////임시로 답안 제출
         //AnserTarget1[0] = 1;
         //AnserTarget1[1] = 1;
@@ -55,6 +54,7 @@ public class Auto_Edu_Mgr : MonoBehaviour
 
         MissonTarget2[0] = int.Parse(Edu_order[Now_Order - 1, 3]);
         MissonTarget2[1] = int.Parse(Edu_order[Now_Order - 1, 4]);
+
     }
 
     private void Update()
@@ -105,6 +105,7 @@ public class Auto_Edu_Mgr : MonoBehaviour
 
     private int CheckRealObject()
     {
+        
         GameObject MissonObject1 = null;
         GameObject MissonObject2 = null;
 
@@ -112,7 +113,6 @@ public class Auto_Edu_Mgr : MonoBehaviour
         //    return 3;
         //if (AnserObject2 == null)
         //    return 3;
-
         if (MissonTarget1[0] > 0)
         {
             //미션1은 일반 모듈
@@ -130,15 +130,14 @@ public class Auto_Edu_Mgr : MonoBehaviour
                 MissonObject1 = GetComponent<EducationMgr>().Used_Modul_Array[10].GetComponent<EduModul>().RealModel;
             }
         }
-
         if (MissonTarget2[0] > 0)
         {
-            //미션1은 일반 모듈
+            //미션2은 일반 모듈
             MissonObject2 = GetComponent<EducationMgr>().Used_Modul_Array[MissonTarget2[0]-1].GetComponent<EduModul>().RealModel;
         }
         else
         {
-            //미션1은 디폴트 모듈
+            //미션2은 디폴트 모듈
             if (MissonTarget2[0] == -1) //아두이노
             {
                 MissonObject2 = GetComponent<EducationMgr>().Used_Modul_Array[9].GetComponent<EduModul>().RealModel;
