@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Auto_Edu_Mgr : MonoBehaviour
 {
-    private bool isStart = false;
+    public bool isStart = false;
     private bool clickCheck = false;
 
     private string[,] Edu_order;
@@ -92,8 +92,7 @@ public class Auto_Edu_Mgr : MonoBehaviour
             if (MissonTarget1.SequenceEqual(AnserTarget2) && MissonTarget2.SequenceEqual(AnserTarget1))
             {
                 Debug.Log("역방향 정답");
-                GetComponent<EducationMgr>().UpdateOrder();
-                GetComponent<EducationMgr>().NowOrder += 1;
+                GetComponent<EducationMgr>().Btn_OnNextClick();
                 UpdateMission();
             }
         }

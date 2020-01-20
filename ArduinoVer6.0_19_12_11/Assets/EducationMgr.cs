@@ -51,6 +51,7 @@ public class EducationMgr : MonoBehaviour
 
     private int[] Modul_data;
     private string[,] Modul_order;
+    private bool isReset = false;
 
     #endregion 데이터
 
@@ -168,8 +169,7 @@ public class EducationMgr : MonoBehaviour
         }
         catch
         {
-            NowOrder = 0;
-            setting();
+            isReset = true;
         }
         
     }
@@ -222,18 +222,19 @@ public class EducationMgr : MonoBehaviour
     public void Btn_OnNextClick()
     {
         UpdateOrder();
-        NowOrder++;
+        if (!isReset)
+        {
+            NowOrder++;
+        }
+        else
+        {
+            Reset();
+            setting();
+            GetComponent<Auto_Edu_Mgr>().isStart = false;
+            isReset = false;
+        }
 
-        //try
-        //{
-        //    UpdateOrder();
-        //    NowOrder++;
-        //}
-        //catch
-        //{
-        //    NowOrder = 0;
-        //    setting();
-        //}
+
     }
 
     public void Btn_OnMenuClick()
