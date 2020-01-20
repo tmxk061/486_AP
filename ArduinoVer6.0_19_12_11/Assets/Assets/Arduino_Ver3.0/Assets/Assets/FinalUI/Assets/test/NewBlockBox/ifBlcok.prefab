@@ -707,7 +707,7 @@ MonoBehaviour:
   ThirdSel: 0
   FirstSel: 0
   SecondSel: 0
-  endbar: {fileID: 0}
+  UnderBar: {fileID: 0}
   barrect: {fileID: 0}
   barlocation: {fileID: 0}
   region: {fileID: 5779303856883812182}
