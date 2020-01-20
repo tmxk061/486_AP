@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 4883817319637595111}
   - component: {fileID: 4883817319637595110}
   - component: {fileID: 4883817319637595104}
+  - component: {fileID: 2121703244043235028}
   m_Layer: 0
   m_Name: pin (1)
   m_TagString: Untagged
@@ -233,6 +234,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &2121703244043235028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883817319637595105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f0d6dad93f43846b932aa5d201f2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modulNum: 1
+  Number: 4
 --- !u!1 &4883817320324948394
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +259,7 @@ GameObject:
   - component: {fileID: 4883817320324948399}
   - component: {fileID: 4883817320324948392}
   - component: {fileID: 4883817320324948393}
+  - component: {fileID: 7313969575016207684}
   m_Layer: 0
   m_Name: pin (4)
   m_TagString: Untagged
@@ -308,6 +324,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &7313969575016207684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883817320324948394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f0d6dad93f43846b932aa5d201f2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modulNum: 1
+  Number: 1
 --- !u!1 &4883817320461347416
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +349,7 @@ GameObject:
   - component: {fileID: 4883817320461347423}
   - component: {fileID: 4883817320461347421}
   - component: {fileID: 4883817320461347422}
+  - component: {fileID: 781812710400334341}
   m_Layer: 0
   m_Name: pin (3)
   m_TagString: Untagged
@@ -383,6 +414,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &781812710400334341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883817320461347416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f0d6dad93f43846b932aa5d201f2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modulNum: 1
+  Number: 2
 --- !u!1 &4883817320811322904
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +439,7 @@ GameObject:
   - component: {fileID: 4883817320811322909}
   - component: {fileID: 4883817320811322910}
   - component: {fileID: 4883817320811322911}
+  - component: {fileID: 7571419427167901552}
   m_Layer: 0
   m_Name: pin (2)
   m_TagString: Untagged
@@ -458,6 +504,20 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &7571419427167901552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883817320811322904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f0d6dad93f43846b932aa5d201f2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modulNum: 1
+  Number: 3
 --- !u!1 &4883817320959182499
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185cdfb25fbfc1e4f999fa2e5c46998c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RealModel: {fileID: 0}
+  Modul_num: 1
   PinList:
   - {fileID: 4883817319637595111}
   - {fileID: 4883817320811322909}

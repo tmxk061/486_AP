@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,8 +27,7 @@ public class EducationMgr : MonoBehaviour
     [SerializeField]
     private List<GameObject> Moduls; //모듈 프리팹 목록
 
-    [SerializeField]
-    private List<GameObject> Used_Modul_Array; //현재 사용될 모듈 목록
+    public List<GameObject> Used_Modul_Array; //현재 사용될 모듈 목록
 
     #endregion 모듈
 
@@ -45,20 +43,22 @@ public class EducationMgr : MonoBehaviour
     #endregion 라인
 
     #region 데이터
+
     public int Edu_ID = 1;
+
     [SerializeField]
     private int Max_Edu_ID = 1;
 
     private int[] Modul_data;
     private string[,] Modul_order;
+    private bool isReset = false;
 
     #endregion 데이터
 
     #region 오더
 
     [Header("오더----")]
-    [SerializeField]
-    private int NowOrder = 0;
+    public int NowOrder = 0;
 
     [SerializeField]
     private Text NowText;
@@ -69,12 +69,15 @@ public class EducationMgr : MonoBehaviour
     #endregion 오더
 
     #region View
+
     [Header("View----")]
     [SerializeField]
     private GameObject MenuView;
+
     [SerializeField]
     private GameObject MainView;
-    #endregion
+
+    #endregion View
 
     private void Start()
     {
@@ -88,7 +91,7 @@ public class EducationMgr : MonoBehaviour
             if (Edu_ID == Max_Edu_ID)
                 return;
 
-            Edu_ID +=1;
+            Edu_ID += 1;
             setting();
         }
         if (Input.GetKeyDown(KeyCode.O))
@@ -116,11 +119,11 @@ public class EducationMgr : MonoBehaviour
             //사용될 모듈을 생성하고 배치한다.
             GameObject newModul = Instantiate(Moduls[Modul_data[i]]);
             newModul.transform.parent = Modul_Parent;
-            newModul.transform.position = Modul_Pos[i-1].position;
+            newModul.transform.position = Modul_Pos[i - 1].position;
 
             //사용될 모듈 목록을 받아와서 Modul_Array에 집어넣는다.
             //Used_Modul_Array.Add(Moduls[data[i]]);
-            Used_Modul_Array[i-1] = newModul;
+            Used_Modul_Array[i - 1] = newModul;
         }
     }
 
@@ -128,7 +131,7 @@ public class EducationMgr : MonoBehaviour
     {
         NowOrder = 0;
 
-        for (int i = 0; i < Used_Modul_Array.Count; i++) //사용 모듈 삭제
+        for (int i = 0; i < Used_Modul_Array.Count - 2; i++) //사용 모듈 삭제
         {
             if (Used_Modul_Array[i] != null)
                 Destroy(Used_Modul_Array[i].gameObject);
@@ -147,7 +150,7 @@ public class EducationMgr : MonoBehaviour
         NowText.text = "";
     }
 
-    private void UpdateOrder()
+    public void UpdateOrder()
     {
         try
         {
@@ -166,8 +169,7 @@ public class EducationMgr : MonoBehaviour
         }
         catch
         {
-            throw new Exception();
-
+            isReset = true;
         }
         
     }
@@ -202,8 +204,8 @@ public class EducationMgr : MonoBehaviour
 
             default:
                 return Used_Modul_Array[
-                                            int.Parse(Modul_order[NowOrder, targetNum])-1
-                                          ].GetComponent<EduModul>().PinList[num-1].transform;
+                                            int.Parse(Modul_order[NowOrder, targetNum]) - 1
+                                          ].GetComponent<EduModul>().PinList[num - 1].transform;
         }
     }
 
@@ -219,21 +221,30 @@ public class EducationMgr : MonoBehaviour
 
     public void Btn_OnNextClick()
     {
-        try
+        UpdateOrder();
+        if (!isReset)
         {
-            UpdateOrder();
             NowOrder++;
         }
-        catch
+        else
         {
-            NowOrder = 0;
+            Reset();
             setting();
+            GetComponent<Auto_Edu_Mgr>().isStart = false;
+            isReset = false;
         }
+
+
     }
 
     public void Btn_OnMenuClick()
     {
         MenuView.SetActive(true);
         MainView.SetActive(false);
+    }
+
+    internal string[,] GetModulOrder()
+    {
+        return Modul_order;
     }
 }
