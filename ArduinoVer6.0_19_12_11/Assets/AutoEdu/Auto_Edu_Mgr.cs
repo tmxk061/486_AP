@@ -60,6 +60,15 @@ public class Auto_Edu_Mgr : MonoBehaviour
     private void Update()
     {
         Checking();
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("미션:" + MissonTarget1[0] + "," + MissonTarget1[1]);
+            Debug.Log(MissonTarget2[0] + "," + MissonTarget2[1]);
+
+            Debug.Log("답:" + AnserTarget1[0] + "," + AnserTarget1[1]);
+            Debug.Log(AnserTarget2[0] + "," + AnserTarget2[1]);
+        }
     }
 
     private void Checking()//판정
@@ -67,18 +76,94 @@ public class Auto_Edu_Mgr : MonoBehaviour
         if (!isStart)
             return;
 
-        Debug.Log("미션 -" + MissonTarget1[0] + "," + MissonTarget1[1]);
-        Debug.Log(AnserTarget1[0] + "," + AnserTarget1[1]);
+        //Debug.Log("미션 -" + MissonTarget1[0] + "," + MissonTarget1[1]);
+        //Debug.Log(AnserTarget1[0] + "," + AnserTarget1[1]);
 
-        if (MissonTarget1.SequenceEqual(AnserTarget1) && MissonTarget2.SequenceEqual(AnserTarget2))
+        int num = CheckRealObject();
+        if (num == 1)
         {
-            Debug.Log("정방향 정답");
+            if (MissonTarget1.SequenceEqual(AnserTarget1) && MissonTarget2.SequenceEqual(AnserTarget2))
+            {
+                Debug.Log("정방향 정답");
+            }
+        }
+        else if (num == 2)
+        {
+            if (MissonTarget1.SequenceEqual(AnserTarget2) && MissonTarget2.SequenceEqual(AnserTarget1))
+            {
+                Debug.Log("역방향 정답");
+                GetComponent<EducationMgr>().UpdateOrder();
+                GetComponent<EducationMgr>().NowOrder += 1;
+                UpdateMission();
+            }
+        }
+        else
+        {
+            //Debug.Log("불일치2");
         }
 
-        if (MissonTarget1.SequenceEqual(AnserTarget2) && MissonTarget2.SequenceEqual(AnserTarget1))
+    }
+
+    private int CheckRealObject()
+    {
+        GameObject MissonObject1 = null;
+        GameObject MissonObject2 = null;
+
+        //if (AnserObject1 == null)
+        //    return 3;
+        //if (AnserObject2 == null)
+        //    return 3;
+
+        if (MissonTarget1[0] > 0)
         {
-            Debug.Log("역방향 정답");
+            //미션1은 일반 모듈
+            MissonObject1 = GetComponent<EducationMgr>().Used_Modul_Array[MissonTarget1[0]-1].GetComponent<EduModul>().RealModel;
         }
+        else
+        {
+            //미션1은 디폴트 모듈
+            if (MissonTarget1[0] == -1) //아두이노
+            {
+                MissonObject1 = GetComponent<EducationMgr>().Used_Modul_Array[9].GetComponent<EduModul>().RealModel;
+            }
+            else if (MissonTarget1[0] == -2) //빵판
+            {
+                MissonObject1 = GetComponent<EducationMgr>().Used_Modul_Array[10].GetComponent<EduModul>().RealModel;
+            }
+        }
+
+        if (MissonTarget2[0] > 0)
+        {
+            //미션1은 일반 모듈
+            MissonObject2 = GetComponent<EducationMgr>().Used_Modul_Array[MissonTarget2[0]-1].GetComponent<EduModul>().RealModel;
+        }
+        else
+        {
+            //미션1은 디폴트 모듈
+            if (MissonTarget2[0] == -1) //아두이노
+            {
+                MissonObject2 = GetComponent<EducationMgr>().Used_Modul_Array[9].GetComponent<EduModul>().RealModel;
+            }
+            else if (MissonTarget2[0] == -2) //빵판
+            {
+                MissonObject2 = GetComponent<EducationMgr>().Used_Modul_Array[10].GetComponent<EduModul>().RealModel;
+            }
+        }
+
+        if (MissonObject1 == AnserObject1 && MissonObject2 == AnserObject2)
+        {
+           // Debug.Log("정방향");
+            return 1;
+        }
+        if (MissonObject1 == AnserObject2 && MissonObject2 == AnserObject1)
+        {
+            //Debug.Log("역방향");
+            return 2;
+        }
+
+        //Debug.Log("불일치");
+        return 0;
+
     }
 
     public void ClickEvent(int[] data, GameObject parent)
@@ -89,13 +174,49 @@ public class Auto_Edu_Mgr : MonoBehaviour
             AnserTarget2 = data;
             AnserObject2 = parent;
             //답을 집어넣는다.
+
+            if (AnserTarget2[0] < 0)
+                return;
+
+            SwapMyNumber(parent, AnserTarget2);
+
         }
         else //첫번째 클릭
         {
+            AnserTarget2 = new int[] { 0, 0 };
+
             clickCheck = true;
             AnserTarget1 = data;
             AnserObject1 = parent;
-            AnserTarget2 = new int[] {0,0};
+
+            //AnserTarget1[0] = 
+
+            if (AnserTarget1[0] < 0)
+                return;
+
+            SwapMyNumber(parent, AnserTarget1);
+        }
+    }
+
+    private void SwapMyNumber(GameObject parent, int[] AnserTarget)
+    {
+        
+        for (int i = 0; i < GetComponent<EducationMgr>().Used_Modul_Array.Count; i++) //디폴트모듈이 아닐경우 자기 위치번호 넣어주기
+        {
+            Debug.Log(i);
+            if (GetComponent<EducationMgr>().Used_Modul_Array[i] == null)
+                continue;
+
+            GameObject target = GetComponent<EducationMgr>().Used_Modul_Array[i].GetComponent<EduModul>().RealModel;
+
+            if (target == null)
+                continue;
+
+            if (parent == target)
+            {
+                AnserTarget[0] = i+1;
+                break;
+            }
         }
     }
 }

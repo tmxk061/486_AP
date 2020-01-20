@@ -5,7 +5,7 @@ using UnityEngine;
 public class Edu_Find_Slot : MonoBehaviour
 {
     public int ModulNumber;
-    public List<GameObject> EduSlots;
+    private List<GameObject> EduSlots;
 
     // Start is called before the first frame update
     void Start()
