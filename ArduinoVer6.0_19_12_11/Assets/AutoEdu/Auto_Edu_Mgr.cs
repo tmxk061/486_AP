@@ -5,6 +5,9 @@ using UnityEngine;
 public class Auto_Edu_Mgr : MonoBehaviour
 {
     public bool isStart = false;
+
+    [SerializeField]
+    private GameObject EndPopup;
     private bool clickCheck = false;
 
     private string[,] Edu_order;
@@ -216,5 +219,10 @@ public class Auto_Edu_Mgr : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void EndAuto()
+    {
+        EndPopup.SetActive(true);
     }
 }
