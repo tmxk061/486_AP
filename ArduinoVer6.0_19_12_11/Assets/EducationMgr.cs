@@ -231,6 +231,7 @@ public class EducationMgr : MonoBehaviour
             Reset();
             setting();
             GetComponent<Auto_Edu_Mgr>().isStart = false;
+            GetComponent<Auto_Edu_Mgr>().EndAuto();
             isReset = false;
         }
 
