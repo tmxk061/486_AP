@@ -51,55 +51,55 @@ public class Mousepoint : MonoBehaviour
 
         }
 
-        //화면 퀵 전환
-        if (Input.GetKey(KeyCode.Tab))
-        {
-            if (CameraState == 1)
-            {
-                this.transform.position = new Vector3(-215, 162.5f, -104);
-                this.transform.rotation = Quaternion.Euler(0, -90, 0);
+        ////화면 퀵 전환
+        //if (Input.GetKey(KeyCode.Tab))
+        //{
+        //    if (CameraState == 1)
+        //    {
+        //        this.transform.position = new Vector3(-215, 162.5f, -104);
+        //        this.transform.rotation = Quaternion.Euler(0, -90, 0);
 
-                CameraState = 2;
+        //        CameraState = 2;
 
-                System.Threading.Thread.Sleep(500);
-            }
-            else if (CameraState == 2)
-            {
-                this.transform.position = new Vector3(24, 135, -34);
-                this.transform.rotation = Quaternion.Euler(0, 0, 0);
+        //        System.Threading.Thread.Sleep(500);
+        //    }
+        //    else if (CameraState == 2)
+        //    {
+        //        this.transform.position = new Vector3(24, 135, -34);
+        //        this.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-                CameraState = 3;
+        //        CameraState = 3;
 
-                System.Threading.Thread.Sleep(500);
-            }
-            else if (CameraState == 3)
-            {
-                this.transform.position = new Vector3(-155, 162.5f, 315);
-                this.transform.rotation = Quaternion.Euler(0, -90, 0);
+        //        System.Threading.Thread.Sleep(500);
+        //    }
+        //    else if (CameraState == 3)
+        //    {
+        //        this.transform.position = new Vector3(-155, 162.5f, 315);
+        //        this.transform.rotation = Quaternion.Euler(0, -90, 0);
 
-                CameraState = 4;
+        //        CameraState = 4;
 
-                System.Threading.Thread.Sleep(500);
-            }
-            else if (CameraState == 4)
-            {
-                this.transform.position = new Vector3(50, 160, -92);
-                this.transform.rotation = Quaternion.Euler(0, 90, 0);
+        //        System.Threading.Thread.Sleep(500);
+        //    }
+        //    else if (CameraState == 4)
+        //    {
+        //        this.transform.position = new Vector3(50, 160, -92);
+        //        this.transform.rotation = Quaternion.Euler(0, 90, 0);
 
-                CameraState = 5;
+        //        CameraState = 5;
 
-                System.Threading.Thread.Sleep(500);
-            }
-            else if (CameraState == 5)
-            {
-                this.transform.position = new Vector3(-105, 285, 58);
-                this.transform.rotation = Quaternion.Euler(0, -90, 0);
+        //        System.Threading.Thread.Sleep(500);
+        //    }
+        //    else if (CameraState == 5)
+        //    {
+        //        this.transform.position = new Vector3(-105, 285, 58);
+        //        this.transform.rotation = Quaternion.Euler(0, -90, 0);
 
-                CameraState = 1;
+        //        CameraState = 1;
 
-                System.Threading.Thread.Sleep(500);
-            }
-        }
+        //        System.Threading.Thread.Sleep(500);
+        //    }
+        //}
 
         //Move();
     }

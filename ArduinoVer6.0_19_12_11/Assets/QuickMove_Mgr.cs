@@ -16,6 +16,27 @@ public class QuickMove_Mgr : MonoBehaviour
 
     private bool isOn = false;
 
+    [SerializeField]
+    private List<Transform> MovePoint;
+
+    [SerializeField]
+    private GameObject Player;
+
+    [SerializeField]
+    private GameObject CreateBtn;
+
+    [SerializeField]
+    private GameObject RunParent;
+
+    [SerializeField]
+    private GameObject RunGrrop;
+
+    [SerializeField]
+    private GameObject RunBtn;
+
+    [SerializeField]
+    private GameObject GetOut;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -28,7 +49,7 @@ public class QuickMove_Mgr : MonoBehaviour
             else if(isOn)
             {
                 isOn = false;
-                ani.SetTrigger("off");
+                ani.SetTrigger("Off");
                 Invoke("ActiveeFalse", 0.5f);
             }
         }
@@ -41,10 +62,35 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void BlockCordingOnclick()
     {
+        GetOut.GetComponent<OnButtonClick>().Click();
+        blockCodingBtn.GetComponent<OnCubeClick>().OnMouseDown();
         isOn = false;
         ActiveeFalse();
-        blockCodingBtn.GetComponent<OnCubeClick>().OnMouseDown();
+    }
 
+    public void WarpPoint(int i)
+    {
+        GetOut.GetComponent<OnButtonClick>().Click();
+       Player.transform.position = MovePoint[i-1].position;
+        isOn = false;
+        ActiveeFalse();
+
+    }
+
+    public void CreateMode()
+    {
+        GetOut.GetComponent<OnButtonClick>().Click();
+        CreateBtn.GetComponent<CreateModeBtn>().OnCreateBtnClick();
+        isOn = false;
+        ActiveeFalse();
+    }
+
+    public void Run()
+    {
+      
+            RunBtn.GetComponent<RunButton>().OnMouseDown();
+            isOn = false;
+            ActiveeFalse();
     }
 
 }

@@ -15,7 +15,7 @@ public class OnCubeClick : MonoBehaviour
     public Vector3 FistPosition;
     public Vector3 FirstCanvasPosition;
     bool First = false;
-    Canvas can;
+    public Canvas can;
     [SerializeField]
     public GameObject panel1;
     [SerializeField]
