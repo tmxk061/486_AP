@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4967572726763382448}
   - component: {fileID: 579932925476830376}
   - component: {fileID: 1624877122011179935}
+  - component: {fileID: 8107364794135465915}
   m_Layer: 0
   m_Name: Arround
   m_TagString: Arround
@@ -126,6 +127,21 @@ MonoBehaviour:
   mousepoint2: {fileID: 0}
   tableMgr: {fileID: 0}
   Parents: {fileID: 8642242659033470169}
+--- !u!114 &8107364794135465915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925400995236014523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f0d6dad93f43846b932aa5d201f2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 8642242659033470169}
+  modulNum: 3
+  Number: 1
 --- !u!1 &2643738079020326390
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,6 +955,7 @@ GameObject:
   - component: {fileID: 8788930316772234189}
   - component: {fileID: 3783538933273074763}
   - component: {fileID: 7625552757432794215}
+  - component: {fileID: 3131262618523843458}
   m_Layer: 0
   m_Name: Arround
   m_TagString: Arround
@@ -1051,6 +1068,21 @@ MonoBehaviour:
   mousepoint2: {fileID: 0}
   tableMgr: {fileID: 0}
   Parents: {fileID: 8642242659033470169}
+--- !u!114 &3131262618523843458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881249352038395229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f0d6dad93f43846b932aa5d201f2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 8642242659033470169}
+  modulNum: 3
+  Number: 2
 --- !u!1 &4886192868752003884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1437,7 @@ GameObject:
   - component: {fileID: 4866943903030634990}
   - component: {fileID: 574963664832163789}
   - component: {fileID: 8588926420538850940}
+  - component: {fileID: 203420778435718120}
   m_Layer: 0
   m_Name: Arround
   m_TagString: Arround
@@ -1517,6 +1550,21 @@ MonoBehaviour:
   mousepoint2: {fileID: 0}
   tableMgr: {fileID: 0}
   Parents: {fileID: 8642242659033470169}
+--- !u!114 &203420778435718120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7752411568404619816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f0d6dad93f43846b932aa5d201f2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 8642242659033470169}
+  modulNum: 3
+  Number: 3
 --- !u!1 &7862512596135204868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,6 +2072,7 @@ GameObject:
   - component: {fileID: 3929807172450160659}
   - component: {fileID: 2872070336507626028}
   - component: {fileID: 4183445769148855099}
+  - component: {fileID: 8437544669807557136}
   m_Layer: 9
   m_Name: IlluminanceSensor
   m_TagString: Sensor
@@ -2116,6 +2165,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 10
   lerpSpeed: 1
+--- !u!114 &8437544669807557136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642242659033470169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d6bc7f567ff254d9f57232ca936eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModulNumber: 3
 --- !u!1 &8642242659153685928
 GameObject:
   m_ObjectHideFlags: 0

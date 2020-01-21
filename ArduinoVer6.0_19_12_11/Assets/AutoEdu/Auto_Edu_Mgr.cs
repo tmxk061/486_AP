@@ -88,6 +88,8 @@ public class Auto_Edu_Mgr : MonoBehaviour
             if (MissonTarget1.SequenceEqual(AnserTarget1) && MissonTarget2.SequenceEqual(AnserTarget2))
             {
                 Debug.Log("정방향 정답");
+                GetComponent<EducationMgr>().Btn_OnNextClick();
+                UpdateMission();
             }
         }
         else if (num == 2)
