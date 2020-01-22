@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class DevTableCtrl : MonoBehaviour
 {
     public GameObject ModulCmd;
-    private bool isModulCmd = false;
+    public bool isModulCmd = false;
     private Vector3 ModulFirstPos;
     public GraphicRaycaster ModulCmdCanvas;
 
     public GameObject EnvCmd;
-    private bool isEnvCmd = false;
+    public bool isEnvCmd = false;
     private Vector3 EnvFirstPos;
     public GraphicRaycaster EnvCmdCmdCanvas;
 
@@ -92,12 +92,12 @@ public class DevTableCtrl : MonoBehaviour
        
     }
 
-    private void ModulCanvasSet(bool check)
+    public void ModulCanvasSet(bool check)
     {
         ModulCmdCanvas.enabled = check;
     }
 
-    private void EnvCmdCmdCanvasSet(bool check)
+    public void EnvCmdCmdCanvasSet(bool check)
     {
         EnvCmdCmdCanvas.enabled = check;
     }

@@ -11,6 +11,8 @@ public class CreateModeBtn : MonoBehaviour
 
     public GameObject PlayZoneCamera;
 
+    public DevTableCtrl devTableCtrl;
+
 
     public void OnCreateBtnClick()
     {
@@ -21,6 +23,16 @@ public class CreateModeBtn : MonoBehaviour
         CreateCanvas.SetActive(true);
 
         PlayZoneCamera.SetActive(false);
+
+        if (devTableCtrl.isModulCmd == true)
+        {
+            devTableCtrl.ModulCanvasSet(false);
+        }
+
+        if (devTableCtrl.isEnvCmd == true)
+        {
+            devTableCtrl.EnvCmdCmdCanvasSet(false);
+        }
     }
 
     public void OnReturnBtnClick()
@@ -33,6 +45,15 @@ public class CreateModeBtn : MonoBehaviour
 
         PlayZoneCamera.SetActive(true);
 
+        if (devTableCtrl.isModulCmd == true)
+        {
+            devTableCtrl.ModulCanvasSet(true);
+        }
+
+        if (devTableCtrl.isEnvCmd == true)
+        {
+            devTableCtrl.EnvCmdCmdCanvasSet(true);
+        }
 
     }
 }
