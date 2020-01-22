@@ -87,6 +87,7 @@ public class Player_Move : MonoBehaviour
             if (CraftTable_Mgr.instance.CreateMode == true)
                 return;
             //Craft_table.SetActive(false);
+            Craft_table.GetComponent<Animator>().SetTrigger("start");
             Craft_table.transform.position = table_Point.transform.position;
             Craft_table.transform.rotation = table_Point.transform.rotation;
             //Craft_table.SetActive(true);
