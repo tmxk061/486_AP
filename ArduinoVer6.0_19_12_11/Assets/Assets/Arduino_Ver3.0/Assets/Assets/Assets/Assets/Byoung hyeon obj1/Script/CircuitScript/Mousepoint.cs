@@ -34,6 +34,7 @@ public class Mousepoint : MonoBehaviour
     void Update()
     {
         ray = camera.ScreenPointToRay(Input.mousePosition);
+
         float rayLength = 500f;
         int floorMask = 1;
 
