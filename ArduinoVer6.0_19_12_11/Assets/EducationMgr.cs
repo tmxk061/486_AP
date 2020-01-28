@@ -40,6 +40,7 @@ public class EducationMgr : MonoBehaviour
     [SerializeField]
     private GameObject Line2D; //라인 오브젝트
 
+    GameObject newLine;
     #endregion 라인
 
     #region 데이터
@@ -176,13 +177,17 @@ public class EducationMgr : MonoBehaviour
 
     private void CreateLine(Transform target1, Transform target2)
     {
-        GameObject newLine = Instantiate(Line2D);
+        if(newLine != null)
+            newLine.GetComponent<LineMgr2D>().ColorSet(0, 0, 255);
+
+        newLine = Instantiate(Line2D);
         newLine.transform.parent = LineParents;
         LineMgr2D lineMgr = newLine.GetComponent<LineMgr2D>();
 
         lineMgr.Point1Set(target1.position);
         lineMgr.Point2Set(target2.position);
         lineMgr.UpdateLine();
+        lineMgr.ColorSet(255, 255, 0);
 
         LineList.Add(newLine); //되돌리기를 위한 현재라인 장입
     }
