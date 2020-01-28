@@ -30,14 +30,14 @@ public class MissionLight : MonoBehaviour
 
     private void Update()
     {
-        lux();
+        //lux();
     }
 
-    void lux()
+    public void lux()
     {
-        if (luxvalue.text != "")
-        {
-            Debug.Log("on3");
+        //if (luxvalue.text != "")
+        //{
+        //    Debug.Log("on3");
             if (mlight == false)
             {
                 Debug.Log("on4");
@@ -45,10 +45,22 @@ public class MissionLight : MonoBehaviour
                 Onlight.SetActive(true);
                 Offlight.SetActive(false);
                 TurnOnLight();
-
             }
-        }     
+        //}     
     }
+
+
+    public void notlux()
+    {
+         if (mlight == true)
+         {
+             mlight = false;
+             Onlight.SetActive(false);
+             Offlight.SetActive(true);
+             TurnOnLight();
+         }
+    }
+
     void TurnOnLight()
     {
         for (int i = 0; i < light.Length; i++)

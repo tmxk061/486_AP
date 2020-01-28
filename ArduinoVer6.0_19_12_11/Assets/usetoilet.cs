@@ -8,13 +8,13 @@ public class usetoilet : MonoBehaviour
      bool use;
 
     public WaterValue wv;
+    public TextMesh wateralue;
 
     [SerializeField]
     float dely = -2f;
 
     [SerializeField]
     float mdely = 3f;
-
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class usetoilet : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (wv.AnalogConnect == true && wv.GNDConnect == true && wv.VccConnect == true)
+        if (wateralue.text == "")
         {
             dely = mdely;
 
