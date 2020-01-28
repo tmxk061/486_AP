@@ -43,14 +43,19 @@ public class usetoilet : MonoBehaviour
 
     private void OnMouseDown()
     {
+        DownWater();
+    }
+
+    public void DownWater()
+    {
         if (wv.AnalogConnect == true && wv.GNDConnect == true && wv.VccConnect == true)
         {
             dely = mdely;
 
             if (use == true)
             {
-            Debug.Log("zzz");
-               animator.SetBool("TurnOn", false);
+                Debug.Log("zzz");
+                animator.SetBool("TurnOn", false);
                 use = false;
             }
         }

@@ -245,6 +245,42 @@ public class BlockManager : MonoBehaviour
                     return block;
                 }
                 break;
+
+            case "LanternBlock":
+                if (type == "T")
+                {
+                    block = trans.GetComponent<LanternBlock>();
+                    return block;
+                }
+                else if (type == "C")
+                {
+                    block = collision.GetComponent<LanternBlock>();
+                    return block;
+                }
+                else if (type == "G")
+                {
+                    block = UpObj.GetComponent<LanternBlock>();
+                    return block;
+                }
+                break;
+
+            case "ToiletBlock":
+                if (type == "T")
+                {
+                    block = trans.GetComponent<ToiletBlock>();
+                    return block;
+                }
+                else if (type == "C")
+                {
+                    block = collision.GetComponent<ToiletBlock>();
+                    return block;
+                }
+                else if (type == "G")
+                {
+                    block = UpObj.GetComponent<ToiletBlock>();
+                    return block;
+                }
+                break;
         }
 
         return null;

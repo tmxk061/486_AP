@@ -525,7 +525,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5779303855557493473}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
@@ -707,7 +707,7 @@ MonoBehaviour:
   ThirdSel: 0
   FirstSel: 0
   SecondSel: 0
-  endbar: {fileID: 0}
+  UnderBar: {fileID: 0}
   barrect: {fileID: 0}
   barlocation: {fileID: 0}
   region: {fileID: 5779303856883812182}
@@ -1021,6 +1021,8 @@ MonoBehaviour:
     - m_Text: "\uC2B5\uB3C4"
       m_Image: {fileID: 0}
     - m_Text: "\uC870\uB3C4"
+      m_Image: {fileID: 0}
+    - m_Text: "\uC218\uC704"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

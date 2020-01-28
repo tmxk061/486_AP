@@ -176,6 +176,30 @@ public class ifBlock : Block, IDragHandler, IDropHandler
                 }
             }
         }
+        else if (FirstSel == 4)
+        {
+            if (SecondSel == 0)
+            {
+                if (GameManager.water >= ThirdSel)
+                {
+                    okvalue = true;
+                }
+            }
+            else if (SecondSel == 1)
+            {
+                if (GameManager.water == ThirdSel)
+                {
+                    okvalue = true;
+                }
+            }
+            else if (SecondSel == 2)
+            {
+                if (GameManager.water <= ThirdSel)
+                {
+                    okvalue = true;
+                }
+            }
+        }
     }
 
     public override IEnumerator SyncRun(bool s)
@@ -275,6 +299,30 @@ public class ifBlock : Block, IDragHandler, IDropHandler
             else if (SecondSel == 2)
             {
                 if (GameManager.lux <= ThirdSel)
+                {
+                    okvalue = true;
+                }
+            }
+        }
+        else if (FirstSel == 4)
+        {
+            if (SecondSel == 0)
+            {
+                if (GameManager.water >= ThirdSel)
+                {
+                    okvalue = true;
+                }
+            }
+            else if (SecondSel == 1)
+            {
+                if (GameManager.water == ThirdSel)
+                {
+                    okvalue = true;
+                }
+            }
+            else if (SecondSel == 2)
+            {
+                if (GameManager.water <= ThirdSel)
                 {
                     okvalue = true;
                 }
