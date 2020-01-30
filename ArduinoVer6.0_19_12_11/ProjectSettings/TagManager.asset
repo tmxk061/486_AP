@@ -63,6 +63,11 @@ TagManager:
   - WaterMachineBlock
   - WaterBlock
   - MissionLight
+  - LanternBlock
+  - TolietBlock
+  - ToiletBlock
+  - ClockBlock
+  - HeaterBlock
   layers:
   - Default
   - TransparentFX

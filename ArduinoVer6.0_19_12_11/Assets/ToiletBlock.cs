@@ -9,7 +9,7 @@ public class ToiletBlock : Block
     
     public override void RunDetail()
     {
-        usetoilet.DownWater();
+        usetoilet.DownWaterRe();
     }
 
     public override IEnumerator SyncRun(bool s)
