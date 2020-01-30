@@ -281,6 +281,42 @@ public class BlockManager : MonoBehaviour
                     return block;
                 }
                 break;
+
+            case "ClockBlock":
+                if (type == "T")
+                {
+                    block = trans.GetComponent<ClockBlock>();
+                    return block;
+                }
+                else if (type == "C")
+                {
+                    block = collision.GetComponent<ClockBlock>();
+                    return block;
+                }
+                else if (type == "G")
+                {
+                    block = UpObj.GetComponent<ClockBlock>();
+                    return block;
+                }
+                break;
+
+            case "HeaterBlock":
+                if (type == "T")
+                {
+                    block = trans.GetComponent<HeaterBlock>();
+                    return block;
+                }
+                else if (type == "C")
+                {
+                    block = collision.GetComponent<HeaterBlock>();
+                    return block;
+                }
+                else if (type == "G")
+                {
+                    block = UpObj.GetComponent<HeaterBlock>();
+                    return block;
+                }
+                break;
         }
 
         return null;

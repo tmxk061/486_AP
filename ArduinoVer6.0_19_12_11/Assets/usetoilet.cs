@@ -60,4 +60,15 @@ public class usetoilet : MonoBehaviour
             }
         }
     }
+
+    public void DownWaterRe()
+    {
+        if (use == true)
+        {
+            dely = mdely;
+            animator.SetBool("TurnOn", false);
+            use = false;
+            wv.value = 0;
+        }
+    }
 }

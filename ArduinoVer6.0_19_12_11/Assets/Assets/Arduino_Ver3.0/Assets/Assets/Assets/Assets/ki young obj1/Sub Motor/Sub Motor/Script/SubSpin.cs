@@ -30,8 +30,8 @@ public class SubSpin : MonoBehaviour
     
 
    
-    private Vector3 vec;
-    private float lotateSpeed;
+    public Vector3 vec;
+    public float lotateSpeed;
 
     
 
