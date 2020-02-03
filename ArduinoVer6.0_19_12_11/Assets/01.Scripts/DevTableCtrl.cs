@@ -33,13 +33,14 @@ public class DevTableCtrl : MonoBehaviour
         if (isModulCmd == false)
         {
             ModulCmd.SetActive(true);
-            ModulCmd.GetComponent<Animator>().SetBool("Modul_open", true);
+            //ModulCmd.GetComponent<Animator>().SetBool("Modul_open", true);
             isModulCmd = true;
             ModulCanvasSet(true);
         }
         else if (isModulCmd == true)
         {
-            ModulCmd.GetComponent<Animator>().SetBool("Modul_open", false);
+            ModulCmd.SetActive(false);
+            //ModulCmd.GetComponent<Animator>().SetBool("Modul_open", false);
             //ModulCmd.SetActive(false);
             //Invoke("ModulCmd_ActiveFalse", 1f);
             isModulCmd = false;
