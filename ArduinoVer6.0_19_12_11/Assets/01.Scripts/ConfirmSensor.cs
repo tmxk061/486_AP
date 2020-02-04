@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class ConfirmSensor : MonoBehaviour
 {
+    public static ConfirmSensor instance;
+    public void Awake()
+    {
+        ConfirmSensor.instance = this;
+    }
+
 
     //public Canvas confirmcanvas;
     public Text moduleName;
@@ -86,6 +92,20 @@ public class ConfirmSensor : MonoBehaviour
     {
         confirmcan.gameObject.SetActive(true);
         moduleName.text = "수위센서가 생성되었습니다.";
+        StartCoroutine(Delay());
+    }
+
+    public void BadAnser()
+    {
+        confirmcan.gameObject.SetActive(true);
+        moduleName.text = "다시 연결해보세요";
+        StartCoroutine(Delay());
+    }
+
+    public void GoodAnser()
+    {
+        confirmcan.gameObject.SetActive(true);
+        moduleName.text = "잘했어요!";
         StartCoroutine(Delay());
     }
 

@@ -23,6 +23,8 @@ public class Auto_Edu_Mgr : MonoBehaviour
 
     private List<int> AnswerList;
 
+    public GameObject AlertCanvas;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -62,7 +64,7 @@ public class Auto_Edu_Mgr : MonoBehaviour
 
     private void Update()
     {
-        Checking();
+        //Checking();
 
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -74,11 +76,10 @@ public class Auto_Edu_Mgr : MonoBehaviour
         }
     }
 
-    private void Checking()//판정
+    public void Checking()//판정
     {
         if (!isStart)
             return;
-
         //Debug.Log("미션 -" + MissonTarget1[0] + "," + MissonTarget1[1]);
         //Debug.Log(AnserTarget1[0] + "," + AnserTarget1[1]);
 
@@ -88,8 +89,15 @@ public class Auto_Edu_Mgr : MonoBehaviour
             if (MissonTarget1.SequenceEqual(AnserTarget1) && MissonTarget2.SequenceEqual(AnserTarget2))
             {
                 Debug.Log("정방향 정답");
+                AlertCanvas.SetActive(true);
+                ConfirmSensor.instance.GoodAnser();
                 GetComponent<EducationMgr>().Btn_OnNextClick();
                 UpdateMission();
+            }
+            else
+            {
+                AlertCanvas.SetActive(true);
+                ConfirmSensor.instance.BadAnser();
             }
         }
         else if (num == 2)
@@ -97,13 +105,21 @@ public class Auto_Edu_Mgr : MonoBehaviour
             if (MissonTarget1.SequenceEqual(AnserTarget2) && MissonTarget2.SequenceEqual(AnserTarget1))
             {
                 Debug.Log("역방향 정답");
+                AlertCanvas.SetActive(true);
+                ConfirmSensor.instance.GoodAnser();
                 GetComponent<EducationMgr>().Btn_OnNextClick();
                 UpdateMission();
+            }
+            else
+            {
+                AlertCanvas.SetActive(true);
+                ConfirmSensor.instance.BadAnser();
             }
         }
         else
         {
-            //Debug.Log("불일치2");
+            AlertCanvas.SetActive(true);
+            ConfirmSensor.instance.BadAnser();
         }
 
     }
