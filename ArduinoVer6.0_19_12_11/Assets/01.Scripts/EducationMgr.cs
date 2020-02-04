@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EducationMgr : MonoBehaviour
 {
@@ -107,6 +108,11 @@ public class EducationMgr : MonoBehaviour
 
     public void setting() //세팅
     {
+
+        //Edu_Mgr.Edu_ID = ID;
+        //Edu_Mgr.setting(); 플레이어프렙스로 받는다.
+        Edu_ID = PlayerPrefs.GetInt("ID");
+
         Reset();
 
         Modul_data = Edu_table_Mgr.GetModulTable(Edu_ID);
@@ -245,8 +251,9 @@ public class EducationMgr : MonoBehaviour
 
     public void Btn_OnMenuClick()
     {
-        MenuView.SetActive(true);
-        MainView.SetActive(false);
+        //MenuView.SetActive(true);
+        //MainView.SetActive(false);
+        SceneManager.LoadScene("Title");
     }
 
     internal string[,] GetModulOrder()
