@@ -107,6 +107,11 @@ public class EducationMgr : MonoBehaviour
 
     public void setting() //세팅
     {
+
+        //Edu_Mgr.Edu_ID = ID;
+        //Edu_Mgr.setting(); 플레이어프렙스로 받는다.
+        Edu_ID = PlayerPrefs.GetInt("ID");
+
         Reset();
 
         Modul_data = Edu_table_Mgr.GetModulTable(Edu_ID);
