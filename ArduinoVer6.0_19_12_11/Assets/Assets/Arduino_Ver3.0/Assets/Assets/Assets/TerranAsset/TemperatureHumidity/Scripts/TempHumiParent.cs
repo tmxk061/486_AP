@@ -11,7 +11,7 @@ public class TempHumiParent : MonoBehaviour
 {
     public bool GNDConnect;
     public bool VCCConnect;
-    public bool DigitalConnect { get; set; }
+    public bool DigitalConnect;
 
     public bool StartRun = false;
     public GameObject Parent;
