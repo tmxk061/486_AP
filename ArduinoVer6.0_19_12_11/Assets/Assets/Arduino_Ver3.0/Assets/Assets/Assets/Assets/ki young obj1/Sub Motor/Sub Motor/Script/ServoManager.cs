@@ -34,10 +34,11 @@ public class ServoManager : MonoBehaviour
 
         //if ((this.transform.position.z - Camera.main.transform.position.z) > 0)
         //distance = this.transform.position.z - Camera.main.transform.position.z;
-        if (CraftTable_Mgr.instance.CreateMode == true)
-            distance = Vector3.Distance(this.transform.position, GameObject.Find("CreateCamera").transform.position);
-        else
-            distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
+        //if (CraftTable_Mgr.instance.CreateMode == true)
+        //    distance = Vector3.Distance(this.transform.position, GameObject.Find("CreateCamera").transform.position);
+        //else
+        //    distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
+        distance = 50f;
         // else
         //distance = Camera.main.transform.position.z - this.transform.position.z;
     }

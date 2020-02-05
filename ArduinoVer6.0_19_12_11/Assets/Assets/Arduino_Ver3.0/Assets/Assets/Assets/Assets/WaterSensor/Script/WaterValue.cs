@@ -34,12 +34,13 @@ public class WaterValue : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
-        
-        if (CraftTable_Mgr.instance.CreateMode == true)
-            distance = Vector3.Distance(this.transform.position, GameObject.Find("CreateCamera").transform.position);
-        else
-            distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
+        //Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
+
+        //if (CraftTable_Mgr.instance.CreateMode == true)
+        //    distance = Vector3.Distance(this.transform.position, GameObject.Find("CreateCamera").transform.position);
+        //else
+        //    distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
+        distance = 50f;
 
         //Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
         ////Debug.Log(Camera.main.transform.position.z - this.transform.position.z );

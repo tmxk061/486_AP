@@ -43,7 +43,13 @@ public class UltValue : MonoBehaviour
         rotation = transform.rotation;
     }
 
-    
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.V))
+    //    {
+    //        Debug.Log("디스턴스:"+distance);
+    //    }
+    //}
 
     public void linePosReset() //가지고 있는 라인들의 위치를 내 위치로 리셋(사기치는코드)
     {
@@ -55,21 +61,19 @@ public class UltValue : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
         //Debug.Log(Camera.main.transform.position.z - this.transform.position.z );
 
         //if ((this.transform.position.z - Camera.main.transform.position.z) > 0)
         //distance = this.transform.position.z - Camera.main.transform.position.z;
 
-        if(CraftTable_Mgr.instance.CreateMode == true)
-            distance = Vector3.Distance(this.transform.position, GameObject.Find("CreateCamera").transform.position);
-        else
-            distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
-        
+        //if(CraftTable_Mgr.instance.CreateMode == true)
+        //    distance = Vector3.Distance(this.transform.position, GameObject.Find("CreateCamera").transform.position);
+        //else
+        //    distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
 
+        distance = 50f;
 
-        // else
-        //distance = Camera.main.transform.position.z - this.transform.position.z;
+        //Debug.Log("디스턴스:" + distance);
     }
 
     private void OnMouseUp()
@@ -97,7 +101,6 @@ public class UltValue : MonoBehaviour
                 notMoveCheck = false;
                 return;
             }
-
             Vector3 mousePosition = new Vector3(Input.mousePosition.x,
                                                 Input.mousePosition.y, distance);
             Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);

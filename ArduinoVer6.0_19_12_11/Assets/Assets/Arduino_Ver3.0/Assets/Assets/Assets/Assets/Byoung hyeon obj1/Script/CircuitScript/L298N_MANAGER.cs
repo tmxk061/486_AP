@@ -40,13 +40,13 @@ public class L298N_MANAGER : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
-        //Debug.Log(Camera.main.transform.position.z - this.transform.position.z );
+        //Debug.Log(this.transform.position.z - Camera.main.transform.position.z);
+        ////Debug.Log(Camera.main.transform.position.z - this.transform.position.z );
 
-        //if ((this.transform.position.z - Camera.main.transform.position.z) > 0)
-        //distance = this.transform.position.z - Camera.main.transform.position.z;
-        distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
-
+        ////if ((this.transform.position.z - Camera.main.transform.position.z) > 0)
+        ////distance = this.transform.position.z - Camera.main.transform.position.z;
+        //distance = Vector3.Distance(this.transform.position, Camera.main.transform.position);
+        distance = 50f;
         // else
         //distance = Camera.main.transform.position.z - this.transform.position.z;
     }
