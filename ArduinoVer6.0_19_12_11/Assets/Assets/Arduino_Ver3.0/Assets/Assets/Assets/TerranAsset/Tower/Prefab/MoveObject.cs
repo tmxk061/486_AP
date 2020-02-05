@@ -16,9 +16,9 @@ public class MoveObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (this.transform.localPosition.x <= -80f)
+        if (this.transform.localPosition.x <= -5f)
             xLocal *= -1f;
-        if (this.transform.localPosition.x >= 80f)
+        if (this.transform.localPosition.x >= 5f)
             xLocal *= -1f;
     }
 
