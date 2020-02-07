@@ -239,12 +239,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 6c1f0ba7171a7fa40a7d6a03bd7ae882, type: 3}
-    m_FontSize: 166
-    m_FontStyle: 1
+    m_Font: {fileID: 12800000, guid: c7e3bcb3cc9083b4fa422096acd8a9c1, type: 3}
+    m_FontSize: 204
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 166
+    m_MaxSize: 239
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -287,15 +287,15 @@ RectTransform:
   m_GameObject: {fileID: 924022282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 27.439655, y: 0.8847164, z: 2.266702}
+  m_LocalScale: {x: 4.429617, y: 2.733807, z: 0.36591646}
   m_Children: []
   m_Father: {fileID: 1179255611}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -389}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchoredPosition: {x: -11, y: -315}
+  m_SizeDelta: {x: 400, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924022284
 MonoBehaviour:
@@ -317,12 +317,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5fdb23191be422540886d4651fdba649, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a70b9da39ca6964b8537a8e59d5bab3, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.063
+  m_FillAmount: 0.051
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -702,7 +702,7 @@ MonoBehaviour:
   openReferences: 0
   openPrefabs: 0
   idRef:
-    _Keys: 7d0a0fa43c5f7a0033f279d527872e38a37d6db1b58c6a448d15000e18077074ba1d690d18cbe6621202171d7a18d62bf2ea300fd4760d105f35e7d9a194173b9d12e5f5e1dfe06e9b2f3b485b77415a13d3fefdc880b7440f58aee3e30dc17d162445730233f22d36618c5bc53a4b17c7f0c5a3e282a64776fb6040e8890106f301b29ab218983e46279bcdb293994d79a5aba4440f0c7dd678d8592e5a901454f827c9f41f22218a03ea091d74fa0896aeba8e35a54b1c0ccb3bc6bfc0f014968778b96bd0595a838a2d48fa169b4a8e1e1022ebe0b6064444d4c05ae9e13714d6a0a4edb47465081411c0d2931621997ac65e5032d777c3818ad804660065a9f55bd0b6403726abab1ad6cff53328a609d91fdd7d184552e71d94d6639e5feb54953810192759439f09fb4cad4632
+    _Keys: 7d0a0fa43c5f7a0033f279d527872e38a37d6db1b58c6a448d15000e18077074ba1d690d18cbe6621202171d7a18d62bf2ea300fd4760d105f35e7d9a194173b9d12e5f5e1dfe06e9b2f3b485b77415a13d3fefdc880b7440f58aee3e30dc17d162445730233f22d36618c5bc53a4b17c7f0c5a3e282a64776fb6040e8890106f301b29ab218983e46279bcdb293994d79a5aba4440f0c7dd678d8592e5a901454f827c9f41f22218a03ea091d74fa0896aeba8e35a54b1c0ccb3bc6bfc0f014968778b96bd0595a838a2d48fa169b4a8e1e1022ebe0b6064444d4c05ae9e13714d6a0a4edb47465081411c0d2931621997ac65e5032d777c3818ad804660065a9f55bd0b6403726abab1ad6cff53328a609d91fdd7d184552e71d94d6639e5feb54953810192759439f09fb4cad46323488d90be3598d5c60938f2fe1086b44def32c54c1021d1d730be32dc8891147c4e9a767c2a6ea59
     _Values:
     - {fileID: 1222762618}
     - {fileID: 1222762616}
@@ -742,6 +742,11 @@ MonoBehaviour:
     - {fileID: 2100000, guid: 6c1f0ba7171a7fa40a7d6a03bd7ae882, type: 3}
     - {fileID: 2800000, guid: 6c1f0ba7171a7fa40a7d6a03bd7ae882, type: 3}
     - {fileID: 12800000, guid: 6c1f0ba7171a7fa40a7d6a03bd7ae882, type: 3}
+    - {fileID: 12800000, guid: c7e3bcb3cc9083b4fa422096acd8a9c1, type: 3}
+    - {fileID: 2800000, guid: c7e3bcb3cc9083b4fa422096acd8a9c1, type: 3}
+    - {fileID: 2100000, guid: c7e3bcb3cc9083b4fa422096acd8a9c1, type: 3}
+    - {fileID: 21300000, guid: 8a70b9da39ca6964b8537a8e59d5bab3, type: 3}
+    - {fileID: 2800000, guid: 8a70b9da39ca6964b8537a8e59d5bab3, type: 3}
   prefabs: []
 --- !u!114 &1261854235
 MonoBehaviour:
