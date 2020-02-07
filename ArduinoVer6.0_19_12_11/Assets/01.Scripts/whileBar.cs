@@ -10,7 +10,16 @@ public class whileBar : Block
 
     protected override void Start()
     {
-        DownCollider = this.gameObject.GetComponent<BoxCollider2D>();
+        colliders = this.GetComponents<Collider2D>();
+
+        //this.transform.position = new Vector3(930, 421);
+
+        if (colliders != null)
+        {
+            DownCollider = colliders[0];
+
+            UpCollider = colliders[1];
+        }
     }
 
     public void ShowRepeatNum(int num)
