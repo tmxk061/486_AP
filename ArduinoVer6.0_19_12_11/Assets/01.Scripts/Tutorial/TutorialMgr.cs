@@ -53,7 +53,8 @@ public class TutorialMgr : MonoBehaviour
 
     private void Start()
     {
-        StartTutorial(1);
+        if(PlayerPrefs.GetInt("ID") == 1)
+            StartTutorial(1);
     }
 
     private void Update()
@@ -86,7 +87,7 @@ public class TutorialMgr : MonoBehaviour
         switch (FlowNum)
         {
             case 1:
-                SetTextBox("안녕하세요! Adu-Class !! 에 오신걸 환영합니다!");
+                SetTextBox("안녕하세요! Edu! Class! 에 오신걸 환영합니다!");
                 NextFlow(1);
                 break;
 
@@ -292,38 +293,220 @@ public class TutorialMgr : MonoBehaviour
                 NextFlow(1);
                 break;
 
+            case 40:
+                TextBoxActive(false);
+                OutTrigger = 9;
+                break;
 
-            //case 34:
-            //    SetTextBox("잘 안보인다면, 마우른 오른쪽 버튼 클릭으로 화면을 줌인해서 볼 수 있습니다.");
-            //    NextFlow(1);
-            //    break;
+            case 41:
+                TextBoxActive(true);
+                SetTextBox("제대로 칠판의 지시사항을 따랐다면 잘했다는 말과 함께 칠판에 다음 지시가 나왔을 겁니다.");
+                NextFlow(1);
+                break;
 
-            //case 35:
-            //    SetTextBox("자동으로 연결 선이 생성되는 것을 볼 수 있습니다!");
-            //    NextFlow(1);
-            //    break;
+            case 42:
+                SetTextBox("만약 틀렸다면 다시한번 조립화면으로 들어가 잘 연결해 봅시다!");
+                NextFlow(1);
+                break;
 
-            //case 36:
-            //    SetTextBox("연결 되었다면 완료버튼을 눌러봅시다!");
-            //    NextFlow(1);
-            //    break;
+            case 43:
+                SetTextBox("이런식으로 계속해서 칠판의 지시를 따라 하면서");
+                NextFlow(1);
+                break;
 
-            //case 37:
-            //    TextBoxActive(false);
-            //    OutTrigger = 7;
-            //    break;
+            case 44:
+                SetTextBox("모듈의 연결방식을 익히게 됩니다.");
+                NextFlow(1);
+                break;
 
-            //case 38:
-            //    TextBoxActive(true);
-            //    SetTextBox("제대로 칠판의 지시사항을 따랐다면 잘했다는 말과 함께 칠판에 다음 지시가 나왔을 겁니다.");
-            //    NextFlow(1);
-            //    break;
+            case 45:
+                SetTextBox("계속해서 모듈을 연결해 봅시다!");
+                NextFlow(1);
+                break;
 
-            //case 5:
-            //    TextBoxActive(true);
-            //    SetTextBox("잘했어요!");
-            //    NextFlow(1);
-            //    break;
+            case 46:
+                TextBoxActive(false);
+                OutTrigger = 10;
+                break;
+
+            case 47:
+                TextBoxActive(true);
+                SetTextBox("초음파 센서가 완벽하게 연결 되었군요!");
+                NextFlow(1);
+                break;
+
+            case 48:
+                SetTextBox("아주 잘했습니다!");
+                NextFlow(1);
+                break;
+
+            case 49:
+                SetTextBox("그럼 이제 연결된 모듈을 실행해 보겠습니다.");
+                NextFlow(1);
+                break;
+
+            case 50:
+                SetTextBox("연결된 모듈은 '블록코딩'을 통해 실행됩니다.");
+                NextFlow(1);
+                break;
+
+            case 51:
+                SetTextBox("크래프트 테이블 왼쪽을 보시면 '블록코딩 컴퓨터'가 존재합니다.");
+                NextFlow(1);
+                break;
+
+            case 52:
+                SetTextBox("블록코딩 컴퓨터로 이동해 봅시다.");
+                NextFlow(1);
+                break;
+
+            case 53:
+                MovePointList[2].SetActive(true);
+                TextBoxActive(false);
+                OutTrigger = 11;
+                break;
+
+            case 54:
+                TextBoxActive(true);
+                SetTextBox("블록코드 버튼을 눌러봅시다.");
+                NextFlow(1);
+                break;
+
+            case 55:
+                TextBoxActive(false);
+                OutTrigger = 12;
+                break;
+
+            case 56:
+                TextBoxActive(true);
+                SetTextBox("노란색 에디트 버튼을 눌러봅시다.");
+                NextFlow(1);
+                break;
+
+            case 57:
+                TextBoxActive(false);
+                OutTrigger = 13;
+                break;
+
+            case 58:
+                TextBoxActive(true);
+                SetTextBox("블록코딩 화면에 들어왔습니다.");
+                NextFlow(1);
+                break;
+
+            case 59:
+                SetTextBox("이곳에서 적절한 블록을 배치해서 원하는데로 모듈을 사용 할 수 있습니다.");
+                NextFlow(1);
+                break;
+
+            case 60:
+                SetTextBox("이번엔 블록하나로 간단히 초음파 모듈을 사용해보겠습니다.");
+                NextFlow(1);
+                break;
+
+            case 61:
+                SetTextBox("데이터 수집'버튼을 클릭합니다.");
+                NextFlow(1);
+                break;
+
+            case 62:
+                TextBoxActive(false);
+                OutTrigger = 14;
+                break;
+
+            case 63:
+                TextBoxActive(true);
+                SetTextBox("0번 핀 읽기 블록을 선택합니다.");
+                NextFlow(1);
+                break;
+
+            case 64:
+                TextBoxActive(false);
+                OutTrigger = 15;
+                break;
+
+            case 65:
+                TextBoxActive(true);
+                SetTextBox("블록이 생성되었습니다.");
+                NextFlow(1);
+                break;
+
+            case 66:
+                SetTextBox("핀의 번호는 6번으로 설정합니다.");
+                NextFlow(1);
+                break;
+
+            case 67:
+                SetTextBox("이 블록을 기본적으로 존재하는 '시작 버튼을 누르면' 블록으로 드래그하면 자동으로 붙힐 수 있습니다.");
+                NextFlow(1);
+                break;
+
+            case 68:
+                SetTextBox("블록을 붙혔다면 이제 시작 버튼을 클릭해 블록코드를 실행시켜봅시다.");
+                NextFlow(1);
+                break;
+
+            case 69:
+                TextBoxActive(false);
+                OutTrigger = 16;
+                break;
+
+            case 70:
+                TextBoxActive(true);
+                SetTextBox("잘 연결 됬다면 여기에 결과 화면에 초음파 모듈과의 거리가 표시되는 것을 볼 수 있습니다.");
+                NextFlow(1);
+                break;
+
+            case 71:
+                SetTextBox("마지막으로 테스트 환경을 설정해 봅시다.");
+                NextFlow(1);
+                break;
+
+            case 72:
+                SetTextBox("환경 버튼을 클릭합니다.");
+                NextFlow(1);
+                break;
+
+            case 73:
+                TextBoxActive(false);
+                OutTrigger = 17;
+                break;
+
+            case 74:
+                TextBoxActive(true);
+                SetTextBox("환경 창에 있는 여러가지 옵션을 키고 끄는걸로");
+                NextFlow(1);
+                break;
+
+            case 75:
+                SetTextBox("교실의 온도 습도 등 여러가지 환경을 조정해 볼 수 있습니다.");
+                NextFlow(1);
+                break;
+
+            case 76:
+                SetTextBox("그리고 환경 설정 창은 크래프트 테이블 옆에도 있답니다.");
+                NextFlow(1);
+                break;
+
+            case 77:
+                SetTextBox("이번에 사용하는것은 초음파 센서니 '측정판'을 사용해 보는것도 좋겠네요.");
+                NextFlow(1);
+                break;
+
+            case 78:
+                SetTextBox("다양하게 테스트 해봅시다.");
+                NextFlow(1);
+                break;
+
+            case 79:
+                SetTextBox("튜토리얼은 이상입니다.");
+                NextFlow(1);
+                break;
+
+            case 80:
+                SetTextBox("Edu! Class! 에서 즐겁게 학습해봅시다!!");
+                NextFlow(1);
+                break;
 
             default:
                 EndTutorial();
