@@ -71,14 +71,27 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
         }
     }
 
+    public void OnMouseUp(PointerEventData eventData)
+    {
+        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        if (this.tag == "ifBlock")
+        {
+            this.GetComponentInChildren<ifBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        }
+        else if (this.tag == "whileBlock")
+        {
+            this.GetComponentInChildren<whileBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 0);
+        }
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         GameObject thisblock = gameObject;
 
-        if (thisblock.tag == "ifBar")
-            thisblock = thisblock.GetComponentInParent<ifBlock>().gameObject;
-        else if (thisblock.tag == "whileBar")
-            thisblock = thisblock.GetComponentInParent<whileBlock>().gameObject;
+        //if (thisblock.tag == "ifBar")
+        //    thisblock = thisblock.GetComponentInParent<ifBlock>().gameObject;
+        //else if (thisblock.tag == "whileBar")
+        //    thisblock = thisblock.GetComponentInParent<whileBlock>().gameObject;
 
         if (thisblock.transform.parent != null)
         {
@@ -88,7 +101,10 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
                 block.SetDownColllider(true);
                 UpCollider.isTrigger = true;
 
-                thisblock.transform.SetParent(ParentObj.transform);
+                if (thisblock.tag != "ifBar" && thisblock.tag != "whileBar")
+                {
+                    thisblock.transform.SetParent(ParentObj.transform);
+                }
             }
         }
         //var screenpoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 100f);
@@ -98,14 +114,14 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
             thisblock.transform.position = Input.mousePosition; //secondCamera.ScreenToWorldPoint(screenpoint);
 
             thisblock.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
-            if (thisblock.tag == "ifBlock")
-            {
-                thisblock.GetComponentInChildren<ifBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
-            }
-            else if (thisblock.tag == "whileBlock")
-            {
-                thisblock.GetComponentInChildren<whileBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
-            }
+            //if (thisblock.tag == "ifBlock")
+            //{
+            //    thisblock.GetComponentInChildren<ifBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+            //}
+            //else if (thisblock.tag == "whileBlock")
+            //{
+            //    thisblock.GetComponentInChildren<whileBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+            //}
         }
     }
 
@@ -118,7 +134,8 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
 
             if (transform.position.y < collision.transform.position.y)//자기 위에 충돌할때
             {
-                if (this.tag != "Block" && this.tag != "ifBar" && this.tag != "whileBar") // StartBlock블록 제외
+                //if (this.tag != "Block" && this.tag != "ifBar" && this.tag != "whileBar") // StartBlock블록 제외
+                if (this.tag != "Block") // StartBlock블록 제외
                 {
                     if (UpCollider.isTrigger == true)
                     {
@@ -128,8 +145,11 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
                             if (sample.CheckDownCollider() == true)
                             {
                                 transform.position = collision.transform.position + new Vector3(0, -35, 0);
-                                this.transform.SetParent(sample.transform);
-                                this.transform.SetAsFirstSibling();
+                                if (this.tag != "ifBar" && this.tag != "whileBar")
+                                {
+                                    this.transform.SetParent(sample.transform);
+                                    this.transform.SetAsFirstSibling();
+                                }
                                 UpObj = collision.gameObject;
                                 UpCollider.isTrigger = false;
                                 sample.SetDownColllider(false);

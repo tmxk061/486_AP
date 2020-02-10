@@ -64,8 +64,8 @@ public class whileBlock : Block, IDragHandler, IDropHandler
         RunDetail();
 
         // if내부 진행중 테두리 들어옴
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
-        this.GetComponentInChildren<whileBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+        //this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+        //this.GetComponentInChildren<whileBar>().GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
         Debug.Log("while시작");
 
         // while 자식 블록 실행

@@ -52,8 +52,8 @@ public class ifBlock : Block, IDragHandler, IDropHandler
         RunDetail();
 
         // if내부 진행중 테두리 들어옴
-        this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
-        UnderBar.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+        //this.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
+        //UnderBar.GetComponent<Outline>().effectColor = new Color(255, 0, 0, 255);
 
         // if 자식 블록 실행
         Block block = BlockManager.instance.BlockIdentity(transform);

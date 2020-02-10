@@ -58,7 +58,8 @@ public class ifbarRegion : MonoBehaviour
         return this.transform.localPosition;
     } 
 
-
+    /*
+     * 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag != "ifBlock" && collision.tag != "whileBlock" && collision.tag != "ifBar" && collision.tag != "Block")
@@ -146,5 +147,6 @@ public class ifbarRegion : MonoBehaviour
             }
         }
     }
+    */
 
 }
