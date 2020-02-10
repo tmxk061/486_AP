@@ -24,6 +24,9 @@ public class TutorialMgr : MonoBehaviour
     [SerializeField]
     private List<GameObject> MovePointList;
 
+    [SerializeField]
+    private List<GameObject> ArrowList;
+
     private int Flow; //현재 흐름
     public int FlowNum; // 흐름의 순번
 
@@ -105,11 +108,13 @@ public class TutorialMgr : MonoBehaviour
 
             case 4:
                 SetTextBox("모듈의 '조립'은 지금 눈 앞에 있는 '크래프트 테이블'을 통해 할 수 있습니다.");
+                ArrowEnable(0,true);
                 NextFlow(1);
                 break;
 
             case 5:
                 SetTextBox("하지만 그전에 우선! 어떻게 조립해야하는지를 알아야 겠지요?");
+                ArrowEnable(0, false);
                 NextFlow(1);
                 break;
 
@@ -157,6 +162,7 @@ public class TutorialMgr : MonoBehaviour
 
             case 14:
                 SetTextBox("자, 그럼 'Auto'버튼을 클릭해 모듈 교육을 시작해 봅시다!");
+                ArrowEnable(1,true);
                 NextFlow(1);
                 break;
 
@@ -167,6 +173,7 @@ public class TutorialMgr : MonoBehaviour
 
             case 16:
                 TextBoxActive(true);
+                ArrowEnable(1, false);
                 SetTextBox("칠판에 자동으로 어떤 모듈의 어떤 부분을 어디에 연결해야하는지 표시되는 것을 볼 수 있습니다!");
                 NextFlow(1);
                 break;
@@ -185,6 +192,7 @@ public class TutorialMgr : MonoBehaviour
             case 19:
                 TextBoxActive(true);
                 SetTextBox("크래프트 테이블의 조립버튼을 눌러 조립 화면으로 넘어가 봅시다!");
+                ArrowEnable(2, true);
                 NextFlow(1);
                 break;
 
@@ -196,11 +204,13 @@ public class TutorialMgr : MonoBehaviour
             case 21:
                 TextBoxActive(true);
                 SetTextBox("보다시피 처음에는 UNO보드, 브레드보드만 존재합니다.");
+                ArrowEnable(2, false);
                 NextFlow(1);
                 break;
 
             case 22:
                 SetTextBox("모듈 버튼을 클릭해봅시다.");
+                ArrowEnable(3, true);
                 NextFlow(1);
                 break;
 
@@ -212,6 +222,7 @@ public class TutorialMgr : MonoBehaviour
             case 24:
                 TextBoxActive(true);
                 SetTextBox("모듈 화면이 나왔습니다.");
+                ArrowEnable(3, false);
                 NextFlow(1);
                 break;
 
@@ -222,6 +233,7 @@ public class TutorialMgr : MonoBehaviour
 
             case 26:
                 SetTextBox("이번에 사용할 '초음파 센서 - HC-SR04'를 하나 클릭해서 꺼내봅시다!");
+                ArrowEnable(4, true);
                 NextFlow(1);
                 break;
 
@@ -233,6 +245,7 @@ public class TutorialMgr : MonoBehaviour
             case 28:
                 TextBoxActive(true);
                 SetTextBox("잘했습니다!");
+                ArrowEnable(4, false);
                 NextFlow(1);
                 break;
 
@@ -258,6 +271,7 @@ public class TutorialMgr : MonoBehaviour
 
             case 33:
                 SetTextBox("UNO보드의 5V를 클릭해봅시다.");
+                ArrowEnable(5, true);
                 NextFlow(1);
                 break;
 
@@ -274,6 +288,9 @@ public class TutorialMgr : MonoBehaviour
             case 36:
                 TextBoxActive(true);
                 SetTextBox("다음으로 초음파 모듈의 VCC핀을 클릭해봅시다.");
+                ArrowEnable(5, false);
+                ArrowEnable(6, true);
+
                 if (doNotClick == false)
                     NextFlow(1);
                 break;
@@ -286,12 +303,15 @@ public class TutorialMgr : MonoBehaviour
             case 38:
                 TextBoxActive(true);
                 SetTextBox("자동으로 연결 선이 생성되는 것을 볼 수 있습니다!");
+                ArrowEnable(6, false);
+
                 if (doNotClick == false)
                     NextFlow(1);
                 break;
 
             case 39:
                 SetTextBox("정확히 연결 되었다면 완료버튼을 눌러봅시다!");
+                ArrowEnable(7, true);
                 NextFlow(1);
                 break;
 
@@ -303,6 +323,7 @@ public class TutorialMgr : MonoBehaviour
             case 41:
                 TextBoxActive(true);
                 SetTextBox("제대로 칠판의 지시사항을 따랐다면 잘했다는 말과 함께 칠판에 다음 지시가 나왔을 겁니다.");
+                ArrowEnable(7, false);
                 NextFlow(1);
                 break;
 
@@ -371,6 +392,7 @@ public class TutorialMgr : MonoBehaviour
             case 54:
                 TextBoxActive(true);
                 SetTextBox("블록코드 버튼을 눌러봅시다.");
+                ArrowEnable(8, true);
                 NextFlow(1);
                 break;
 
@@ -382,6 +404,8 @@ public class TutorialMgr : MonoBehaviour
             case 56:
                 TextBoxActive(true);
                 SetTextBox("노란색 에디트 버튼을 눌러봅시다.");
+                ArrowEnable(8, false);
+                ArrowEnable(9, true);
                 NextFlow(1);
                 break;
 
@@ -393,6 +417,7 @@ public class TutorialMgr : MonoBehaviour
             case 58:
                 TextBoxActive(true);
                 SetTextBox("블록코딩 화면에 들어왔습니다.");
+                ArrowEnable(9, false);
                 NextFlow(1);
                 break;
 
@@ -408,6 +433,7 @@ public class TutorialMgr : MonoBehaviour
 
             case 61:
                 SetTextBox("데이터 수집'버튼을 클릭합니다.");
+                ArrowEnable(10, true);
                 NextFlow(1);
                 break;
 
@@ -419,6 +445,8 @@ public class TutorialMgr : MonoBehaviour
             case 63:
                 TextBoxActive(true);
                 SetTextBox("0번 핀 읽기 블록을 선택합니다.");
+                ArrowEnable(10, false);
+                ArrowEnable(11, true);
                 NextFlow(1);
                 break;
 
@@ -430,6 +458,7 @@ public class TutorialMgr : MonoBehaviour
             case 65:
                 TextBoxActive(true);
                 SetTextBox("블록이 생성되었습니다.");
+                ArrowEnable(11, false);
                 NextFlow(1);
                 break;
 
@@ -445,6 +474,7 @@ public class TutorialMgr : MonoBehaviour
 
             case 68:
                 SetTextBox("블록을 붙혔다면 이제 시작 버튼을 클릭해 블록코드를 실행시켜봅시다.");
+                ArrowEnable(12, true);
                 NextFlow(1);
                 break;
 
@@ -456,16 +486,20 @@ public class TutorialMgr : MonoBehaviour
             case 70:
                 TextBoxActive(true);
                 SetTextBox("잘 연결 됬다면 여기에 결과 화면에 초음파 모듈과의 거리가 표시되는 것을 볼 수 있습니다.");
+                ArrowEnable(12, false);
+                ArrowEnable(13, true);
                 NextFlow(1);
                 break;
 
             case 71:
                 SetTextBox("마지막으로 테스트 환경을 설정해 봅시다.");
+                ArrowEnable(13, false);
                 NextFlow(1);
                 break;
 
             case 72:
                 SetTextBox("환경 버튼을 클릭합니다.");
+                ArrowEnable(14, true);
                 NextFlow(1);
                 break;
 
@@ -477,6 +511,7 @@ public class TutorialMgr : MonoBehaviour
             case 74:
                 TextBoxActive(true);
                 SetTextBox("환경 창에 있는 여러가지 옵션을 키고 끄는걸로");
+                ArrowEnable(14, false);
                 NextFlow(1);
                 break;
 
@@ -544,5 +579,10 @@ public class TutorialMgr : MonoBehaviour
     private void donotClickFalse()
     {
         doNotClick = false;
+    }
+
+    public void ArrowEnable(int i, bool b)
+    {
+        ArrowList[i].SetActive(b);
     }
 }
