@@ -25,6 +25,16 @@ public class CopyEnvCmd : MonoBehaviour
     public Toggle LightCenterOrigin;
     public Toggle LightAllOrigin;
 
+    public Toggle WATEROrigin;
+    public Toggle Water1Origin;
+    public Toggle Water2Origin;
+    public Toggle Water3Origin;
+
+    public Toggle WATERCopy;
+    public Toggle Water1OCopy;
+    public Toggle Water2Copy;
+    public Toggle Water3Copy;
+
     // Update is called once per frame
     private void Update()
     {
@@ -38,5 +48,15 @@ public class CopyEnvCmd : MonoBehaviour
         LightSliderOrigin.value = LightSliderCopy.value;
         LightCenterOrigin.isOn = LightCenterCopy.isOn;
         LightAllOrigin.isOn = LightAllCopy.isOn;
+
+        WATEROrigin.isOn = WATERCopy.isOn = true;
+        Water1Origin.isOn = Water1OCopy.isOn;
+        Water2Origin.isOn = Water2Copy.isOn;
+        Water3Origin.isOn = Water3Copy.isOn;
+
+        //WATERCopy.isOn = WATEROrigin.isOn;
+        //Water1OCopy.isOn = Water1Origin.isOn;
+        //Water2Copy.isOn = Water2Origin.isOn;
+        //Water3Copy.isOn = Water3Origin.isOn;
     }
 }
