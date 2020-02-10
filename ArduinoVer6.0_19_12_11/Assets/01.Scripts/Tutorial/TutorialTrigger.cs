@@ -17,4 +17,6 @@ public class TutorialTrigger : MonoBehaviour
             TutorialMgr.instance.FlowNum++;
         }
     }
+
+   
 }
