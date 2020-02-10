@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class L298N_MANAGER : MonoBehaviour
 {
-
     public bool VccConnect { get; set; }
     public bool GNDConnect { get; set; }
     public bool DigitalConnect1 { get; set; }
@@ -14,11 +12,11 @@ public class L298N_MANAGER : MonoBehaviour
     public int POWER { get; set; }
 
     public List<L298NOUT4> outlist;
-    float distance = 10;
+    private float distance = 10;
     public bool MouseClick = false;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         outlist.Add(transform.Find("OUT1").GetComponent<L298NOUT4>());
         outlist.Add(transform.Find("OUT2").GetComponent<L298NOUT4>());
@@ -32,8 +30,6 @@ public class L298N_MANAGER : MonoBehaviour
         DigitalConnect3 = false;
         DigitalConnect4 = false;
         POWER = 0;
-
-        
     }
 
     #region MouseDrag

@@ -3,6 +3,13 @@ using UnityEngine.UI;
 
 public class TutorialMgr : MonoBehaviour
 {
+    public static TutorialMgr instance;
+    public void Awake()
+    {
+        TutorialMgr.instance = this;
+    }
+
+
     [SerializeField]
     public GameObject TutorialObj; //전체 튜토리얼 오브젝트를 담은 오브젝트
 
@@ -12,10 +19,12 @@ public class TutorialMgr : MonoBehaviour
     [SerializeField]
     public Text TextBoxText;//텍스트 박스의 텍스트
 
-    private int Flow;
-    private int FlowNum;
+    private int Flow; //현재 흐름
+    public int FlowNum; // 흐름의 순번
 
-    private bool isStart = false;
+    public bool isStart = false; //현재 튜토리얼 작동중인지 여부
+
+    public int OutTrigger; // 작동될 외부 트리거
 
     public void StartTutorial(int i)
     {
@@ -74,7 +83,18 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 3:
-                SetTextBox("그렇다면 다행이긴한데");
+                SetTextBox("조립버튼을 눌러보세요!");
+                NextFlow(1);
+                break;
+
+            case 4:
+                TextBoxActive(false);
+                OutTrigger = 1;
+                break;
+
+            case 5:
+                TextBoxActive(true);
+                SetTextBox("잘했어요!");
                 NextFlow(1);
                 break;
 
@@ -84,7 +104,7 @@ public class TutorialMgr : MonoBehaviour
         }
     }
 
-    private void NextFlow(int i)
+    private void NextFlow(int i) //다음 흐름으로 넘어가는 조건
     {
         switch (i)
         {
@@ -96,10 +116,15 @@ public class TutorialMgr : MonoBehaviour
                 break;
         }
 
-    } //다음 흐름으로 넘어가는 조건
+    } 
 
-    private void SetTextBox(string msg)
+    private void SetTextBox(string msg) //텍스트 박스에 텍스트 업데이트
     {
         TextBoxText.text = msg;
+    }
+
+    private void TextBoxActive(bool b) // 텍스트박스 오브젝트 활성,비활성화
+    {
+        TextBox.SetActive(b);
     }
 }
