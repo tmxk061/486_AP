@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player_Move : MonoBehaviour
 {
+
     public Camera cam;
     public Rigidbody rb;
 
@@ -28,18 +29,20 @@ public class Player_Move : MonoBehaviour
     public GameObject Craft_table;
     public GameObject table_Point;
 
-   
+    private bool isAct = true;
 
     void Update()
     {
-        MouseCameraMove();
+        if (isAct)
+        {
+            MouseCameraMove();
 
-        PlayerPause();
+            PlayerPause();
 
-        MoveTable();
+            //MoveTable();
 
-        MainCamZoomin();
-
+            MainCamZoomin();
+        }
     }
 
     private void MainCamZoomin()
@@ -140,6 +143,9 @@ public class Player_Move : MonoBehaviour
 
     private void Move()
     {
+        if (!isAct)
+            return;
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(new Vector3(0, 0, 200 * Time.deltaTime));
@@ -159,6 +165,11 @@ public class Player_Move : MonoBehaviour
 
         PlayerRotate();
 
+    }
+
+    public void ActSet(bool b)
+    {
+        isAct = b;
     }
 
 
