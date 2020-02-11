@@ -29,7 +29,7 @@ public class Player_Move : MonoBehaviour
     public GameObject Craft_table;
     public GameObject table_Point;
 
-    private bool isAct = true;
+    public bool isAct = true;
 
     void Update()
     {

@@ -33,6 +33,9 @@ public class MouseOverArround : MonoBehaviour
 
     public void OnMouseDown()
     {
+        if (!GameObject.Find("Player").GetComponent<Player_Move>().isAct)
+            return;
+
         if (tableMgr.CreateMode == false)
         {
             if (mousepoint.MouseChecking == false)
