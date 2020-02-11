@@ -59,10 +59,10 @@ public class TutorialMgr : MonoBehaviour
 
     private void Start()
     {
-        //if(PlayerPrefs.GetInt("ID") == 1)
-        //    StartTutorial(1);
+        if (PlayerPrefs.GetInt("ID") == 1)
+            StartTutorial(1);
 
-        StartTutorial(1);
+        //StartTutorial(1);
     }
 
     private void Update()
