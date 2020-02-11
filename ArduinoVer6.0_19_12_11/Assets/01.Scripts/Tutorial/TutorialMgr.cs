@@ -39,6 +39,13 @@ public class TutorialMgr : MonoBehaviour
 
     public bool doNotClick = false; //모듈 클리과 겹침 방지
 
+    [SerializeField]
+    public GameObject GuidUiPanel;
+    [SerializeField]
+    public List<GameObject> GuidUiList;
+    public bool isGuid = false; //가이드가 켜져 있는지 (켜져있으면 흐름정지)
+    private bool GuidOneCheck = false; //가이드가 한번만 켜지도록
+
 
     public void StartTutorial(int i)
     {
@@ -57,12 +64,14 @@ public class TutorialMgr : MonoBehaviour
         isStart = false;
     }
 
+
+
     private void Start()
     {
-        if (PlayerPrefs.GetInt("ID") == 1)
-            StartTutorial(1);
+        //if (PlayerPrefs.GetInt("ID") == 1)
+        //    StartTutorial(1);
 
-        //StartTutorial(1);
+        StartTutorial(1);
     }
 
     private void Update()
@@ -78,6 +87,8 @@ public class TutorialMgr : MonoBehaviour
         }
     }
 
+
+
     private void TutorialFlow()
     {
         switch (Flow)
@@ -88,10 +99,11 @@ public class TutorialMgr : MonoBehaviour
         }
     }
 
-    
-
     private void Tutorial_1()
     {
+        if (isGuid)
+            return;
+
         switch (FlowNum)
         {
             case 1:
@@ -167,12 +179,15 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 14:
+                if (GuidOneCheck == false)
+                    OpenGuid(0);
                 SetTextBox("자, 그럼 'Auto'버튼을 클릭해 모듈 교육을 시작해 봅시다!");
                 ArrowEnable(1,true);
                 NextFlow(1);
                 break;
 
             case 15:
+                GuidOneCheck = false;
                 Player.ActSet(true);
                 TextBoxActive(false);
                 OutTrigger = 2;
@@ -374,11 +389,14 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 45:
-                SetTextBox("계속해서 모듈을 연결해 봅시다!");
+                if (GuidOneCheck == false)
+                    OpenGuid(1);
+                SetTextBox("자! 계속해서 모듈을 연결해 나가 봅시다!");
                 NextFlow(1);
                 break;
 
             case 46:
+                GuidOneCheck = false;
                 TextBoxActive(false);
                 Player.ActSet(true);
 
@@ -551,12 +569,15 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 71:
+                if (GuidOneCheck == false)
+                    OpenGuid(2);
                 SetTextBox("마지막으로 테스트 환경을 설정해 봅시다.");
                 ArrowEnable(13, false);
                 NextFlow(1);
                 break;
 
             case 72:
+                GuidOneCheck = false;
                 SetTextBox("환경 버튼을 클릭합니다.");
                 ArrowEnable(14, true);
                 NextFlow(1);
@@ -599,11 +620,14 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 79:
+                if (GuidOneCheck == false)
+                    OpenGuid(3);
                 SetTextBox("튜토리얼은 이상입니다.");
                 NextFlow(1);
                 break;
 
             case 80:
+                GuidOneCheck = true;
                 SetTextBox("Edu! Class! 에서 즐겁게 학습해봅시다!!");
                 NextFlow(1);
                 break;
@@ -628,6 +652,8 @@ public class TutorialMgr : MonoBehaviour
 
     }
 
+
+
     private void SetTextBox(string msg) //텍스트 박스에 텍스트 업데이트
     {
         TextBoxText.text = msg;
@@ -647,5 +673,26 @@ public class TutorialMgr : MonoBehaviour
     public void ArrowEnable(int i, bool b)
     {
         ArrowList[i].SetActive(b);
+    }
+
+
+    public void OpenGuid(int i)
+    {
+        GuidOneCheck = true;
+        TextBoxActive(false);
+        isGuid = true;
+        GuidUiPanel.SetActive(true);
+        GuidUiList[i].SetActive(true);
+    }
+
+    public void CloseGuid() //버튼에 할당
+    {
+        for (int i = 0; i < GuidUiList.Count; i++)
+        {
+            GuidUiList[i].SetActive(false);
+        }
+        TextBoxActive(true);
+        GuidUiPanel.SetActive(false);
+        isGuid = false;
     }
 }
