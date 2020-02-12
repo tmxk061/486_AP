@@ -152,6 +152,7 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 9:
+                CraftTable_Mgr.instance.CreateMode = true; //플레이어 회전방지를위해 크리에이트모드 토글
                 Player.ActSet(false);
                 TextBoxActive(true);
                 SetTextBox("잘했습니다!");
@@ -190,6 +191,7 @@ public class TutorialMgr : MonoBehaviour
                 GuidOneCheck = false;
                 Player.ActSet(true);
                 TextBoxActive(false);
+                CraftTable_Mgr.instance.CreateMode = false; //플레이어 회전방지를위해 크리에이트모드 토글
                 OutTrigger = 2;
                 break;
 
@@ -214,6 +216,7 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 19:
+                CraftTable_Mgr.instance.CreateMode = true; //플레이어 회전방지를위해 크리에이트모드 토글
                 TextBoxActive(true);
                 Player.ActSet(false);
                 SetTextBox("크래프트 테이블의 조립버튼을 눌러 조립 화면으로 넘어가 봅시다!");
@@ -222,6 +225,7 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 20:
+                CraftTable_Mgr.instance.CreateMode = false; //플레이어 회전방지를위해 크리에이트모드 토글
                 TextBoxActive(false);
                 Player.ActSet(true);
                 OutTrigger = 4;
@@ -445,6 +449,7 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 54:
+                CraftTable_Mgr.instance.CreateMode = true; //플레이어 회전방지를위해 크리에이트모드 토글
                 TextBoxActive(true);
                 Player.ActSet(false);
 
@@ -454,6 +459,7 @@ public class TutorialMgr : MonoBehaviour
                 break;
 
             case 55:
+                CraftTable_Mgr.instance.CreateMode = false; //플레이어 회전방지를위해 크리에이트모드 토글
                 TextBoxActive(false);
                 Player.ActSet(true);
 
