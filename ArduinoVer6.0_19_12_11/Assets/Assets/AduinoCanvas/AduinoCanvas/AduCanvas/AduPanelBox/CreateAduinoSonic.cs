@@ -23,6 +23,20 @@ public class CreateAduinoSonic : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     }
 
+    public GameObject ClickEventReturn()
+    {
+        //UltValue ultval = Instantiate(obj, new Vector3(40, 150, 75), new Quaternion(0, 180, 0 ,0)).GetComponent<UltValue>();
+        //ultval.ultrasonic = type;
+        GameObject target = Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation);
+
+        UltValue ultval = target.GetComponent<UltValue>();
+        ultval.ultrasonic = type;
+        ultval.gameObject.transform.parent = GameObject.Find("CraftTable").transform;
+
+        return target;
+
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         Tootip.SetActive(true);

@@ -118,9 +118,13 @@ public class End : MonoBehaviour
                     savepos[4] = mousepoint.hit.transform.rotation.y;
                     savepos[5] = mousepoint.hit.transform.rotation.z;
 
+                    Debug.Log(mousepoint.pointting);
+                    Debug.Log(mousepoint.hit.transform.rotation);
+
                     this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
                     this.gameObject.transform.position = new Vector3(savepos[0], savepos[1], savepos[2]);
-                    this.gameObject.transform.rotation = mousepoint.hit.transform.rotation;
+                    //this.gameObject.transform.rotation = mousepoint.hit.transform.rotation;
+                    this.gameObject.transform.rotation = mousepoint.Rotation;
 
                     /*asdf[0] = this.gameObject.transform.position.x;
                     asdf[1] = this.gameObject.transform.position.y;
