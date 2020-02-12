@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class StartLine : MonoBehaviour
 {
+    public Edu_Number parentPin;
+
     public float Electro;
     //public GameObject target = null;
     //RaycastHit hit;
@@ -35,7 +37,6 @@ public class StartLine : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-
         switch (other.tag)
         {
 

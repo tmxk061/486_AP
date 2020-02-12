@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class End : MonoBehaviour
 {
+    public Edu_Number parentPin;
+
     //마우스가 클릭되었을 경우 true
     public bool Firstmake;//생성되자마자 확인
 
