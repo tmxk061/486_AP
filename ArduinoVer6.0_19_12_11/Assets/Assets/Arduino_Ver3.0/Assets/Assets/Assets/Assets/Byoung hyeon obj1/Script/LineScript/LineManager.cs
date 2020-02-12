@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LineManager : MonoBehaviour
 {
+    public int[] saveData = new int[2];
+    private bool saveSettingCheck = false;
+    public StartLine start;
+    public End end;
+
     public float plusElectric = 0;
     public float minusElectric = 0;
 
@@ -45,10 +50,58 @@ public class LineManager : MonoBehaviour
     public float Electro = 0.0f;
 
     public GameObject parent;
-    public StartLine start;
+    
     public PlusGroup plusGroup;
     public int Power = 0;
 
+
+    public void SaveDataSetting()
+    {
+        if (saveSettingCheck == true)
+            return;
+        
+        Edu_Number num1 =null, num2=null;
+
+        if (start.pm != null)
+            num1 = start.pm.gameObject.transform.GetChild(0).GetComponent<Edu_Number>();
+        else
+            num1 = start.socket.gameObject.transform.GetChild(0).GetComponent<Edu_Number>();
+
+
+        if (end.pm != null)
+            num2 = end.pm.gameObject.transform.GetChild(0).GetComponent<Edu_Number>();
+        else
+            num2 = end.socket.gameObject.transform.GetChild(0).GetComponent<Edu_Number>();
+
+
+
+        if (num1.modulNum == -1 || num1.modulNum == -2)
+        {
+            saveData[0] = num2.Number;
+            saveData[1] = num1.Number;
+
+            num2.parent.GetComponent<SaveData>().addPinList(GetComponent<LineManager>());
+        }
+        else
+        {
+            saveData[0] = num1.Number;
+            saveData[1] = num2.Number;
+
+            num1.parent.GetComponent<SaveData>().addPinList(GetComponent<LineManager>());
+        }
+    }
+
+    private void Update()
+    {
+        if (start.pm != null || start.socket != null)
+        {
+            if (end.pm != null || end.socket != null)
+            {
+                SaveDataSetting();
+                saveSettingCheck = true;
+            }
+        }
+    }
 
     private void Start()
     {
@@ -56,6 +109,7 @@ public class LineManager : MonoBehaviour
         GNDConnect = false;
         DigitalConnect = false;
         start = GetComponentInChildren<StartLine>();
+        end = GetComponentInChildren<End>();
 
     }
 
