@@ -12,6 +12,17 @@ public class CreateModeBtn : MonoBehaviour
     public GameObject PlayZoneCamera;
 
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (tableMgr.CreateMode)
+            {
+                OnReturnBtnClick();
+            }
+        }
+    }
+
     public void OnCreateBtnClick()
     {
         tableMgr.CreateMode = true;
