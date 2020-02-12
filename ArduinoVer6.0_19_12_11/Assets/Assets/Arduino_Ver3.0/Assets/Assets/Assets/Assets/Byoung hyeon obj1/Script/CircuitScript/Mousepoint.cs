@@ -13,6 +13,7 @@ public class Mousepoint : MonoBehaviour
     public RaycastHit hit;
     public Ray ray;
     public Vector3 pointting;//위치를 가져옴
+    public Quaternion Rotation;//위치를 가져옴
     public bool MouseChecking;//마우스 클릭확인
 
     float rotSpeed = 1.0f;
@@ -46,7 +47,8 @@ public class Mousepoint : MonoBehaviour
             {
                     //MouseChecking = true;
                     pointting = hit.transform.position;
-              
+                    Rotation = hit.transform.rotation;
+
                     //TestBox.transform.position = hit.transform.position;
             }
 

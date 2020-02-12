@@ -23,6 +23,14 @@ public class MouseOverArround : MonoBehaviour
         tableMgr = GameObject.Find("CraftTable").GetComponent<CraftTable_Mgr>();
     }
 
+    public void ReStart()
+    {
+        MakeLine = Resources.Load("LineManager") as GameObject;
+        mousepoint = Camera.main.GetComponent<Mousepoint>();
+        mousepoint2 = GameObject.Find("CreateCameras").transform.GetChild(0).GetComponent<Mousepoint>();
+        tableMgr = GameObject.Find("CraftTable").GetComponent<CraftTable_Mgr>();
+    }
+
     private void Update()
     {
         if (MakeLine == false)
