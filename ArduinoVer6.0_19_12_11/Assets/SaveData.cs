@@ -29,6 +29,10 @@ public class SaveData : MonoBehaviour
         data.Add(ModulNum);
         data.Add(ModulKind);
 
+        data.Add((int)gameObject.transform.position.x);
+        data.Add((int)gameObject.transform.position.y);
+        data.Add((int)gameObject.transform.position.z);
+
         for (int i = 0; i < pinList.Count; i++)
         {
             if (pinList[i] != null)

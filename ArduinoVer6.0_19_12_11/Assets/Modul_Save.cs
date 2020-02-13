@@ -8,6 +8,7 @@ public class Modul_Save : MonoBehaviour
 
     public List<GameObject> BreadBoardArround;
     public List<GameObject> ArduinoArroun;
+    public List<int[]> LonlyLine = new List<int[]>();
 
     public List<CreateAduinoSonic> UltCreateBtns;
 
@@ -26,6 +27,11 @@ public class Modul_Save : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
             Save();
+        }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            Debug.Log(LonlyLine[0][0] + "," + LonlyLine[0][1]);
         }
 
         //if (Input.GetKeyDown(KeyCode.F3))
@@ -55,7 +61,16 @@ public class Modul_Save : MonoBehaviour
         {
             List<int> save = new List<int>();//모듈 하나의 데이터
             save = AllModul[i].CreateData();
-            
+            save.Add(-999);
+
+            for (int a = 0; a < LonlyLine.Count; a++)
+            {
+                for (int b = 0; b < LonlyLine[i].Length; b++)
+                {
+                    save.Add(LonlyLine[a][b]);
+                }
+               
+            }
             AllsaveData.Add(save);//전체 데이터에 장입
         }
         //Debug.Log(AllsaveData[0][0] + "," + AllsaveData[0][1] + "," + AllsaveData[0][2] + "," + AllsaveData[0][3] + "," + AllsaveData[0][4]);
@@ -64,7 +79,7 @@ public class Modul_Save : MonoBehaviour
     }
 
 
-    private void Create(int ModulNum, int ModulKind)
+    private void Create(int ModulNum, int ModulKind, int x, int y, int z)
     {
         Debug.Log(ModulNum +","+ ModulKind);
 
@@ -72,6 +87,7 @@ public class Modul_Save : MonoBehaviour
         {
             case 1:
                 target = UltCreateBtns[ModulKind-1].ClickEventReturn();
+                target.transform.position = new Vector3(x, y, z);
                 break;
         }
         //생성하고 
@@ -79,10 +95,22 @@ public class Modul_Save : MonoBehaviour
 
     private void LastPinClick(int i)
     {
-        //디폴트 핀 클릭
-        PlayerMousePoint.pointting = ArduinoArroun[i-1].transform.position;
-        PlayerMousePoint.Rotation = ArduinoArroun[i-1].transform.rotation;
-        ArduinoArroun[i].GetComponent<MouseOverArround>().OnMouseDown();
+        if (i >= 500)
+        {
+            i = i - 1000;
+            //디폴트 핀 클릭
+            PlayerMousePoint.pointting = ArduinoArroun[i - 1].transform.position;
+            PlayerMousePoint.Rotation = ArduinoArroun[i - 1].transform.rotation;
+            ArduinoArroun[i - 1].GetComponent<MouseOverArround>().OnMouseDown();
+        }
+        else
+        {
+            Debug.Log(i-1);
+            PlayerMousePoint.pointting = BreadBoardArround[i - 1].transform.position;
+            PlayerMousePoint.Rotation = BreadBoardArround[i - 1].transform.rotation;
+            BreadBoardArround[i - 1].GetComponent<MouseOverArround>().OnMouseDown();
+        }
+        
     }
 
     private void ModulPinClick(int i)
@@ -103,20 +131,49 @@ public class Modul_Save : MonoBehaviour
 
         for (int i = 0; i < save.Count; i++)
         {
-            Create(save[i][0], save[i][1]);
+            int LonlyStartNum = -99;
 
-            for (int a = 0; a < save[i].Count-2; a++)
+
+            Create(save[i][0], save[i][1], save[i][2], save[i][3], save[i][4]);
+            Debug.Log("생성끝");
+            for (int a = 0; a < save[i].Count-5; a++)
             {
+                if (save[i][a + 5] == -999) // -999를 만나면 모듈연결은 끝났고 주인없는 선 연결시간
+                {
+                    LonlyStartNum = a + 6;
+                    break;
+                }
+
                 if (a % 2 == 1)//홀수면
                 {
-                    LastPinClick(save[i][a+2]);
+                    LastPinClick(save[i][a + 5]);
+                   
                 }
                 else if (a % 2 == 0)//짝수면
                 {
-                    ModulPinClick(save[i][a+2]);
+                    ModulPinClick(save[i][a + 5]);
                 }
                 yield return new WaitForSeconds(0.1f);
             }
+
+            if (LonlyStartNum == -99)
+                continue;
+
+            //주인없는 선 연결
+            while (true)
+            {
+                ModulPinClick(save[i][LonlyStartNum]);
+                LonlyStartNum++;
+                try
+                {
+                    int check = save[i][LonlyStartNum];
+                }
+                catch
+                {
+                    break;
+                }
+            }
+
         }
 
         
