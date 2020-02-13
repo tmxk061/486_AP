@@ -8,6 +8,8 @@ public class LineManager : MonoBehaviour
     private bool saveSettingCheck = false;
     public StartLine start;
     public End end;
+    public Edu_Number num1 = null;
+    public Edu_Number num2 = null;
 
     public float plusElectric = 0;
     public float minusElectric = 0;
@@ -59,8 +61,6 @@ public class LineManager : MonoBehaviour
     {
         if (saveSettingCheck == true)
             return;
-        
-        Edu_Number num1 =null, num2=null;
 
         if (start.pm != null)
             num1 = start.pm.gameObject.transform.GetChild(0).GetComponent<Edu_Number>();
@@ -74,21 +74,32 @@ public class LineManager : MonoBehaviour
             num2 = end.socket.gameObject.transform.GetChild(0).GetComponent<Edu_Number>();
 
 
-
-        if (num1.modulNum == -1 || num1.modulNum == -2)
+        if (num1.parent.GetComponent<SaveData>() != null || num2.parent.GetComponent<SaveData>() != null)
         {
-            saveData[0] = num2.Number;
-            saveData[1] = num1.Number;
+            if (num1.modulNum == -1 || num1.modulNum == -2)
+            {
+                saveData[0] = num2.Number;
+                saveData[1] = num1.Number;
 
-            num2.parent.GetComponent<SaveData>().addPinList(GetComponent<LineManager>());
+                num2.parent.GetComponent<SaveData>().addPinList(GetComponent<LineManager>());
+            }
+            else
+            {
+                saveData[0] = num1.Number;
+                saveData[1] = num2.Number;
+
+                num1.parent.GetComponent<SaveData>().addPinList(GetComponent<LineManager>());
+            }
         }
         else
         {
-            saveData[0] = num1.Number;
-            saveData[1] = num2.Number;
+            //int[] nums = new int[2];
+            //nums[0] = num1.Number;
+            //nums[1] = num2.Number;
 
-            num1.parent.GetComponent<SaveData>().addPinList(GetComponent<LineManager>());
+            GameObject.Find("SaveMgr").GetComponent<Modul_Save>().LonlyLine.Add(GetComponent<LineManager>());
         }
+        
     }
 
     private void Update()
