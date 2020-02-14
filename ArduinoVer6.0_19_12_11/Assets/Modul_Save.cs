@@ -4,7 +4,33 @@ using UnityEngine;
 
 public class Modul_Save : MonoBehaviour
 {
+    public static Modul_Save instance;
+    public void Awake()
+    {
+        Modul_Save.instance = this;
 
+        try
+        {
+            KEY = ES3.Load<int>("MODUL_KEY");
+        }
+        catch
+        {
+            Debug.Log("저장된 키 없음");
+        }
+
+        try
+        {
+            Modul_DB = ES3.Load<List<string[]>>("Modul_DB");
+        }
+        catch
+        {
+            Debug.Log("저장된 모듈 없음");
+        }
+    }
+
+
+    public List<string[]> Modul_DB = new List<string[]>();
+    private int KEY =0;
     public List<GameObject> BreadBoardArround;
     public List<GameObject> ArduinoArroun;
     public List<LineManager> LonlyLine = new List<LineManager>();
@@ -16,43 +42,41 @@ public class Modul_Save : MonoBehaviour
 
     public GameObject target;
 
+    public GameObject SaveUI;
+    public GameObject LoadUI;
 
+
+ 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            StartCoroutine(LoadFlow());
-        }
-
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            Save("test2");
+            SaveUI.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (Input.GetKeyDown(KeyCode.F2))
         {
-            Save("test3");
+            LoadUI.SetActive(true);
+        }
+        
+
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            Debug.Log("카탈로그");
+            
+            for (int i = 0; i < Modul_DB.Count; i++)
+            {
+                Debug.Log("Key :" + Modul_DB[i][0]);
+            }
 
         }
-
-        //if (Input.GetKeyDown(KeyCode.F3))
-        //{
-        //    //파일 불러오기
-        //    List<List<int>> save = new List<List<int>>();
-        //    save = ES3.Load<List<List<int>>>("test2");
-
-        //    for (int i = 0; i < save.Count; i++)
-        //    {
-        //        Debug.Log(save[i]);
-        //    }
-
-        //}
-
-
     }
 
-    private void Save(string savekey)
+    
+    public void Save(string Name)
     {
+        KEY++;
+            
         List<List<int>> AllsaveData = new List<List<int>>(); //전체를 담을 리스트
 
         //모듈과 연결된 부분 저장
@@ -79,68 +103,31 @@ public class Modul_Save : MonoBehaviour
             AllsaveData.Add(LonlySave);//전체 데이터에 장입
         }
         LonlyLine.Clear();
-        //Debug.Log(AllsaveData[0][0] + "," + AllsaveData[0][1] + "," + AllsaveData[0][2] + "," + AllsaveData[0][3] + "," + AllsaveData[0][4]);
-        ES3.Save<List<List<int>>>(savekey, AllsaveData); //저장
+        ES3.Save<List<List<int>>>("MODUL_" + KEY.ToString(), AllsaveData); //저장
+
+
+
+        //DB에 저장
+        string[] DbData = new string[] { "MODUL_"+KEY.ToString(), Name, System.DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss") };
+        Modul_DB.Add(DbData);
+        ES3.Save<List<string[]>>("Modul_DB", Modul_DB);
+        ES3.Save<int>("MODUL_KEY", KEY); //현재 키저장
         Debug.Log("저장완료");
     }
 
-
-    private void Create(int ModulNum, int ModulKind, int x, int y, int z)
+    public void Load(string KEY)
     {
-        Debug.Log(ModulNum +","+ ModulKind);
-
-        switch (ModulNum)
-        {
-            case 1:
-                target = UltCreateBtns[ModulKind-1].ClickEventReturn();
-                target.transform.position = new Vector3(x, y, z);
-                break;
-
-            case 6:
-                target = boozer.ClickEventReturn();
-                target.transform.position = new Vector3(x, y, z);
-                break;
-        }
-        //생성하고 
+        Debug.Log(KEY);
+        StartCoroutine(LoadFlow(KEY));
     }
 
-    private void LastPinClick(int i)
-    {
-        Debug.Log("라스트");
-        if (i >= 500)
-        {
-            i = i - 1000;
-            //디폴트 핀 클릭
-            PlayerMousePoint.pointting = ArduinoArroun[i - 1].transform.position;
-            PlayerMousePoint.Rotation = ArduinoArroun[i - 1].transform.rotation;
-            ArduinoArroun[i - 1].GetComponent<MouseOverArround>().OnMouseDown();
-        }
-        else
-        {
-            Debug.Log(i-1);
-            PlayerMousePoint.pointting = BreadBoardArround[i - 1].transform.position;
-            PlayerMousePoint.Rotation = BreadBoardArround[i - 1].transform.rotation;
-            BreadBoardArround[i - 1].GetComponent<MouseOverArround>().OnMouseDown();
-        }
-        
-    }
 
-    private void ModulPinClick(int i)
+    IEnumerator LoadFlow(string LoadKey)
     {
-        Debug.Log("모듈");
-        //모듈핀 클릭
-        Debug.Log("1");
-        MouseOverArround modulArround = target.GetComponent<PinNumberList>().Arround[i-1].GetComponent<MouseOverArround>();
-        modulArround.ReStart();
-        modulArround.OnMouseDown();
-    }
-
-    IEnumerator LoadFlow()
-    {
+        Debug.Log(LoadKey);
         //파일 불러오기
         List<List<int>> save = new List<List<int>>();
-        save = ES3.Load<List<List<int>>>("test2");
-        
+        save = ES3.Load<List<List<int>>>(LoadKey);
 
         for (int i = 0; i < save.Count; i++)
         {
@@ -170,23 +157,65 @@ public class Modul_Save : MonoBehaviour
                 }
             }
         }
-
-        
-
-        //ModulPinClick(0);
-        //LastPinClick(4);
-        //yield return new WaitForSeconds(1.1f);
-
-        //ModulPinClick(1);
-        //LastPinClick(26);
-        //yield return new WaitForSeconds(1.1f);
-
-        //ModulPinClick(2);
-        //LastPinClick(27);
-        //yield return new WaitForSeconds(1.1f);
-
-        //ModulPinClick(3);
-        //LastPinClick(5);
-        //yield return new WaitForSeconds(1.1f);
     }
+
+
+
+    private void Create(int ModulNum, int ModulKind, int x, int y, int z)
+    {
+
+        switch (ModulNum)
+        {
+            case 1:
+                target = UltCreateBtns[ModulKind-1].ClickEventReturn();
+                target.transform.position = new Vector3(x, y, z);
+                break;
+
+            case 6:
+                target = boozer.ClickEventReturn();
+                target.transform.position = new Vector3(x, y, z);
+                break;
+        }
+        //생성하고 
+    }
+
+    private void LastPinClick(int i)
+    {
+
+        if (i >= 500)
+        {
+            i = i - 1000;
+            //디폴트 핀 클릭
+            PlayerMousePoint.pointting = ArduinoArroun[i - 1].transform.position;
+            PlayerMousePoint.Rotation = ArduinoArroun[i - 1].transform.rotation;
+            ArduinoArroun[i - 1].GetComponent<MouseOverArround>().OnMouseDown();
+        }
+        else
+        {
+            Debug.Log(i-1);
+            PlayerMousePoint.pointting = BreadBoardArround[i - 1].transform.position;
+            PlayerMousePoint.Rotation = BreadBoardArround[i - 1].transform.rotation;
+            BreadBoardArround[i - 1].GetComponent<MouseOverArround>().OnMouseDown();
+        }
+        
+    }
+
+    private void ModulPinClick(int i)
+    {
+        //모듈핀 클릭
+        Debug.Log("1");
+        MouseOverArround modulArround = target.GetComponent<PinNumberList>().Arround[i-1].GetComponent<MouseOverArround>();
+        modulArround.ReStart();
+        modulArround.OnMouseDown();
+    }
+
+
+
+    public List<string[]> GetModul_DB()
+    {
+        return Modul_DB;
+    }
+
+
+
 }

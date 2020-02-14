@@ -35,12 +35,12 @@ public class End : MonoBehaviour
     {
         if (GameObject.Find("CraftTable").GetComponent<CraftTable_Mgr>().CreateMode == false)
         {
-            Debug.Log("위");
+
             mousepoint = Camera.main.GetComponent<Mousepoint>();
         }
         else
         {
-            Debug.Log("아래");
+
             mousepoint = GameObject.Find("CreateCamera").GetComponent<Camera>().GetComponent<Mousepoint>();
         }
 
@@ -119,9 +119,6 @@ public class End : MonoBehaviour
                     savepos[3] = mousepoint.hit.transform.rotation.x;
                     savepos[4] = mousepoint.hit.transform.rotation.y;
                     savepos[5] = mousepoint.hit.transform.rotation.z;
-
-                    Debug.Log(mousepoint.pointting);
-                    Debug.Log(mousepoint.hit.transform.rotation);
 
                     this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
                     this.gameObject.transform.position = new Vector3(savepos[0], savepos[1], savepos[2]);

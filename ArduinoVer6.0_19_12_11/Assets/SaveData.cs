@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
+   
     public int ModulNum;
     public int ModulKind;
 
