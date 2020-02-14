@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Modul_Save : MonoBehaviour
 {
-    public GameObject ULT;
 
     public List<GameObject> BreadBoardArround;
     public List<GameObject> ArduinoArroun;
     public List<LineManager> LonlyLine = new List<LineManager>();
 
     public List<CreateAduinoSonic> UltCreateBtns;
+    public CreateAduinoScript boozer;
 
     public Mousepoint PlayerMousePoint;
 
@@ -26,12 +26,13 @@ public class Modul_Save : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            Save();
+            Save("test2");
         }
 
         if (Input.GetKeyDown(KeyCode.F3))
         {
-            //Debug.Log(LonlyLine[0][0] + "," + LonlyLine[0][1]);
+            Save("test3");
+
         }
 
         //if (Input.GetKeyDown(KeyCode.F3))
@@ -50,7 +51,7 @@ public class Modul_Save : MonoBehaviour
 
     }
 
-    private void Save()
+    private void Save(string savekey)
     {
         List<List<int>> AllsaveData = new List<List<int>>(); //전체를 담을 리스트
 
@@ -79,7 +80,7 @@ public class Modul_Save : MonoBehaviour
         }
         LonlyLine.Clear();
         //Debug.Log(AllsaveData[0][0] + "," + AllsaveData[0][1] + "," + AllsaveData[0][2] + "," + AllsaveData[0][3] + "," + AllsaveData[0][4]);
-        ES3.Save<List<List<int>>>("test2", AllsaveData); //저장
+        ES3.Save<List<List<int>>>(savekey, AllsaveData); //저장
         Debug.Log("저장완료");
     }
 
@@ -92,6 +93,11 @@ public class Modul_Save : MonoBehaviour
         {
             case 1:
                 target = UltCreateBtns[ModulKind-1].ClickEventReturn();
+                target.transform.position = new Vector3(x, y, z);
+                break;
+
+            case 6:
+                target = boozer.ClickEventReturn();
                 target.transform.position = new Vector3(x, y, z);
                 break;
         }

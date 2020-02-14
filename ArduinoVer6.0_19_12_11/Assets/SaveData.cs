@@ -9,13 +9,6 @@ public class SaveData : MonoBehaviour
 
     public List<LineManager> pinList = new List<LineManager>();
 
-
-    private void Start()
-    {
-        ModulNum = 1;
-        ModulKind = 1;
-    }
-
     public void addPinList(LineManager data)
     {
         pinList.Add(data);
