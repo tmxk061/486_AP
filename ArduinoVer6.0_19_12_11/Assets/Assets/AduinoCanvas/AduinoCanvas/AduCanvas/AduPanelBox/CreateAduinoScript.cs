@@ -23,7 +23,19 @@ public class CreateAduinoScript : MonoBehaviour, IPointerEnterHandler, IPointerE
 
         Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation);
 
-        obj.SetActive(true);
+        //obj.SetActive(true);
+    }
+
+    public GameObject ClickEventReturn()
+    {
+        int num = 0;
+
+        num = Random.Range(0, 4);
+
+        GameObject newObj = Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation);
+
+        return newObj;
+        //obj.SetActive(true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
