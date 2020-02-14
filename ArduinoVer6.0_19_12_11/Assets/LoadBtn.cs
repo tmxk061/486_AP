@@ -15,4 +15,10 @@ public class LoadBtn : MonoBehaviour
         Modul_Save.instance.Load(KEY);
         Parent.SetActive(false);
     }
+
+    public void DeleteBtnOnClicik()
+    {
+        Modul_Save.instance.DeleteModul(KEY);
+        Parent.SetActive(false);
+    }
 }

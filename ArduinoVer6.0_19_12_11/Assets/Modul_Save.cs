@@ -62,12 +62,7 @@ public class Modul_Save : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F4))
         {
-            Debug.Log("카탈로그");
-            
-            for (int i = 0; i < Modul_DB.Count; i++)
-            {
-                Debug.Log("Key :" + Modul_DB[i][0]);
-            }
+            DeleteModul("MODUL_1");
 
         }
     }
@@ -124,7 +119,6 @@ public class Modul_Save : MonoBehaviour
 
     IEnumerator LoadFlow(string LoadKey)
     {
-        Debug.Log(LoadKey);
         //파일 불러오기
         List<List<int>> save = new List<List<int>>();
         save = ES3.Load<List<List<int>>>(LoadKey);
@@ -216,6 +210,20 @@ public class Modul_Save : MonoBehaviour
         return Modul_DB;
     }
 
+    public void DeleteModul(string KEY)
+    {
+        for (int i = 0; i < Modul_DB.Count; i++)
+        {
+            if (Modul_DB[i][0].Equals(KEY))
+            {
+                Modul_DB.RemoveAt(i);
+                break;
+            }
 
+        }
+
+        ES3.DeleteKey(KEY);
+        ES3.Save<List<string[]>>("Modul_DB", Modul_DB);
+    }
 
 }
