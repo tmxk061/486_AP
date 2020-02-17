@@ -2073,6 +2073,8 @@ GameObject:
   - component: {fileID: 2872070336507626028}
   - component: {fileID: 4183445769148855099}
   - component: {fileID: 8437544669807557136}
+  - component: {fileID: 3730395018602018079}
+  - component: {fileID: 9015175833191205990}
   m_Layer: 9
   m_Name: IlluminanceSensor
   m_TagString: Sensor
@@ -2178,6 +2180,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModulNumber: 3
+--- !u!114 &3730395018602018079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642242659033470169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5e6f7958975404daffc6f3e5f4e539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Arround:
+  - {fileID: 925400995236014523}
+  - {fileID: 4881249352038395229}
+  - {fileID: 7752411568404619816}
+--- !u!114 &9015175833191205990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642242659033470169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadb31418fe799745875fc026fe3046f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModulNum: 3
+  ModulKind: 1
+  pinList: []
 --- !u!1 &8642242659153685928
 GameObject:
   m_ObjectHideFlags: 0

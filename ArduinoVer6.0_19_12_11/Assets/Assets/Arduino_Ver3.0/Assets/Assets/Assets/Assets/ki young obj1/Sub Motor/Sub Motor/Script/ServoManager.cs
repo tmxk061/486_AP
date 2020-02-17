@@ -21,11 +21,14 @@ public class ServoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         this.transform.rotation = Quaternion.Euler(0, 270, 0);
         sub = GetComponentInChildren<SubSpin>();
     }
 
     #region MouseDrag
+
+   
 
     private void OnMouseDown()
     {

@@ -17,10 +17,16 @@ public class CreateAduinoTemp : MonoBehaviour, IPointerEnterHandler, IPointerExi
         TempHumiParent ultval = Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation).GetComponent<TempHumiParent>();
         ultval.temperToggle = type;
         ultval.gameObject.transform.parent = GameObject.Find("CraftTable").transform;
+    }
 
+    public GameObject ClickEventReturn()
+    {
+        GameObject Newobj = Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation);
+        TempHumiParent ultval = Newobj.GetComponent<TempHumiParent>();
+        ultval.temperToggle = type;
+        ultval.gameObject.transform.parent = GameObject.Find("CraftTable").transform;
 
-        //TempHumiParent ultval = Instantiate(obj, new Vector3(-37.5f, 135, 55), Quaternion.Euler(0, -180, 0)).GetComponent<TempHumiParent>();
-        //ultval.temperToggle = type;
+        return Newobj;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
