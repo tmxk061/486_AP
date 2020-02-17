@@ -39,7 +39,7 @@ public class QuickMove_Mgr : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isOn)
             {
