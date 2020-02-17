@@ -29,6 +29,7 @@ public class MouseOverArround : MonoBehaviour
         mousepoint = Camera.main.GetComponent<Mousepoint>();
         mousepoint2 = GameObject.Find("CreateCameras").transform.GetChild(0).GetComponent<Mousepoint>();
         tableMgr = GameObject.Find("CraftTable").GetComponent<CraftTable_Mgr>();
+        Debug.Log("리스"+transform.position);
     }
 
     private void Update()
@@ -49,7 +50,9 @@ public class MouseOverArround : MonoBehaviour
             if (mousepoint.MouseChecking == false)
             {
                 mousepoint.MouseChecking = true;
+                
                 MakeLine = (GameObject)Instantiate(MakeLine, transform.position, this.gameObject.transform.rotation) as GameObject;
+
                 MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = Random.ColorHSV();
                 Parents.GetComponent<LineArray>().array.Add(MakeLine);
 
@@ -63,6 +66,7 @@ public class MouseOverArround : MonoBehaviour
             if (mousepoint2.MouseChecking == false)
             {
                 mousepoint2.MouseChecking = true;
+                Debug.Log("생성할때" + transform.position);
                 MakeLine = (GameObject)Instantiate(MakeLine, transform.position, this.gameObject.transform.rotation) as GameObject;
                 //MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = Random.ColorHSV();
                 MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = new Color(255, 0, 0);

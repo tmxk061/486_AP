@@ -24,6 +24,16 @@ public class CreateAduinoIll : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     }
 
+    public GameObject ClickEventReturn()
+    {
+        GameObject NewObj = Instantiate(obj, spwnPoint.transform.position, spwnPoint.transform.rotation);
+        IllValue ultval = NewObj.transform.GetChild(0).GetComponent<IllValue>();
+        ultval.sensorType = type;
+        return NewObj;
+     
+
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         Tootip.SetActive(true);

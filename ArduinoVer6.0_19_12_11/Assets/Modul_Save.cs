@@ -36,7 +36,14 @@ public class Modul_Save : MonoBehaviour
     public List<LineManager> LonlyLine = new List<LineManager>();
 
     public List<CreateAduinoSonic> UltCreateBtns;
+    public List<CreateAduinoTemp> TempCreateBtns;
+    public List<CreateAduinoIll> IllCreateBtns;
+
+    public CreateAduinoScript water;
+    public CreateAduinoScript servo;
+    public CreateAduinoScript DcMotor;
     public CreateAduinoScript boozer;
+    public CreateLED LED;
 
     public Mousepoint PlayerMousePoint;
 
@@ -134,7 +141,10 @@ public class Modul_Save : MonoBehaviour
             }
             else
             {
+
                 Create(save[i][0], save[i][1], save[i][2], save[i][3], save[i][4]);
+
+                yield return new WaitForSeconds(0.3f);
 
                 for (int a = 0; a < save[i].Count - 5; a++)
                 {
@@ -147,6 +157,7 @@ public class Modul_Save : MonoBehaviour
                     {
                         ModulPinClick(save[i][a + 5]);
                     }
+
                     yield return new WaitForSeconds(0.1f);
                 }
             }
@@ -164,7 +175,22 @@ public class Modul_Save : MonoBehaviour
                 target = UltCreateBtns[ModulKind-1].ClickEventReturn();
                 target.transform.position = new Vector3(x, y, z);
                 break;
-
+            case 2:
+                target = TempCreateBtns[ModulKind - 1].ClickEventReturn();
+                target.transform.position = new Vector3(x, y, z);
+                break;
+            case 3:
+                target = IllCreateBtns[ModulKind - 1].ClickEventReturn();
+                target.transform.position = new Vector3(x, y, z);
+                break;
+            case 4:
+                target = water.ClickEventReturn();
+                target.transform.position = new Vector3(x, y, z);
+                break;
+            case 5:
+                target = servo.ClickEventReturn();
+                target.transform.position = new Vector3(x, y, z);
+                break;
             case 6:
                 target = boozer.ClickEventReturn();
                 target.transform.position = new Vector3(x, y, z);
@@ -197,7 +223,6 @@ public class Modul_Save : MonoBehaviour
     private void ModulPinClick(int i)
     {
         //모듈핀 클릭
-        Debug.Log("1");
         MouseOverArround modulArround = target.GetComponent<PinNumberList>().Arround[i-1].GetComponent<MouseOverArround>();
         modulArround.ReStart();
         modulArround.OnMouseDown();
