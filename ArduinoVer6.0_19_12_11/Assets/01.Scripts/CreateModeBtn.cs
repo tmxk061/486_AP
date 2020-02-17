@@ -43,6 +43,7 @@ public class CreateModeBtn : MonoBehaviour
         CreateCanvas.SetActive(false);
 
         PlayZoneCamera.SetActive(true);
+        GameObject.Find("QuickMove").GetComponent<QuickMove_Mgr>().SetSelectMenu();
 
 
     }

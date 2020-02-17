@@ -51,8 +51,6 @@ public class OnButtonClick : MonoBehaviour
         Button3Image = Button3.GetComponent<Image>();
         Button4Image = Button4.GetComponent<Image>();
        
-
-
         can = canvas.gameObject.GetComponent<Canvas>();
         cube = GameObject.FindWithTag("BlockCoding").GetComponent<OnCubeClick>();
         button = GameObject.FindWithTag("RunBlock").GetComponent<RunButton>();
@@ -93,6 +91,8 @@ public class OnButtonClick : MonoBehaviour
             FirstCamera.transform.rotation = GameManager.FirstMainCameraRotation;
 
             GameManager.PcOn = false;
+
+            GameObject.Find("QuickMove").GetComponent<QuickMove_Mgr>().SetSelectMenu();
 
         }
     }

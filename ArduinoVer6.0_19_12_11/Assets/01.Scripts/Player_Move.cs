@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player_Move : MonoBehaviour
 {
-
     public Camera cam;
     public Rigidbody rb;
 
     public GameObject Modules;
-    
+
     public float rotateSpeed = 5f;
 
     public float cameraRotationLimit = 80f;
@@ -21,7 +18,7 @@ public class Player_Move : MonoBehaviour
     // 카메라 회전 -> true = 불가, false = 가능
     public bool StopCamRotation = false;
 
-    bool ClicRM;
+    private bool ClicRM;
 
     [SerializeField]
     private PlayerRaycast rayctrl;
@@ -31,7 +28,7 @@ public class Player_Move : MonoBehaviour
 
     public bool isAct = true;
 
-    void Update()
+    private void Update()
     {
         if (isAct)
         {
@@ -60,8 +57,12 @@ public class Player_Move : MonoBehaviour
         }
     }
 
-    void FixedUpdate() //Movement Rotation
+    private void FixedUpdate() //Movement Rotation
     {
+        if (!isAct)
+        {
+            return;
+        }
 
         if (GameManager.RunBlock == false && CraftTable_Mgr.instance.CreateMode == false)
         {
@@ -111,14 +112,13 @@ public class Player_Move : MonoBehaviour
                 guidHud_Mgr.instance.changeGuide(0);
                 StopCamRotation = false;
             }
-
         }
     }
 
     private void PlayerRotate()
     {
         if (StopCamRotation == true)
-        { 
+        {
             if (Input.GetKey(KeyCode.Q))
             {
                 transform.Rotate(new Vector3(0, -30, 0) * Time.deltaTime);
@@ -130,7 +130,7 @@ public class Player_Move : MonoBehaviour
         }
     }
 
-    void PreformRotation() //X, Y회전
+    private void PreformRotation() //X, Y회전
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
         if (cam != null)
@@ -164,14 +164,10 @@ public class Player_Move : MonoBehaviour
         }
 
         PlayerRotate();
-
     }
 
     public void ActSet(bool b)
     {
         isAct = b;
     }
-
-
-   
 }

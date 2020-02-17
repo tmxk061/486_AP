@@ -52,24 +52,30 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public CraftTable_Mgr tableMgr;
 
+    public GraphicRaycaster EduRay;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            SetSelectMenu();
+        }
+    }
 
-            if (!isOn)
-            {
-                isOn = true;
-                QuickMoveUI.SetActive(true);
-                Player.GetComponent<Player_Move>().isAct = false;
-            }
-            else if (isOn)
-            {
-                isOn = false;
-                ActiveeFalse();
-                //ani.SetTrigger("Off");
-                //Invoke("ActiveeFalse", 0.5f);
-            }
+    public void SetSelectMenu()
+    {
+        if (!isOn)
+        {
+            isOn = true;
+            QuickMoveUI.SetActive(true);
+            Player.GetComponent<Player_Move>().isAct = false;
+        }
+        else if (isOn)
+        {
+            isOn = false;
+            ActiveeFalse();
+            //ani.SetTrigger("Off");
+            //Invoke("ActiveeFalse", 0.5f);
         }
     }
 
@@ -80,6 +86,7 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void BlockCordingOnclick()
     {
+        EduRay.enabled = false;
         createCamera.SetActive(false);
         PlayZoneCamera.SetActive(true);
         MAinCamera.SetActive(true);
@@ -91,17 +98,29 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void WarpPoint(int i)
     {
-        Player.GetComponent<Player_Move>().isAct = true;
+
+        EduRay.enabled = true;
         GetOut.GetComponent<OnButtonClick>().Click();
         CreatereturnBtn.OnReturnBtnClick();
-       Player.transform.position = MovePoint[i-1].position;
+        Player.transform.position = MovePoint[i-1].position;
         isOn = false;
-        ActiveeFalse();
 
+        if (i == 1)
+        {
+            Player.GetComponent<Player_Move>().isAct = false;
+            Player.transform.rotation = Quaternion.Euler(0, 0, 0);
+            Camera.main.transform.rotation = Quaternion.Euler(0, -0.5f, 0);
+        }
+        else
+        {
+            Player.GetComponent<Player_Move>().isAct = true;
+        }
+        ActiveeFalse();
     }
 
     public void CreateMode()
     {
+        EduRay.enabled = false;
         isOn = false;
         Player.GetComponent<Player_Move>().isAct = true;
         tableMgr.CreateMode = true;
@@ -114,7 +133,6 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void Run()
     {
-      
             RunBtn.GetComponent<RunButton>().OnMouseDown();
             isOn = false;
             ActiveeFalse();
