@@ -8,11 +8,15 @@ public class QuickMove_Mgr : MonoBehaviour
     [SerializeField]
     private GameObject QuickMoveUI;
 
+
     [SerializeField]
     private Animator ani;
 
     [SerializeField]
     private GameObject blockCodingBtn;
+
+    [SerializeField]
+    private CreateModeBtn CreatereturnBtn;
 
     private bool isOn = false;
 
@@ -37,21 +41,52 @@ public class QuickMove_Mgr : MonoBehaviour
     [SerializeField]
     private GameObject GetOut;
 
+    [SerializeField]
+    private GameObject createCamera;
+
+    [SerializeField]
+    private GameObject PlayZoneCamera;
+
+    [SerializeField]
+    private GameObject MAinCamera;
+
+    public CraftTable_Mgr tableMgr;
+
+    public GraphicRaycaster EduRay;
+
+    private bool isMoveMode = true;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isOn)
+            SetSelectMenu();
+        }
+    }
+
+    public void SetSelectMenu()
+    {
+        if (!isOn)
+        {
+            isOn = true;
+            QuickMoveUI.SetActive(true);
+
+            if (Player.GetComponent<Player_Move>().isAct == true)
+                isMoveMode = true;
+
+            Player.GetComponent<Player_Move>().isAct = false;
+        }
+        else if (isOn)
+        {
+            if (isMoveMode)
             {
-                isOn = true;
-                QuickMoveUI.SetActive(true);
+                Player.GetComponent<Player_Move>().isAct = true;
+                isMoveMode = false;
             }
-            else if(isOn)
-            {
-                isOn = false;
-                ani.SetTrigger("Off");
-                Invoke("ActiveeFalse", 0.5f);
-            }
+            isOn = false;
+            ActiveeFalse();
+            //ani.SetTrigger("Off");
+            //Invoke("ActiveeFalse", 0.5f);
         }
     }
 
@@ -62,7 +97,12 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void BlockCordingOnclick()
     {
-        GetOut.GetComponent<OnButtonClick>().Click();
+        isMoveMode = false;
+        EduRay.enabled = false;
+        createCamera.SetActive(false);
+        PlayZoneCamera.SetActive(true);
+        MAinCamera.SetActive(true);
+        //GetOut.GetComponent<OnButtonClick>().Click();
         blockCodingBtn.GetComponent<OnCubeClick>().OnMouseDown();
         isOn = false;
         ActiveeFalse();
@@ -70,15 +110,34 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void WarpPoint(int i)
     {
+        isMoveMode = false;
+        EduRay.enabled = true;
         GetOut.GetComponent<OnButtonClick>().Click();
-       Player.transform.position = MovePoint[i-1].position;
+        CreatereturnBtn.OnReturnBtnClick();
+        Player.transform.position = MovePoint[i-1].position;
         isOn = false;
-        ActiveeFalse();
 
+        if (i == 1)
+        {
+            Player.GetComponent<Player_Move>().isAct = false;
+            Player.transform.rotation = Quaternion.Euler(0, 0, 0);
+            Camera.main.transform.rotation = Quaternion.Euler(0, -0.5f, 0);
+        }
+        else
+        {
+            Player.GetComponent<Player_Move>().isAct = true;
+        }
+        ActiveeFalse();
     }
 
     public void CreateMode()
     {
+        isMoveMode = false;
+        EduRay.enabled = false;
+        isOn = false;
+        Player.GetComponent<Player_Move>().isAct = true;
+        tableMgr.CreateMode = true;
+
         GetOut.GetComponent<OnButtonClick>().Click();
         CreateBtn.GetComponent<CreateModeBtn>().OnCreateBtnClick();
         isOn = false;
@@ -87,10 +146,8 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void Run()
     {
-      
             RunBtn.GetComponent<RunButton>().OnMouseDown();
             isOn = false;
-            ActiveeFalse();
     }
 
 }

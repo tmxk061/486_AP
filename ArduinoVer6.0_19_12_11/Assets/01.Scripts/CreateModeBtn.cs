@@ -11,16 +11,18 @@ public class CreateModeBtn : MonoBehaviour
 
     public GameObject PlayZoneCamera;
 
+    public Modul_Save ModulSave;
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (tableMgr.CreateMode)
-            {
-                OnReturnBtnClick();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (tableMgr.CreateMode)
+        //    {
+        //        OnReturnBtnClick();
+        //    }
+        //}
     }
 
     public void OnCreateBtnClick()
@@ -43,7 +45,19 @@ public class CreateModeBtn : MonoBehaviour
         CreateCanvas.SetActive(false);
 
         PlayZoneCamera.SetActive(true);
+        GameObject.Find("QuickMove").GetComponent<QuickMove_Mgr>().SetSelectMenu();
+    }
 
+    public void OnSaveBtnCLcik()
+    {
+        ModulSave.SaveUI.SetActive(true);
+        ModulSave.LoadUI.SetActive(false);
+    }
+
+    public void OnLoadBtnCLcik()
+    {
+        ModulSave.LoadUI.SetActive(true);
+        ModulSave.SaveUI.SetActive(false);
 
     }
 }
