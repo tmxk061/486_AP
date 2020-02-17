@@ -11,6 +11,8 @@ public class CreateModeBtn : MonoBehaviour
 
     public GameObject PlayZoneCamera;
 
+    public Modul_Save ModulSave;
+
 
     private void Update()
     {
@@ -44,7 +46,18 @@ public class CreateModeBtn : MonoBehaviour
 
         PlayZoneCamera.SetActive(true);
         GameObject.Find("QuickMove").GetComponent<QuickMove_Mgr>().SetSelectMenu();
+    }
 
+    public void OnSaveBtnCLcik()
+    {
+        ModulSave.SaveUI.SetActive(true);
+        ModulSave.LoadUI.SetActive(false);
+    }
+
+    public void OnLoadBtnCLcik()
+    {
+        ModulSave.LoadUI.SetActive(true);
+        ModulSave.SaveUI.SetActive(false);
 
     }
 }

@@ -28,6 +28,12 @@ public class StudyBtn : MonoBehaviour
         Edu_Mgr.Edu_ID = ID;
         Edu_Mgr.setting();
 
+        if (ID == 1)
+        {
+            GameObject.Find("Tutorial_Mgr").GetComponent<TutorialMgr>().StartTutorial(1);
+            GameObject.Find("QuickMove").GetComponent<QuickMove_Mgr>().WarpPoint(3);
+        }
+
         MenuView.SetActive(false);
     }
 }
