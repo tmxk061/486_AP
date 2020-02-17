@@ -47,19 +47,20 @@ public class MouseOverArround : MonoBehaviour
 
         if (tableMgr.CreateMode == false)
         {
-            if (mousepoint.MouseChecking == false)
-            {
-                mousepoint.MouseChecking = true;
+            return;
+            //if (mousepoint.MouseChecking == false)
+            //{
+            //    mousepoint.MouseChecking = true;
                 
-                MakeLine = (GameObject)Instantiate(MakeLine, transform.position, this.gameObject.transform.rotation) as GameObject;
+            //    MakeLine = (GameObject)Instantiate(MakeLine, transform.position, this.gameObject.transform.rotation) as GameObject;
 
-                MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = Random.ColorHSV();
-                Parents.GetComponent<LineArray>().array.Add(MakeLine);
+            //    MakeLine.GetComponentInChildren<line>().gameObject.GetComponent<LineRenderer>().material.color = Random.ColorHSV();
+            //    Parents.GetComponent<LineArray>().array.Add(MakeLine);
 
-                MakeLine.transform.parent = GameObject.Find("CraftTable").transform;
-            }
-            else
-                mousepoint.MouseChecking = false;
+            //    MakeLine.transform.parent = GameObject.Find("CraftTable").transform;
+            //}
+            //else
+            //    mousepoint.MouseChecking = false;
         }
         else if (tableMgr.CreateMode == true)
         {

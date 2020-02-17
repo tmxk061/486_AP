@@ -251,9 +251,9 @@ public class EducationMgr : MonoBehaviour
 
     public void Btn_OnMenuClick()
     {
-        //MenuView.SetActive(true);
-        //MainView.SetActive(false);
-        SceneManager.LoadScene("Title");
+        MenuView.SetActive(true);
+        MainView.SetActive(false);
+        //SceneManager.LoadScene("Title");
     }
 
     internal string[,] GetModulOrder()

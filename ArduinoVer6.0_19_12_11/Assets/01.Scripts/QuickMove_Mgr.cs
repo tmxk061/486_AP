@@ -8,11 +8,15 @@ public class QuickMove_Mgr : MonoBehaviour
     [SerializeField]
     private GameObject QuickMoveUI;
 
+
     [SerializeField]
     private Animator ani;
 
     [SerializeField]
     private GameObject blockCodingBtn;
+
+    [SerializeField]
+    private CreateModeBtn CreatereturnBtn;
 
     private bool isOn = false;
 
@@ -37,20 +41,34 @@ public class QuickMove_Mgr : MonoBehaviour
     [SerializeField]
     private GameObject GetOut;
 
+    [SerializeField]
+    private GameObject createCamera;
+
+    [SerializeField]
+    private GameObject PlayZoneCamera;
+
+    [SerializeField]
+    private GameObject MAinCamera;
+
+    public CraftTable_Mgr tableMgr;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+
             if (!isOn)
             {
                 isOn = true;
                 QuickMoveUI.SetActive(true);
+                Player.GetComponent<Player_Move>().isAct = false;
             }
-            else if(isOn)
+            else if (isOn)
             {
                 isOn = false;
-                ani.SetTrigger("Off");
-                Invoke("ActiveeFalse", 0.5f);
+                ActiveeFalse();
+                //ani.SetTrigger("Off");
+                //Invoke("ActiveeFalse", 0.5f);
             }
         }
     }
@@ -62,7 +80,10 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void BlockCordingOnclick()
     {
-        GetOut.GetComponent<OnButtonClick>().Click();
+        createCamera.SetActive(false);
+        PlayZoneCamera.SetActive(true);
+        MAinCamera.SetActive(true);
+        //GetOut.GetComponent<OnButtonClick>().Click();
         blockCodingBtn.GetComponent<OnCubeClick>().OnMouseDown();
         isOn = false;
         ActiveeFalse();
@@ -70,7 +91,9 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void WarpPoint(int i)
     {
+        Player.GetComponent<Player_Move>().isAct = true;
         GetOut.GetComponent<OnButtonClick>().Click();
+        CreatereturnBtn.OnReturnBtnClick();
        Player.transform.position = MovePoint[i-1].position;
         isOn = false;
         ActiveeFalse();
@@ -79,6 +102,10 @@ public class QuickMove_Mgr : MonoBehaviour
 
     public void CreateMode()
     {
+        isOn = false;
+        Player.GetComponent<Player_Move>().isAct = true;
+        tableMgr.CreateMode = true;
+
         GetOut.GetComponent<OnButtonClick>().Click();
         CreateBtn.GetComponent<CreateModeBtn>().OnCreateBtnClick();
         isOn = false;

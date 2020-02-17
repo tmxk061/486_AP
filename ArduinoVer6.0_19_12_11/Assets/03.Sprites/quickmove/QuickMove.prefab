@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &378704142540408474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ Animator:
   m_GameObject: {fileID: 378704142540408473}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a3c7d887dc763ea498910bb2b4164d42, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -693,6 +693,13 @@ MonoBehaviour:
   QuickMoveUI: {fileID: 378704142540408473}
   ani: {fileID: 378704142540408453}
   blockCodingBtn: {fileID: 0}
+  MovePoint: []
+  Player: {fileID: 0}
+  CreateBtn: {fileID: 0}
+  RunParent: {fileID: 0}
+  RunGrrop: {fileID: 0}
+  RunBtn: {fileID: 0}
+  GetOut: {fileID: 0}
 --- !u!1 &378704143484199027
 GameObject:
   m_ObjectHideFlags: 0

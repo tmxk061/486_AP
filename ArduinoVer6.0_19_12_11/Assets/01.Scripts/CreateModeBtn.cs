@@ -14,13 +14,13 @@ public class CreateModeBtn : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (tableMgr.CreateMode)
-            {
-                OnReturnBtnClick();
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (tableMgr.CreateMode)
+        //    {
+        //        OnReturnBtnClick();
+        //    }
+        //}
     }
 
     public void OnCreateBtnClick()
