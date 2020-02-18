@@ -12,7 +12,10 @@ public class EnterValue : MonoBehaviour
 
     public int val;
     // Start is called before the first frame update
-
+    void Awake()
+    {
+        ifblock = this.gameObject.GetComponentInParent<ifBlock>();
+    }
     void Start()
     {
         ifblock = this.gameObject.GetComponentInParent<ifBlock>();

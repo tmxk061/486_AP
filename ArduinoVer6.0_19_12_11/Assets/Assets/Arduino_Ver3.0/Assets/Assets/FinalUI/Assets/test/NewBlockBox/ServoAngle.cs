@@ -9,7 +9,10 @@ public class ServoAngle : MonoBehaviour
 
     ServoBlock servo;
     float angle = 0f;
-
+    void Awake()
+    {
+        servo = this.gameObject.GetComponentInParent<ServoBlock>();
+    }
     void Start()
     {
         servo = this.gameObject.GetComponentInParent<ServoBlock>();

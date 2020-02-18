@@ -10,6 +10,10 @@ public class UltSecondDrop : MonoBehaviour
     Dropdown dropdown;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        ultBlock = this.gameObject.GetComponentInParent<UltBlock>();
+    }
     void Start()
     {
         ultBlock = this.gameObject.GetComponentInParent<UltBlock>();

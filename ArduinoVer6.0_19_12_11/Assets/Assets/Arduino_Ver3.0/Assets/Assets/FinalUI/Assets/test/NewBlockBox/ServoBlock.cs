@@ -19,7 +19,10 @@ public class ServoBlock : Block
     public float value = 0f;
 
     #endregion 변수
-
+    private void Awake()
+    {
+        arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+    }
     protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
