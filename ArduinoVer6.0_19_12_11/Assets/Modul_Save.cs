@@ -74,7 +74,16 @@ public class Modul_Save : MonoBehaviour
         }
     }
 
-    
+    public void SaveUI_Set()
+    {
+        SaveUI.SetActive(true);
+    }
+
+    public void LoadUI_Set()
+    {
+        LoadUI.SetActive(true);
+    }
+
     public void Save(string Name)
     {
         KEY++;
