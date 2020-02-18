@@ -64,7 +64,6 @@ TagManager:
   - WaterBlock
   - MissionLight
   - LanternBlock
-  - TolietBlock
   - ToiletBlock
   - ClockBlock
   - HeaterBlock

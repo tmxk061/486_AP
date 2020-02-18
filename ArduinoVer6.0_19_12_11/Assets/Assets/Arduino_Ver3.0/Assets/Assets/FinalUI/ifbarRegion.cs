@@ -26,24 +26,24 @@ public class ifbarRegion : MonoBehaviour
     #endregion 변수
 
 
-    private void Start()
+    private void Awake()
     {
-        if (this.gameObject.GetComponentInParent<ifBlock>() != null)
-            ifblock = this.gameObject.GetComponentInParent<ifBlock>();
-        else if (this.gameObject.GetComponentInParent<whileBlock>() != null)
-            whileBlock = this.gameObject.GetComponentInParent<whileBlock>();
-        Debug.Log(ifblock);
-        Debug.Log(whileBlock);
+        //if (this.gameObject.GetComponentInParent<ifBlock>() != null)
+        //    ifblock = this.gameObject.GetComponentInParent<ifBlock>();
+        //else if (this.gameObject.GetComponentInParent<whileBlock>() != null)
+        //    whileBlock = this.gameObject.GetComponentInParent<whileBlock>();
+        //Debug.Log(ifblock);
+        //Debug.Log(whileBlock);
 
-        Firstlocation = this.transform.localPosition;
+        //Firstlocation = this.transform.localPosition;
        
-        FirstScale = this.gameObject.transform.localScale;
+        //FirstScale = this.gameObject.transform.localScale;
 
-        thisrect = this.gameObject.GetComponent<RectTransform>();
+        //thisrect = this.gameObject.GetComponent<RectTransform>();
 
-        Firstpos = thisrect.sizeDelta;
-        box = this.GetComponent<BoxCollider2D>();
-        Firstbox = box.size;
+        //Firstpos = thisrect.sizeDelta;
+        //box = this.GetComponent<BoxCollider2D>();
+        //Firstbox = box.size;
     }
 
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -148,7 +149,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
                                 if (this.tag != "ifBar" && this.tag != "whileBar")
                                 {
                                     this.transform.SetParent(sample.transform);
-                                    this.transform.SetAsFirstSibling();
+                                    this.transform.transform.SetAsFirstSibling();
                                 }
                                 UpObj = collision.gameObject;
                                 UpCollider.isTrigger = false;
@@ -269,4 +270,27 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
     public abstract IEnumerator GetSyncCode(bool s);
     public abstract IEnumerator GetBtCode(bool s);
     #endregion 아두이노 코드 출력
+
+    public void Save()
+    {
+        BlockSave.SaveData(this);
+
+        Block block = BlockManager.instance.BlockIdentity(transform);
+        if (block != null)
+        {
+            block.Save();
+        }
+        if (this.tag == "ifBlock")
+        {
+            ifBar UnderBar = this.GetComponentInChildren<ifBar>();
+            UnderBar.Save();
+        }
+        else if (this.tag == "whileBlock")
+        {
+            whileBar UnderBar = this.GetComponentInChildren<whileBar>();
+            UnderBar.Save();
+
+        }
+    }
+
 }

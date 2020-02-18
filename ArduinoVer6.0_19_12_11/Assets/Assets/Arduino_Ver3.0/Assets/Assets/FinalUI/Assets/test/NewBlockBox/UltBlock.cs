@@ -22,7 +22,10 @@ public class UltBlock : Block
     public bool selectRun = true;
     #endregion 변수
 
-
+    private void Awake()
+    {
+        arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+    }
     protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();

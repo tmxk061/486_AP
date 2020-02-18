@@ -8,8 +8,14 @@ public class DropDownSel : MonoBehaviour
     public Dropdown drop;
 
     public DragImage image;
-    
 
+
+    void Awake()
+    {
+        image = this.gameObject.GetComponentInParent<DragImage>();
+
+        // image.SetNum(0);
+    }
     // Start is called before the first frame update 
     void Start()
     {
@@ -17,11 +23,7 @@ public class DropDownSel : MonoBehaviour
 
        // image.SetNum(0);
     }
-
-    private void Awake()
-    {
-        
-    }
+    
 
     public void SelectContent()
     {
