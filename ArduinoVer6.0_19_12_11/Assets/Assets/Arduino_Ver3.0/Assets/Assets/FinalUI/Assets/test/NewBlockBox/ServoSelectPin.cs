@@ -9,6 +9,11 @@ public class ServoSelectPin : MonoBehaviour
     ServoBlock Servo;
     [SerializeField]
     Dropdown drop;
+
+    void Awake()
+    {
+        Servo = this.gameObject.GetComponentInParent<ServoBlock>();
+    }
     // Start is called before the first frame update
     void Start()
     {

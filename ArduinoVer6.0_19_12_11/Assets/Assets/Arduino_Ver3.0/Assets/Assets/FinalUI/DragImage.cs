@@ -44,7 +44,10 @@ public class DragImage : Block
 
         GameManager.AddloopList(sen);
     }
-
+    private void Awake()
+    {
+        arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+    }
     protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();

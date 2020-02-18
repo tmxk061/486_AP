@@ -8,74 +8,77 @@ public class BlockSave : MonoBehaviour
     public static BlockSave instance;
 
     StartBlock StartBlock;
+    GameObject BlockCodingZone;
     [SerializeField] GameObject[] BlockPrefab;
 
-    //public static string[][] BlockData
-    // Block[i][0] = 이름, Block[i][1~] 값
+    // BlockData[i][0] = 이름, Block[i][1~] 값
+    // public static string[][] BlockData    
     public static List<List<string>> BlockData = new List<List<string>>();
-    public static int SaveNum;
-
     public static List<GameObject> LoadBlocks = new List<GameObject>();
+
 
     void Awake()
     {
         instance = this;
         StartBlock = GameObject.Find("StartBlock").GetComponent<StartBlock>();
+        BlockCodingZone = GameObject.Find("BlockCordingZone");
         BlockData.Clear();
-        SaveNum = 0;
         LoadBlocks.Clear();
     }
 
     public void ClickSave()
     {
-        SaveNum = 0;
+        BlockData.Clear();
         StartBlock.Save();
 
 
         /////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////
 
-        // 경로,이름
-        // ES3 이용
-        // BlockSave.BlockData 저장
 
-        // 경로 받기w
+        // 경로 받기
+
+
+        /////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////
+
 
         string path = "C:\\AAA\\aaa" + ".es";
 
         ES3.Save<List<List<string>>>("aaa", BlockData, path);
 
+        Debug.Log("저장된 정보");
         int i = 0;
         foreach (List<string> list in BlockData)
         {
             int j = 0;
             foreach (string aa in list)
             {
-                Debug.Log("[" + i + "] [" + j + "] = " + aa);
+                Debug.Log("BlockData[" + i + "] [" + j + "] = " + aa);
 
                 j++;
             }
             i++;
         }
         BlockData.Clear();
-
-        /////////////////////////////////////////////////////////////////////////
-
     }
+
     public void ClickLoad()
     {
         BlockLoad();
     }
+
 
     public static void SaveData(Block CurrentBlock)
     {
         // Start
         if (CurrentBlock.tag == "Block")
             return;
-        
+
         // Input
         //if (CurrentBlock.tag == "DigitalWrite")
         //{
-        //    BlockData[SaveNum][0] = "InputBlock1";
+        //    BlockData[SaveNum][0] = "InPutBlock1";
         //    BlockData[SaveNum][1] = CurrentBlock.GetComponentInChildren<Dropdown>().value.ToString();
         //}
         // else if
@@ -83,14 +86,14 @@ public class BlockSave : MonoBehaviour
         if (CurrentBlock.tag == "AnalogRead")
         {
             List<string> temp = new List<string>();
-            temp.Add("InputBlock2");
+            temp.Add("InPutBlock2");
             temp.Add(CurrentBlock.transform.Find("Dropdown").GetComponent<Dropdown>().value.ToString());
             BlockData.Add(temp);
         }
         else if (CurrentBlock.tag == "UltBlock")
         {
             List<string> temp = new List<string>();
-            temp.Add("InputBlock3");
+            temp.Add("InPutBlock3");
             temp.Add(CurrentBlock.transform.Find("Dropdown (2)").GetComponent<Dropdown>().value.ToString());
             temp.Add(CurrentBlock.transform.Find("Dropdown (3)").GetComponent<Dropdown>().value.ToString());
             BlockData.Add(temp);
@@ -132,14 +135,14 @@ public class BlockSave : MonoBehaviour
         else if (CurrentBlock.tag == "ifBar")
         {
             List<string> temp = new List<string>();
-            temp.Add("UnderBar");
+            temp.Add("ifBar");
             BlockData.Add(temp);
             //
         }
         else if (CurrentBlock.tag == "whileBar")
         {
             List<string> temp = new List<string>();
-            temp.Add("UnderBar");
+            temp.Add("whileBar");
             BlockData.Add(temp);
             // 
         }
@@ -192,27 +195,33 @@ public class BlockSave : MonoBehaviour
         //    BlockData[SaveNum][0] = "블록 이름";
         //    BlockData[SaveNum][1~] = 프리팹보면서 가져올 값 찾기
         //}
-
-        SaveNum += 1;
     }
-
-    void NameData(string blockName)
-    {
-        //BlockData[SaveNum][0] = blockName;
-    }
-
-
 
     void BlockLoad()
     {
+        //try
+        //{
+
         // 블록코딩 지우기
-        foreach(Transform child in StartBlock.transform)
+        foreach (Transform child in StartBlock.transform)
         {
             if (child.name != "Text")
                 Destroy(child.gameObject);  //Destroy가 Update가 끝날때 적용된다는데
-                //StartCoroutine(Destroy);
-                //Destroyimmediate();
-                //child.gameObject.SetActive(false);
+                                            //StartCoroutine(Destroy);
+                                            //Destroyimmediate();
+                                            //child.gameObject.SetActive(false);
+        }
+        // 블록코딩 지우기
+        foreach (Transform child in BlockCodingZone.transform)
+        {
+            if (child.name == "TrashCan" || child.name == "StartBlock" || child.name == "spawn")
+            {
+
+            }
+            else
+            {
+                Destroy(child.gameObject);
+            }
         }
         LoadBlocks.Clear();
         BlockData.Clear();
@@ -220,120 +229,156 @@ public class BlockSave : MonoBehaviour
 
 
         /////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////
 
-        // 탐색기에서 ES3로 저장한 파일 골라
+        // 탐색기에서 ES3로 저장한 파일 고르기
         // BlockData 로드하기
+
+        /////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////
+
         string path = "C:\\AAA\\aaa" + ".es";
         if (ES3.KeyExists("aaa", path))
         {
-            //ES3.LoadInto<List<List<string>>>("aaa", path, BlockData);
-            //List<List<string>> temp = ES3.Load<List<List<string>>>("aaa", path);
-            //Debug.Log(temp.Count + "_+_+_+");
-            //foreach (List<string> list in temp)
-            //{
-            //    BlockData.Add(list);
-            //}
-
-            Debug.Log(BlockData.Count + "+++++-----");
             BlockData = ES3.Load<List<List<string>>>("aaa", path);
 
-            Debug.Log(BlockData.Count + "_____+++++");
+
+            Debug.Log("로드한 정보");
+            int i = 0;
+            foreach (List<string> data in BlockData)
+            {
+                int j = 0;
+                foreach (string ddata in data)
+                {
+                    Debug.Log("BlockData[" + i + "][" + j + "] = " + ddata);
+                    j++;
+                }
+                i++;
+            }
         }
         else
         {
-
-
+            return;
         }
 
-        // 0부터 LoadNum 개수만큼
+        // 0부터 블록개수만큼
         for (int i = 0; i < BlockData.Count; i++)
         {
             for (int j = 0; j < BlockPrefab.Length; j++)
             {
+                Debug.Log("-----------------------");
+                //Debug.Log(BlockPrefab[j].name + " Prefab  i:" + i + "  j:" + j);
+                //Debug.Log(BlockData[i][0].ToString() + " Data  i:" + i + "  j:" + j);
 
-                Debug.Log(BlockPrefab[j].name + "Prefab  i:"+i+"  j:"+j);
-                Debug.Log(BlockData[i][0].ToString() + "Data  i:" + i + "  j:" + j);
+
+
+
+                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                // ifBar와 whileBar는 Bar위의 블록이 부모가 아니고 if while이 부모
+                Debug.Log("BlockData[" + i + "][0] = " + BlockData[i][0]);
+                if (BlockData[i][0] == "ifBar" || BlockData[i][0] == "whileBar")
+                {
+                    //if (BlockData[i][0] == "ifBar")
+                    //{
+                    //    ifBar UnderBar = new ifBar();
+                    //    LoadBlocks.Add(UnderBar.gameObject);
+                    //    LoadingBlock(LoadBlocks[i], i);
+                    //}
+                    //else if (BlockData[i][0] == "whileBar")
+                    //{
+                    //    whileBar UnderBar = new whileBar();
+                    //    LoadBlocks.Add(UnderBar.gameObject);
+                    //    LoadingBlock(LoadBlocks[i], i);
+                    //}
+                    //Debug.Log("Bar들어옴");
+                    Debug.Log(LoadBlocks.Count);
+                    if (LoadBlocks.Count < i+1)
+                    {
+                        Debug.Log(BlockData[i][0] + "@@@@@@");
+
+                        int UnderBarCheck = 1;
+                        int k = 0;
+                        for (k = i - 1; UnderBarCheck > 0; k--)
+                        {
+                            Debug.Log("i : " + i + ", k : " + k + ", check : " + UnderBarCheck);
+                            if (BlockData[k][0] == "ifBar" || BlockData[k][0] == "whileBar")
+                            {
+                                UnderBarCheck = UnderBarCheck + 1;
+                                Debug.Log("UnderBarCheck +1 = " + UnderBarCheck);
+                            }
+                            if (BlockData[k][0] == "ifBlcok" || BlockData[k][0] == "WhileBlock1")
+                            {
+                                UnderBarCheck = UnderBarCheck - 1;
+                                Debug.Log("UnderBarCheck -1 = " + UnderBarCheck);
+                            }
+                            Debug.Log(k);
+                        }
+                        k++;
+                        Debug.Log("@@@@@ count : " + LoadBlocks.Count);
+                        Debug.Log(k);
+                        LoadBlocks.Add(LoadBlocks[k].transform.Find("UnderBar").gameObject);
+                        LoadBlocks[i].transform.position = LoadBlocks[i - 1].transform.position + new Vector3(0, -35, 0);
+                        LoadBlocks[i].transform.SetParent(LoadBlocks[k].transform);
+                        LoadBlocks[i].transform.SetAsLastSibling();
+                    }
+                }
+
+
+
+
 
                 // Load한 BlockData의 이름과 프리팹블록 이름 비교
-                if (BlockPrefab[j].name == BlockData[i][0].ToString())
+                else if (BlockPrefab[j].name == BlockData[i][0])
                 {
-                    Debug.Log("이름비교 같음");
+                    Debug.Log("블록 일치");
+                    // 해당 블록 생성, 사이즈 조절
+                    GameObject obj = new GameObject();
+                    obj = Instantiate(BlockPrefab[j]);
+                    obj.transform.SetParent(BlockCodingZone.transform);
+                    obj.transform.localScale = StartBlock.transform.localScale;
 
-                    // 일치하는 블록 생성
-                    LoadBlocks.Add(Instantiate(BlockPrefab[j]));
-                    // 사이즈 조정
-                    LoadBlocks[i].transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1, 1));
-
-                    // 불러온 값들 블록에 넣기
+                    // 
+                    Debug.Log("블록데이터 개수 : " + BlockData.Count);
+                    Debug.Log(LoadBlocks.Count + " & " + i);
+                    LoadBlocks.Add(obj);
+                    Debug.Log(LoadBlocks.Count + " & " + i);
+                    // 블록에 로드한 값들 넣기
                     LoadingBlock(LoadBlocks[i], i);
 
                     // 모양, 부모자식 관계 잡기
-                    // 첫번째는 StartBlock의 자식
                     if (LoadBlocks.Count > 0)
                     {
-                        Debug.Log("LoadBlocks.Count > 0");
+                        // 첫번째는 StartBlock의 자식
                         if (i == 0)
                         {
-                            LoadBlocks[i].transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1, 1));
                             LoadBlocks[i].transform.position = StartBlock.transform.position + new Vector3(0, -35, 0);
                             LoadBlocks[i].transform.SetParent(StartBlock.transform);
                             LoadBlocks[i].transform.SetAsFirstSibling();
                         }
-                        
+
                         // 보통블록
                         else
                         {
-                            LoadBlocks[i].transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1, 1));
                             LoadBlocks[i].transform.position = LoadBlocks[i - 1].transform.position + new Vector3(0, -35, 0);
                             LoadBlocks[i].transform.SetParent(LoadBlocks[i - 1].transform);
                             LoadBlocks[i].transform.SetAsFirstSibling();
                         }
-                        
-                        // ifBar와 whileBar는 부모자식 관계가 다름
-                        // Bar위의 블록이 부모가 아니고 if while이 부모
-                        if (BlockData[i][0] == "ifBar" || BlockData[i][0] == "whileBar")
+
+                        if (LoadBlocks[i].name == "ifBlcok" || LoadBlocks[i].name == "WhileBlock1")
                         {
-                            List<string> bar = new List<string>();
-                            if (BlockData[i][0] == "ifBar")
-                            {
-                                GameObject UnderBar = new GameObject();
-                                UnderBar.tag = "ifBar";
-                                LoadBlocks.Add(UnderBar);
-                            }
-                            else if (BlockData[i][0] == "whileBar")
-                            {
-                                GameObject UnderBar = new GameObject();
-                                UnderBar.tag = "whileBar";
-                                LoadBlocks.Add(UnderBar);
-                            }
-                            Debug.Log("Bar들어옴");
-
-                            int UnderBarCheck = 1;
-                            int k = 0;
-                            for (k = i - 1; UnderBarCheck > 0; k--)
-                            {
-                                if (LoadBlocks[i].tag == "ifBar" || LoadBlocks[i].tag == "whileBar")
-                                {
-                                    UnderBarCheck++;
-                                }
-                                if (LoadBlocks[i].tag == "ifBlock" || LoadBlocks[i].tag == "whileBlock")
-                                {
-                                    UnderBarCheck--;
-                                }
-                            }
-                            if (LoadBlocks[i].tag == "ifBar")
-                                LoadBlocks[i] = LoadBlocks[k].GetComponentInChildren<ifBar>().gameObject;
-                            else if (LoadBlocks[i].tag == "whileBar")
-                                LoadBlocks[i] = LoadBlocks[k].GetComponentInChildren<whileBar>().gameObject;
-
-                            LoadBlocks[i].transform.position = LoadBlocks[i - 1].transform.position + new Vector3(0, -35, 0);
-                            //LoadBlocks[i].transform.SetParent(LoadBlocks[k].transform);
-                            LoadBlocks[i].transform.SetAsLastSibling();
+                            LoadBlocks[i].transform.Find("UnderBar").position = LoadBlocks[i].transform.position + new Vector3(100, -35, 0);
                         }
                     }
                 }
+
             }
         }
+        //}
+        //catch
+        //{
+
+        //}
     }
 
     // 불러온값 블록에 넣는 함수
@@ -346,40 +391,50 @@ public class BlockSave : MonoBehaviour
         //    loadingBlock.GetComponentInChildren<Dropdown>().value = int.Parse(BlockData[i][1]);
         //}
         // else if
-        Debug.Log("void LoadingBlock");
         if (loadingBlock.tag == "AnalogRead")
         {
-            loadingBlock.GetComponentInChildren<Dropdown>().value = int.Parse(BlockData[i][1]);
+            //loadingBlock.GetComponentInChildren<Dropdown>().value = int.Parse(BlockData[i][1]);
+            loadingBlock.transform.Find("Dropdown").GetComponent<Dropdown>().value = int.Parse(BlockData[i][1]);
         }
         else if (loadingBlock.tag == "UltBlock")
         {
-            Dropdown[] dropdowns = loadingBlock.GetComponentsInChildren<Dropdown>();
-            dropdowns[0].value = int.Parse(BlockData[i][1]);
-            dropdowns[1].value = int.Parse(BlockData[i][2]);
+            loadingBlock.transform.Find("Dropdown (2)").GetComponent<Dropdown>().value = int.Parse(BlockData[i][1]);
+            loadingBlock.transform.Find("Dropdown (3)").GetComponent<Dropdown>().value = int.Parse(BlockData[i][2]);
+            //Dropdown[] dropdowns = loadingBlock.GetComponentsInChildren<Dropdown>();
+            //dropdowns[0].value = int.Parse(BlockData[i][1]);
+            //dropdowns[1].value = int.Parse(BlockData[i][2]);
         }
         // OutPut
         else if (loadingBlock.tag == "DigitalWrite")
         {
-            Dropdown[] dropdowns = loadingBlock.GetComponentsInChildren<Dropdown>();
-            dropdowns[0].value = int.Parse(BlockData[i][1]);
-            dropdowns[1].value = int.Parse(BlockData[i][2]);
+            loadingBlock.transform.Find("Dropdown").GetComponent<Dropdown>().value = int.Parse(BlockData[i][1]);
+            loadingBlock.transform.Find("Dropdown (1)").GetComponent<Dropdown>().value = int.Parse(BlockData[i][2]);
+            //Dropdown[] dropdowns = loadingBlock.GetComponentsInChildren<Dropdown>();
+            //dropdowns[0].value = int.Parse(BlockData[i][1]);
+            //dropdowns[1].value = int.Parse(BlockData[i][2]);
         }
         else if (loadingBlock.tag == "ServoBlock")
         {
-            loadingBlock.GetComponentInChildren<Dropdown>().value = int.Parse(BlockData[i][1]);
-            loadingBlock.GetComponentInChildren<InputField>().text = BlockData[i][2];
+            loadingBlock.transform.Find("Dropdown").GetComponent<Dropdown>().value = int.Parse(BlockData[i][1]);
+            loadingBlock.transform.Find("InputField").GetComponent<InputField>().text = BlockData[i][2];
+            //loadingBlock.GetComponentInChildren<Dropdown>().value = int.Parse(BlockData[i][1]);
+            //loadingBlock.GetComponentInChildren<InputField>().text = BlockData[i][2];
         }
         // Condition
         else if (loadingBlock.tag == "ifBlock")
         {
-            Dropdown[] dropdowns = loadingBlock.GetComponentsInChildren<Dropdown>();
-            dropdowns[0].value = int.Parse(BlockData[i][1]);
-            dropdowns[1].value = int.Parse(BlockData[i][2]);
-            loadingBlock.GetComponentInChildren<InputField>().text = BlockData[i][3];
+            loadingBlock.transform.Find("Dropdown").GetComponent<Dropdown>().value = int.Parse(BlockData[i][1]);
+            loadingBlock.transform.Find("Dropdown (1)").GetComponent<Dropdown>().value = int.Parse(BlockData[i][2]);
+            loadingBlock.transform.Find("InputField").GetComponent<InputField>().text = BlockData[i][3];
+            //Dropdown[] dropdowns = loadingBlock.GetComponentsInChildren<Dropdown>();
+            //dropdowns[0].value = int.Parse(BlockData[i][1]);
+            //dropdowns[1].value = int.Parse(BlockData[i][2]);
+            //loadingBlock.GetComponentInChildren<InputField>().text = BlockData[i][3];
         }
         else if (loadingBlock.tag == "whileBlock")
         {
-            loadingBlock.GetComponentInChildren<InputField>().text = BlockData[i][1];
+            loadingBlock.transform.Find("InputField").GetComponent<InputField>().text = BlockData[i][1];
+            //loadingBlock.GetComponentInChildren<InputField>().text = BlockData[i][1];
         }
         else if (loadingBlock.tag == "ifBar")
         {
@@ -392,7 +447,8 @@ public class BlockSave : MonoBehaviour
         // Control
         else if (loadingBlock.tag == "WaitBlock")
         {
-            loadingBlock.GetComponentInChildren<InputField>().text = BlockData[i][1];
+            loadingBlock.transform.Find("InputField").GetComponent<InputField>().text = BlockData[i][1];
+            //loadingBlock.GetComponentInChildren<InputField>().text = BlockData[i][1];
         }
         // Etc
         else if (loadingBlock.tag == "WaterMachineBlock")
@@ -401,7 +457,8 @@ public class BlockSave : MonoBehaviour
         }
         else if (loadingBlock.tag == "LanternBlock")
         {
-            loadingBlock.GetComponentInChildren<Dropdown>().value = int.Parse(BlockData[i][1]);
+            loadingBlock.transform.Find("Dropdown (1)").GetComponent<Dropdown>().value = int.Parse(BlockData[i][1]);
+            //loadingBlock.GetComponentInChildren<Dropdown>().value = int.Parse(BlockData[i][1]);
         }
         else if (loadingBlock.tag == "ToiletBlock")
         {

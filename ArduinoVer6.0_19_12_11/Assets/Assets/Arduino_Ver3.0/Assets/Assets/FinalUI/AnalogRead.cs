@@ -19,7 +19,10 @@ public class AnalogRead : Block
     public bool DownConnect = false;
     #endregion 변수
 
-
+    private void Awake()
+    {
+        arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+    }
     protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();

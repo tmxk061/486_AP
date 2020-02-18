@@ -8,7 +8,10 @@ public class DropValue : MonoBehaviour
 
     public ifBlock ifblock;
     // Start is called before the first frame update
-
+    private void Awake()
+    {
+        ifblock = this.gameObject.GetComponentInParent<ifBlock>();
+    }
     private void Start()
     {
         ifblock = this.gameObject.GetComponentInParent<ifBlock>();

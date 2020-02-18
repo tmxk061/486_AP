@@ -149,6 +149,7 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
                                 if (this.tag != "ifBar" && this.tag != "whileBar")
                                 {
                                     this.transform.SetParent(sample.transform);
+                                    this.transform.transform.SetAsFirstSibling();
                                 }
                                 UpObj = collision.gameObject;
                                 UpCollider.isTrigger = false;
@@ -279,7 +280,6 @@ public abstract class Block : MonoBehaviour, IDragHandler, IDropHandler
         {
             block.Save();
         }
-
         if (this.tag == "ifBlock")
         {
             ifBar UnderBar = this.GetComponentInChildren<ifBar>();
