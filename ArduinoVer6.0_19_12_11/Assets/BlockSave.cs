@@ -231,8 +231,7 @@ public class BlockSave : MonoBehaviour
         /////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////
 
-        // 탐색기에서 ES3로 저장한 파일 고르기
-        // BlockData 로드하기
+        // 파일 고르기
 
         /////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////
@@ -266,57 +265,34 @@ public class BlockSave : MonoBehaviour
         {
             for (int j = 0; j < BlockPrefab.Length; j++)
             {
-                Debug.Log("-----------------------");
-                //Debug.Log(BlockPrefab[j].name + " Prefab  i:" + i + "  j:" + j);
-                //Debug.Log(BlockData[i][0].ToString() + " Data  i:" + i + "  j:" + j);
-
-
-
-
-                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
                 // ifBar와 whileBar는 Bar위의 블록이 부모가 아니고 if while이 부모
-                Debug.Log("BlockData[" + i + "][0] = " + BlockData[i][0]);
+                //Debug.Log("BlockData[" + i + "][0] = " + BlockData[i][0]);
                 if (BlockData[i][0] == "ifBar" || BlockData[i][0] == "whileBar")
                 {
-                    //if (BlockData[i][0] == "ifBar")
-                    //{
-                    //    ifBar UnderBar = new ifBar();
-                    //    LoadBlocks.Add(UnderBar.gameObject);
-                    //    LoadingBlock(LoadBlocks[i], i);
-                    //}
-                    //else if (BlockData[i][0] == "whileBar")
-                    //{
-                    //    whileBar UnderBar = new whileBar();
-                    //    LoadBlocks.Add(UnderBar.gameObject);
-                    //    LoadingBlock(LoadBlocks[i], i);
-                    //}
-                    //Debug.Log("Bar들어옴");
-                    Debug.Log(LoadBlocks.Count);
+                    //Debug.Log(LoadBlocks.Count);
                     if (LoadBlocks.Count < i+1)
                     {
-                        Debug.Log(BlockData[i][0] + "@@@@@@");
+                        //Debug.Log(BlockData[i][0] + "@@@@@@");
 
                         int UnderBarCheck = 1;
                         int k = 0;
                         for (k = i - 1; UnderBarCheck > 0; k--)
                         {
-                            Debug.Log("i : " + i + ", k : " + k + ", check : " + UnderBarCheck);
+                            //Debug.Log("i : " + i + ", k : " + k + ", check : " + UnderBarCheck);
                             if (BlockData[k][0] == "ifBar" || BlockData[k][0] == "whileBar")
                             {
                                 UnderBarCheck = UnderBarCheck + 1;
-                                Debug.Log("UnderBarCheck +1 = " + UnderBarCheck);
+                                //Debug.Log("UnderBarCheck +1 = " + UnderBarCheck);
                             }
                             if (BlockData[k][0] == "ifBlcok" || BlockData[k][0] == "WhileBlock1")
                             {
                                 UnderBarCheck = UnderBarCheck - 1;
-                                Debug.Log("UnderBarCheck -1 = " + UnderBarCheck);
+                                //Debug.Log("UnderBarCheck -1 = " + UnderBarCheck);
                             }
-                            Debug.Log(k);
+                            //Debug.Log(k);
                         }
                         k++;
-                        Debug.Log("@@@@@ count : " + LoadBlocks.Count);
-                        Debug.Log(k);
+                        //Debug.Log("@@@@@ count : " + LoadBlocks.Count +", k : " + k);
                         LoadBlocks.Add(LoadBlocks[k].transform.Find("UnderBar").gameObject);
                         LoadBlocks[i].transform.position = LoadBlocks[i - 1].transform.position + new Vector3(0, -35, 0);
                         LoadBlocks[i].transform.SetParent(LoadBlocks[k].transform);
@@ -331,7 +307,7 @@ public class BlockSave : MonoBehaviour
                 // Load한 BlockData의 이름과 프리팹블록 이름 비교
                 else if (BlockPrefab[j].name == BlockData[i][0])
                 {
-                    Debug.Log("블록 일치");
+                    //Debug.Log("일치");
                     // 해당 블록 생성, 사이즈 조절
                     GameObject obj = new GameObject();
                     obj = Instantiate(BlockPrefab[j]);
@@ -339,10 +315,10 @@ public class BlockSave : MonoBehaviour
                     obj.transform.localScale = StartBlock.transform.localScale;
 
                     // 
-                    Debug.Log("블록데이터 개수 : " + BlockData.Count);
-                    Debug.Log(LoadBlocks.Count + " & " + i);
+                    //Debug.Log("블록데이터 개수 : " + BlockData.Count);
+                    //Debug.Log(LoadBlocks.Count + " & " + i);
                     LoadBlocks.Add(obj);
-                    Debug.Log(LoadBlocks.Count + " & " + i);
+                    //Debug.Log(LoadBlocks.Count + " & " + i);
                     // 블록에 로드한 값들 넣기
                     LoadingBlock(LoadBlocks[i], i);
 
