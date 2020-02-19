@@ -128,8 +128,12 @@ public class Modul_Save : MonoBehaviour
 
     public void Load(string KEY)
     {
-        Debug.Log(KEY);
         StartCoroutine(LoadFlow(KEY));
+    }
+
+    public void Load_Net(List<List<int>> save)
+    {
+        StartCoroutine(NetworkLoadFlow(save));
     }
 
 
