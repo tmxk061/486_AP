@@ -51,7 +51,7 @@ public class NetworkSave : MonoBehaviour
         string NetworkSaveData = SeriallizeModulData(name, date, targetData);
         string packet = "Save!";
         string str = packet + NetworkSaveData;
-        byte[] d = Encoding.Default.GetBytes(str);
+        byte[] d = Encoding.UTF8.GetBytes(str);
         //socket.Send(d, l, 0);
         SendData(socket1, d);
 

@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using UnityEngine;
 using System.Text;
 
-public class NetWorkLoad : MonoBehaviour
+public class NetworkLoad : MonoBehaviour
 {
-    List<string[]> DataList = new List<string[]>();
+    public List<string[]> DataList = new List<string[]>();
 
 
     [SerializeField]
@@ -21,12 +21,12 @@ public class NetWorkLoad : MonoBehaviour
 
     public void OnrefreshBtnClick() //네트워크 데이터 불러오기 트리거(목록만)
     {
-
         StartCoroutine(LoadCatalog());
     }
 
     IEnumerator LoadCatalog()
     {
+        DataList.Clear();
         string DataListSellial = "";
         //네트워크에서 전체 데이터 목록을 가져와 DataListSellial에 넣는다.
         try
@@ -47,12 +47,59 @@ public class NetWorkLoad : MonoBehaviour
         {
             Debug.Log("Socket send or receive error ! : " + e.ToString());
         }
-        //DataList를 역직렬화해서 전역변수 DataList에 담는다.
+
+        string datas = FirstSplit(DataListSellial);
+
+        DataList = NetworkLoadData(datas);
 
         //카탈로그를 구현시킨다.
         MakeCatalog();
         yield return null;
     }
+
+
+
+
+    //문자열을 리스트로 나눠 정리
+    public List<string[]> NetworkLoadData(string data)
+    {
+        List<string[]> result = new List<string[]>();
+
+        string[] Split = data.Split(new char[] { '!' });
+
+        for (int i = 0; i < Split.Length-1; i++)
+        {
+            string[] Split2 = Split[i].Split(new char[] {'*'});
+            Debug.Log(Split2[0]);
+            string[] real = new string[] { Split2[0], Split2[1], Split2[2]};
+            result.Add(real);
+        }
+
+        return result;
+    }
+
+
+
+    private string FirstSplit(string DataListSellial)
+    {
+        //DataList를 역직렬화해서 전역변수 DataList에 담는다.
+        string[] FirstSplit = DataListSellial.Split(new char[] { '!' });
+
+        string kind = FirstSplit[0];
+
+        string datas = "";
+
+        for (int i = 1; i < FirstSplit.Length; i++)
+        {
+            datas += FirstSplit[i];
+            datas += "!";
+        }
+
+        return datas;
+    }
+
+
+
 
     private void MakeCatalog() //실제 카탈로그를 구현한다.
     {
@@ -69,9 +116,9 @@ public class NetWorkLoad : MonoBehaviour
 
             newBtn.GetComponentInChildren<Text>().text = DataList[i][0];
 
-            newBtn.GetComponent<Net_CatalogBtn>().KEY = DataList[i][0];
-            newBtn.GetComponent<Net_CatalogBtn>().NAME = DataList[i][1];
-            newBtn.GetComponent<Net_CatalogBtn>().DATE = DataList[i][2];
+            newBtn.GetComponent<Net_CatalogBtn>().NAME = DataList[i][0];
+            newBtn.GetComponent<Net_CatalogBtn>().DATE = DataList[i][1];
+            newBtn.GetComponent<Net_CatalogBtn>().realData = DataList[i][2];
 
             BtnList.Add(newBtn);
         }

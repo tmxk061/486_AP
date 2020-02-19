@@ -128,8 +128,12 @@ public class Modul_Save : MonoBehaviour
 
     public void Load(string KEY)
     {
-        Debug.Log(KEY);
         StartCoroutine(LoadFlow(KEY));
+    }
+
+    public void Load_Net(List<List<int>> save)
+    {
+        StartCoroutine(NetworkLoadFlow(save));
     }
 
 
@@ -139,6 +143,42 @@ public class Modul_Save : MonoBehaviour
         List<List<int>> save = new List<List<int>>();
         save = ES3.Load<List<List<int>>>(LoadKey);
 
+        for (int i = 0; i < save.Count; i++)
+        {
+            if (save[i][0] == 0) //부모가 없으면
+            {
+                LastPinClick(save[i][2]);
+                yield return new WaitForSeconds(0.1f);
+                LastPinClick(save[i][3]);
+                yield return new WaitForSeconds(0.2f);
+            }
+            else
+            {
+
+                Create(save[i][0], save[i][1], save[i][2], save[i][3], save[i][4]);
+
+                yield return new WaitForSeconds(0.3f);
+
+                for (int a = 0; a < save[i].Count - 5; a++)
+                {
+                    if (a % 2 == 1)//홀수면
+                    {
+                        LastPinClick(save[i][a + 5]);
+
+                    }
+                    else if (a % 2 == 0)//짝수면
+                    {
+                        ModulPinClick(save[i][a + 5]);
+                    }
+
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+        }
+    }
+
+    IEnumerator NetworkLoadFlow(List<List<int>> save)
+    {
         for (int i = 0; i < save.Count; i++)
         {
             if (save[i][0] == 0) //부모가 없으면
