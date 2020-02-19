@@ -16,6 +16,11 @@ public class LoadBtn : MonoBehaviour
         Parent.SetActive(false);
     }
 
+    public void NetWorkBtnOnClicik()
+    {
+        GameObject.Find("SaveMgr").GetComponent<NetworkSave>().OnNetworkSave(KEY, NAME, DATE);
+    }
+
     public void DeleteBtnOnClicik()
     {
         Modul_Save.instance.DeleteModul(KEY);
