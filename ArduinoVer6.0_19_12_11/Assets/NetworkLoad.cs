@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using System.Text;
 
-public class NetworkLoad : MonoBehaviour
+public class NetWorkLoad : MonoBehaviour
 {
     List<string[]> DataList = new List<string[]>();
+
 
     [SerializeField]
     private GameObject CatalogBtn;
@@ -18,6 +21,7 @@ public class NetworkLoad : MonoBehaviour
 
     public void OnrefreshBtnClick() //네트워크 데이터 불러오기 트리거(목록만)
     {
+
         StartCoroutine(LoadCatalog());
     }
 
@@ -25,7 +29,24 @@ public class NetworkLoad : MonoBehaviour
     {
         string DataListSellial = "";
         //네트워크에서 전체 데이터 목록을 가져와 DataListSellial에 넣는다.
+        try
+        {
+            byte[] data = null;
 
+            string catalog = ("LoadInfo!");
+            byte[] d = Encoding.Default.GetBytes(catalog);
+            NetworkSave.instance.SendData(NetworkSave.instance.socket1, d);
+
+            //데이터 recv
+            NetworkSave.instance.ReceiveData(NetworkSave.instance.socket1, ref data);
+            string str = Encoding.Default.GetString(data);
+            DataListSellial = str;
+            Debug.Log(str);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Socket send or receive error ! : " + e.ToString());
+        }
         //DataList를 역직렬화해서 전역변수 DataList에 담는다.
 
         //카탈로그를 구현시킨다.
