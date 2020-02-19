@@ -173,6 +173,42 @@ public class Modul_Save : MonoBehaviour
         }
     }
 
+    IEnumerator NetworkLoadFlow(List<List<int>> save)
+    {
+        for (int i = 0; i < save.Count; i++)
+        {
+            if (save[i][0] == 0) //부모가 없으면
+            {
+                LastPinClick(save[i][2]);
+                yield return new WaitForSeconds(0.1f);
+                LastPinClick(save[i][3]);
+                yield return new WaitForSeconds(0.2f);
+            }
+            else
+            {
+
+                Create(save[i][0], save[i][1], save[i][2], save[i][3], save[i][4]);
+
+                yield return new WaitForSeconds(0.3f);
+
+                for (int a = 0; a < save[i].Count - 5; a++)
+                {
+                    if (a % 2 == 1)//홀수면
+                    {
+                        LastPinClick(save[i][a + 5]);
+
+                    }
+                    else if (a % 2 == 0)//짝수면
+                    {
+                        ModulPinClick(save[i][a + 5]);
+                    }
+
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+        }
+    }
+
 
 
     private void Create(int ModulNum, int ModulKind, int x, int y, int z)

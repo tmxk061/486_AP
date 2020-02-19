@@ -7,4 +7,8 @@ public class Net_CatalogBtn : MonoBehaviour
     public string KEY;
     public string NAME;
     public string DATE;
+    public string realData;
+
+
+    
 }
