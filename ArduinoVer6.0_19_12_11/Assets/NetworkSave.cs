@@ -9,7 +9,16 @@ using UnityEngine;
 
 public class NetworkSave : MonoBehaviour
 {
-    System.Net.Sockets.Socket socket1;
+    public static NetworkSave instance;
+
+    public void Awake()
+    {
+        NetworkSave.instance = this;
+    }
+    
+
+
+    public System.Net.Sockets.Socket socket1;
 
     string ipAdress = "192.168.0.32";
     int port = 9000;
@@ -66,7 +75,7 @@ public class NetworkSave : MonoBehaviour
         return result;
     }
 
-    private void SendData(System.Net.Sockets.Socket sock, byte[] data)
+    public void SendData(System.Net.Sockets.Socket sock, byte[] data)
     {
         try
         {
@@ -94,7 +103,7 @@ public class NetworkSave : MonoBehaviour
         }
     }
 
-    private void ReceiveData(System.Net.Sockets.Socket sock, ref byte[] data)
+    public void ReceiveData(System.Net.Sockets.Socket sock, ref byte[] data)
     {
         try
         {
