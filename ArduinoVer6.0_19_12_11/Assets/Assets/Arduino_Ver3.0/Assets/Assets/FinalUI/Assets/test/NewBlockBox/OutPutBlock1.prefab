@@ -2097,6 +2097,8 @@ MonoBehaviour:
   UpConncet: 0
   DownConnect: 0
   secondCamera: {fileID: 0}
+  mydropdown1: {fileID: 7610375027646631557}
+  mydropdown2: {fileID: 7610375027748113163}
 --- !u!114 &7610375027963620374
 MonoBehaviour:
   m_ObjectHideFlags: 0

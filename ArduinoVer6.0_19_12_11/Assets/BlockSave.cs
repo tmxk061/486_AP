@@ -15,8 +15,7 @@ public class BlockSave : MonoBehaviour
     // public static string[][] BlockData    
     public static List<List<string>> BlockData = new List<List<string>>();
     public static List<GameObject> LoadBlocks = new List<GameObject>();
-
-
+    
     void Awake()
     {
         instance = this;
@@ -25,6 +24,7 @@ public class BlockSave : MonoBehaviour
         BlockData.Clear();
         LoadBlocks.Clear();
     }
+    
 
     public void ClickSave()
     {
@@ -356,11 +356,13 @@ public class BlockSave : MonoBehaviour
 
         //}
     }
+    
 
     // 불러온값 블록에 넣는 함수
     // void SaveData(Block CurrentBlock) 참고
     void LoadingBlock(GameObject loadingBlock, int i)
     {
+
         Debug.Log(i + "번째");
         //if (CurrentBlock.tag == "DigitalWrite")   // InputBlock1
         //{
@@ -371,6 +373,8 @@ public class BlockSave : MonoBehaviour
         {
             //loadingBlock.GetComponentInChildren<Dropdown>().value = int.Parse(BlockData[i][1]);
             loadingBlock.transform.Find("Dropdown").GetComponent<Dropdown>().value = int.Parse(BlockData[i][1]);
+
+            Dropdown drdn = loadingBlock.transform.Find("Dropdown").GetComponent<Dropdown>();
         }
         else if (loadingBlock.tag == "UltBlock")
         {

@@ -26,7 +26,7 @@ public class AnalogRead : Block
     protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-        selectSocket = arduino.PinList[0];
+        //selectSocket = arduino.PinList[0];
 
         base.Start();
     }
