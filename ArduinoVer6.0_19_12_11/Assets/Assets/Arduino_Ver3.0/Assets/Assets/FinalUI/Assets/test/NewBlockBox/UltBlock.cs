@@ -25,12 +25,14 @@ public class UltBlock : Block
     private void Awake()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
+        //selectSocket = arduino.PinList[0];
+        //selectSocket2 = arduino.PinList[0];
     }
     protected override void Start()
     {
         arduino = GameObject.FindWithTag("Arduino").GetComponent<ControlArduino>();
-        selectSocket = arduino.PinList[0];
-        selectSocket2 = arduino.PinList[0];
+        //selectSocket = arduino.PinList[0];
+        //selectSocket2 = arduino.PinList[0];
 
         base.Start();
     }

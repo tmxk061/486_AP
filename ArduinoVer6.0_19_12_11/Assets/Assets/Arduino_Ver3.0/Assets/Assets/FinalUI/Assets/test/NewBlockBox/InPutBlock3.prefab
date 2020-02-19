@@ -2652,3 +2652,5 @@ MonoBehaviour:
   selectSocket: {fileID: 0}
   selectSocket2: {fileID: 0}
   selectRun: 1
+  mydropdown1: {fileID: 2416445275904445565}
+  mydropdown2: {fileID: 2416445274924606141}
