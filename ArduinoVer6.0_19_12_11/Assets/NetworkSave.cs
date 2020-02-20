@@ -75,6 +75,36 @@ public class NetworkSave : MonoBehaviour
         return result;
     }
 
+    public void OnNetworkBlockSave(string name, string date)
+    {
+        Debug.Log(name);
+        List<List<string>> targetData = ES3.Load<List<List<string>>>("BlockCoding", BlockSave.instance.SavePath + "\\" + name);
+        string NetworkSaveData = SeriallizeBlockData(name, date, targetData);
+        string packet = "SaveBlock!";
+        string str = packet + NetworkSaveData;
+        byte[] d = Encoding.Default.GetBytes(str);
+        //socket.Send(d, l, 0);
+        SendData(socket1, d);
+
+        Debug.Log(str);
+    }
+    private string SeriallizeBlockData(string name, string date, List<List<string>> realData)
+    {
+        string result = name + "#" + date + "#" + "@";
+
+        for (int i = 0; i < realData.Count; i++)
+        {
+            for (int a = 0; a < realData[i].Count; a++)
+            {
+                result += realData[i][a];
+                result += "$";
+            }
+            result += "@";
+        }
+
+        return result;
+    }
+
     public void SendData(System.Net.Sockets.Socket sock, byte[] data)
     {
         try

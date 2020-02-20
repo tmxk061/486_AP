@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +16,13 @@ public class BlockSave : MonoBehaviour
     // public static string[][] BlockData    
     public static List<List<string>> BlockData = new List<List<string>>();
     public static List<GameObject> LoadBlocks = new List<GameObject>();
-    
+
+    // 내문서 + @
+    public string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ardu";
+
+    public GameObject SaveUI;
+    public GameObject LoadUI;
+
     void Awake()
     {
         instance = this;
@@ -24,9 +31,44 @@ public class BlockSave : MonoBehaviour
         BlockData.Clear();
         LoadBlocks.Clear();
     }
-    
 
-    public void ClickSave()
+    public void SaveUI_Set()
+    {
+        SaveUI.SetActive(true);
+    }
+
+    public void LoadUI_Set()
+    {
+        LoadUI.SetActive(true);
+    }
+
+    public void GetBlockCode_DB(List<string[]> codingDB)
+    {
+        if (System.IO.Directory.Exists(SavePath))
+        {
+            Debug.Log(SavePath);
+            System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(SavePath);
+
+            foreach (var item in di.GetFiles())
+            {
+                if (item.Extension == ".es")
+                {
+                    Debug.Log(item.Name);
+                    Debug.Log(item.CreationTime.ToString());
+                    string[] info = new string[2];
+                    info[0] = item.Name;
+                    info[1] = item.CreationTime.ToString();
+                    codingDB.Add(info);
+                }
+            }
+        }
+    }
+
+
+
+
+
+    public void ClickSave(string title)
     {
         BlockData.Clear();
         StartBlock.Save();
@@ -41,11 +83,10 @@ public class BlockSave : MonoBehaviour
 
         /////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////
+        Debug.Log(SavePath);
+        string path = SavePath + "\\" + title + ".es";
 
-
-        string path = "C:\\AAA\\aaa" + ".es";
-
-        ES3.Save<List<List<string>>>("aaa", BlockData, path);
+        ES3.Save<List<List<string>>>("BlockCoding", BlockData, path);
 
         Debug.Log("저장된 정보");
         int i = 0;
@@ -63,11 +104,15 @@ public class BlockSave : MonoBehaviour
         BlockData.Clear();
     }
 
-    public void ClickLoad()
+    public void ClickLoad(string name)
     {
-        BlockLoad();
+        BlockLoad(name);
     }
 
+    public void Load_Net(List<List<string>> save)
+    {
+        BlockNetworkLoad(save);
+    }
 
     public static void SaveData(Block CurrentBlock)
     {
@@ -197,11 +242,8 @@ public class BlockSave : MonoBehaviour
         //}
     }
 
-    void BlockLoad()
+    void ClearBlockCode()
     {
-        //try
-        //{
-
         // 블록코딩 지우기
         foreach (Transform child in StartBlock.transform)
         {
@@ -225,21 +267,18 @@ public class BlockSave : MonoBehaviour
         }
         LoadBlocks.Clear();
         BlockData.Clear();
+    }
 
-
-
-        /////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////
-
-        // 파일 고르기
-
-        /////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////
-
-        string path = "C:\\AAA\\aaa" + ".es";
-        if (ES3.KeyExists("aaa", path))
+    void BlockLoad(string title)
+    {
+        //try
+        //{
+        ClearBlockCode();
+        
+        string path = SavePath + "\\" + title;
+        if (ES3.KeyExists("BlockCoding", path))
         {
-            BlockData = ES3.Load<List<List<string>>>("aaa", path);
+            BlockData = ES3.Load<List<List<string>>>("BlockCoding", path);
 
 
             Debug.Log("로드한 정보");
@@ -356,7 +395,126 @@ public class BlockSave : MonoBehaviour
 
         //}
     }
-    
+
+    void BlockNetworkLoad(List<List<string>> NetInfo)
+    {
+        //try
+        //{
+        ClearBlockCode();
+
+        BlockData = NetInfo;
+
+        Debug.Log("로드한 정보");
+        int ii = 0;
+        foreach (List<string> data in BlockData)
+        {
+            int j = 0;
+            foreach (string ddata in data)
+            {
+                Debug.Log("BlockData[" + ii + "][" + j + "] = " + ddata);
+                j++;
+            }
+            ii++;
+        }
+
+        // 0부터 블록개수만큼
+        for (int i = 0; i < BlockData.Count; i++)
+        {
+            for (int j = 0; j < BlockPrefab.Length; j++)
+            {
+                // ifBar와 whileBar는 Bar위의 블록이 부모가 아니고 if while이 부모
+                //Debug.Log("BlockData[" + i + "][0] = " + BlockData[i][0]);
+                if (BlockData[i][0] == "ifBar" || BlockData[i][0] == "whileBar")
+                {
+                    //Debug.Log(LoadBlocks.Count);
+                    if (LoadBlocks.Count < i + 1)
+                    {
+                        //Debug.Log(BlockData[i][0] + "@@@@@@");
+
+                        int UnderBarCheck = 1;
+                        int k = 0;
+                        for (k = i - 1; UnderBarCheck > 0; k--)
+                        {
+                            //Debug.Log("i : " + i + ", k : " + k + ", check : " + UnderBarCheck);
+                            if (BlockData[k][0] == "ifBar" || BlockData[k][0] == "whileBar")
+                            {
+                                UnderBarCheck = UnderBarCheck + 1;
+                                //Debug.Log("UnderBarCheck +1 = " + UnderBarCheck);
+                            }
+                            if (BlockData[k][0] == "ifBlcok" || BlockData[k][0] == "WhileBlock1")
+                            {
+                                UnderBarCheck = UnderBarCheck - 1;
+                                //Debug.Log("UnderBarCheck -1 = " + UnderBarCheck);
+                            }
+                            //Debug.Log(k);
+                        }
+                        k++;
+                        //Debug.Log("@@@@@ count : " + LoadBlocks.Count +", k : " + k);
+                        LoadBlocks.Add(LoadBlocks[k].transform.Find("UnderBar").gameObject);
+                        LoadBlocks[i].transform.position = LoadBlocks[i - 1].transform.position + new Vector3(0, -35, 0);
+                        LoadBlocks[i].transform.SetParent(LoadBlocks[k].transform);
+                        LoadBlocks[i].transform.SetAsLastSibling();
+                    }
+                }
+
+
+
+
+
+                // Load한 BlockData의 이름과 프리팹블록 이름 비교
+                else if (BlockPrefab[j].name == BlockData[i][0])
+                {
+                    //Debug.Log("일치");
+                    // 해당 블록 생성, 사이즈 조절
+                    GameObject obj = new GameObject();
+                    obj = Instantiate(BlockPrefab[j]);
+                    obj.transform.SetParent(BlockCodingZone.transform);
+                    obj.transform.localScale = StartBlock.transform.localScale;
+
+                    // 
+                    //Debug.Log("블록데이터 개수 : " + BlockData.Count);
+                    //Debug.Log(LoadBlocks.Count + " & " + i);
+                    LoadBlocks.Add(obj);
+                    //Debug.Log(LoadBlocks.Count + " & " + i);
+                    // 블록에 로드한 값들 넣기
+                    LoadingBlock(LoadBlocks[i], i);
+
+                    // 모양, 부모자식 관계 잡기
+                    if (LoadBlocks.Count > 0)
+                    {
+                        // 첫번째는 StartBlock의 자식
+                        if (i == 0)
+                        {
+                            LoadBlocks[i].transform.position = StartBlock.transform.position + new Vector3(0, -35, 0);
+                            LoadBlocks[i].transform.SetParent(StartBlock.transform);
+                            LoadBlocks[i].transform.SetAsFirstSibling();
+                        }
+
+                        // 보통블록
+                        else
+                        {
+                            LoadBlocks[i].transform.position = LoadBlocks[i - 1].transform.position + new Vector3(0, -35, 0);
+                            LoadBlocks[i].transform.SetParent(LoadBlocks[i - 1].transform);
+                            LoadBlocks[i].transform.SetAsFirstSibling();
+                        }
+
+                        if (LoadBlocks[i].name == "ifBlcok" || LoadBlocks[i].name == "WhileBlock1")
+                        {
+                            LoadBlocks[i].transform.Find("UnderBar").position = LoadBlocks[i].transform.position + new Vector3(100, -35, 0);
+                        }
+                    }
+                }
+
+            }
+
+        }
+        //}
+        //catch
+        //{
+
+        //}
+    }
+
 
     // 불러온값 블록에 넣는 함수
     // void SaveData(Block CurrentBlock) 참고
@@ -456,5 +614,19 @@ public class BlockSave : MonoBehaviour
         //{
         //    // void SaveData(Block CurrentBlock) 이랑 맞추기
         //}
+    }
+
+    public void DeleteBlockFile(string name)
+    {
+        if (System.IO.Directory.Exists(SavePath))
+        {
+            System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(SavePath);
+
+            foreach (var item in di.GetFiles())
+            {
+                if (item.Name == name)
+                    ES3.DeleteFile(SavePath + "\\" + name);
+            }
+        }
     }
 }
