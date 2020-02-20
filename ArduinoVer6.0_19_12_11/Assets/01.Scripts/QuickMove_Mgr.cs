@@ -135,12 +135,11 @@ public class QuickMove_Mgr : MonoBehaviour
         isMoveMode = false;
         EduRay.enabled = false;
         isOn = false;
-        Player.GetComponent<Player_Move>().isAct = true;
         tableMgr.CreateMode = true;
-
         GetOut.GetComponent<OnButtonClick>().Click();
         CreateBtn.GetComponent<CreateModeBtn>().OnCreateBtnClick();
         isOn = false;
+        Player.GetComponent<Player_Move>().isAct = true;
         ActiveeFalse();
     }
 

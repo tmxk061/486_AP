@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class CopyEnvCmd : MonoBehaviour
 {
+    public Dropdown EnvChangeOrigin;
+    public Dropdown EnvChangeCopy;
+
+
     public Toggle RainStartCopy;
     public Slider RainSlideCopy;
 
@@ -38,6 +42,8 @@ public class CopyEnvCmd : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        EnvChangeOrigin.value = EnvChangeCopy.value;
+
         RainStartOrigin.isOn = RainStartCopy.isOn;
         RainSlideOrigin.value = RainSlideCopy.value;
 
