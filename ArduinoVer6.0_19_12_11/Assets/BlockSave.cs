@@ -18,13 +18,14 @@ public class BlockSave : MonoBehaviour
     public static List<GameObject> LoadBlocks = new List<GameObject>();
 
     // 내문서 + @
-    public string SavePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ardu";
+    public string SavePath;
 
     public GameObject SaveUI;
     public GameObject LoadUI;
 
     void Awake()
     {
+        SavePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\ardu";
         instance = this;
         StartBlock = GameObject.Find("StartBlock").GetComponent<StartBlock>();
         BlockCodingZone = GameObject.Find("BlockCordingZone");
