@@ -41,6 +41,7 @@ public class UltGND : PlusMinus
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log(other.name);
         if (other.tag == "Line" )
         {
             Connect = true;

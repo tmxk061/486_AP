@@ -222,7 +222,7 @@ public class Auto_Edu_Mgr : MonoBehaviour
         
         for (int i = 0; i < GetComponent<EducationMgr>().Used_Modul_Array.Count; i++) //디폴트모듈이 아닐경우 자기 위치번호 넣어주기
         {
-            Debug.Log(i);
+
             if (GetComponent<EducationMgr>().Used_Modul_Array[i] == null)
                 continue;
 

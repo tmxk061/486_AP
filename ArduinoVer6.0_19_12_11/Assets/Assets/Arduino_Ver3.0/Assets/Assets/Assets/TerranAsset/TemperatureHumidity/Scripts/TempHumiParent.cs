@@ -31,7 +31,7 @@ public class TempHumiParent : MonoBehaviour
     [Header("습도(%)")]
     public float Data = 0f;
 
-    private List<float> temphumi = new List<float>();
+    public List<float> temphumi = new List<float>();
 
     private float distance = 10;
     public bool MouseClick = false;

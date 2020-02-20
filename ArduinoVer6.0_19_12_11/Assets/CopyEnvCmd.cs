@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class CopyEnvCmd : MonoBehaviour
 {
+    public Dropdown EnvChangeOrigin;
+    public Dropdown EnvChangeCopy;
+
     public Toggle RainStartCopy;
     public Slider RainSlideCopy;
 
@@ -53,6 +56,8 @@ public class CopyEnvCmd : MonoBehaviour
         Water1Origin.isOn = Water1OCopy.isOn;
         Water2Origin.isOn = Water2Copy.isOn;
         Water3Origin.isOn = Water3Copy.isOn;
+
+        EnvChangeOrigin.value = EnvChangeCopy.value;
 
         //WATERCopy.isOn = WATEROrigin.isOn;
         //Water1OCopy.isOn = Water1Origin.isOn;

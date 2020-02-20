@@ -25,7 +25,6 @@ public class StartBlock : Block
     #region 유니티 오브젝트 작동 부분
     public override IEnumerator Run()
     {
-        Debug.Log("start");
 
         yield return base.Run();
     }

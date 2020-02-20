@@ -48,6 +48,7 @@ public class TempHumiGND : PlusMinus
 
     private void OnTriggerStay(Collider other)
     {
+
         if (other.tag == "Line" )
         {
 

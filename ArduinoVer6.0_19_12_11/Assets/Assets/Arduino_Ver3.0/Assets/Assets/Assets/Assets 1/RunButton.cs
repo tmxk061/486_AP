@@ -73,10 +73,8 @@ public class RunButton : MonoBehaviour
     {
         while (RunOn == true)
         {
-            Debug.Log("런온");
             if (blockgroup != null)
             {
-                Debug.Log("블록그룹");
 
                 yield return StartCoroutine(blockgroup.Run());
             }
