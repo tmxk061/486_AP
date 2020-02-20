@@ -121,7 +121,7 @@ public class QuickMove_Mgr : MonoBehaviour
         {
             Player.GetComponent<Player_Move>().isAct = false;
             Player.transform.rotation = Quaternion.Euler(0, 0, 0);
-            Camera.main.transform.rotation = Quaternion.Euler(0, -0.5f, 0);
+            //Camera.main.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else
         {
