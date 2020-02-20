@@ -48,9 +48,7 @@ public class Network_BlockLoad : MonoBehaviour
             Debug.Log("Socket send or receive error ! : " + e.ToString());
         }
 
-        string datas = FirstSplit(DataListSellial);
-
-        DataList = NetworkLoadData(datas);
+        DataList = NetworkLoadData(DataListSellial);
 
         //카탈로그를 구현시킨다.
         MakeCatalog();
@@ -67,8 +65,12 @@ public class Network_BlockLoad : MonoBehaviour
         List<string[]> result = new List<string[]>();
 
         string[] Split = data.Split(new char[] { '!' });
-
-        for (int i = 0; i < Split.Length - 1; i++)
+        for(int i = 0; i < Split.Length; i++)
+        {
+            if (Split[i] == "")
+                Split[i].Remove(i);
+        }
+        for (int i = 1; i < Split.Length; i++)
         {
             string[] Split2 = Split[i].Split(new char[] { '#' });
             Debug.Log(Split2[0]);
